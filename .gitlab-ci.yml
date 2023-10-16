@@ -1,0 +1,71 @@
+include:
+  - project: cencosud-ds/cencommerce/utils/pipe-templates
+    ref: master
+    file: deploy-to-k8s.yml
+stages:
+  - init
+  - test
+  - check
+  - build
+  - package
+  - sast
+  - validate-jira
+  - deploy
+  - dast
+  - compliance-jira
+  - result-security
+
+staging:
+  stage: deploy
+  allow_failure: true
+
+.install_dependencies: &install_dependencies
+  stage: init
+  image: registry.gitlab.com/cencosud-ds/cencommerce/utils/docker-images/node:16.18.0-alpine3.16
+  script:
+    - NODE_ENV=  yarn install # install dependencies
+  artifacts:
+    paths:
+      - node_modules/
+    expire_in: 30 minutes
+  tags:
+    - private
+    - ccom
+    - staging
+
+.lint: &lint
+  stage: test
+  image: registry.gitlab.com/cencosud-ds/cencommerce/utils/docker-images/node:16.18.0-alpine3.16
+  script:
+    - yarn run lint
+  tags:
+    - private
+    - ccom
+    - staging
+
+######JOB: INSTALLL
+install dependencies:
+  <<: *install_dependencies
+
+######JOB: Linter
+linter:
+  <<: *lint
+  dependencies:
+    - install dependencies
+
+######LLamado a la imagen de docker
+pkg:container:
+  stage: package
+  extends: .docker
+  environment:
+    name: staging
+  rules:
+    - if: $CI_COMMIT_BRANCH != "master"
+
+pkg:production:
+  stage: package
+  extends: .docker
+  environment:
+    name: production
+  rules:
+    - if: $CI_COMMIT_BRANCH == "master"

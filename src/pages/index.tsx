@@ -1,13 +1,6 @@
-import React from 'react';
-import Head from 'next/head';
+import * as React from 'react';
 
-const PdpLayout = () => {
-  return (
-     
-        <div>
-          <h1> PDP remote Here ! </h1>
-        </div>
-     
-  );
+const App = () => {
+  return <></>;
 };
-export default PdpLayout;
+export default App;
