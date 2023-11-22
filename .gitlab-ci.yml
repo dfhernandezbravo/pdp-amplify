@@ -22,6 +22,10 @@ staging:
 .install_dependencies: &install_dependencies
   stage: init
   image: registry.gitlab.com/cencosud-ds/cencommerce/utils/docker-images/node:16.18.0-alpine3.16
+  before_script:
+    - echo "@cencosud-ds:registry=https://gitlab.com/api/v4/packages/npm///gitlab.com/api/v4/projects/51193403/packages/npm/:_authToken=$NPM_TOKEN" > .npmrc
+    - npm config set -- //gitlab.com/api/v4/packages/npm/:_authToken=$NPM_TOKEN
+    - echo 'npm token --->' $NPM_TOKEN
   script:
     - NODE_ENV=  yarn install # install dependencies
   artifacts:
