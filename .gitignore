@@ -41,7 +41,7 @@ next-env.d.ts
 **/.vscode/*
 
 # npm
-.npmrc
+#.npmrc
 
 # new relic
 newrelic_agent.log
