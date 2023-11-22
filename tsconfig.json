@@ -15,7 +15,18 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": {
-      "@/*": ["./src/*"]
+      "@env/*": ["./src/domain/env/*"],
+      "@entities/*": ["./src/domain/entities/*"],
+      "@interfaces/*": ["./src/domain/interfaces/*"],
+      "@use-cases/*": ["./src/domain/use-cases/*"],
+      "@data-source/*": ["./src/application/data-source/*"],
+      "@services/*": ["./src/application/services/*"],
+      "@events/*": ["./src/events/*"],
+      "@modules/*": ["./src/presentation/modules/*"],
+      "@store/*": ["./src/presentation/store/*"],
+      "@components/*": ["./src/presentation/components/*"],
+      "@theme/*": ["./src/presentation/theme/*"],
+      "@hooks/*": ["./src/presentation/hooks/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
