@@ -1,0 +1,15 @@
+@import 'swiper/css';
+@import 'swiper/css/grid';
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination';
+@import 'swiper/css/scrollbar';
+
+:root {
+  --font-mono: 'Open Sans', sans-serif;
+}
+
+html {
+  font-family: var(--font-mono);
+  background-color: #f9f9f9;
+  height: 100%;
+}
