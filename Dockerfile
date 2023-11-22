@@ -23,7 +23,6 @@ ENV NPM_TOKEN=$NPM_TOKEN
 RUN echo "NEXT_PUBLIC_HOST -- $NEXT_PUBLIC_HOST"
 RUN echo "NEXT_PUBLIC_BFF_URL -- $NEXT_PUBLIC_BFF_URL"
 RUN echo "NEXT_PUBLIC_API_KEY_BF -- $NEXT_PUBLIC_API_KEY_BF"
-RUN echo "@cencosud-ds:registry=https://gitlab.com/api/v4/packages/npm//gitlab.com/api/v4/projects/51193403/packages/npm/:_authToken=$NPM_TOKEN" > .npmrc
 
 RUN NODE_ENV='' yarn install && \
     yarn build
