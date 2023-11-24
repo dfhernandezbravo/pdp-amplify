@@ -43,7 +43,9 @@ const nextConfig = {
       new NextFederationPlugin({
         name: 'pdp',
         filename: 'static/chunks/remoteEntry.js',
-        exposes: {},
+        exposes: {
+          './pdp': './src/pages/index.tsx',
+        },
         extraOptions: {
           exposePages: true,
           automaticAsyncBoundary: true,
