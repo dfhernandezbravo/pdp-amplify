@@ -17,7 +17,6 @@ const remotes = (isServer) => {
   const ratingsAndReviews = `${getRemotesEntries(
     'ratingsAndReviews',
   )}/${location}/remoteEntry.js`;
-  console.log({ ratingsAndReviews });
   return {
     ratingsAndReviews: ratingsAndReviews,
   };
