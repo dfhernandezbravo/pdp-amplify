@@ -27,7 +27,7 @@ export type CommertialOffer = {
   PriceWithoutDiscount: number;
   RewardValue: number;
   PriceValidUntil: string;
-  AvailableQuantity: number;
+  availableQuantity: number;
   IsAvailable: boolean;
   Tax: number;
   DeliverySlaSamples?: DeliverySlaSamplesEntity[];

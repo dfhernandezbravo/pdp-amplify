@@ -483,10 +483,10 @@
     "@babel/helper-validator-identifier" "^7.22.20"
     to-fast-properties "^2.0.0"
 
-"@cencosud-ds/easy-design-system@^1.0.89":
-  version "1.0.89"
-  resolved "https://gitlab.com/api/v4/projects/51193403/packages/npm/@cencosud-ds/easy-design-system/-/@cencosud-ds/easy-design-system-1.0.89.tgz#ddd7381dc679692552747ba0e7fb1e79e799e129"
-  integrity sha1-3dc4HcZ5aSVSdHug5/seeeeZ4Sk=
+"@cencosud-ds/easy-design-system@^1.0.100":
+  version "1.0.100"
+  resolved "https://gitlab.com/api/v4/projects/51193403/packages/npm/@cencosud-ds/easy-design-system/-/@cencosud-ds/easy-design-system-1.0.100.tgz#ff3badbf804446de2a29781add379d0bc81ab7b4"
+  integrity sha1-/zutv4BERt4qKXga3TedC8gat7Q=
   dependencies:
     "@typescript-eslint/parser" "^6.11.0"
     react-icons "^4.11.0"
@@ -5312,7 +5312,7 @@ react-error-boundary@^4.0.4:
   dependencies:
     "@babel/runtime" "^7.12.5"
 
-react-icons@^4.11.0:
+react-icons@^4.11.0, react-icons@^4.12.0:
   version "4.12.0"
   resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-4.12.0.tgz#54806159a966961bfd5cdb26e492f4dafd6a8d78"
   integrity sha512-IBaDuHiShdZqmfc/TwHu6+d6k2ltNCf3AszxNmjJc1KUfXdEeRJOKyNvLmAHaarhzGmTSVygNdyu8/opXv2gaw==

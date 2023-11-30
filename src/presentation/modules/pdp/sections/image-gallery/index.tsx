@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
 import { useAppSelector } from '@hooks/storeHooks';
 import { ProductImage } from '@entities/product-image';
-import { ImageGalleryContainer, SwiperContainer } from './style';
+import { ImageGalleryContainer, SwiperContainer, ZoomLabel } from './style';
 import Thumbnails from './components/thumbnails';
 import SwiperEasy from '@components/molecules/swiper';
 import Image from 'next/image';
 import { SwiperClass } from 'swiper/react';
 import Desktop from '@components/Desktop';
 import useBreakpoints from '@hooks/useBreakpoints';
+import { FaMagnifyingGlassPlus } from 'react-icons/fa6';
 
 const ImageGallery = () => {
   const [images, setImages] = useState<ProductImage[]>();
@@ -19,7 +20,8 @@ const ImageGallery = () => {
   const { isXs, isSm } = useBreakpoints();
 
   useEffect(() => {
-    setIsMobile(isSm ?? isXs);
+    if (isSm || isXs) setIsMobile(true);
+    else setIsMobile(false);
   }, [isXs, isSm]);
 
   useEffect(() => {
@@ -33,6 +35,7 @@ const ImageGallery = () => {
         alt={item?.imageText ?? `product image ${index}`}
         width={414}
         height={331}
+        priority
       />
     );
   };
@@ -65,8 +68,13 @@ const ImageGallery = () => {
             slidesPerGroup={1}
             slidesPerView={1}
           />
+          {!isMobile && (
+            <ZoomLabel>
+              Presiona para hacer zoom
+              <FaMagnifyingGlassPlus size="16px" />
+            </ZoomLabel>
+          )}
         </SwiperContainer>
-        {/* <ZoomLabel/> */}
       </ImageGalleryContainer>
     );
 

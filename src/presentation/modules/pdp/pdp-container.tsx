@@ -8,11 +8,14 @@ import {
   DetailsContainer,
   ImagesContainer,
   Main,
-  ProductDetailsSection,
+  Section,
   Separator,
 } from './style';
 import ProductDetails from './sections/product-details';
 import { PdpProps } from './types';
+import SpecificationsTables from './sections/specifications-tables';
+import EmotionalDescription from './sections/emotional-description';
+import PdpBreadcrumbs from './components/breadcrumbs';
 
 const PdpContainer = ({ productId }: PdpProps) => {
   const dispatch = useAppDispatch();
@@ -30,7 +33,8 @@ const PdpContainer = ({ productId }: PdpProps) => {
 
   return (
     <Main>
-      <ProductDetailsSection>
+      <PdpBreadcrumbs />
+      <Section>
         <ImagesContainer>
           <ImageGallery />
         </ImagesContainer>
@@ -38,7 +42,11 @@ const PdpContainer = ({ productId }: PdpProps) => {
         <DetailsContainer>
           <ProductDetails />
         </DetailsContainer>
-      </ProductDetailsSection>
+      </Section>
+      <EmotionalDescription />
+      <Section id="specifications">
+        <SpecificationsTables />
+      </Section>
     </Main>
   );
 };
