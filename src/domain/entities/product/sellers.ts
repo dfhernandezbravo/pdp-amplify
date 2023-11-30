@@ -1,4 +1,4 @@
-import { CommertialOffer } from './commertial-offer';
+import { CommertialOffer } from '../commertial-offer';
 
 export type SellersEntity = {
   sellerId: string;
