@@ -11,6 +11,7 @@ import {
   DetailsContainer,
   ImagesContainer,
   Main,
+  ReviewContainer,
   Section,
   Separator,
 } from './style';
@@ -53,7 +54,9 @@ const PdpContainer = ({ productId }: PdpProps) => {
       <Section id="specifications">
         <SpecificationsTables />
       </Section>
-      <RatingAndReview />
+      <ReviewContainer>
+        <RatingAndReview />
+      </ReviewContainer>
     </Main>
   );
 };
