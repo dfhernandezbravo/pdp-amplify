@@ -1,21 +1,28 @@
+import React, { useEffect } from 'react';
 import { useQuery } from 'react-query';
+import dynamic from 'next/dynamic';
 import { useAppDispatch } from '@hooks/storeHooks';
 import getProduct from '@use-cases/product/get-product';
-import { useEffect } from 'react';
 import { setProduct } from '@store/product';
 import ImageGallery from './sections/image-gallery';
+import ProductDetails from './sections/product-details';
+import { PdpProps } from './types';
 import {
   DetailsContainer,
   ImagesContainer,
   Main,
+  ReviewContainer,
   Section,
   Separator,
 } from './style';
-import ProductDetails from './sections/product-details';
-import { PdpProps } from './types';
-import SpecificationsTables from './sections/specifications-tables';
-import EmotionalDescription from './sections/emotional-description';
 import PdpBreadcrumbs from './components/breadcrumbs';
+import EmotionalDescription from './sections/emotional-description';
+import SpecificationsTables from './sections/specifications-tables';
+
+const RatingAndReview = dynamic(() => import('ratingsAndReviews/index'), {
+  ssr: false,
+  loading: () => <>loading...</>,
+});
 
 const PdpContainer = ({ productId }: PdpProps) => {
   const dispatch = useAppDispatch();
@@ -47,6 +54,9 @@ const PdpContainer = ({ productId }: PdpProps) => {
       <Section id="specifications">
         <SpecificationsTables />
       </Section>
+      <ReviewContainer>
+        <RatingAndReview />
+      </ReviewContainer>
     </Main>
   );
 };

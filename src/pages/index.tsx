@@ -1,3 +1,4 @@
+import React from 'react';
 import Pdp from '@modules/pdp';
 import { Provider } from 'react-redux';
 import store from '@store/index';

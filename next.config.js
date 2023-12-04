@@ -2,6 +2,26 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const { NextFederationPlugin } = require('@module-federation/nextjs-mf');
 
+const getRemotesEntries = (entry) => {
+  switch (entry) {
+    case 'ratingsAndReviews':
+      return `ratingsAndReviews@${process.env.NEXT_PUBLIC_RATING_AND_REVIEWS_URI}/_next/static`;
+    default:
+      return null;
+  }
+};
+
+const remotes = (isServer) => {
+  const location = isServer ? 'ssr' : 'chunks';
+
+  const ratingsAndReviews = `${getRemotesEntries(
+    'ratingsAndReviews',
+  )}/${location}/remoteEntry.js`;
+  return {
+    ratingsAndReviews: ratingsAndReviews,
+  };
+};
+
 const nextConfig = {
   compiler: {
     // Enables the styled-components SWC transform
@@ -17,7 +37,7 @@ const nextConfig = {
     ],
   },
 
-  webpack(config) {
+  webpack(config, options) {
     config.plugins.push(
       new NextFederationPlugin({
         name: 'pdp',
@@ -26,8 +46,10 @@ const nextConfig = {
           './pdp': './src/pages/index.tsx',
         },
         extraOptions: {
+          exposePages: true,
           automaticAsyncBoundary: true,
         },
+        remotes: remotes(options.isServer),
       }),
     );
     return config;

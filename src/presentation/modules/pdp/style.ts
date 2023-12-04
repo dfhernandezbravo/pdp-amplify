@@ -8,6 +8,9 @@ export const Main = styled.div`
   margin-bottom: 1rem;
   display: flex;
   flex-direction: column;
+  @media only screen and (max-width: 780px) {
+    margin-bottom: 4rem;
+  }
 `;
 
 export const Separator = styled.div`
@@ -48,4 +51,8 @@ export const DetailsContainer = styled.div`
   @media (max-width: 768px) {
     width: 100%;
   }
+`;
+
+export const ReviewContainer = styled.div`
+  margin: 1rem;
 `;
