@@ -11,9 +11,12 @@ import {
   DetailsContainer,
   ImagesContainer,
   Main,
-  ProductDetailsSection,
+  Section,
   Separator,
 } from './style';
+import PdpBreadcrumbs from './components/breadcrumbs';
+import EmotionalDescription from './sections/emotional-description';
+import SpecificationsTables from './sections/specifications-tables';
 
 const RatingAndReview = dynamic(() => import('ratingsAndReviews/index'), {
   ssr: false,
@@ -36,7 +39,8 @@ const PdpContainer = ({ productId }: PdpProps) => {
 
   return (
     <Main>
-      <ProductDetailsSection>
+      <PdpBreadcrumbs />
+      <Section>
         <ImagesContainer>
           <ImageGallery />
         </ImagesContainer>
@@ -44,7 +48,11 @@ const PdpContainer = ({ productId }: PdpProps) => {
         <DetailsContainer>
           <ProductDetails />
         </DetailsContainer>
-      </ProductDetailsSection>
+      </Section>
+      <EmotionalDescription />
+      <Section id="specifications">
+        <SpecificationsTables />
+      </Section>
       <RatingAndReview />
     </Main>
   );

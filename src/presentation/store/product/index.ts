@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { Product } from '../../../domain/entities/product.type';
+import { GetProduct } from '@entities/product/get-product.response';
 
 type ProductState = {
-  product: Product | undefined;
+  product: GetProduct | undefined;
   loadingProducts: boolean;
 };
 

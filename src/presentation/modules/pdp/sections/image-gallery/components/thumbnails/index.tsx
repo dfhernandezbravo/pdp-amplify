@@ -11,7 +11,7 @@ const Thumbnails = ({ images, activeIndex, slideTo }: ThumbnailsProps) => {
           <ThumbnailContainer
             onClick={() => slideTo(i)}
             selected={activeIndex === i}
-            key={item?.imageText ?? `product image ${i}`}
+            key={item?.imageUrl}
           >
             <Image
               src={item?.imageUrl}

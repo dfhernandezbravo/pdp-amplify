@@ -1,6 +1,6 @@
 import { ProductImage } from './product-image';
-import { ReferenceIdEntity } from './reference-id';
-import { SellersEntity } from './sellers';
+import { ReferenceIdEntity } from './product/reference-id';
+import { SellersEntity } from './product/sellers';
 
 export type ProductItems = {
   itemId: string;
