@@ -6,9 +6,9 @@ import { useRouter } from 'next/router';
 
 const Pdp = () => {
   const {
-    query: { n0 },
+    query: { department },
   } = useRouter();
-  const paramsArray = n0?.toString().split('-');
+  const paramsArray = department?.toString().split('-');
   const productId = Number(paramsArray?.[paramsArray?.length - 1]);
   const { product } = useAppSelector((state) => state.product);
 
