@@ -3,9 +3,13 @@ import styled from 'styled-components';
 export const Title = styled.p`
   font-weight: 600;
   color: #1a1a1a;
-  font-size: 22px;
+  font-size: 1.375rem;
   letter-spacing: 0;
   padding-bottom: 1rem;
+
+  @media (max-width: 768px) {
+    font-size: 0.875rem;
+  }
 `;
 
 export const TableContainer = styled.div`

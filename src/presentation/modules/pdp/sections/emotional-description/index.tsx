@@ -8,7 +8,9 @@ const EmotionalDescription = () => {
     return (
       <Section>
         <Title>Descripción</Title>
-        <Description>{product?.description}</Description>
+        <Description
+          dangerouslySetInnerHTML={{ __html: product?.description }}
+        />
       </Section>
     );
   else return null;

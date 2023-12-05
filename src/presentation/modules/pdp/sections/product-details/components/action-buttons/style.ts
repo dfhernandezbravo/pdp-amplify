@@ -4,6 +4,7 @@ export const ButtonsContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  margin-top: 1rem;
 
   @media (max-width: 768px) {
     flex-direction: row-reverse;
@@ -18,6 +19,12 @@ export const ButtonsContainer = styled.div`
     box-shadow: 0px -3px 3px rgba(0, 0, 0, 0.2);
     z-index: 99;
   }
+`;
+
+export const QuantityTitle = styled.p`
+  color: #4d4d4d;
+  font-weight: 700;
+  font-size: 1rem;
 `;
 
 export const OutOfStockText = styled.p`

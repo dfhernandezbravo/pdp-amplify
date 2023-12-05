@@ -25,7 +25,7 @@ export const Title = styled.h3`
   margin: 0 0 0.625rem;
 `;
 
-export const Description = styled.p`
+export const Description = styled.div`
   font-size: 0.875rem;
   font-weight: 400;
   letter-spacing: 0;

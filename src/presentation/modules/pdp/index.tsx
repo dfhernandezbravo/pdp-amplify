@@ -1,10 +1,8 @@
 import PdpContainer from './pdp-container';
 import Head from 'next/head';
 import { useAppSelector } from '@hooks/storeHooks';
+import CartEventLayout from '../../layouts/cart-event-layout';
 import { useRouter } from 'next/router';
-// import useEventListener from '@hooks/eventListenerHooks';
-// import WindowsEvents from '@components/events';
-// import dispatchCartDataEvent from '@use-cases/shopping-cart/dispatch-cart-data-event';
 
 const Pdp = () => {
   const {
@@ -14,16 +12,8 @@ const Pdp = () => {
   const productId = Number(paramsArray?.[paramsArray?.length - 1]);
   const { product } = useAppSelector((state) => state.product);
 
-  // dispatchCartDataEvent();
-
-  // useEventListener(
-  //   document,
-  //   WindowsEvents.CART_ID,
-  //   updateCartId(),
-  // );
-
   return (
-    <>
+    <CartEventLayout>
       <Head>
         <title>
           {product?.metaTagDescription
@@ -33,7 +23,7 @@ const Pdp = () => {
       </Head>
 
       <PdpContainer productId={productId} />
-    </>
+    </CartEventLayout>
   );
 };
 
