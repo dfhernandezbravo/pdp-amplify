@@ -5,11 +5,11 @@ import CartEventLayout from '../../layouts/cart-event-layout';
 import { useRouter } from 'next/router';
 
 const Pdp = () => {
-  const {
-    query: { department },
-  } = useRouter();
-  const paramsArray = department?.toString().split('-');
-  const productId = Number(paramsArray?.[paramsArray?.length - 1]);
+  const { asPath } = useRouter();
+  const paramsArray = asPath?.toString().split('-');
+  const productId = Number(
+    paramsArray?.[paramsArray?.length - 1].split('/')[0],
+  );
   const { product } = useAppSelector((state) => state.product);
 
   return (
