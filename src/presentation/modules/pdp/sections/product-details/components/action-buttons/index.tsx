@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { ButtonsContainer, OutOfStockText } from './style';
-import { ButtonEasy } from '@cencosud-ds/easy-design-system';
-import QuantitySelector from '@components/atoms/QuantitySelector';
+import { ButtonsContainer, OutOfStockText, QuantityTitle } from './style';
+import { ButtonEasy, QuantitySelector } from '@cencosud-ds/easy-design-system';
 import { useAppSelector } from '@hooks/storeHooks';
 import Desktop from '@components/Desktop';
 
@@ -14,8 +13,8 @@ const ActionButtons = () => {
     return (
       <ButtonsContainer>
         <Desktop>
+          <QuantityTitle>Cantidad</QuantityTitle>
           <QuantitySelector
-            index={1}
             quantity={quantity}
             onIncrementQuantity={() => setQuantity(quantity + 1)}
             onDecrementQuantity={() => setQuantity(quantity - 1)}

@@ -29,11 +29,11 @@ export const Section = styled.section`
   margin-bottom: 2rem;
   padding: 3.5rem 2rem;
   min-height: fit-content;
-  scroll-behavior: smooth;
 
   @media (max-width: 768px) {
     flex-direction: column;
     align-items: center;
+    padding: 1rem 0.5rem;
   }
 `;
 

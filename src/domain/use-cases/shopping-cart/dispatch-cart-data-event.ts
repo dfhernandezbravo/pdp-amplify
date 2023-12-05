@@ -3,8 +3,8 @@ import { customDispatchEvent } from '@store/events/dispatchEvents';
 
 const dispatchCartDataEvent = () => {
   customDispatchEvent({
-    name: WindowsEvents.CART_ID,
-    detail: {},
+    name: WindowsEvents.GET_CART_ID,
+    detail: null,
   });
 };
 

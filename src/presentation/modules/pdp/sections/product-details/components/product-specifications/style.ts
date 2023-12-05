@@ -1,4 +1,11 @@
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
+
+export const GlobalStyle = createGlobalStyle`
+  html,
+  body {
+    scroll-behavior: smooth;
+  }
+`;
 
 export const List = styled.ul`
   list-style-position: inside;
@@ -22,12 +29,10 @@ export const List = styled.ul`
 `;
 
 export const Link = styled.a`
-  display: inline-block;
   color: ${(props) => props.theme.colors.neutral[1000]};
   font-style: normal;
   text-decoration: underline;
   font-weight: 600;
   font-size: 0.813rem;
   line-height: 1rem;
-  padding-bottom: 0.8rem;
 `;

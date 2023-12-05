@@ -5,12 +5,15 @@ import { BreadCrumbsContainer } from './style';
 const PdpBreadcrumbs = () => {
   const { product } = useAppSelector((state) => state.product);
 
+  const formatUrl = (url: string) =>
+    url?.replaceAll(' ', '-').toLocaleLowerCase();
+
   if (product?.categories?.[0]) {
     return (
       <BreadCrumbsContainer>
         <Breadcrumbs
           init="Inicio"
-          url={product?.categories?.[0]}
+          url={formatUrl(product?.categories?.[0])}
           finalText={product?.productName}
         />
       </BreadCrumbsContainer>
