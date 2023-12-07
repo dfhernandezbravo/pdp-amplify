@@ -18,11 +18,16 @@ import {
 import PdpBreadcrumbs from './components/breadcrumbs';
 import EmotionalDescription from './sections/emotional-description';
 import SpecificationsTables from './sections/specifications-tables';
+import { RatingsProps } from '@entities/ratings-and-reviews/ratings-and-reviews.type';
+import { GetProduct } from '@entities/product/get-product.response';
 
-const RatingAndReview = dynamic(() => import('ratingsAndReviews/index'), {
-  ssr: false,
-  loading: () => <>loading...</>,
-});
+const RatingAndReview = dynamic<RatingsProps>(
+  () => import('ratingsAndReviews/index'),
+  {
+    ssr: false,
+    loading: () => <>loading...</>,
+  },
+);
 
 const PdpContainer = ({ productId }: PdpProps) => {
   const dispatch = useAppDispatch();
@@ -55,7 +60,7 @@ const PdpContainer = ({ productId }: PdpProps) => {
         <SpecificationsTables />
       </Section>
       <ReviewContainer>
-        <RatingAndReview />
+        {data && <RatingAndReview productInfo={data as GetProduct} />}
       </ReviewContainer>
     </Main>
   );
