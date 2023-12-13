@@ -23,6 +23,11 @@ export const SwiperContainer = styled.div`
   }
 `;
 
+export const SkeletonContainer = styled.div`
+  width: 414px;
+  height: 331px;
+`;
+
 export const ZoomLabel = styled.div`
   position: absolute;
   bottom: -3%;

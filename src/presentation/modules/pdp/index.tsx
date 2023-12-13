@@ -1,7 +1,7 @@
 import PdpContainer from './pdp-container';
 import Head from 'next/head';
 import { useAppSelector } from '@hooks/storeHooks';
-import CartEventLayout from '../../layouts/cart-event-layout';
+import CartEventProvider from '../../providers/cart-event-provider';
 import { useRouter } from 'next/router';
 
 const Pdp = () => {
@@ -13,7 +13,7 @@ const Pdp = () => {
   const { product } = useAppSelector((state) => state.product);
 
   return (
-    <CartEventLayout>
+    <CartEventProvider>
       <Head>
         <title>
           {product?.metaTagDescription
@@ -23,7 +23,7 @@ const Pdp = () => {
       </Head>
 
       <PdpContainer productId={productId} />
-    </CartEventLayout>
+    </CartEventProvider>
   );
 };
 

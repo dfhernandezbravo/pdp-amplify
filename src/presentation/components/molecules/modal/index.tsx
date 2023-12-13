@@ -4,7 +4,7 @@ import {
   Content,
   TitleContainer,
   Title,
-  Description,
+  Body,
   Icon,
   GlobalStyle,
 } from './modal.styles';
@@ -19,14 +19,14 @@ const Modal = (props: ModalStruct) => {
         <Container onClick={() => props?.setOpen(false)}>
           <Content onClick={(e) => e.stopPropagation()}>
             <TitleContainer>
+              <Title>{props?.title}</Title>
               {props?.icon && (
                 <Icon onClick={props?.icon?.onClick}>
                   <CgClose size={'32px'} />
                 </Icon>
               )}
             </TitleContainer>
-            <Title>{props?.title}</Title>
-            <Description>{props?.children}</Description>
+            <Body>{props?.children}</Body>
           </Content>
         </Container>
       )}

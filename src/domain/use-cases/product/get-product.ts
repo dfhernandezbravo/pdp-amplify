@@ -7,7 +7,7 @@ const getProduct = async (productId: number) => {
     return data;
   } catch (error) {
     const axiosError = error as AxiosError;
-    return new Error(`${axiosError}`);
+    throw new Error(`${axiosError}`);
   }
 };
 

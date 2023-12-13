@@ -7,7 +7,7 @@ const getCart = async (cartId: string) => {
     return data;
   } catch (error) {
     const axiosError = error as AxiosError;
-    return new Error(`${axiosError}`);
+    throw new Error(`${axiosError}`);
   }
 };
 

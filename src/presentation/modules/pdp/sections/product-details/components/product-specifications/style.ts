@@ -18,7 +18,6 @@ export const List = styled.ul`
   span {
     font-size: 0.9rem;
     position: relative;
-    left: -0.5rem;
     font-weight: 200;
 
     b {
