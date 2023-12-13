@@ -1,16 +1,20 @@
-import { GetCart } from '@entities/cart/get-cart.response';
+import { GetCart as Cart } from '@entities/cart/get-cart.response';
 import { createSlice } from '@reduxjs/toolkit';
 
 type CartState = {
   cartId?: string;
-  cart?: GetCart;
+  cart?: Cart;
   loadingCart: boolean;
+  quantityInCart: number | undefined;
+  loadingQuantity: boolean;
 };
 
 const initialState: CartState = {
   cartId: undefined,
   cart: undefined,
   loadingCart: false,
+  quantityInCart: undefined,
+  loadingQuantity: true,
 };
 
 const cartSlice = createSlice({

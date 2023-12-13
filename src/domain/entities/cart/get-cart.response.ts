@@ -3,7 +3,7 @@ import { Customer } from './customer';
 import { Item } from './item';
 import { Shipping } from './shipping';
 
-type GetCart = {
+export type GetCart = {
   id: string;
   loggedIn: true;
   canEdit: true;
@@ -55,4 +55,16 @@ type GetCart = {
   channel: string;
 };
 
-export type { GetCart };
+export type SetShoppingCartItemsRequest = {
+  orderItems: {
+    index: number;
+    quantity: number;
+  }[];
+};
+
+export type SaveShoppingCartItemsRequest = {
+  orderItems: {
+    id: string;
+    quantity: number;
+  }[];
+};

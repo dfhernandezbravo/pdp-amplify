@@ -12,7 +12,7 @@ import Price from './components/prices';
 import ProductSpecifications from './components/product-specifications';
 import Image from 'next/image';
 import ExchangesConditions from './components/exchanges-conditions';
-import ActionButtons from './components/action-buttons';
+import Actions from './components/actions';
 import AverageRateSkeleton from '@components/molecules/skeleton/ratings-and-reviews/AverageRateSkeleton';
 
 const RatingAverage = dynamic(() => import('ratingsAndReviews/averageEvent'), {
@@ -35,7 +35,7 @@ const ProductDetails = () => {
       {product?.specifications && (
         <ProductSpecifications items={product?.specifications} />
       )}
-      <ActionButtons />
+      <Actions />
       <Separator />
       <Subtitle>Medios de pago disponibles: </Subtitle>
       <Image

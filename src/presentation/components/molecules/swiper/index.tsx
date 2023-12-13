@@ -29,13 +29,15 @@ function SwiperEasy<T>({
   delay = 4000,
   rowsGrid,
   fillGrid = 'column',
+  initialSlide = 0,
+  direction = 'horizontal',
 }: SwiperEasyProps<T>) {
   const [isEnd, setIsEnd] = useState(false);
   const [isStart, setIsStart] = useState(true);
 
   return (
     <SwiperContainer paginationStyle={paginationStyle}>
-      <SwiperComponent>
+      <SwiperComponent direction={direction}>
         {showArrowButtons({
           hasActionButton,
           slidesPerView,
@@ -51,6 +53,7 @@ function SwiperEasy<T>({
 
         <SwiperWrapper>
           <Swiper
+            initialSlide={initialSlide}
             slidesPerView={slidesPerView}
             slidesPerGroup={slidesPerGroup}
             modules={getModules({ hasPagination, autoPlay })}
@@ -59,7 +62,7 @@ function SwiperEasy<T>({
             }}
             centeredSlides={isCenteredSlides}
             onSwiper={(ev) => {
-              setSwiper(ev);
+              setSwiper?.(ev);
             }}
             onSlideChange={(ev) => {
               setIsEnd(ev.isEnd);
@@ -68,6 +71,7 @@ function SwiperEasy<T>({
             loop={isLoop}
             autoplay={{ delay }}
             grid={{ rows: rowsGrid, fill: fillGrid }}
+            direction={direction}
           >
             {items.map((item, index) => (
               <SwiperSlide key={index}>{renderItem(item, index)}</SwiperSlide>

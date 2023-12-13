@@ -1,7 +1,4 @@
-import { ProductImage } from '@entities/product-image';
-
+import { SwiperClass } from 'swiper/react';
 export interface ThumbnailsProps {
-  images: ProductImage[];
-  activeIndex?: number;
-  slideTo: (index: number) => void;
+  swiper?: SwiperClass;
 }

@@ -41,11 +41,9 @@ export const Content = styled.div`
 export const TitleContainer = styled.div`
   border-bottom: 1px solid #aaaaaa;
   height: 60px;
-  width: 90%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: fixed;
   background-color: #fff;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
@@ -57,6 +55,7 @@ export const Title = styled.p`
   font-weight: 700;
   line-height: 25px;
   color: #333333;
+  padding-right: auto;
 `;
 
 export const Icon = styled.span`
@@ -89,9 +88,10 @@ export const Button = styled.button`
     margin: 10px 10px 0px 10px;
   }
 `;
-export const Description = styled.p`
+
+export const Body = styled.div`
   color: #4d4d4d;
   font-size: 16px;
   padding: 15px;
-  padding-top: 70px;
+  padding-top: 1rem;
 `;

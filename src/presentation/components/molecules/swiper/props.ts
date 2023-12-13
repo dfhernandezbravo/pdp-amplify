@@ -3,7 +3,7 @@ import { SwiperClass } from 'swiper/react';
 
 export interface SwiperEasyProps<T> {
   swiper: SwiperClass | undefined;
-  setSwiper: Dispatch<SetStateAction<SwiperClass | undefined>>;
+  setSwiper?: Dispatch<SetStateAction<SwiperClass | undefined>>;
   items: T[];
   renderItem: (item: T, index: number) => React.ReactNode;
   slidesPerView: number;
@@ -19,4 +19,6 @@ export interface SwiperEasyProps<T> {
   isGrid?: boolean;
   rowsGrid?: number;
   fillGrid?: 'column' | 'row';
+  initialSlide?: number;
+  direction?: 'horizontal' | 'vertical';
 }
