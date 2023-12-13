@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ButtonsContainer, OutOfStockText, QuantityTitle } from './style';
-import { ButtonEasy, QuantitySelector } from '@cencosud-ds/easy-design-system';
+import { Button, QuantitySelector } from '@cencosud-ds/easy-design-system';
 import { useAppSelector } from '@hooks/storeHooks';
 import Desktop from '@components/Desktop';
 
@@ -26,8 +26,8 @@ const ActionButtons = () => {
             }
           />
         </Desktop>
-        <ButtonEasy variant="primary" label="Comprar ahora" />
-        <ButtonEasy variant="secondary" label="Añadir al carro" />
+        <Button variant="primary" label="Comprar ahora" />
+        <Button variant="secondary" label="Añadir al carro" />
       </ButtonsContainer>
     );
   } else

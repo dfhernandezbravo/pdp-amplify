@@ -13,10 +13,11 @@ import ProductSpecifications from './components/product-specifications';
 import Image from 'next/image';
 import ExchangesConditions from './components/exchanges-conditions';
 import ActionButtons from './components/action-buttons';
+import AverageRateSkeleton from '@components/molecules/skeleton/ratings-and-reviews/AverageRateSkeleton';
 
 const RatingAverage = dynamic(() => import('ratingsAndReviews/averageEvent'), {
   ssr: false,
-  loading: () => <>loading...</>,
+  loading: () => <AverageRateSkeleton />,
 });
 
 const ProductDetails = () => {
