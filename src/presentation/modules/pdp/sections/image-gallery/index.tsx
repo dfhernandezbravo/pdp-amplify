@@ -1,21 +1,26 @@
 import { useEffect, useState } from 'react';
-import { useAppSelector } from '@hooks/storeHooks';
+import { useAppDispatch, useAppSelector } from '@hooks/storeHooks';
 import { ProductImage } from '@entities/product-image';
 import { ImageGalleryContainer, SwiperContainer, ZoomLabel } from './style';
 import Thumbnails from './components/thumbnails';
 import SwiperEasy from '@components/molecules/swiper';
 import Image from 'next/image';
-import { SwiperClass } from 'swiper/react';
 import Desktop from '@components/Desktop';
 import useBreakpoints from '@hooks/useBreakpoints';
 import { FaMagnifyingGlassPlus } from 'react-icons/fa6';
+import { Skeleton } from '@cencosud-ds/easy-design-system';
+import ZoomModal from './components/zoom-modal';
+import { setActiveIndex, setOpenZoomModal } from '@store/gallery';
+import { SwiperClass } from 'swiper/react';
 
 const ImageGallery = () => {
-  const [images, setImages] = useState<ProductImage[]>();
-  const { product } = useAppSelector((state) => state.product);
-  const [swiper, setSwiper] = useState<SwiperClass>();
-  const [activeIndex, setActiveIndex] = useState<number>(0);
+  const { images, openZoomModal, zoomModalIndex } = useAppSelector(
+    (state) => state.gallery,
+  );
+  const dispatch = useAppDispatch();
   const [isMobile, setIsMobile] = useState(false);
+  const [loadingMainImage, setLoadingMainImage] = useState(false);
+  const [swiper, setSwiper] = useState<SwiperClass>();
 
   const { isXs, isSm } = useBreakpoints();
 
@@ -24,39 +29,40 @@ const ImageGallery = () => {
     else setIsMobile(false);
   }, [isXs, isSm]);
 
-  useEffect(() => {
-    setImages(product?.items?.[0].images);
-  }, [product]);
-
   const renderItem = (item: ProductImage, index: number) => {
-    return (
+    return loadingMainImage ? (
+      <Skeleton animation={'wave'} height={'331px'} width={'414px'} />
+    ) : (
       <Image
         src={item?.imageUrl}
         alt={item?.imageText ?? `product image ${index}`}
         width={414}
         height={331}
+        onClick={() => dispatch(setOpenZoomModal(true))}
+        onLoad={() => setLoadingMainImage(false)}
         priority
       />
     );
   };
 
-  const slideTo = (index: number) => swiper?.slideTo(index);
-
   useEffect(() => {
     swiper?.on('slideChange', (swipe) => {
-      setActiveIndex(swipe?.activeIndex);
+      dispatch(setActiveIndex(swipe?.activeIndex));
     });
   }, [swiper]);
+
+  useEffect(() => {
+    if (!openZoomModal) {
+      swiper?.slideTo(zoomModalIndex, 400);
+      dispatch(setActiveIndex(zoomModalIndex));
+    }
+  }, [openZoomModal]);
 
   if (images)
     return (
       <ImageGalleryContainer>
         <Desktop>
-          <Thumbnails
-            images={images}
-            activeIndex={activeIndex}
-            slideTo={slideTo}
-          />
+          <Thumbnails swiper={swiper} />
         </Desktop>
         <SwiperContainer>
           <SwiperEasy
@@ -75,10 +81,10 @@ const ImageGallery = () => {
             </ZoomLabel>
           )}
         </SwiperContainer>
+        <ZoomModal />
       </ImageGalleryContainer>
     );
-
-  return null;
+  else return <></>;
 };
 
 export default ImageGallery;

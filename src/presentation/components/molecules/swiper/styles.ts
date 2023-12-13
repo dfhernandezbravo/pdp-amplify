@@ -1,9 +1,14 @@
 import styled, { RuleSet, css } from 'styled-components';
 
-export const SwiperComponent = styled.div`
+type Props = {
+  direction: 'horizontal' | 'vertical';
+};
+
+export const SwiperComponent = styled.div<Props>`
   position: relative;
   display: flex;
-  flex-direction: row;
+  flex-direction: ${({ direction }) =>
+    direction === 'horizontal' ? 'row' : 'column'};
   align-items: center;
 `;
 

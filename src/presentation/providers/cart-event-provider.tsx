@@ -10,7 +10,7 @@ type Props = {
   children: React.ReactNode;
 };
 
-const CartEventLayout = ({ children }: Props) => {
+const CartEventProvider = ({ children }: Props) => {
   const dispatch = useAppDispatch();
   const { cartId } = useAppSelector((state) => state.cart);
 
@@ -31,6 +31,17 @@ const CartEventLayout = ({ children }: Props) => {
     document.addEventListener(WindowsEvents.CART_ID, updateCartId);
   }, [updateCartId]);
 
+  useEffect(() => {
+    document.addEventListener(WindowsEvents.CART_HEADER, async () => {
+      if (cartId) {
+        const data = await getCart(cartId);
+        if (data) {
+          dispatch(setCart(data));
+        }
+      }
+    });
+  }, [cartId]);
+
   const { data } = useQuery(
     ['get-cart', cartId],
     () => {
@@ -40,10 +51,12 @@ const CartEventLayout = ({ children }: Props) => {
   );
 
   useEffect(() => {
-    if (data) dispatch(setCart(data));
+    if (data) {
+      dispatch(setCart(data));
+    }
   }, [data, dispatch]);
 
   return <>{children}</>;
 };
 
-export default CartEventLayout;
+export default CartEventProvider;

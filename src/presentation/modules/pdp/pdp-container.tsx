@@ -20,6 +20,8 @@ import EmotionalDescription from './sections/emotional-description';
 import SpecificationsTables from './sections/specifications-tables';
 import { RatingsProps } from '@entities/ratings-and-reviews/ratings-and-reviews.type';
 import { GetProduct } from '@entities/product/get-product.response';
+import PdpSkeleton from '@components/molecules/pdp-skeleton/pdp-skeleton';
+import { setImages } from '@store/gallery';
 
 const RatingAndReview = dynamic<RatingsProps>(
   () => import('ratingsAndReviews/index'),
@@ -31,7 +33,8 @@ const RatingAndReview = dynamic<RatingsProps>(
 
 const PdpContainer = ({ productId }: PdpProps) => {
   const dispatch = useAppDispatch();
-  const { data } = useQuery(
+
+  const { data, isLoading, isError } = useQuery(
     ['get-product', productId],
     () => {
       if (productId) return getProduct(productId);
@@ -40,8 +43,15 @@ const PdpContainer = ({ productId }: PdpProps) => {
   );
 
   useEffect(() => {
-    if (data) dispatch(setProduct(data));
+    if (data) {
+      dispatch(setProduct(data));
+      dispatch(setImages(data?.items?.[0].images));
+    }
   }, [data, dispatch]);
+
+  if (isLoading) return <PdpSkeleton />;
+
+  if (isError) return <PdpSkeleton />;
 
   return (
     <Main>

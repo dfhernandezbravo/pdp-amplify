@@ -19,7 +19,7 @@ export const Title = styled.h1`
   padding-bottom: 0.5rem;
 `;
 
-export const Subtitle = styled.h4`
+export const Subtitle = styled.span`
   font-size: 1rem;
   font-weight: 700;
   padding-bottom: 0.5rem;

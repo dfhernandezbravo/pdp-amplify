@@ -21,6 +21,13 @@ export const ButtonsContainer = styled.div`
   }
 `;
 
+export const QuantitySkeletonContainer = styled.div`
+  overflow: hidden;
+  border-radius: 0.625rem;
+  height: 48px;
+  width: 160px;
+`;
+
 export const QuantityTitle = styled.p`
   color: #4d4d4d;
   font-weight: 700;

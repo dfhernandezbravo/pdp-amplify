@@ -3,12 +3,12 @@ import { GetProduct } from '@entities/product/get-product.response';
 
 type ProductState = {
   product: GetProduct | undefined;
-  loadingProducts: boolean;
+  loadingProduct: boolean;
 };
 
 const initialState: ProductState = {
   product: undefined,
-  loadingProducts: false,
+  loadingProduct: false,
 };
 
 const productSlice = createSlice({
@@ -18,8 +18,11 @@ const productSlice = createSlice({
     setProduct: (state, { payload }) => {
       state.product = payload;
     },
+    setLoadingProduct: (state, { payload }) => {
+      state.loadingProduct = payload;
+    },
   },
 });
 
-export const { setProduct } = productSlice.actions;
+export const { setProduct, setLoadingProduct } = productSlice.actions;
 export default productSlice;
