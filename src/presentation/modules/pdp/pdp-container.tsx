@@ -20,6 +20,7 @@ import EmotionalDescription from './sections/emotional-description';
 import SpecificationsTables from './sections/specifications-tables';
 import { RatingsProps } from '@entities/ratings-and-reviews/ratings-and-reviews.type';
 import { GetProduct } from '@entities/product/get-product.response';
+import FirstLoadSkeleton from '@components/molecules/skeleton/ratings-and-reviews/FirstLoadSkeleton';
 import PdpSkeleton from '@components/molecules/pdp-skeleton/pdp-skeleton';
 import { setImages } from '@store/gallery';
 
@@ -27,7 +28,7 @@ const RatingAndReview = dynamic<RatingsProps>(
   () => import('ratingsAndReviews/index'),
   {
     ssr: false,
-    loading: () => <>loading...</>,
+    loading: () => <FirstLoadSkeleton />,
   },
 );
 

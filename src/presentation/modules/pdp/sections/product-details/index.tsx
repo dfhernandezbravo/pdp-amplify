@@ -1,3 +1,4 @@
+import dynamic from 'next/dynamic';
 import { useAppSelector } from '@hooks/storeHooks';
 import {
   Brand,
@@ -12,6 +13,12 @@ import ProductSpecifications from './components/product-specifications';
 import Image from 'next/image';
 import ExchangesConditions from './components/exchanges-conditions';
 import Actions from './components/actions';
+import AverageRateSkeleton from '@components/molecules/skeleton/ratings-and-reviews/AverageRateSkeleton';
+
+const RatingAverage = dynamic(() => import('ratingsAndReviews/averageEvent'), {
+  ssr: false,
+  loading: () => <AverageRateSkeleton />,
+});
 
 const ProductDetails = () => {
   const { product } = useAppSelector((state) => state.product);
@@ -23,6 +30,7 @@ const ProductDetails = () => {
       <ProductId>
         Código del producto: {product?.items?.[0]?.referenceId?.[0]?.Value}
       </ProductId>
+      <RatingAverage />
       <Price />
       {product?.specifications && (
         <ProductSpecifications items={product?.specifications} />
