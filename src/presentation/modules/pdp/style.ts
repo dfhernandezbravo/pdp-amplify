@@ -1,13 +1,15 @@
 import styled from 'styled-components';
 
 export const Main = styled.div`
-  max-width: 79.25rem;
   margin-left: auto;
   margin-right: auto;
   margin-top: 1rem;
   margin-bottom: 1rem;
   display: flex;
   flex-direction: column;
+  min-height: 100%;
+  max-width: 79.25rem;
+
   @media only screen and (max-width: 780px) {
     margin-bottom: 4rem;
   }

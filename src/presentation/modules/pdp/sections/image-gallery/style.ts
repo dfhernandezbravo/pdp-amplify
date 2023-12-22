@@ -3,29 +3,25 @@ import styled from 'styled-components';
 export const ImageGalleryContainer = styled.div`
   display: flex;
   gap: 1rem;
+  max-height: 100%;
 `;
 
 export const SwiperContainer = styled.div`
   max-width: 600px;
-  height: 100%;
-  width: 85%;
+  height: 90%;
+  width: 82%;
   cursor: zoom-in;
   position: relative;
 
   img {
     object-fit: contain;
-    height: 100%;
-    width: 100%;
+    max-width: 100%;
+    height: auto;
   }
 
   @media (max-width: 1024px) {
     width: 100%;
   }
-`;
-
-export const SkeletonContainer = styled.div`
-  width: 414px;
-  height: 331px;
 `;
 
 export const ZoomLabel = styled.div`

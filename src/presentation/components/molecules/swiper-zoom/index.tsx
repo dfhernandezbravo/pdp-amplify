@@ -6,33 +6,34 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react';
 import ArrowButton from './components/arrow-button';
-import { SwiperEasyProps } from './props';
+import { SwiperZoomProps } from './props';
 import { SwiperComponent, SwiperContainer, SwiperWrapper } from './styles';
 import getDisabledArrowButton from './validations/disabled-arrow-button';
 import getModules from './validations/get-modules';
 import showArrowButtons from './validations/show-arrow-button';
+import ImageZoom from './components/image-zoom';
 
-function SwiperEasy({
+function SwiperZoom({
   items,
-  renderItem,
   slidesPerGroup,
   slidesPerView,
   hasActionButton = false,
   isPositionAbsoluteButtons = true,
   hasPagination = false,
-  isGrid = false,
   isCenteredSlides = false,
   isLoop = false,
   autoPlay = false,
+  isGrid = false,
   paginationStyle = 'bullet',
   delay = 4000,
   rowsGrid,
   fillGrid = 'column',
-  initialSlide = 0,
+  initialSlide,
   direction = 'horizontal',
   activeIndex,
+  allowTouchMove = true,
   onChangeIndex,
-}: SwiperEasyProps) {
+}: SwiperZoomProps) {
   const [isEnd, setIsEnd] = useState(false);
   const [isStart, setIsStart] = useState(true);
   const [swiper, setSwiper] = useState<SwiperClass>();
@@ -64,12 +65,12 @@ function SwiperEasy({
             onClick={() => swiper && swiper.slidePrev()}
           />
         )}
-
         <SwiperWrapper>
           <Swiper
             initialSlide={initialSlide}
             slidesPerView={slidesPerView}
             slidesPerGroup={slidesPerGroup}
+            allowTouchMove={allowTouchMove}
             modules={getModules({ hasPagination, autoPlay, isGrid })}
             pagination={{
               clickable: true,
@@ -88,7 +89,13 @@ function SwiperEasy({
             direction={direction}
           >
             {items.map((item, index) => (
-              <SwiperSlide key={index}>{renderItem(item, index)}</SwiperSlide>
+              <SwiperSlide key={`swiper-zoom-slide-${index}`}>
+                <ImageZoom
+                  image={item}
+                  activeIndex={activeIndex}
+                  selected={index === activeIndex}
+                />
+              </SwiperSlide>
             ))}
             {hasPagination && (
               <div className="swiper-pagination-bullet custom-pagination-container" />
@@ -113,4 +120,4 @@ function SwiperEasy({
   );
 }
 
-export default SwiperEasy;
+export default SwiperZoom;

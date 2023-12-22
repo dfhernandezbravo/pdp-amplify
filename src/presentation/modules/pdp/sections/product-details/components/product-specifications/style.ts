@@ -8,8 +8,11 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 export const List = styled.ul`
+  padding-left: 0;
+  margin: 0;
   list-style-position: inside;
   padding-bottom: 0.5rem;
+  min-height: 86px;
 
   li {
     font-size: 0.8rem;

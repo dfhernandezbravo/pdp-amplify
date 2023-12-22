@@ -1,14 +1,14 @@
 import Modal from '@components/molecules/modal';
-import Image from 'next/image';
-import { useEffect, useState } from 'react';
-import { Skeleton } from '@cencosud-ds/easy-design-system';
-import { ProductImage } from '@entities/product-image';
-import { Container, SwiperContainer, ThumbnailsContainer } from './style';
-import SwiperEasy from '@components/molecules/swiper';
+import { Container, SwiperContainer, ZoomLabel } from './style';
 import { useAppDispatch, useAppSelector } from '@hooks/storeHooks';
 import { setOpenZoomModal, setZoomModalIndex } from '@store/gallery';
 import ThumbnailsCarousel from './components/thumbnails-carousel';
-import { SwiperClass } from 'swiper/react';
+import SwiperZoom from '@components/molecules/swiper-zoom';
+import Desktop from '@components/Desktop';
+import useBreakpoints from '@hooks/useBreakpoints';
+import { useEffect, useState } from 'react';
+import { FaMagnifyingGlassPlus } from 'react-icons/fa6';
+import Mobile from '@components/Mobile';
 
 const ZoomModal = () => {
   const dispatch = useAppDispatch();
@@ -16,35 +16,17 @@ const ZoomModal = () => {
   const { activeIndex, zoomModalIndex, images, openZoomModal } = useAppSelector(
     (state) => state.gallery,
   );
-  const [loadingMainImage, setLoadingMainImage] = useState(false);
-  const [swiper, setSwiper] = useState<SwiperClass>();
+  const [isMobile, setIsMobile] = useState(false);
+
+  const { isXs, isSm, isMd } = useBreakpoints();
 
   useEffect(() => {
-    swiper?.on('slideChange', (swipe) => {
-      dispatch(setZoomModalIndex(swipe?.activeIndex));
-    });
-  }, [swiper]);
+    if (isSm || isXs || isMd) setIsMobile(true);
+    else setIsMobile(false);
+  }, [isXs, isSm, isMd]);
 
-  useEffect(() => {
-    if (activeIndex) {
-      swiper?.slideTo(activeIndex, 400);
-      dispatch(setZoomModalIndex(activeIndex));
-    }
-  }, [activeIndex]);
-
-  const renderItem = (item: ProductImage, index: number) => {
-    return loadingMainImage ? (
-      <Skeleton animation={'wave'} height={'331px'} width={'414px'} />
-    ) : (
-      <Image
-        src={item?.imageUrl}
-        alt={item?.imageText ?? `product image`}
-        width={414}
-        height={331}
-        onLoad={() => setLoadingMainImage(false)}
-        priority
-      />
-    );
+  const changeIndex = (index: number) => {
+    dispatch(setZoomModalIndex(index));
   };
 
   if (images)
@@ -52,23 +34,31 @@ const ZoomModal = () => {
       <Modal
         open={openZoomModal}
         setOpen={(open) => dispatch(setOpenZoomModal(open))}
+        brand={product?.brand}
         title={product?.productName}
         icon={{ onClick: () => dispatch(setOpenZoomModal(false)) }}
       >
         <Container>
-          <ThumbnailsContainer>
-            <ThumbnailsCarousel index={zoomModalIndex} swiper={swiper} />
-          </ThumbnailsContainer>
+          <Desktop>
+            <ThumbnailsCarousel />
+          </Desktop>
           <SwiperContainer>
-            <SwiperEasy
+            <SwiperZoom
+              hasPagination={isMobile}
               initialSlide={activeIndex}
-              setSwiper={setSwiper}
-              swiper={swiper}
               items={images}
-              renderItem={renderItem}
+              onChangeIndex={(index: number) => changeIndex(index)}
               slidesPerGroup={1}
               slidesPerView={1}
+              activeIndex={zoomModalIndex}
+              allowTouchMove={isMobile}
             />
+            <Mobile>
+              <ZoomLabel>
+                <span>Desliza los dedos para hacer zoom</span>
+                <FaMagnifyingGlassPlus size="16px" />
+              </ZoomLabel>
+            </Mobile>
           </SwiperContainer>
         </Container>
       </Modal>

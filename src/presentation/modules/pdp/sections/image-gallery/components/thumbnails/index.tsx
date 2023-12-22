@@ -4,7 +4,7 @@ import { Rest, ThumbnailContainer, ThumbnailsContainer } from './style';
 import Image from 'next/image';
 import { Skeleton } from '@cencosud-ds/easy-design-system';
 import { useAppDispatch, useAppSelector } from '@hooks/storeHooks';
-import { setOpenZoomModal } from '@store/gallery';
+import { setActiveIndex, setOpenZoomModal } from '@store/gallery';
 
 const Thumbnails = ({ swiper }: ThumbnailsProps) => {
   const dispatch = useAppDispatch();
@@ -16,7 +16,7 @@ const Thumbnails = ({ swiper }: ThumbnailsProps) => {
       {images?.map((item, i) =>
         i < 5 ? (
           <ThumbnailContainer
-            onClick={() => swiper?.slideTo(i, 400)}
+            onClick={() => dispatch(setActiveIndex(i))}
             selected={activeIndex === i}
             key={item?.imageUrl}
           >
@@ -26,8 +26,8 @@ const Thumbnails = ({ swiper }: ThumbnailsProps) => {
               <Image
                 src={item?.imageUrl}
                 alt={item?.imageText ?? `product image ${i}`}
-                width={79}
-                height={79}
+                width={256}
+                height={189}
                 onLoad={() => setLoadingThumbnails(false)}
               />
             )}
