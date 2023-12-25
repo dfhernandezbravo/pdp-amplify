@@ -14,6 +14,7 @@ export interface ModalStruct {
   children: React.ReactNode;
   open: boolean;
   setOpen: (v: boolean) => void;
+  brand?: string;
   title?: string;
   icon?: Icon;
 }

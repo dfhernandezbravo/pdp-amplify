@@ -6,9 +6,8 @@ export const GlobalStyle = createGlobalStyle<{ open?: boolean }>`
 
 export const Container = styled.div`
   z-index: 9999;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.25);
   width: 100%;
-  height: 100%;
   position: fixed;
   top: 0;
   right: 0;
@@ -16,6 +15,7 @@ export const Container = styled.div`
   bottom: 0;
   font-family: 'Open Sans', sans-serif;
 `;
+
 export const Content = styled.div`
   background: #ffffff;
   border-radius: 8px;
@@ -24,7 +24,7 @@ export const Content = styled.div`
   height: max-content;
   min-height: 194px;
   position: absolute;
-  max-width: 90%;
+  max-width: 60%;
   max-height: 90%;
   overflow-y: scroll;
   top: 0;
@@ -33,8 +33,12 @@ export const Content = styled.div`
   bottom: 0;
   margin: auto;
 
-  @media only screen and (max-width: 574px) {
-    min-width: max-content;
+  @media only screen and (max-width: 768px) {
+    width: 100dvw;
+    height: 100dvh;
+    max-width: 100dvw;
+    max-height: 100dvh;
+    border-radius: 0;
   }
 `;
 
@@ -47,19 +51,35 @@ export const TitleContainer = styled.div`
   background-color: #fff;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
+  padding: 10px;
+  max-width: 100dvw;
+
+  div {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 export const Title = styled.p`
-  padding: 0 10px;
+  margin: 0;
   font-size: 18px;
   font-weight: 700;
   line-height: 25px;
   color: #333333;
   padding-right: auto;
+
+  @media only screen and (max-width: 574px) {
+    font-size: 16px;
+  }
+`;
+
+export const Brand = styled.span`
+  font-size: 14px;
+  color: #1a1a1a;
+  font-weight: 600;
 `;
 
 export const Icon = styled.span`
-  margin-left: auto;
   padding: 0.5rem;
   padding-right: 1rem;
   cursor: pointer;
@@ -67,6 +87,7 @@ export const Icon = styled.span`
   justify-content: center;
   align-items: center;
 `;
+
 export const ContainerButtons = styled.div`
   display: flex;
   justify-content: space-between;
@@ -78,6 +99,7 @@ export const ContainerButtons = styled.div`
     padding: 5px 15px 15px 15px;
   }
 `;
+
 export const Button = styled.button`
   width: 100%;
   margin: 10px;

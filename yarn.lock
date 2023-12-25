@@ -483,10 +483,10 @@
     "@babel/helper-validator-identifier" "^7.22.20"
     to-fast-properties "^2.0.0"
 
-"@cencosud-ds/easy-design-system@^1.1.3":
-  version "1.1.3"
-  resolved "https://gitlab.com/api/v4/projects/51193403/packages/npm/@cencosud-ds/easy-design-system/-/@cencosud-ds/easy-design-system-1.1.3.tgz#0cb7ef8e1cbd98baec2a6141ed8112a5340305d9"
-  integrity sha1-DLfvjhy9mLrsKmFB7YESpTQDBdk=
+"@cencosud-ds/easy-design-system@1.1.9":
+  version "1.1.9"
+  resolved "https://gitlab.com/api/v4/projects/51193403/packages/npm/@cencosud-ds/easy-design-system/-/@cencosud-ds/easy-design-system-1.1.9.tgz#4ee5874ba0754c5f9a01060a6c22f6eb78b0755f"
+  integrity sha1-TuWHS6B1TF+aAQYKbCL263iwdV8=
   dependencies:
     "@typescript-eslint/parser" "^6.11.0"
     react-icons "^4.11.0"

@@ -1,8 +1,7 @@
 import { ProductImage } from '@entities/product-image';
 
-export interface SwiperEasyProps {
+export interface SwiperZoomProps {
   items: ProductImage[];
-  renderItem: (item: ProductImage, index: number) => React.ReactNode;
   slidesPerView: number;
   slidesPerGroup: number;
   hasActionButton?: boolean;
@@ -18,6 +17,7 @@ export interface SwiperEasyProps {
   fillGrid?: 'column' | 'row';
   initialSlide?: number;
   direction?: 'horizontal' | 'vertical';
-  activeIndex: number;
   onChangeIndex?: (index: number) => void;
+  activeIndex?: number;
+  allowTouchMove?: boolean;
 }

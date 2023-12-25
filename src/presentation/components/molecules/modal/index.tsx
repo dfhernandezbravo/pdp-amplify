@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-no-useless-fragment */
 import {
   Container,
   Content,
@@ -7,8 +6,9 @@ import {
   Body,
   Icon,
   GlobalStyle,
-} from './modal.styles';
-import { ModalStruct } from './modal.struct';
+  Brand,
+} from './styles';
+import { ModalStruct } from './props';
 import { CgClose } from 'react-icons/cg';
 
 const Modal = (props: ModalStruct) => {
@@ -19,7 +19,10 @@ const Modal = (props: ModalStruct) => {
         <Container onClick={() => props?.setOpen(false)}>
           <Content onClick={(e) => e.stopPropagation()}>
             <TitleContainer>
-              <Title>{props?.title}</Title>
+              <div>
+                {props?.brand && <Brand>{props?.brand}</Brand>}
+                <Title>{props?.title}</Title>
+              </div>
               {props?.icon && (
                 <Icon onClick={props?.icon?.onClick}>
                   <CgClose size={'32px'} />
