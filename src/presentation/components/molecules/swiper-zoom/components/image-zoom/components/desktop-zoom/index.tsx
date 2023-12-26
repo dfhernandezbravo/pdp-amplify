@@ -21,11 +21,9 @@ const DesktopZoom = ({
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const { left, top, width, height } =
       e.currentTarget.getBoundingClientRect();
-    console.log('left:', left, 'top:', top, 'width:', width, 'height:', height);
 
     const x = ((e.clientX - left) / width) * 100;
     const y = ((e.clientY - top) / height) * 100;
-    console.log('x:', x, 'y:', y);
 
     setMousePosition({ x, y });
   };

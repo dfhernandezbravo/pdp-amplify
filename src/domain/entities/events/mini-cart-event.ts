@@ -1,5 +1,5 @@
 import { GetCart as ShoppingCart } from '@entities/cart/get-cart.response';
-import { GetProduct as Product } from '@entities/product/get-product.response';
+import { Product } from '@entities/product/product';
 
 export type MiniCartEventPayload = {
   open: boolean;

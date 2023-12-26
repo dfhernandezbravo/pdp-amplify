@@ -5,7 +5,7 @@ import {
   GetCart as ShoppingCart,
 } from '@entities/cart/get-cart.response';
 import { Item } from '@entities/cart/item';
-import { GetProduct as Product } from '@entities/product/get-product.response';
+import { GetProduct } from '@entities/product/get-product.response';
 import { useAppDispatch } from '@hooks/storeHooks';
 import { dispatchMinicartSimulateAddProductEvent } from '@use-cases/shopping-cart/dispatch-mini-cart-event';
 import {
@@ -16,7 +16,7 @@ import React from 'react';
 
 type Props = {
   quantity: number;
-  product: Product;
+  product: GetProduct;
   cartId: string | undefined;
   shoppingCart: ShoppingCart | undefined;
 };
@@ -25,7 +25,7 @@ const Buttons = ({ quantity, cartId, shoppingCart, product }: Props) => {
   const dispatch = useAppDispatch();
 
   const addToCart = async (
-    product: Product,
+    product: GetProduct,
     cartId: string | undefined,
     shoppingCart: ShoppingCart | undefined,
   ) => {
@@ -39,7 +39,17 @@ const Buttons = ({ quantity, cartId, shoppingCart, product }: Props) => {
         ],
       };
 
-      dispatchMinicartSimulateAddProductEvent({ ...product });
+      const productToSimulate = {
+        productId: product?.productId,
+        productName: product?.productName,
+        brand: product?.brand,
+        imageUrl: product?.items?.[0]?.images[0].imageUrl,
+        prices: product?.items?.[0]?.sellers?.[0]?.commertialOffer?.prices,
+      };
+
+      dispatchMinicartSimulateAddProductEvent({
+        ...productToSimulate,
+      });
       dispatch(
         addItemsShoppingCart({
           data: dataProduct,
@@ -63,7 +73,15 @@ const Buttons = ({ quantity, cartId, shoppingCart, product }: Props) => {
         ],
       };
 
-      dispatchMinicartSimulateAddProductEvent({ ...product });
+      const productToSimulate = {
+        productId: product?.productId,
+        productName: product?.productName,
+        brand: product?.brand,
+        imageUrl: product?.items?.[0]?.images[0].imageUrl,
+        prices: product?.items?.[0]?.sellers?.[0]?.commertialOffer?.prices,
+      };
+
+      dispatchMinicartSimulateAddProductEvent({ ...productToSimulate });
       dispatch(
         updateItemsShoppingCart({
           data: dataProduct,
