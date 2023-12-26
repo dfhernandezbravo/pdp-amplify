@@ -43,13 +43,19 @@ const nextConfig = {
         name: 'pdp',
         filename: 'static/chunks/remoteEntry.js',
         exposes: {
-          './pdp': './src/pages/index.tsx',
+          './pdp': './src/presentation/modules/pdp',
         },
         extraOptions: {
           exposePages: true,
           automaticAsyncBoundary: true,
         },
         remotes: remotes(options.isServer),
+        shared: {
+          'next/link': {
+            requiredVersion: false,
+            singleton: true,
+          },
+        },
       }),
     );
     return config;

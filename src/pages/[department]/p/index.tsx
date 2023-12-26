@@ -1,43 +1,27 @@
-// Get static props
 import React from 'react';
 import Pdp from '@modules/pdp';
-import {
-  GetStaticPaths,
-  GetStaticProps,
-  GetStaticPropsContext,
-  InferGetStaticPropsType,
-} from 'next';
-import axios from 'axios';
+import { GetStaticPaths, GetStaticPropsContext } from 'next';
 import { GetProduct } from '@entities/product/get-product.response';
 
-const App = ({ repo }: InferGetStaticPropsType<GetStaticProps>) => {
-  return <Pdp {...repo} />;
+type Props = {
+  repo: GetProduct;
+};
+
+const App = (props: Props) => {
+  return <Pdp {...props} />;
 };
 
 export default App;
 
-export const getStaticProps = (async (ctx: GetStaticPropsContext) => {
-  if (ctx?.params?.department) {
-    const query = ctx?.params?.department.toString().split('-');
-    const productId = Number(query?.[query?.length - 1].split('/')[0]);
-
-    const response = await axios.get(
-      `${process.env.NEXT_PUBLIC_BFF_URL}/products/by-sku/${encodeURIComponent(
-        productId,
-      )}`,
-      {
-        headers: {
-          'x-api-key': `${process.env.NEXT_PUBLIC_API_KEY_BFF}`,
-        },
-      },
-    );
-    const repo = await response?.data;
-    return { props: { repo } };
+export const getStaticProps = async (ctx: GetStaticPropsContext) => {
+  const pdp = await import('@modules/pdp');
+  if (pdp.getStaticProps) {
+    return pdp.getStaticProps(ctx);
   }
-  return { props: { repo: {} } };
-}) satisfies GetStaticProps<{
-  repo: GetProduct;
-}>;
+  return {
+    props: {},
+  };
+};
 
 export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
   return {
