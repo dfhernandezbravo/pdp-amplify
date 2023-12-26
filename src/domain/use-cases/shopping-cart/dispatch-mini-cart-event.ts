@@ -7,7 +7,7 @@ import {
   MinicartAddProductEvent,
   MinicartSimulateAddProductEvent,
 } from '@entities/events/mini-cart-event';
-import { GetProduct as Product } from '@entities/product/get-product.response';
+import { Product } from '@entities/product/product';
 import { customDispatchEvent } from '@store/events/dispatchEvents';
 
 export const dispatchMiniCartEvent = () => {
