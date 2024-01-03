@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { ImageContainer } from './styles';
 import Image from 'next/image';
+import { Skeleton } from '@cencosud-ds/easy-design-system';
 
 type MobileZoomProps = {
   imageSrc: string;
@@ -14,6 +15,7 @@ const MobileZoom = ({ imageSrc, altText, activeIndex }: MobileZoomProps) => {
   const [currentScale, setCurrentScale] = useState<number>(1);
   const [pinchCenterX, setPinchCenterX] = useState<number>(0);
   const [pinchCenterY, setPinchCenterY] = useState<number>(0);
+  const [loadingImage, setLoadingImage] = useState(true);
 
   useEffect(() => {
     const element = zoomRef.current;
@@ -81,7 +83,14 @@ const MobileZoom = ({ imageSrc, altText, activeIndex }: MobileZoomProps) => {
 
   return (
     <ImageContainer ref={zoomRef}>
-      <Image src={imageSrc} alt={altText} height={331} width={414} />
+      {loadingImage && <Skeleton animation="wave" />}
+      <Image
+        src={imageSrc}
+        alt={altText}
+        height={331}
+        width={414}
+        onLoad={() => setLoadingImage(false)}
+      />
     </ImageContainer>
   );
 };

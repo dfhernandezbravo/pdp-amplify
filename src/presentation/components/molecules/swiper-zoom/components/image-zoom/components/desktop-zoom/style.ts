@@ -19,6 +19,7 @@ export const Overlay = styled.div<{
 }>`
   position: absolute;
   width: 100%;
+  min-height: 631px;
   height: 631px;
   background-image: url(${(props) => props.$background});
   background-repeat: no-repeat;

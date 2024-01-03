@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
-import { ThumbnailsProps } from './types';
-import { Rest, ThumbnailContainer, ThumbnailsContainer } from './style';
+import {
+  Rest,
+  SkeletonContainer,
+  ThumbnailContainer,
+  ThumbnailsContainer,
+} from './style';
 import Image from 'next/image';
 import { Skeleton } from '@cencosud-ds/easy-design-system';
 import { useAppDispatch, useAppSelector } from '@hooks/storeHooks';
 import { setActiveIndex, setOpenZoomModal } from '@store/gallery';
 
-const Thumbnails = ({ swiper }: ThumbnailsProps) => {
+const Thumbnails = () => {
   const dispatch = useAppDispatch();
   const { images, activeIndex } = useAppSelector((state) => state.gallery);
-  const [loadingThumbnails, setLoadingThumbnails] = useState(false);
+  const [loadingThumbnails, setLoadingThumbnails] = useState(true);
 
   return (
     <ThumbnailsContainer>
@@ -20,17 +24,18 @@ const Thumbnails = ({ swiper }: ThumbnailsProps) => {
             selected={activeIndex === i}
             key={item?.imageUrl}
           >
-            {loadingThumbnails ? (
-              <Skeleton animation={'wave'} height={'79px'} width={'79px'} />
-            ) : (
-              <Image
-                src={item?.imageUrl}
-                alt={item?.imageText ?? `product image ${i}`}
-                width={256}
-                height={189}
-                onLoad={() => setLoadingThumbnails(false)}
-              />
+            {loadingThumbnails && (
+              <SkeletonContainer>
+                <Skeleton animation={'wave'} height={'70px'} width={'70px'} />
+              </SkeletonContainer>
             )}
+            <Image
+              src={item?.imageUrl}
+              alt={item?.imageText ?? `product image ${i}`}
+              width={256}
+              height={189}
+              onLoad={() => setLoadingThumbnails(false)}
+            />
           </ThumbnailContainer>
         ) : null,
       )}

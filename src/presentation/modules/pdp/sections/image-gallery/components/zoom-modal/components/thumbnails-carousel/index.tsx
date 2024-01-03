@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
-import { ThumbnailContainer, ThumbnailsContainer } from './style';
+import {
+  SkeletonContainer,
+  ThumbnailContainer,
+  ThumbnailsContainer,
+} from './style';
 import Image from 'next/image';
 import { Skeleton } from '@cencosud-ds/easy-design-system';
 import { useAppDispatch, useAppSelector } from '@hooks/storeHooks';
@@ -8,7 +12,19 @@ import { setZoomModalIndex } from '@store/gallery';
 const ThumbnailsCarousel = () => {
   const dispatch = useAppDispatch();
   const { images, zoomModalIndex } = useAppSelector((state) => state.gallery);
-  const [loadingThumbnails, setLoadingThumbnails] = useState(false);
+
+  const [loadingStates, setLoadingStates] = useState(images?.map(() => true));
+
+  const handleImageLoad = (index: number) => {
+    // Update the loading state of the specific image once it is loaded
+    setLoadingStates((prevStates) => {
+      if (prevStates) {
+        const newStates = [...prevStates];
+        newStates[index] = false;
+        return newStates;
+      }
+    });
+  };
 
   return (
     <ThumbnailsContainer>
@@ -18,17 +34,18 @@ const ThumbnailsCarousel = () => {
           selected={zoomModalIndex === i}
           key={`thumbnail-zoom-${i}`}
         >
-          {loadingThumbnails ? (
-            <Skeleton animation={'wave'} height={'79px'} width={'79px'} />
-          ) : (
-            <Image
-              src={item?.imageUrl}
-              alt={item?.imageText ?? `product image ${i}`}
-              width={256}
-              height={189}
-              onLoad={() => setLoadingThumbnails(false)}
-            />
+          {loadingStates?.[i] && (
+            <SkeletonContainer>
+              <Skeleton animation={'wave'} height={'79px'} width={'79px'} />
+            </SkeletonContainer>
           )}
+          <Image
+            src={item?.imageUrl}
+            alt={item?.imageText ?? `product image ${i}`}
+            width={256}
+            height={189}
+            onLoad={() => handleImageLoad(i)}
+          />
         </ThumbnailContainer>
       ))}
     </ThumbnailsContainer>

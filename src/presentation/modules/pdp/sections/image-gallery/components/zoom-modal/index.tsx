@@ -37,6 +37,7 @@ const ZoomModal = () => {
         brand={product?.brand}
         title={product?.productName}
         icon={{ onClick: () => dispatch(setOpenZoomModal(false)) }}
+        style={{ overflowY: 'hidden' }}
       >
         <Container>
           <Desktop>
