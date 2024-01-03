@@ -17,7 +17,7 @@ const Modal = (props: ModalStruct) => {
       <GlobalStyle open={props?.open} />
       {props?.open && (
         <Container onClick={() => props?.setOpen(false)}>
-          <Content onClick={(e) => e.stopPropagation()}>
+          <Content style={props?.style} onClick={(e) => e.stopPropagation()}>
             <TitleContainer>
               <div>
                 {props?.brand && <Brand>{props?.brand}</Brand>}

@@ -16,7 +16,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: space-between;
   max-width: 90dvw;
-  height: 90%;
+  height: 100%;
   touch-action: none;
 `;
 

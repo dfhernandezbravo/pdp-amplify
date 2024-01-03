@@ -12,6 +12,7 @@ export const ThumbnailsContainer = styled.div`
 `;
 
 export const ThumbnailContainer = styled.div<ThumbnailProps>`
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,4 +41,11 @@ export const Rest = styled.div`
   background-color: #f9f9f9;
   border-radius: ${(props) => props.theme.radius.xsm};
   cursor: pointer;
+`;
+
+export const SkeletonContainer = styled.div`
+  width: 79px;
+  position: absolute;
+  top: 3.5px;
+  left: 3.5px;
 `;

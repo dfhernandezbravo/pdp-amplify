@@ -10,7 +10,8 @@ export const ThumbnailsContainer = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
-  max-height: 500px;
+  height: 100%;
+  max-height: 75vh;
   overflow-y: scroll;
 
   &::-webkit-scrollbar {
@@ -26,6 +27,7 @@ export const ThumbnailsContainer = styled.div`
 `;
 
 export const ThumbnailContainer = styled.div<ThumbnailProps>`
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -43,4 +45,11 @@ export const ThumbnailContainer = styled.div<ThumbnailProps>`
     height: auto;
     object-fit: contain;
   }
+`;
+
+export const SkeletonContainer = styled.div`
+  width: 79px;
+  position: absolute;
+  top: 3.5px;
+  left: 3.5px;
 `;

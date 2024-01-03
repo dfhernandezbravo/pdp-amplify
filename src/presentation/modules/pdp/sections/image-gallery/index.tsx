@@ -22,7 +22,7 @@ const ImageGallery = () => {
   );
   const dispatch = useAppDispatch();
   const [isMobile, setIsMobile] = useState(false);
-  const [loadingMainImage, setLoadingMainImage] = useState(false);
+  const [loadingImage, setLoadingImage] = useState(true);
 
   const { isXs, isSm } = useBreakpoints();
 
@@ -32,18 +32,21 @@ const ImageGallery = () => {
   }, [isXs, isSm]);
 
   const renderItem = (item: ProductImage, index: number) => {
-    return loadingMainImage ? (
-      <Skeleton animation="wave" height="828px" width="613px" />
-    ) : (
-      <Image
-        src={item?.imageUrl}
-        alt={item?.imageText ?? `product image ${index}`}
-        width={828}
-        height={613}
-        onClick={() => dispatch(setOpenZoomModal(true))}
-        onLoad={() => setLoadingMainImage(false)}
-        priority
-      />
+    return (
+      <>
+        {loadingImage && (
+          <Skeleton animation="wave" height="500px" width="613px" />
+        )}
+        <Image
+          src={item?.imageUrl}
+          alt={item?.imageText ?? `product image ${index}`}
+          width={828}
+          height={613}
+          onClick={() => dispatch(setOpenZoomModal(true))}
+          onLoad={() => setLoadingImage(false)}
+          priority
+        />
+      </>
     );
   };
 

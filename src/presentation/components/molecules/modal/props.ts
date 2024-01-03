@@ -1,3 +1,5 @@
+import { CSSProperties } from 'styled-components';
+
 export type Button = {
   background: string;
   color: string;
@@ -17,4 +19,5 @@ export interface ModalStruct {
   brand?: string;
   title?: string;
   icon?: Icon;
+  style?: CSSProperties;
 }
