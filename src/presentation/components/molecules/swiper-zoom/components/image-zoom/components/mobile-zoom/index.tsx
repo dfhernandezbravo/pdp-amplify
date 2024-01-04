@@ -82,7 +82,7 @@ const MobileZoom = ({ imageSrc, altText, activeIndex }: MobileZoomProps) => {
   }, [initialDistance, currentScale, pinchCenterX, pinchCenterY]);
 
   return (
-    <ImageContainer ref={zoomRef}>
+    <ImageContainer $loading={loadingImage} ref={zoomRef}>
       {loadingImage && <Skeleton animation="wave" />}
       <Image
         src={imageSrc}

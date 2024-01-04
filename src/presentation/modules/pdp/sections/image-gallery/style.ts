@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const ImageGalleryContainer = styled.div`
   display: flex;
@@ -6,7 +6,7 @@ export const ImageGalleryContainer = styled.div`
   max-height: 100%;
 `;
 
-export const SwiperContainer = styled.div`
+export const SwiperContainer = styled.div<{ $loading: boolean }>`
   max-width: 600px;
   height: 90%;
   width: 82%;
@@ -14,6 +14,11 @@ export const SwiperContainer = styled.div`
   position: relative;
 
   img {
+    ${({ $loading }) =>
+      $loading &&
+      css`
+        display: none;
+      `}
     object-fit: contain;
     max-width: 100%;
     height: auto;

@@ -19,7 +19,7 @@ const DesktopZoom = ({
   const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 });
   const [isHover, setIsHover] = useState(false);
   const [loadingImage, setLoadingImage] = useState(true);
-  const [minHeight, setMinHeight] = useState(331);
+  const [minHeight, setMinHeight] = useState(500);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const { left, top, width, height } =
@@ -41,6 +41,7 @@ const DesktopZoom = ({
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
+      $loading={loadingImage}
     >
       {isHover && selected && !loadingImage ? (
         <Overlay

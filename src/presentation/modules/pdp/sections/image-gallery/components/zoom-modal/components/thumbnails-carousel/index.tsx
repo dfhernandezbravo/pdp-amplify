@@ -36,7 +36,7 @@ const ThumbnailsCarousel = () => {
         >
           {loadingStates?.[i] && (
             <SkeletonContainer>
-              <Skeleton animation={'wave'} height={'79px'} width={'79px'} />
+              <Skeleton animation={'wave'} height={'70px'} width={'70px'} />
             </SkeletonContainer>
           )}
           <Image
