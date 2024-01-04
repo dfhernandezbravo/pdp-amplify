@@ -11,7 +11,8 @@ const PdpBreadcrumbs = () => {
 
   const links = () => {
     if (product?.categories && product?.categories?.length > 0) {
-      const arrayLinks = [...product.categories, product?.productName];
+      const categories = [...product.categories].reverse();
+      const arrayLinks = [...categories, product?.productName];
       return arrayLinks;
     }
     return [];
@@ -23,12 +24,13 @@ const PdpBreadcrumbs = () => {
         <Breadcrumbs>
           {links()?.map((link, i, { length }) => {
             if (i + 1 === length) return <span key={link}>{link}</span>;
-            if (i + 1 < length)
+            if (i + 1 < length) {
               return (
                 <Link key={link} href={formatUrl(link)}>
                   {product?.categories?.[0].split('/')?.[i + 1]}
                 </Link>
               );
+            }
           })}
         </Breadcrumbs>
       )}

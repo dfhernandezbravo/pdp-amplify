@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const ZoomContainer = styled.div`
+export const ZoomContainer = styled.div<{ $loading: boolean }>`
   position: relative;
   margin-left: auto;
   margin-right: auto;
@@ -11,6 +11,11 @@ export const ZoomContainer = styled.div`
     object-fit: contain;
     height: auto;
     width: 100%;
+    ${({ $loading }) =>
+      $loading &&
+      css`
+        height: 0;
+      `}
   }
 `;
 

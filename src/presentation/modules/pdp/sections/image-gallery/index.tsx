@@ -67,7 +67,7 @@ const ImageGallery = () => {
         <Desktop>
           <Thumbnails />
         </Desktop>
-        <SwiperContainer>
+        <SwiperContainer $loading={loadingImage}>
           <SwiperEasy
             hasPagination={isMobile}
             items={images}
