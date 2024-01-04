@@ -5,9 +5,7 @@ import {
   MiniCartAddProductErrorEvent,
   MiniCartEventPayload,
   MinicartAddProductEvent,
-  MinicartSimulateAddProductEvent,
 } from '@entities/events/mini-cart-event';
-import { Product } from '@entities/product/product';
 import { customDispatchEvent } from '@store/events/dispatchEvents';
 
 export const dispatchMiniCartEvent = () => {
@@ -24,15 +22,6 @@ export const dispatchMiniCartAddProductEvent = (data: ShoppingCart) => {
     name: WindowsEvents.ADD_PRODUCT_IN_CART,
     detail: {
       data: data,
-    },
-  });
-};
-
-export const dispatchMinicartSimulateAddProductEvent = (data: Product) => {
-  customDispatchEvent<MinicartSimulateAddProductEvent>({
-    name: WindowsEvents.SIMULATE_ADD_PRODUCT,
-    detail: {
-      product: data,
     },
   });
 };

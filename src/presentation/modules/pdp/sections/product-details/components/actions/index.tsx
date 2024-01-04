@@ -7,7 +7,6 @@ import Buttons from './buttons';
 
 const Actions = () => {
   const { product } = useAppSelector((state) => state.product);
-  const { cartId, cart } = useAppSelector((state) => state.cart);
   const [quantity, setQuantity] = useState(1);
 
   if (!product?.items?.[0]?.sellers?.[0]?.commertialOffer?.availableQuantity)
@@ -33,12 +32,7 @@ const Actions = () => {
           }
         />
       </Desktop>
-      <Buttons
-        quantity={quantity}
-        product={product}
-        cartId={cartId}
-        shoppingCart={cart}
-      />
+      <Buttons quantity={quantity} product={product} />
     </ButtonsContainer>
   );
 };
