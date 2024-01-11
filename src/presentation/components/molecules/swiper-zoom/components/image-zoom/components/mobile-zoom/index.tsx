@@ -40,9 +40,9 @@ const MobileZoom = ({ imageSrc, altText, activeIndex }: MobileZoomProps) => {
         setInitialDistance(distance);
 
         const centerX =
-          (event.touches[0].clientX + event.touches[1].clientX) * 2;
+          (event.touches[0].clientX + event.touches[1].clientX) / 2;
         const centerY =
-          (event.touches[0].clientY + event.touches[1].clientY) * 2;
+          (event.touches[0].clientY + event.touches[1].clientY) / 2;
         setPinchCenterX(centerX);
         setPinchCenterY(centerY);
       }
@@ -58,9 +58,9 @@ const MobileZoom = ({ imageSrc, altText, activeIndex }: MobileZoomProps) => {
         setCurrentScale(scale);
 
         // prettier-ignore
-        const deltaX = pinchCenterX - (pinchCenterX * currentScale);
+        const deltaX = pinchCenterX - (pinchCenterX * scale);
         // prettier-ignore
-        const deltaY = pinchCenterY - (pinchCenterY * currentScale);
+        const deltaY = pinchCenterY - (pinchCenterY * scale);
 
         if (element) {
           element.style.transform = `scale(${scale}) translate(${deltaX}px, ${deltaY}px)`;

@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-export const SwiperContainer = styled.div`
+export const SwiperContainer = styled.div<{ $showThumbnails: boolean }>`
   max-width: 600px;
   height: 90%;
-  width: 85%;
+  width: ${({ $showThumbnails }) => ($showThumbnails ? '85%' : '100%')};
   max-width: 100dvw;
   position: relative;
 
@@ -15,6 +15,7 @@ export const SwiperContainer = styled.div`
 export const Container = styled.div`
   display: flex;
   justify-content: space-between;
+  width: 100%;
   max-width: 90dvw;
   height: 100%;
   touch-action: none;

@@ -20,7 +20,7 @@ export const SwiperContainer = styled.div<{ $loading: boolean }>`
         display: none;
       `}
     object-fit: contain;
-    max-width: 100%;
+    width: 100%;
     height: auto;
   }
 
@@ -47,4 +47,16 @@ export const ZoomLabel = styled.div`
   align-items: center;
   border-radius: 6px;
   z-index: 10;
+`;
+
+export const ItemContainer = styled.div`
+  position: relative;
+`;
+
+export const SkeletonContainer = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 `;

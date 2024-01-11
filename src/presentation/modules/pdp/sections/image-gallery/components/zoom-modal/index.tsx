@@ -43,7 +43,7 @@ const ZoomModal = () => {
           <Desktop>
             <ThumbnailsCarousel />
           </Desktop>
-          <SwiperContainer>
+          <SwiperContainer $showThumbnails={images?.length > 1}>
             <SwiperZoom
               hasPagination={isMobile}
               initialSlide={activeIndex}
