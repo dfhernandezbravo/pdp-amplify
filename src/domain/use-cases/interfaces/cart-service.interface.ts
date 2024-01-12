@@ -1,4 +1,5 @@
 import {
+  AddServiceRequest,
   GetCart,
   SaveShoppingCartItemsRequest,
   SetShoppingCartItemsRequest,
@@ -13,6 +14,16 @@ interface CartService {
   updateItem(
     data: SetShoppingCartItemsRequest,
     cartId: string,
+  ): Promise<AxiosResponse<GetCart>>;
+  addService(
+    data: AddServiceRequest,
+    cartId: string,
+    productIndex: number,
+  ): Promise<AxiosResponse<GetCart>>;
+  deleteService(
+    cartId: string,
+    productIndex: number,
+    serviceId: string,
   ): Promise<AxiosResponse<GetCart>>;
 }
 

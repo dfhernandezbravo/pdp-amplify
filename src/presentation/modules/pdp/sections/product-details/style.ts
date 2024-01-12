@@ -6,7 +6,7 @@ export const Container = styled.div`
 
   img {
     object-fit: contain;
-    height: 100%;
+    height: auto;
     width: 100%;
   }
 `;

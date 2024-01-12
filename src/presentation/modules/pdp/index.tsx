@@ -39,18 +39,22 @@ export const getStaticProps = (async (ctx: GetStaticPropsContext) => {
     const query = ctx?.params?.department.toString().split('-');
     const productId = Number(query?.[query?.length - 1].split('/')[0]);
 
-    const response = await axios.get(
-      `${process.env.NEXT_PUBLIC_BFF_URL}/products/by-sku/${encodeURIComponent(
-        productId,
-      )}`,
-      {
-        headers: {
-          'x-api-key': `${process.env.NEXT_PUBLIC_API_KEY_BFF}`,
+    try {
+      const response = await axios.get(
+        `${
+          process.env.NEXT_PUBLIC_BFF_URL
+        }/products/by-sku/${encodeURIComponent(productId)}`,
+        {
+          headers: {
+            'x-api-key': `${process.env.NEXT_PUBLIC_API_KEY_BFF}`,
+          },
         },
-      },
-    );
-    const repo = await response?.data;
-    return { props: { repo }, revalidate: 60 };
+      );
+      const repo = await response?.data;
+      return { props: { repo }, revalidate: 60 };
+    } catch (error) {
+      console.info(error);
+    }
   }
   return { props: { repo: {} } };
 }) satisfies GetStaticProps<{

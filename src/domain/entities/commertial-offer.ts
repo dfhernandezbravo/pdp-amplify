@@ -34,4 +34,14 @@ export type CommertialOffer = {
   GetInfoErrorMessage?: null;
   CacheVersionUsedToCallCheckout: string;
   PaymentOptions: PaymentOptions;
+  adjustments: [
+    {
+      name: string;
+      id: string;
+      priceType: string;
+      percentDiscount: string;
+      value: number;
+      description: string;
+    },
+  ];
 };
