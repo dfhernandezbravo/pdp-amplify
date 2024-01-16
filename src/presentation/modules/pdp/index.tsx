@@ -22,13 +22,13 @@ const queryClient = new QueryClient({
 const Pdp = (props: InferGetStaticPropsType<GetStaticProps>) => {
   const { repo } = props;
   return (
-    <Provider store={store}>
-      <QueryClientProvider client={queryClient}>
-        <ThemeProvider>
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider>
+        <Provider store={store}>
           <PdpContainer {...repo} />
-        </ThemeProvider>
-      </QueryClientProvider>
-    </Provider>
+        </Provider>
+      </ThemeProvider>
+    </QueryClientProvider>
   );
 };
 

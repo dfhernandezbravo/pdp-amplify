@@ -39,14 +39,14 @@ export const OutOfStock = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 53px;
-  height: 36px;
   position: relative;
   outline: 1px solid rgba(180, 194, 203, 1);
   color: rgba(180, 194, 203, 1);
   opacity: 80%;
   cursor: not-allowed;
   border-radius: 0.25rem;
+  height: 2.7rem;
+  width: 2.7rem;
 
   &::before {
     content: '';
@@ -57,5 +57,11 @@ export const OutOfStock = styled.div`
     height: 1px;
     background-color: rgba(180, 194, 203, 1);
     transform: rotate(34deg);
+  }
+
+  img {
+    height: 2.5rem;
+    width: 2.5rem;
+    opacity: 60%;
   }
 `;

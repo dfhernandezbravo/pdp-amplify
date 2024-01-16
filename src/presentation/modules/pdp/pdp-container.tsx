@@ -18,9 +18,9 @@ import SpecificationsTables from './sections/specifications-tables';
 // import { RatingsProps } from '@entities/ratings-and-reviews/ratings-and-reviews.type';
 import { GetProduct } from '@entities/product/get-product.response';
 // import FirstLoadSkeleton from '@components/molecules/skeleton/ratings-and-reviews/FirstLoadSkeleton';
-import { setImages } from '@store/gallery';
 import CartEventProvider from '../../providers/cart-event-provider';
 import Head from 'next/head';
+import { setImages } from '@store/gallery';
 // import dynamic from 'next/dynamic';
 
 // const RatingAndReview = dynamic<RatingsProps>(
@@ -32,13 +32,14 @@ import Head from 'next/head';
 // );
 
 const PdpContainer = (productData: GetProduct) => {
-  const { product } = useAppSelector((state) => state.product);
   const dispatch = useAppDispatch();
+
+  const { images } = useAppSelector((state) => state.gallery);
 
   useEffect(() => {
     if (productData) {
       dispatch(setProduct(productData));
-      dispatch(setImages(productData?.items?.[0].images));
+      !images && dispatch(setImages(productData?.items?.[0]?.images));
     }
   }, [productData, dispatch]);
 
@@ -46,8 +47,8 @@ const PdpContainer = (productData: GetProduct) => {
     <CartEventProvider>
       <Head>
         <title>
-          {product?.metaTagDescription
-            ? `${product?.metaTagDescription} | Easy.cl - Easy`
+          {productData?.metaTagDescription
+            ? `${productData?.metaTagDescription} | Easy.cl - Easy`
             : 'Easy.cl'}
         </title>
       </Head>
