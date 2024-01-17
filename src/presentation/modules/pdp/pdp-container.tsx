@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 // import dynamic from 'next/dynamic';
-import { useAppDispatch, useAppSelector } from '@hooks/storeHooks';
+import { useAppDispatch } from '@hooks/storeHooks';
+import { useRouter } from 'next/router';
 import { setProduct } from '@store/product';
 import ImageGallery from './sections/image-gallery';
 import ProductDetails from './sections/product-details';
@@ -33,13 +34,20 @@ import { setImages } from '@store/gallery';
 
 const PdpContainer = (productData: GetProduct) => {
   const dispatch = useAppDispatch();
+  const router = useRouter();
 
-  const { images } = useAppSelector((state) => state.gallery);
+  const setDefaultImages = () => {
+    const skuId = router.query.skuId as string;
+    if (skuId) {
+      const item = productData?.items?.find((item) => item.itemId === skuId);
+      dispatch(setImages(item?.images));
+    } else dispatch(setImages(productData?.items?.[0]?.images));
+  };
 
   useEffect(() => {
     if (productData) {
       dispatch(setProduct(productData));
-      !images && dispatch(setImages(productData?.items?.[0]?.images));
+      setDefaultImages();
     }
   }, [productData, dispatch]);
 

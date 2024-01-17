@@ -51,6 +51,7 @@ export const getStaticProps = (async (ctx: GetStaticPropsContext) => {
         },
       );
       const repo = await response?.data;
+
       return { props: { repo }, revalidate: 60 };
     } catch (error) {
       console.info(error);

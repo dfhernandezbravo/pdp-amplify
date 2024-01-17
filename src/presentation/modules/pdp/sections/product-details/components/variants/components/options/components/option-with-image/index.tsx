@@ -1,27 +1,48 @@
 import { useState, useEffect } from 'react';
-import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import { Item } from '@entities/product/get-product.response';
 import { StyledLink, OptionsContainer, OutOfStock } from './styles';
 import { useAppDispatch } from '@hooks/storeHooks';
 import { setImages } from '@store/gallery';
+import { useRouter } from 'next/router';
 
 type Props = { options: Item[]; variation: string };
 
 const OptionWithImage = ({ options, variation }: Props) => {
   const [selected, setSelected] = useState<string>();
-  const pathname = usePathname();
   const dispatch = useAppDispatch();
+  const router = useRouter();
 
   const defaultOption = () => {
-    const firstOptionWithStock = options?.find(
-      (option) => option?.sellers?.[0]?.commertialOffer?.availableQuantity > 0,
-    );
-    return firstOptionWithStock?.images?.[0]?.imageUrl;
+    const skuId = router.query.skuId as string;
+    if (skuId) {
+      const item = options.find((option) => option.itemId === skuId);
+      dispatch(setImages(item?.images));
+      return item?.images?.[0]?.imageUrl;
+    } else {
+      const firstOptionWithStock = options?.find(
+        (option) =>
+          option?.sellers?.[0]?.commertialOffer?.availableQuantity > 0,
+      );
+      dispatch(setImages(firstOptionWithStock?.images));
+      return firstOptionWithStock?.images?.[0]?.imageUrl;
+    }
   };
+
   const selectOption = (option: Item) => {
     const filteredImagesUrls = option?.images?.filter(
       (image) => image?.imageUrl,
+    );
+    const skuId = option?.itemId;
+    router.push(
+      {
+        query: {
+          department: router.query.department,
+          skuId: skuId,
+        },
+      },
+      undefined,
+      { shallow: true },
     );
     setSelected(option?.images?.[0]?.imageUrl);
     dispatch(setImages(filteredImagesUrls));
@@ -50,8 +71,6 @@ const OptionWithImage = ({ options, variation }: Props) => {
             onClick={() => selectOption(option)}
             disabled={outOfStock}
             selected={selected === imageUrl}
-            href={pathname + '?skuId=' + skuId}
-            shallow
             key={skuId}
           >
             <Image src={imageUrl} alt={imageText} height={1167} width={934} />

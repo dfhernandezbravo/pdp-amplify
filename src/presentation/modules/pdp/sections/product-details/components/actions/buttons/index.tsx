@@ -12,6 +12,7 @@ import {
   addItemsShoppingCart,
   updateItemsShoppingCart,
 } from '@use-cases/shopping-cart/save-items';
+import { useSearchParams } from 'next/navigation';
 import React from 'react';
 
 type Props = {
@@ -23,6 +24,9 @@ type Props = {
 
 const Buttons = ({ quantity, cartId, shoppingCart, product }: Props) => {
   const dispatch = useAppDispatch();
+  const searchParams = useSearchParams();
+
+  const selectedSkuId = searchParams?.get('skuId');
 
   const addToCart = async (
     product: GetProduct,
@@ -33,7 +37,7 @@ const Buttons = ({ quantity, cartId, shoppingCart, product }: Props) => {
       const dataProduct: SaveShoppingCartItemsRequest = {
         orderItems: [
           {
-            id: product.productId,
+            id: selectedSkuId ?? product.productId,
             quantity: quantity,
           },
         ],

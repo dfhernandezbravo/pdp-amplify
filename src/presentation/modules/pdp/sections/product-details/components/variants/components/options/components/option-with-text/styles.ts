@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import styled, { css } from 'styled-components';
 
 export const OptionsContainer = styled.div`
@@ -7,7 +6,7 @@ export const OptionsContainer = styled.div`
   gap: 0.5rem;
 `;
 
-export const StyledLink = styled(Link)<{ selected: boolean }>`
+export const StyledLink = styled.div<{ selected: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
