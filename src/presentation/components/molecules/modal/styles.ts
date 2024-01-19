@@ -14,6 +14,14 @@ export const Container = styled.div`
   left: 0;
   bottom: 0;
   font-family: 'Open Sans', sans-serif;
+
+  @media only screen and (max-width: 768px) {
+    width: 100dvw;
+    height: 100dvh;
+    max-width: 100dvw;
+    max-height: 100dvh;
+    border-radius: 0;
+  }
 `;
 
 export const Content = styled.div`
@@ -44,7 +52,6 @@ export const Content = styled.div`
 
 export const TitleContainer = styled.div`
   border-bottom: 1px solid #aaaaaa;
-  height: 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;

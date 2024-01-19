@@ -1,7 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '@hooks/storeHooks';
 import { ProductImage } from '@entities/product-image';
-import { ImageGalleryContainer, SwiperContainer, ZoomLabel } from './style';
+import {
+  ImageGalleryContainer,
+  ItemContainer,
+  SkeletonContainer,
+  SwiperContainer,
+  ZoomLabel,
+} from './style';
 import Thumbnails from './components/thumbnails';
 import SwiperEasy from '@components/molecules/swiper';
 import Image from 'next/image';
@@ -33,9 +39,15 @@ const ImageGallery = () => {
 
   const renderItem = (item: ProductImage, index: number) => {
     return (
-      <>
+      <ItemContainer>
         {loadingImage && (
-          <Skeleton animation="wave" height="500px" width="613px" />
+          <SkeletonContainer>
+            <Skeleton
+              animation="wave"
+              height={isXs || isSm ? '200px' : '500px'}
+              width="613px"
+            />
+          </SkeletonContainer>
         )}
         <Image
           src={item?.imageUrl}
@@ -46,7 +58,7 @@ const ImageGallery = () => {
           onLoad={() => setLoadingImage(false)}
           priority
         />
-      </>
+      </ItemContainer>
     );
   };
 
@@ -67,7 +79,7 @@ const ImageGallery = () => {
         <Desktop>
           <Thumbnails />
         </Desktop>
-        <SwiperContainer>
+        <SwiperContainer $loading={loadingImage}>
           <SwiperEasy
             hasPagination={isMobile}
             items={images}

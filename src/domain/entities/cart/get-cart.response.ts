@@ -68,3 +68,7 @@ export type SaveShoppingCartItemsRequest = {
     quantity: number;
   }[];
 };
+
+export type AddServiceRequest = {
+  id: string;
+};

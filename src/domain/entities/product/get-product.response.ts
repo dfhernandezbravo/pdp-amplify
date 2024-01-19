@@ -1,6 +1,38 @@
 import { CommertialOffer } from '@entities/commertial-offer';
 import { ReferenceIdEntity } from './reference-id';
 
+type Item = {
+  ean: string;
+  referenceId: ReferenceIdEntity[];
+  itemId: string;
+  name: string;
+  nameComplete: string;
+  measurementUnit: string;
+  unitMultiplier: number;
+  images: [
+    {
+      imageUrl: string;
+      imageText: string;
+    },
+  ];
+  sellers: [
+    {
+      sellerId: string;
+      sellerName: string;
+      addToCartLink: string;
+      commertialOffer: CommertialOffer;
+    },
+  ];
+  itemSpecifications: {
+    [key: string]: string[];
+  };
+
+  offering: {
+    name: string;
+    value: number;
+  };
+};
+
 type GetProduct = {
   productId: string;
   productName: string;
@@ -17,39 +49,7 @@ type GetProduct = {
   categoriesIds: string[];
   productClusters: string[];
   searchableClusters: string[];
-  items: [
-    {
-      ean: string;
-      referenceId: ReferenceIdEntity[];
-      itemId: string;
-      name: string;
-      nameComplete: string;
-      measurementUnit: string;
-      unitMultiplier: number;
-      images: [
-        {
-          imageUrl: string;
-          imageText: string;
-        },
-      ];
-      sellers: [
-        {
-          sellerId: string;
-          sellerName: string;
-          addToCartLink: string;
-          commertialOffer: CommertialOffer;
-        },
-      ];
-      itemSpecifications: {
-        [key: string]: string[];
-      };
-
-      offering: {
-        name: string;
-        value: number;
-      };
-    },
-  ];
+  items: Item[];
 };
 
-export type { GetProduct };
+export type { GetProduct, Item };

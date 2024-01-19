@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const ImageGalleryContainer = styled.div`
   display: flex;
@@ -6,7 +6,7 @@ export const ImageGalleryContainer = styled.div`
   max-height: 100%;
 `;
 
-export const SwiperContainer = styled.div`
+export const SwiperContainer = styled.div<{ $loading: boolean }>`
   max-width: 600px;
   height: 90%;
   width: 82%;
@@ -14,8 +14,13 @@ export const SwiperContainer = styled.div`
   position: relative;
 
   img {
+    ${({ $loading }) =>
+      $loading &&
+      css`
+        display: none;
+      `}
     object-fit: contain;
-    max-width: 100%;
+    width: 100%;
     height: auto;
   }
 
@@ -42,4 +47,16 @@ export const ZoomLabel = styled.div`
   align-items: center;
   border-radius: 6px;
   z-index: 10;
+`;
+
+export const ItemContainer = styled.div`
+  position: relative;
+`;
+
+export const SkeletonContainer = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 `;

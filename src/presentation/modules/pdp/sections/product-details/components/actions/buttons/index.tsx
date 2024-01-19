@@ -4,6 +4,8 @@ import { AddItemShoppingCartEvent } from '@entities/events/add-to-cart-event';
 import { GetProduct } from '@entities/product/get-product.response';
 import { useAppSelector } from '@hooks/storeHooks';
 import { customDispatchEvent } from '@store/events/dispatchEvents';
+import { useSearchParams } from 'next/navigation';
+
 
 type Props = {
   quantity: number;
@@ -12,12 +14,15 @@ type Props = {
 
 const Buttons = ({ quantity, product }: Props) => {
   const { cartId } = useAppSelector((state) => state.cart);
+  const searchParams = useSearchParams();
+
+  const selectedSkuId = searchParams?.get('skuId');
 
   const addToCart = async (product: GetProduct, cartId: string | undefined) => {
     const eventData: AddItemShoppingCartEvent = {
       cartId: cartId,
       product: {
-        productId: product?.productId,
+        productId: selectedSkuId ?? product.productId,
         productName: product?.productName,
         brand: product?.brand,
         imageUrl: product?.items?.[0]?.images[0].imageUrl,
