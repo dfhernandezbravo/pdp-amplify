@@ -14,6 +14,7 @@ export const SwiperComponent = styled.div<Props>`
 
 export const SwiperWrapper = styled.div`
   width: 100%;
+  height: 100%;
 `;
 
 const bullet = css`

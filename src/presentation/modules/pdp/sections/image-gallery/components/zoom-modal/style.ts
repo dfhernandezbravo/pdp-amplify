@@ -4,7 +4,6 @@ export const SwiperContainer = styled.div<{ $showThumbnails: boolean }>`
   max-width: 600px;
   height: 90%;
   width: ${({ $showThumbnails }) => ($showThumbnails ? '85%' : '100%')};
-  max-width: 100dvw;
   position: relative;
 
   @media (max-width: 1024px) {

@@ -22,13 +22,13 @@ const queryClient = new QueryClient({
 const Pdp = (props: InferGetStaticPropsType<GetStaticProps>) => {
   const { repo } = props;
   return (
-    <Provider store={store}>
-      <QueryClientProvider client={queryClient}>
-        <ThemeProvider>
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider>
+        <Provider store={store}>
           <PdpContainer {...repo} />
-        </ThemeProvider>
-      </QueryClientProvider>
-    </Provider>
+        </Provider>
+      </ThemeProvider>
+    </QueryClientProvider>
   );
 };
 
@@ -39,18 +39,23 @@ export const getStaticProps = (async (ctx: GetStaticPropsContext) => {
     const query = ctx?.params?.department.toString().split('-');
     const productId = Number(query?.[query?.length - 1].split('/')[0]);
 
-    const response = await axios.get(
-      `${process.env.NEXT_PUBLIC_BFF_URL}/products/by-sku/${encodeURIComponent(
-        productId,
-      )}`,
-      {
-        headers: {
-          'x-api-key': `${process.env.NEXT_PUBLIC_API_KEY_BFF}`,
+    try {
+      const response = await axios.get(
+        `${
+          process.env.NEXT_PUBLIC_BFF_URL
+        }/products/by-sku/${encodeURIComponent(productId)}`,
+        {
+          headers: {
+            'x-api-key': `${process.env.NEXT_PUBLIC_API_KEY_BFF}`,
+          },
         },
-      },
-    );
-    const repo = await response?.data;
-    return { props: { repo }, revalidate: 60 };
+      );
+      const repo = await response?.data;
+
+      return { props: { repo }, revalidate: 60 };
+    } catch (error) {
+      console.info(error);
+    }
   }
   return { props: { repo: {} } };
 }) satisfies GetStaticProps<{
