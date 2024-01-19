@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { Overlay, ZoomContainer } from './style';
+import { useEffect, useRef, useState } from 'react';
+import { Overlay, SkeletonContainer, ZoomContainer } from './style';
 import Image from 'next/image';
 import { Skeleton } from '@cencosud-ds/easy-design-system';
 
@@ -19,17 +19,32 @@ const DesktopZoom = ({
   const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 });
   const [isHover, setIsHover] = useState(false);
   const [loadingImage, setLoadingImage] = useState(true);
-  const [minHeight, setMinHeight] = useState(500);
+  const imageRef = useRef<HTMLImageElement>(null);
+  const [imageSize, setImageSize] = useState<{
+    height: number;
+    width: number;
+  }>();
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const { left, top, width, height } =
       e.currentTarget.getBoundingClientRect();
 
-    setMinHeight(height);
     const x = ((e.clientX - left) / width) * 100;
     const y = ((e.clientY - top) / height) * 100;
-    setMousePosition({ x, y });
+
+    // Limit x and y values to be within the range of 0 to 100
+    const clampedX = Math.min(100, Math.max(0, x));
+    const clampedY = Math.min(100, Math.max(0, y));
+
+    setMousePosition({ x: clampedX, y: clampedY });
   };
+
+  useEffect(() => {
+    if (imageRef.current) {
+      const { width, height } = imageRef.current.getBoundingClientRect();
+      setImageSize({ height, width });
+    }
+  }, [imageRef]);
 
   useEffect(() => {
     !selected && setIsHover(false);
@@ -37,25 +52,29 @@ const DesktopZoom = ({
 
   return (
     <ZoomContainer
-      style={{ minHeight: minHeight }}
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
-      $loading={loadingImage}
+      style={{ height: imageSize?.height, width: imageSize?.width }}
     >
       {isHover && selected && !loadingImage ? (
         <Overlay
           $background={imageSrc}
           style={{
             backgroundPosition: `${mousePosition.x}% ${mousePosition.y}%`,
+            height: imageSize?.height,
+            width: imageSize?.width,
           }}
         />
       ) : (
         <>
           {loadingImage && (
-            <Skeleton animation="wave" height={`${minHeight}px`} />
+            <SkeletonContainer>
+              <Skeleton height={`${imageSize?.height}px`} animation="wave" />
+            </SkeletonContainer>
           )}
           <Image
+            ref={imageRef}
             src={imageSrc}
             alt={altText}
             height={331}
