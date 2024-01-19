@@ -26,30 +26,32 @@ const ThumbnailsCarousel = () => {
     });
   };
 
-  return (
-    <ThumbnailsContainer>
-      {images?.map((item, i) => (
-        <ThumbnailContainer
-          onClick={() => dispatch(setZoomModalIndex(i))}
-          selected={zoomModalIndex === i}
-          key={`thumbnail-zoom-${i}`}
-        >
-          {loadingStates?.[i] && (
-            <SkeletonContainer>
-              <Skeleton animation={'wave'} height={'70px'} width={'70px'} />
-            </SkeletonContainer>
-          )}
-          <Image
-            src={item?.imageUrl}
-            alt={item?.imageText ?? `product image ${i}`}
-            width={256}
-            height={189}
-            onLoad={() => handleImageLoad(i)}
-          />
-        </ThumbnailContainer>
-      ))}
-    </ThumbnailsContainer>
-  );
+  if (images && images.length > 1)
+    return (
+      <ThumbnailsContainer>
+        {images?.map((item, i) => (
+          <ThumbnailContainer
+            onClick={() => dispatch(setZoomModalIndex(i))}
+            selected={zoomModalIndex === i}
+            key={`thumbnail-zoom-${i}`}
+          >
+            {loadingStates?.[i] && (
+              <SkeletonContainer>
+                <Skeleton animation={'wave'} height={'70px'} width={'70px'} />
+              </SkeletonContainer>
+            )}
+            <Image
+              src={item?.imageUrl}
+              alt={item?.imageText ?? `product image ${i}`}
+              width={256}
+              height={189}
+              onLoad={() => handleImageLoad(i)}
+            />
+          </ThumbnailContainer>
+        ))}
+      </ThumbnailsContainer>
+    );
+  else return null;
 };
 
 export default ThumbnailsCarousel;

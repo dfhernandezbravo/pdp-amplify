@@ -45,7 +45,8 @@ export const Rest = styled.div`
 
 export const SkeletonContainer = styled.div`
   width: 79px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
-  top: 3.5px;
-  left: 3.5px;
 `;
