@@ -8,7 +8,6 @@ import { useSearchParams } from 'next/navigation';
 
 const Actions = () => {
   const { product } = useAppSelector((state) => state.product);
-  const { cartId, cart } = useAppSelector((state) => state.cart);
   const [quantity, setQuantity] = useState(1);
   const searchParams = useSearchParams();
 
@@ -48,14 +47,9 @@ const Actions = () => {
             max={availableStock()}
           />
         </Desktop>
-        <Buttons
-          quantity={quantity}
-          product={product}
-          cartId={cartId}
-          shoppingCart={cart}
-        />
-      </ButtonsContainer>
-    );
+      <Buttons quantity={quantity} product={product} />
+    </ButtonsContainer>
+  );
   else return null;
 };
 
