@@ -13,7 +13,6 @@ export const StyledLink = styled.div<{
   outline: 1px solid rgba(134, 134, 134, 1);
   position: relative;
   border-radius: 0.25rem;
-  margin-right: 0.5rem;
   cursor: pointer;
   height: 2.7rem;
   width: 2.7rem;

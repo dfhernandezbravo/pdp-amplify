@@ -4,17 +4,18 @@ import { QuantitySelector } from '@cencosud-ds/easy-design-system';
 import { useAppSelector } from '@hooks/storeHooks';
 import Desktop from '@components/Desktop';
 import Buttons from './buttons';
-import { useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/router';
 
 const Actions = () => {
   const { product } = useAppSelector((state) => state.product);
   const [quantity, setQuantity] = useState(1);
-  const searchParams = useSearchParams();
+  const router = useRouter();
 
   const availableStock = () => {
-    if (searchParams?.get('skuId')) {
+    const skuId = router?.query?.skuId;
+    if (skuId) {
       const selectedProduct = product?.items?.find(
-        (item) => item?.itemId === searchParams.get('skuId'),
+        (item) => item?.itemId === skuId,
       );
       return (
         selectedProduct?.sellers?.[0]?.commertialOffer?.availableQuantity || 0
@@ -47,9 +48,9 @@ const Actions = () => {
             max={availableStock()}
           />
         </Desktop>
-      <Buttons quantity={quantity} product={product} />
-    </ButtonsContainer>
-  );
+        <Buttons quantity={quantity} product={product} />
+      </ButtonsContainer>
+    );
   else return null;
 };
 

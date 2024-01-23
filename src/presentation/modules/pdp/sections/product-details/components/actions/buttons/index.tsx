@@ -6,7 +6,6 @@ import { useAppSelector } from '@hooks/storeHooks';
 import { customDispatchEvent } from '@store/events/dispatchEvents';
 import { useSearchParams } from 'next/navigation';
 
-
 type Props = {
   quantity: number;
   product: GetProduct;
