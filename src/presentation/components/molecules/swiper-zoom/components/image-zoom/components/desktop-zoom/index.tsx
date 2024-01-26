@@ -19,7 +19,7 @@ const DesktopZoom = ({
   const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 });
   const [isHover, setIsHover] = useState(false);
   const [loadingImage, setLoadingImage] = useState(true);
-  const [minHeight, setMinHeight] = useState(500);
+  const [minHeight, setMinHeight] = useState(400);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const { left, top, width, height } =

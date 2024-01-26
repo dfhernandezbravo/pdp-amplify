@@ -3,7 +3,7 @@ run-name: deploy-to-k8s
 on: [push, workflow_dispatch]
 jobs:
   k8s:
-    uses: Cencosud-Cencommerce/actions/.github/workflows/deploy-to-k8s.yml@feat/correct-extra-args 
+    uses: Cencosud-Cencommerce/actions/.github/workflows/deploy-to-k8s.yml@feat/correct-extra-args
     secrets: inherit
     with:
       dry-run: 'false'
@@ -14,4 +14,3 @@ jobs:
         NPM_TOKEN=$NPM_TOKEN
         NEXT_PUBLIC_RATING_AND_REVIEWS_URI=$NEXT_PUBLIC_RATING_AND_REVIEWS_URI
         NEXT_PUBLIC_CHECKOUT_URL=$NEXT_PUBLIC_CHECKOUT_URL
-

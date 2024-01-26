@@ -11,7 +11,7 @@ export const ThumbnailsContainer = styled.div`
   align-items: center;
   gap: 0.5rem;
   height: 100%;
-  max-height: 75vh;
+  max-height: 60vh;
   overflow-y: scroll;
 
   &::-webkit-scrollbar {
