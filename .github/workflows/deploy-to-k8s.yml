@@ -3,7 +3,7 @@ run-name: deploy-to-k8s
 on: [push, workflow_dispatch]
 jobs:
   k8s:
-    uses: Cencosud-Cencommerce/actions/.github/workflows/deploy-to-k8s.yml@main
+    uses: Cencosud-Cencommerce/actions/.github/workflows/deploy-to-k8s.yml@feat/correct-extra-args
     secrets: inherit
     with:
       dry-run: 'false'
