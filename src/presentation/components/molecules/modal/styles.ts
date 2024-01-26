@@ -29,11 +29,10 @@ export const Content = styled.div`
   border-radius: 8px;
   width: max-content;
   min-width: 528px;
-  height: max-content;
-  min-height: 194px;
+  height: fit-content;
   position: absolute;
   max-width: 60%;
-  max-height: 90%;
+  max-height: 75%;
   overflow-y: scroll;
   top: 0;
   right: 0;

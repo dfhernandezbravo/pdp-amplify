@@ -4,7 +4,6 @@ export const ZoomContainer = styled.div<{ $loading: boolean }>`
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  min-height: 330px;
   width: 100%;
 
   img {
