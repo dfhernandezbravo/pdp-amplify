@@ -10,28 +10,42 @@ const OptionWithText = ({ options, variation }: Props) => {
   const router = useRouter();
 
   const defaultOption = () => {
-    return options?.find(
-      (option) => option?.sellers?.[0]?.commertialOffer?.availableQuantity > 0,
-    )?.itemSpecifications?.[variation][0];
+    const skuId = router.query.skuId as string;
+    if (skuId) {
+      const item = options.find((option) => option.itemId === skuId);
+      return item?.itemSpecifications?.[variation][0];
+    } else {
+      return options?.find(
+        (option) =>
+          option?.sellers?.[0]?.commertialOffer?.availableQuantity > 0,
+      )?.itemSpecifications?.[variation][0];
+    }
   };
 
   const selectOption = (option: Item) => {
     const skuId = option?.itemId;
-    router.push(
-      {
-        query: {
-          department: router.query.department,
-          skuId: skuId,
-        },
-      },
-      undefined,
-      { shallow: true },
+
+    const newUrl = `/${router.query.department}/p?skuId=${skuId}`;
+
+    window.history.replaceState(
+      { ...window.history.state, as: newUrl, url: newUrl },
+      '',
+      newUrl,
     );
     setSelected(option?.itemSpecifications?.[variation][0]);
   };
 
   useEffect(() => {
     setSelected(defaultOption());
+    if (variation === 'Tallas') {
+      options.sort((a, b) => {
+        const optionValueA = a?.itemSpecifications?.[variation][0];
+        const optionValueB = b?.itemSpecifications?.[variation][0];
+        const numberA = parseInt(optionValueA);
+        const numberB = parseInt(optionValueB);
+        return numberA - numberB;
+      });
+    }
   }, [variation]);
 
   return (

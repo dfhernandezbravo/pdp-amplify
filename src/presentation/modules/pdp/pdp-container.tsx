@@ -40,6 +40,7 @@ const PdpContainer = (productData: GetProduct) => {
     const skuId = router.query.skuId as string;
     if (skuId) {
       const item = productData?.items?.find((item) => item.itemId === skuId);
+
       dispatch(setImages(item?.images));
     } else dispatch(setImages(productData?.items?.[0]?.images));
   };
