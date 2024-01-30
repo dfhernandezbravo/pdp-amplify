@@ -38,7 +38,8 @@ const OptionWithText = ({ options, variation }: Props) => {
   useEffect(() => {
     setSelected(defaultOption());
     if (variation === 'Tallas') {
-      options.sort((a, b) => {
+      const arrayForSort = [...options];
+      arrayForSort.sort((a, b) => {
         const optionValueA = a?.itemSpecifications?.[variation][0];
         const optionValueB = b?.itemSpecifications?.[variation][0];
         const numberA = parseInt(optionValueA);
