@@ -2,7 +2,6 @@ import { Provider } from 'react-redux';
 import PdpContainer from './pdp-container';
 import store from '@store/index';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import { ThemeProvider } from '@cencosud-ds/easy-design-system';
 import { GetProduct } from '@entities/product/get-product.response';
 import {
   GetStaticProps,
@@ -10,6 +9,15 @@ import {
   InferGetStaticPropsType,
 } from 'next';
 import axios from 'axios';
+import dynamic from 'next/dynamic';
+
+const EasyThemeProvider = dynamic(
+  () =>
+    import('@ccom-easy-design-system/theme.theme-provider').then(
+      (module) => module.EasyThemeProvider,
+    ),
+  { ssr: false },
+);
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -23,11 +31,11 @@ const Pdp = (props: InferGetStaticPropsType<GetStaticProps>) => {
   const { repo } = props;
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider>
+      <EasyThemeProvider>
         <Provider store={store}>
           <PdpContainer {...repo} />
         </Provider>
-      </ThemeProvider>
+      </EasyThemeProvider>
     </QueryClientProvider>
   );
 };

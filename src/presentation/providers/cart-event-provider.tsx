@@ -4,7 +4,7 @@ import getCart from '@use-cases/shopping-cart/get-shopping-cart';
 import { useAppDispatch, useAppSelector } from '@hooks/storeHooks';
 import { setCart, setCartId } from '@store/cart';
 import { customDispatchEvent } from '@store/events/dispatchEvents';
-import { ShoppingCart } from '@cencosud-ds/easy-design-system';
+import { GetCart as ShoppingCart } from '@entities/cart/get-cart.response';
 
 type Props = {
   children: React.ReactNode;

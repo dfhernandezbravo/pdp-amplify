@@ -29,7 +29,11 @@ RUN echo "NEXT_PUBLIC_BFF_URL -- $NEXT_PUBLIC_BFF_URL"
 RUN echo "NEXT_PUBLIC_API_KEY_BFF -- $NEXT_PUBLIC_API_KEY_BFF"
 RUN echo "NEXT_PUBLIC_RATING_AND_REVIEWS_URI --$NEXT_PUBLIC_RATING_AND_REVIEWS_URI"
 RUN echo "NEXT_PUBLIC_CHECKOUT_URL --$NEXT_PUBLIC_CHECKOUT_URL"
-RUN npm config set -- //gitlab.com/api/v4/packages/npm/:_authToken=$NPM_TOKEN
+
+RUN npm config set -- //gitlab.com/api/v4/packages/npm/:_authToken=glpat-8ASRwMRojB3hcxaFgx3J
+RUN echo "npm config set -- //gitlab.com/api/v4/packages/npm/:_authToken=glpat-8ASRwMRojB3hcxaFgx3J"
+
+RUN npm config set -- //node-registry.bit.cloud/:_authToken=f91ccd4c-0f9a-4ee7-ba17-40404dd9b05a
 
 RUN NODE_ENV='' yarn install && \
     yarn build

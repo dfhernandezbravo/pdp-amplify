@@ -6,9 +6,18 @@ import {
   ThumbnailsContainer,
 } from './style';
 import Image from 'next/image';
-import { Skeleton } from '@cencosud-ds/easy-design-system';
 import { useAppDispatch, useAppSelector } from '@hooks/storeHooks';
 import { setActiveIndex, setOpenZoomModal } from '@store/gallery';
+
+import dynamic from 'next/dynamic';
+
+const Skeleton = dynamic(
+  () =>
+    import('@ccom-easy-design-system/atoms.skeleton').then(
+      (module) => module.Skeleton,
+    ),
+  { ssr: false },
+);
 
 const Thumbnails = () => {
   const dispatch = useAppDispatch();
@@ -28,10 +37,10 @@ const Thumbnails = () => {
               {loadingThumbnails && (
                 <SkeletonContainer>
                   <Skeleton
-                    animation={'wave'}
+                    animationtype={'wave'}
                     height={'75px'}
                     width={'75px'}
-                    borderRadius="5px"
+                    radius="5px"
                   />
                 </SkeletonContainer>
               )}

@@ -14,13 +14,21 @@ import Image from 'next/image';
 import Desktop from '@components/Desktop';
 import useBreakpoints from '@hooks/useBreakpoints';
 import { FaMagnifyingGlassPlus } from 'react-icons/fa6';
-import { Skeleton } from '@cencosud-ds/easy-design-system';
 import ZoomModal from './components/zoom-modal';
 import {
   setActiveIndex,
   setOpenZoomModal,
   setZoomModalIndex,
 } from '@store/gallery';
+import dynamic from 'next/dynamic';
+
+const Skeleton = dynamic(
+  () =>
+    import('@ccom-easy-design-system/atoms.skeleton').then(
+      (module) => module.Skeleton,
+    ),
+  { ssr: false },
+);
 
 const ImageGallery = () => {
   const { images, openZoomModal, zoomModalIndex, activeIndex } = useAppSelector(
@@ -43,7 +51,7 @@ const ImageGallery = () => {
         {loadingImage && (
           <SkeletonContainer>
             <Skeleton
-              animation="wave"
+              animationtype="wave"
               height={isXs || isSm ? '200px' : '500px'}
               width="613px"
             />

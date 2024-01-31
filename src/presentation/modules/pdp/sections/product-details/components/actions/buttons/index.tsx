@@ -1,10 +1,18 @@
-import { Button } from '@cencosud-ds/easy-design-system';
 import WindowsEvents from '@components/events';
 import { AddItemShoppingCartEvent } from '@entities/events/add-to-cart-event';
 import { GetProduct } from '@entities/product/get-product.response';
 import { useAppSelector } from '@hooks/storeHooks';
 import { customDispatchEvent } from '@store/events/dispatchEvents';
 import { useSearchParams } from 'next/navigation';
+import dynamic from 'next/dynamic';
+
+const Button = dynamic(
+  () =>
+    import('@ccom-easy-design-system/atoms.button').then(
+      (module) => module.Button,
+    ),
+  { ssr: false },
+);
 
 type Props = {
   quantity: number;
