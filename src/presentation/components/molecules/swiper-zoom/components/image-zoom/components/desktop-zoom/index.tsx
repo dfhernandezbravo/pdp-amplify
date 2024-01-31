@@ -1,7 +1,15 @@
 import { useEffect, useState } from 'react';
 import { Overlay, ZoomContainer } from './style';
 import Image from 'next/image';
-import { Skeleton } from '@cencosud-ds/easy-design-system';
+import dynamic from 'next/dynamic';
+
+const Skeleton = dynamic(
+  () =>
+    import('@ccom-easy-design-system/atoms.skeleton').then(
+      (module) => module.Skeleton,
+    ),
+  { ssr: false },
+);
 
 type DesktopZoomProps = {
   imageSrc: string;
@@ -54,7 +62,7 @@ const DesktopZoom = ({
       ) : (
         <>
           {loadingImage && (
-            <Skeleton animation="wave" height={`${minHeight}px`} />
+            <Skeleton animationtype="wave" height={`${minHeight}px`} />
           )}
           <Image
             src={imageSrc}

@@ -1,10 +1,18 @@
 import React, { useState } from 'react';
 import { ButtonsContainer, OutOfStockText, QuantityTitle } from './style';
-import { QuantitySelector } from '@cencosud-ds/easy-design-system';
 import { useAppSelector } from '@hooks/storeHooks';
 import Desktop from '@components/Desktop';
 import Buttons from './buttons';
 import { useRouter } from 'next/router';
+import dynamic from 'next/dynamic';
+
+const QuantitySelector = dynamic(
+  () =>
+    import('@ccom-easy-design-system/atoms.quantity-selector').then(
+      (module) => module.QuantitySelector,
+    ),
+  { ssr: false },
+);
 
 const Actions = () => {
   const { product } = useAppSelector((state) => state.product);

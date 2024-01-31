@@ -490,6 +490,62 @@
     "@babel/helper-validator-identifier" "^7.22.20"
     to-fast-properties "^2.0.0"
 
+"@ccom-easy-design-system/atoms.button@^0.0.5":
+  version "0.0.5"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.button/-/atoms.button-0.0.5.tgz#f47c4a4886be2e6837ee0e9f7d3c838386dfca87"
+  integrity sha512-Xt4abMU3cxzKFlWDPz/k+KnYRyVERzcbyKVOtg2N/XZyFNRRWsZBH356PyOx0/uoHMkNP1LivjQbOG/40rsKCA==
+  dependencies:
+    "@ccom-easy-design-system/theme.easy" "0.0.4"
+    styled-components "^6.1.6"
+
+"@ccom-easy-design-system/atoms.characteristic-table@^0.0.4":
+  version "0.0.4"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.characteristic-table/-/atoms.characteristic-table-0.0.4.tgz#562f72b10e05a9901992fcf126610e368c227d50"
+  integrity sha512-qyzezqR+iiUHeFkWrr5odHtuf4zr4UbR+Gr0AoZgPn0nRkJE9+/4349b/AbXTBnxUxXXxXJPhxojJPsF7118Lg==
+  dependencies:
+    styled-components "^6.1.6"
+
+"@ccom-easy-design-system/atoms.icons@0.0.1":
+  version "0.0.1"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.icons/-/atoms.icons-0.0.1.tgz#9c36a2107c8850511ec3914cb7e6c65b11ee59f9"
+  integrity sha512-LI/rPDfAJTaQkMg1Sonqa17rSCYvlndvcPvrBrxVZWnqkSuT75MmGabJMaIe+SFAdJsw2wK/12L4yxwUPzCkiA==
+
+"@ccom-easy-design-system/atoms.price@^0.0.5":
+  version "0.0.5"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.price/-/atoms.price-0.0.5.tgz#2640476de42dfb04534f932cbcb27b4f29c7638e"
+  integrity sha512-/pKFdo2fGQC6gFLdehrbvwAixK86DR++7gyM+qpKEn4reDnnNDQJ2QBcCqqplLIJGFVMcIeqipPmWQEvOPyU2g==
+  dependencies:
+    "@ccom-easy-design-system/atoms.icons" "0.0.1"
+    styled-components "^6.1.6"
+
+"@ccom-easy-design-system/atoms.quantity-selector@^0.0.4":
+  version "0.0.4"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.quantity-selector/-/atoms.quantity-selector-0.0.4.tgz#7962fbcecd20de1a1399287c763d186341e0fbcc"
+  integrity sha512-FPojyq0u4PyWhsphUm4DuPVhmWNgTgQLgRrGYPq2WdCbJr5xtWkPIyQSQOx0X9BYA3qQz9AramjvgSHkArlUcg==
+  dependencies:
+    react-icons "^5.0.1"
+    styled-components "^6.1.6"
+
+"@ccom-easy-design-system/atoms.skeleton@^0.0.2":
+  version "0.0.2"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.skeleton/-/atoms.skeleton-0.0.2.tgz#3a229915a854d26983331dcef3e5d68762873e39"
+  integrity sha512-kMFfn3O4UH/xKjbr95sx0L2jqy2BcrFTJGkSnP4W5Sxug23prpapkA7PVb1fBfFScp991rjLOxGhNQazsg2ASA==
+  dependencies:
+    styled-components "^6.1.6"
+
+"@ccom-easy-design-system/theme.easy@0.0.4":
+  version "0.0.4"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/theme.easy/-/theme.easy-0.0.4.tgz#129e522267d3ea1d0a91522b0da148ec93f0cb32"
+  integrity sha512-QzgmXmr1YrjfRbfTcne609Yiv9aVyq2pK5d8Un38eq3jSUUACqpqjDg4W7T500wON1JigNWzoYJf/vPZjro/Ng==
+
+"@ccom-easy-design-system/theme.theme-provider@^0.0.2":
+  version "0.0.2"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/theme.theme-provider/-/theme.theme-provider-0.0.2.tgz#23d00f3735ed0f9952618b68ef23de2248e80742"
+  integrity sha512-0nd3x6w2Iu0SnmU8l8qPt8lrr/lmvIObyYfG/4EtBTJX3KHjLgLiIzLq1h5lQjA3h54yqv/SoOfZ24Cycr9usg==
+  dependencies:
+    "@ccom-easy-design-system/theme.easy" "0.0.4"
+    styled-components "^6.1.6"
+
 "@cencosud-ds/easy-design-system@^1.1.17":
   version "1.1.17"
   resolved "https://gitlab.com/api/v4/projects/51193403/packages/npm/@cencosud-ds/easy-design-system/-/@cencosud-ds/easy-design-system-1.1.17.tgz#604d38e9e46065c2a4717ab8946ed31e2b323201"
@@ -747,7 +803,7 @@
   resolved "https://registry.yarnpkg.com/@emotion/hash/-/hash-0.9.1.tgz#4ffb0055f7ef676ebc3a5a91fb621393294e2f43"
   integrity sha512-gJB6HLm5rYwSLI6PQa+X1t5CFGrv1J1TWG+sOyMCeKz2ojaj6Fnl/rZEspogG+cvqbt4AE/2eIyD2QfLKTBNlQ==
 
-"@emotion/is-prop-valid@^1.2.1":
+"@emotion/is-prop-valid@1.2.1", "@emotion/is-prop-valid@^1.2.1":
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/@emotion/is-prop-valid/-/is-prop-valid-1.2.1.tgz#23116cf1ed18bfeac910ec6436561ecb1a3885cc"
   integrity sha512-61Mf7Ufx4aDxx1xlDeOm8aFFigGHE4z+0sKCa+IHCeZKiyP9RLD0Mmx7m8b9/Cf37f7NAvQOOJAbQQGVr5uERw==
@@ -800,6 +856,11 @@
     "@emotion/serialize" "^1.1.2"
     "@emotion/use-insertion-effect-with-fallbacks" "^1.0.1"
     "@emotion/utils" "^1.2.1"
+
+"@emotion/unitless@0.8.0":
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/@emotion/unitless/-/unitless-0.8.0.tgz#a4a36e9cbdc6903737cd20d38033241e1b8833db"
+  integrity sha512-VINS5vEYAscRl2ZUDiT3uMPlrFQupiKgHz5AA4bCH1miKBg4qtwkim1qPmJj/4WG6TreYMY111rEFsjupcOKHw==
 
 "@emotion/unitless@^0.8.0", "@emotion/unitless@^0.8.1":
   version "0.8.1"
@@ -1906,6 +1967,11 @@
   resolved "https://registry.yarnpkg.com/@types/semver/-/semver-7.5.3.tgz#9a726e116beb26c24f1ccd6850201e1246122e04"
   integrity sha512-OxepLK9EuNEIPxWNME+C6WwbRAOOI2o2BaQEGzz5Lu2e4Z5eDnEo+/aVEDMIXywoJitJ7xWd641wrGLZdtwRyw==
 
+"@types/stylis@4.2.0":
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/@types/stylis/-/stylis-4.2.0.tgz#199a3f473f0c3a6f6e4e1b17cdbc967f274bdc6b"
+  integrity sha512-n4sx2bqL0mW1tvDf/loQ+aMX7GQD3lc3fkCMC55VFNDu/vBOabO+LTIeXKM14xK0ppk5TUGcWRjiSpIlUpghKw==
+
 "@types/stylis@^4.0.2":
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/@types/stylis/-/stylis-4.2.3.tgz#0dff504fc23487a02a29209b162249070e83a0da"
@@ -2915,7 +2981,7 @@ css-color-keywords@^1.0.0:
   resolved "https://registry.yarnpkg.com/css-color-keywords/-/css-color-keywords-1.0.0.tgz#fea2616dc676b2962686b3af8dbdbe180b244e05"
   integrity sha512-FyyrDHZKEjXDpNJYvVsV960FiqQyXc/LlYmsxl2BcdMb2WPx0OGRVgTg55rPSyLSNMqP52R9r8geSp7apN3Ofg==
 
-css-to-react-native@^3.2.0:
+css-to-react-native@3.2.0, css-to-react-native@^3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/css-to-react-native/-/css-to-react-native-3.2.0.tgz#cdd8099f71024e149e4f6fe17a7d46ecd55f1e32"
   integrity sha512-e8RKaLXMOFii+02mOlqwjbD00KSEKqblnpO9e++1aXS1fPQOpS1YoqdVHBqPjHNoxeF2mimzVqawm2KCbEdtHQ==
@@ -2924,7 +2990,7 @@ css-to-react-native@^3.2.0:
     css-color-keywords "^1.0.0"
     postcss-value-parser "^4.0.2"
 
-csstype@^3.0.2, csstype@^3.1.2:
+csstype@3.1.2, csstype@^3.0.2, csstype@^3.1.2:
   version "3.1.2"
   resolved "https://registry.npmjs.org/csstype/-/csstype-3.1.2.tgz"
   integrity sha512-I7K1Uu0MBPzaFKg4nI5Q7Vs2t+3gWWW648spaF+Rg7pI9ds18Ugn+lvg4SHczUdKlHI5LWBXyqfS8+DufyBsgQ==
@@ -5181,7 +5247,7 @@ postcss@8.4.14:
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
 
-postcss@^8.4.31:
+postcss@8.4.31, postcss@^8.4.31:
   version "8.4.31"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.31.tgz#92b451050a9f914da6755af352bdc0192508656d"
   integrity sha512-PS08Iboia9mts/2ygV3eLpY5ghnUcfLV/EXTOW1E2qYxJKGGBUtNjN76FYHnMs36RmARn41bC0AZmn+rR0OVpQ==
@@ -5338,6 +5404,11 @@ react-icons@^4.11.0, react-icons@^4.12.0:
   version "4.12.0"
   resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-4.12.0.tgz#54806159a966961bfd5cdb26e492f4dafd6a8d78"
   integrity sha512-IBaDuHiShdZqmfc/TwHu6+d6k2ltNCf3AszxNmjJc1KUfXdEeRJOKyNvLmAHaarhzGmTSVygNdyu8/opXv2gaw==
+
+react-icons@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-5.0.1.tgz#1694e11bfa2a2888cab47dcc30154ce90485feee"
+  integrity sha512-WqLZJ4bLzlhmsvme6iFdgO8gfZP17rfjYEJ2m9RsZjZ+cc4k1hTzknEz63YS1MeT50kVzoa1Nz36f4BEx+Wigw==
 
 react-is@^16.13.1, react-is@^16.7.0:
   version "16.13.1"
@@ -5701,7 +5772,7 @@ serialize-javascript@^6.0.1:
   dependencies:
     randombytes "^2.1.0"
 
-shallowequal@^1.1.0:
+shallowequal@1.1.0, shallowequal@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/shallowequal/-/shallowequal-1.1.0.tgz#188d521de95b9087404fd4dcb68b13df0ae4e7f8"
   integrity sha512-y0m1JoUZSlPAjXVtPPW70aZWfIL/dSP7AFkRnniLCrK/8MDKog3TySTBmckD+RObVxH0v4Tox67+F14PdED2oQ==
@@ -6004,7 +6075,7 @@ strnum@^1.0.5:
   resolved "https://registry.npmjs.org/strnum/-/strnum-1.0.5.tgz"
   integrity sha512-J8bbNyKKXl5qYcR36TIO8W3mVGVHrmmxsd5PAItGkmyzwJvybiw2IVq5nqd0i4LSNSkB/sx9VHllbfFdr9k1JA==
 
-styled-components@^6.1.0, styled-components@^6.1.1:
+styled-components@^6.1.0:
   version "6.1.1"
   resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-6.1.1.tgz#a5414ada07fb1c17b96a26a05369daa4e2ad55e5"
   integrity sha512-cpZZP5RrKRIClBW5Eby4JM1wElLVP4NQrJbJ0h10TidTyJf4SIIwa3zLXOoPb4gJi8MsJ8mjq5mu2IrEhZIAcQ==
@@ -6019,6 +6090,21 @@ styled-components@^6.1.0, styled-components@^6.1.1:
     stylis "^4.3.0"
     tslib "^2.5.0"
 
+styled-components@^6.1.6, styled-components@^6.1.8:
+  version "6.1.8"
+  resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-6.1.8.tgz#c109d36aeea52d8f049e12de2f3be39a6fc86201"
+  integrity sha512-PQ6Dn+QxlWyEGCKDS71NGsXoVLKfE1c3vApkvDYS5KAK+V8fNWGhbSUEo9Gg2iaID2tjLXegEW3bZDUGpofRWw==
+  dependencies:
+    "@emotion/is-prop-valid" "1.2.1"
+    "@emotion/unitless" "0.8.0"
+    "@types/stylis" "4.2.0"
+    css-to-react-native "3.2.0"
+    csstype "3.1.2"
+    postcss "8.4.31"
+    shallowequal "1.1.0"
+    stylis "4.3.1"
+    tslib "2.5.0"
+
 styled-jsx@5.1.1:
   version "5.1.1"
   resolved "https://registry.npmjs.org/styled-jsx/-/styled-jsx-5.1.1.tgz"
@@ -6030,6 +6116,11 @@ stylis@4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/stylis/-/stylis-4.2.0.tgz#79daee0208964c8fe695a42fcffcac633a211a51"
   integrity sha512-Orov6g6BB1sDfYgzWfTHDOxamtX1bE/zo104Dh9e6fqJ3PooipYyfJ0pUmrZO2wAvO8YbEyeFrkV91XTsGMSrw==
+
+stylis@4.3.1:
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/stylis/-/stylis-4.3.1.tgz#ed8a9ebf9f76fe1e12d462f5cc3c4c980b23a7eb"
+  integrity sha512-EQepAV+wMsIaGVGX1RECzgrcqRRU/0sYOHkeLsZ3fzHaHXZy4DaOOX0vOlGQdlsjkh3mFHAIlVimpwAs4dslyQ==
 
 stylis@^4.3.0:
   version "4.3.0"
@@ -6260,6 +6351,11 @@ tsconfig-paths@^3.14.1:
     json5 "^1.0.2"
     minimist "^1.2.6"
     strip-bom "^3.0.0"
+
+tslib@2.5.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.5.0.tgz#42bfed86f5787aeb41d031866c8f402429e0fddf"
+  integrity sha512-336iVw3rtn2BUK7ORdIAHTyxHGRIHVReokCR3XjbckJMK7ms8FysBfhLR8IXnAgy7T0PTPNBWKiH514FOW/WSg==
 
 tslib@^1.11.1, tslib@^1.8.1:
   version "1.14.1"

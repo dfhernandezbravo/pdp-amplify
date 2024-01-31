@@ -1,5 +1,13 @@
-import { Skeleton } from '@cencosud-ds/easy-design-system';
 import { Container } from './styles';
+import dynamic from 'next/dynamic';
+
+const Skeleton = dynamic(
+  () =>
+    import('@ccom-easy-design-system/atoms.skeleton').then(
+      (module) => module.Skeleton,
+    ),
+  { ssr: false },
+);
 
 const CommentListSkeleton = () => {
   const MainSkeleton = () => {
