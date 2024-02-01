@@ -49,9 +49,9 @@ export const getStaticProps = (async (ctx: GetStaticPropsContext) => {
 
     try {
       const response = await axios.get(
-        `${
-          process.env.NEXT_PUBLIC_BFF_URL
-        }/products/by-sku/${encodeURIComponent(productId)}`,
+        `${process.env.NEXT_PUBLIC_BFF_URL}products/by-sku/${encodeURIComponent(
+          productId,
+        )}`,
         {
           headers: {
             'x-api-key': `${process.env.NEXT_PUBLIC_API_KEY_BFF}`,

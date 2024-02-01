@@ -3,7 +3,6 @@ import { ButtonsContainer, OutOfStockText, QuantityTitle } from './style';
 import { useAppSelector } from '@hooks/storeHooks';
 import Desktop from '@components/Desktop';
 import Buttons from './buttons';
-import { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
 
 const QuantitySelector = dynamic(
@@ -15,24 +14,11 @@ const QuantitySelector = dynamic(
 );
 
 const Actions = () => {
-  const { product } = useAppSelector((state) => state.product);
+  const { product, selectedItem } = useAppSelector((state) => state.product);
   const [quantity, setQuantity] = useState(1);
-  const router = useRouter();
 
   const availableStock = () => {
-    const skuId = router?.query?.skuId;
-    if (skuId) {
-      const selectedProduct = product?.items?.find(
-        (item) => item?.itemId === skuId,
-      );
-      return (
-        selectedProduct?.sellers?.[0]?.commertialOffer?.availableQuantity || 0
-      );
-    } else
-      return (
-        product?.items?.[0].sellers?.[0]?.commertialOffer?.availableQuantity ||
-        0
-      );
+    return selectedItem?.sellers?.[0]?.commertialOffer?.availableQuantity || 0;
   };
 
   if (!availableStock())
@@ -56,7 +42,7 @@ const Actions = () => {
             max={availableStock()}
           />
         </Desktop>
-        <Buttons quantity={quantity} product={product} />
+        <Buttons quantity={quantity} />
       </ButtonsContainer>
     );
   else return null;
