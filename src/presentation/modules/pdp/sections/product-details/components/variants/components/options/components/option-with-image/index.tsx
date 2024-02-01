@@ -10,13 +10,13 @@ type Props = { options: Item[]; variation: string };
 
 const OptionWithImage = ({ options, variation }: Props) => {
   const [selected, setSelected] = useState<string>();
-  const { selectedItem } = useAppSelector((state) => state.product);
+  const { selectedVariant } = useAppSelector((state) => state.product);
   const dispatch = useAppDispatch();
   const router = useRouter();
 
   const defaultOption = () => {
-    dispatch(setImages(selectedItem?.images));
-    return selectedItem?.images?.[0]?.imageUrl;
+    dispatch(setImages(selectedVariant?.images));
+    return selectedVariant?.images?.[0]?.imageUrl;
   };
 
   const selectOption = (option: Item) => {

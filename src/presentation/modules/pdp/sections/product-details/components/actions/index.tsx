@@ -14,11 +14,13 @@ const QuantitySelector = dynamic(
 );
 
 const Actions = () => {
-  const { product, selectedItem } = useAppSelector((state) => state.product);
+  const { product, selectedVariant } = useAppSelector((state) => state.product);
   const [quantity, setQuantity] = useState(1);
 
   const availableStock = () => {
-    return selectedItem?.sellers?.[0]?.commertialOffer?.availableQuantity || 0;
+    return (
+      selectedVariant?.sellers?.[0]?.commertialOffer?.availableQuantity || 0
+    );
   };
 
   if (!availableStock())

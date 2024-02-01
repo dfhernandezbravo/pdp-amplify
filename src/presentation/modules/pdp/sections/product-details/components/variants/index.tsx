@@ -4,15 +4,15 @@ import Options from './components/options';
 import { useEffect, useState } from 'react';
 
 const Variants = () => {
-  const { product, selectedItem } = useAppSelector((state) => state.product);
-  const variations = selectedItem?.itemSpecifications?.variations;
+  const { product, selectedVariant } = useAppSelector((state) => state.product);
+  const variations = selectedVariant?.itemSpecifications?.variations;
   const [selectedColor, setSelectedColor] = useState<string>();
 
   useEffect(() => {
     if (variations?.includes('Color')) {
-      setSelectedColor(selectedItem?.itemSpecifications?.Color?.[0]);
+      setSelectedColor(selectedVariant?.itemSpecifications?.Color?.[0]);
     }
-  }, [selectedItem]);
+  }, [selectedVariant]);
 
   return (
     <>

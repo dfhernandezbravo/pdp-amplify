@@ -19,14 +19,14 @@ type Props = {
 
 const Buttons = ({ quantity }: Props) => {
   const { cartId } = useAppSelector((state) => state.cart);
-  const { product, selectedItem } = useAppSelector((state) => state.product);
+  const { product, selectedVariant } = useAppSelector((state) => state.product);
 
   const addToCart = async (product: GetProduct, cartId: string) => {
-    if (selectedItem) {
+    if (selectedVariant) {
       const eventData: AddItemShoppingCartEvent = {
         cartId: cartId,
         product: {
-          productId: selectedItem?.referenceId?.[0]?.Value,
+          productId: selectedVariant?.referenceId?.[0]?.Value,
           productName: product?.productName,
           brand: product?.brand,
           imageUrl: product?.items?.[0]?.images[0].imageUrl,

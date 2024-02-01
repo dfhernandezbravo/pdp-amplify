@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 // import dynamic from 'next/dynamic';
 import { useAppDispatch } from '@hooks/storeHooks';
-import { setProduct, setSelectedItem } from '@store/product';
+import { setProduct, setSelectedVariant } from '@store/product';
 import { setImages } from '@store/gallery';
 import ImageGallery from './sections/image-gallery';
 import ProductDetails from './sections/product-details';
@@ -21,7 +21,7 @@ import { GetProduct } from '@entities/product/get-product.response';
 // import FirstLoadSkeleton from '@components/molecules/skeleton/ratings-and-reviews/FirstLoadSkeleton';
 import CartEventProvider from '../../providers/cart-event-provider';
 import Head from 'next/head';
-import useDefaultOption from '@hooks/useDefaultOption';
+import useDefaultVariant from '@hooks/useDefaultVariant';
 // import dynamic from 'next/dynamic';
 
 // const RatingAndReview = dynamic<RatingsProps>(
@@ -34,13 +34,13 @@ import useDefaultOption from '@hooks/useDefaultOption';
 
 const PdpContainer = (productData: GetProduct) => {
   const dispatch = useAppDispatch();
-  const defaultOption = useDefaultOption(productData?.items);
+  const defaultVariant = useDefaultVariant(productData?.items);
 
   useEffect(() => {
     if (productData) {
       dispatch(setProduct(productData));
-      dispatch(setSelectedItem(defaultOption));
-      dispatch(setImages(defaultOption?.images));
+      dispatch(setSelectedVariant(defaultVariant));
+      dispatch(setImages(defaultVariant?.images));
     }
   }, [productData, dispatch]);
 

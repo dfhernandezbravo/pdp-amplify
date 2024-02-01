@@ -8,11 +8,11 @@ type Props = { options: Item[]; variation: string };
 
 const OptionWithText = ({ options, variation }: Props) => {
   const [selected, setSelected] = useState<string>();
-  const { selectedItem } = useAppSelector((state) => state.product);
+  const { selectedVariant } = useAppSelector((state) => state.product);
   const router = useRouter();
 
   const defaultOption = () => {
-    return selectedItem?.itemSpecifications?.[variation][0];
+    return selectedVariant?.itemSpecifications?.[variation][0];
   };
 
   const selectOption = (option: Item) => {

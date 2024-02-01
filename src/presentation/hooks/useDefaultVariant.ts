@@ -2,7 +2,7 @@ import { Item } from '@entities/product/get-product.response';
 import { useRouter } from 'next/router';
 import useFirstVariantWithStock from './useFirstVariantWithStock';
 
-const useDefaultOption = (items: Item[] | undefined) => {
+const useDefaultVariant = (items: Item[] | undefined) => {
   const router = useRouter();
   const skuId = router.query.skuId as string;
   const firstVariant = useFirstVariantWithStock(items);
@@ -14,4 +14,4 @@ const useDefaultOption = (items: Item[] | undefined) => {
   return defaultOption;
 };
 
-export default useDefaultOption;
+export default useDefaultVariant;
