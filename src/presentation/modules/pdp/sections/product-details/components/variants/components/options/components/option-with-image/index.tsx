@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Item } from '@entities/product/get-product.response';
 import { StyledLink, OptionsContainer, OutOfStock } from './styles';
-import { useAppDispatch } from '@hooks/storeHooks';
+import { useAppDispatch, useAppSelector } from '@hooks/storeHooks';
 import { setImages } from '@store/gallery';
 import { useRouter } from 'next/router';
 
@@ -10,23 +10,13 @@ type Props = { options: Item[]; variation: string };
 
 const OptionWithImage = ({ options, variation }: Props) => {
   const [selected, setSelected] = useState<string>();
+  const { selectedVariant } = useAppSelector((state) => state.product);
   const dispatch = useAppDispatch();
   const router = useRouter();
 
   const defaultOption = () => {
-    const skuId = router.query.skuId as string;
-    if (skuId) {
-      const item = options.find((option) => option.itemId === skuId);
-      dispatch(setImages(item?.images));
-      return item?.images?.[0]?.imageUrl;
-    } else {
-      const firstOptionWithStock = options?.find(
-        (option) =>
-          option?.sellers?.[0]?.commertialOffer?.availableQuantity > 0,
-      );
-      dispatch(setImages(firstOptionWithStock?.images));
-      return firstOptionWithStock?.images?.[0]?.imageUrl;
-    }
+    dispatch(setImages(selectedVariant?.images));
+    return selectedVariant?.images?.[0]?.imageUrl;
   };
 
   const selectOption = (option: Item) => {

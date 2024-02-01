@@ -1,29 +1,23 @@
 import { useAppSelector } from '@hooks/storeHooks';
 import { Title, VariantsContainer } from './styles';
 import Options from './components/options';
-import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
 const Variants = () => {
-  const { product } = useAppSelector((state) => state.product);
-  const variations = product?.items?.[0]?.itemSpecifications?.variations;
-  const router = useRouter();
-  const skuId = router.query.skuId as string;
+  const { product, selectedVariant } = useAppSelector((state) => state.product);
+  const variations = selectedVariant?.itemSpecifications?.variations;
   const [selectedColor, setSelectedColor] = useState<string>();
 
   useEffect(() => {
     if (variations?.includes('Color')) {
-      const selectedItem = product?.items?.find(
-        (item) => item.itemId === skuId,
-      );
-      setSelectedColor(selectedItem?.itemSpecifications?.Color?.[0]);
+      setSelectedColor(selectedVariant?.itemSpecifications?.Color?.[0]);
     }
-  }, [variations, skuId]);
+  }, [selectedVariant]);
 
   return (
     <>
       {variations?.map((variation) => {
-        if (product?.items && product?.items?.length > 0)
+        if (product?.items)
           return (
             <VariantsContainer key={variation}>
               <Title>

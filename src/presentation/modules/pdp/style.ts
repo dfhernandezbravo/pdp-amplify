@@ -48,7 +48,7 @@ export const ImagesContainer = styled.div`
 `;
 
 export const DetailsContainer = styled.div`
-  width: 40%;
+  width: 30%;
 
   @media (max-width: 768px) {
     width: 100%;
