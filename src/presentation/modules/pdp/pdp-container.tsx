@@ -37,7 +37,9 @@ const PdpContainer = (productData: GetProduct) => {
   const defaultVariant = useDefaultVariant(productData?.items);
 
   useEffect(() => {
+    console.log('>>> product data <<<:', productData);
     if (productData) {
+      console.log('>>> default variants <<:', defaultVariant);
       dispatch(setProduct(productData));
       dispatch(setSelectedVariant(defaultVariant));
       dispatch(setImages(defaultVariant?.images));

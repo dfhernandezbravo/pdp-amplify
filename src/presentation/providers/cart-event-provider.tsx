@@ -24,6 +24,7 @@ const CartEventProvider = ({ children }: Props) => {
   const updateCartId = useCallback(
     (e: Event) => {
       e.preventDefault();
+      console.log('>> event updateCartId <<<:', e);
       const {
         detail: { cartId },
       } = e as CustomEvent<{ cartId: string }>;
@@ -35,6 +36,7 @@ const CartEventProvider = ({ children }: Props) => {
   const updateShoppingCart = useCallback(
     (e: Event) => {
       e.preventDefault();
+      console.log('>> event updateShoppingCart <<<:', e);
       const {
         detail: { shoppingCart },
       } = e as CustomEvent<{ shoppingCart: ShoppingCart }>;

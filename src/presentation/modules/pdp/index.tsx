@@ -29,6 +29,7 @@ const queryClient = new QueryClient({
 
 const Pdp = (props: InferGetStaticPropsType<GetStaticProps>) => {
   const { repo } = props;
+  console.log('>>> props <<< :', props);
   return (
     <QueryClientProvider client={queryClient}>
       <EasyThemeProvider>
@@ -59,7 +60,7 @@ export const getStaticProps = (async (ctx: GetStaticPropsContext) => {
         },
       );
       const repo = await response?.data;
-
+      console.log('>>>>> repo <<<:', repo);
       return { props: { repo }, revalidate: 60 };
     } catch (error) {
       console.info(error);
