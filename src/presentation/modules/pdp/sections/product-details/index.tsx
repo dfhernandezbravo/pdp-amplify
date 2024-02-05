@@ -1,16 +1,8 @@
 // import dynamic from 'next/dynamic';
 import { useAppSelector } from '@hooks/storeHooks';
-import {
-  Brand,
-  Container,
-  ProductId,
-  Separator,
-  Subtitle,
-  Title,
-} from './style';
+import { Brand, Container, ProductId, Separator, Title } from './style';
 import Price from './components/prices';
 import ProductSpecifications from './components/product-specifications';
-import Image from 'next/image';
 import ExchangesConditions from './components/exchanges-conditions';
 import Actions from './components/actions';
 import AddService from './components/add-service';
@@ -37,14 +29,6 @@ const ProductDetails = () => {
       <Variants />
       <Actions />
       <AddService />
-      <Separator />
-      <Subtitle>Medios de pago disponibles: </Subtitle>
-      <Image
-        alt="Medios de pagos"
-        src="https://easyclqa.vtexassets.com/arquivos/payment-methods.png"
-        width={430}
-        height={43}
-      />
       <Separator />
       <ExchangesConditions />
     </Container>
