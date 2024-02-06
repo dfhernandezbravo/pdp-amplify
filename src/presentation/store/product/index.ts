@@ -1,14 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { GetProduct } from '@entities/product/get-product.response';
+import { GetProduct, Item } from '@entities/product/get-product.response';
 
 type ProductState = {
   product: GetProduct | undefined;
+  selectedVariant: Item | undefined;
   loadingProduct: boolean;
   additionalService: boolean;
 };
 
 const initialState: ProductState = {
   product: undefined,
+  selectedVariant: undefined,
   loadingProduct: false,
   additionalService: true,
 };
@@ -20,6 +22,9 @@ const productSlice = createSlice({
     setProduct: (state, { payload }) => {
       state.product = payload;
     },
+    setSelectedVariant: (state, { payload }) => {
+      state.selectedVariant = payload;
+    },
     setLoadingProduct: (state, { payload }) => {
       state.loadingProduct = payload;
     },
@@ -29,6 +34,10 @@ const productSlice = createSlice({
   },
 });
 
-export const { setProduct, setLoadingProduct, setAdditionalService } =
-  productSlice.actions;
+export const {
+  setProduct,
+  setLoadingProduct,
+  setAdditionalService,
+  setSelectedVariant,
+} = productSlice.actions;
 export default productSlice;

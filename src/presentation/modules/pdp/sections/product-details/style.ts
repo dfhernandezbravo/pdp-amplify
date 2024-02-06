@@ -19,12 +19,6 @@ export const Title = styled.h1`
   padding-bottom: 0.5rem;
 `;
 
-export const Subtitle = styled.span`
-  font-size: 1rem;
-  font-weight: 700;
-  padding-bottom: 0.5rem;
-`;
-
 export const Brand = styled.span`
   font-size: 0.938rem;
   color: #4d4d4d;

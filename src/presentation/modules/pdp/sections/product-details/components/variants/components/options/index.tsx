@@ -5,7 +5,7 @@ import OptionWithText from './components/option-with-text';
 type Props = { options: Item[]; variation: string };
 
 const Options = ({ options, variation }: Props) => {
-  return variation === 'Color' ? (
+  return variation === 'Color' || variation === 'Colores' ? (
     <OptionWithImage options={options} variation={variation} />
   ) : (
     <OptionWithText options={options} variation={variation} />

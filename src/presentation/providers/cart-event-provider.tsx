@@ -14,13 +14,6 @@ const CartEventProvider = ({ children }: Props) => {
   const dispatch = useAppDispatch();
   const { cartId } = useAppSelector((state) => state.cart);
 
-  useEffect(() => {
-    customDispatchEvent({
-      name: WindowsEvents.DISPATCH_GET_CART_ID,
-      detail: {},
-    });
-  }, []);
-
   const updateCartId = useCallback(
     (e: Event) => {
       e.preventDefault();
@@ -61,6 +54,13 @@ const CartEventProvider = ({ children }: Props) => {
       }
     });
   }, [cartId]);
+
+  useEffect(() => {
+    customDispatchEvent({
+      name: WindowsEvents.DISPATCH_GET_CART_ID,
+      detail: {},
+    });
+  }, []);
 
   return <>{children}</>;
 };
