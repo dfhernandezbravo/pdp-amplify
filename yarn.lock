@@ -490,7 +490,7 @@
     "@babel/helper-validator-identifier" "^7.22.20"
     to-fast-properties "^2.0.0"
 
-"@ccom-easy-design-system/atoms.button@^0.0.5":
+"@ccom-easy-design-system/atoms.button@0.0.5":
   version "0.0.5"
   resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.button/-/atoms.button-0.0.5.tgz#f47c4a4886be2e6837ee0e9f7d3c838386dfca87"
   integrity sha512-Xt4abMU3cxzKFlWDPz/k+KnYRyVERzcbyKVOtg2N/XZyFNRRWsZBH356PyOx0/uoHMkNP1LivjQbOG/40rsKCA==
@@ -498,27 +498,27 @@
     "@ccom-easy-design-system/theme.easy" "0.0.4"
     styled-components "^6.1.6"
 
-"@ccom-easy-design-system/atoms.characteristic-table@^0.0.4":
+"@ccom-easy-design-system/atoms.characteristic-table@0.0.4":
   version "0.0.4"
   resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.characteristic-table/-/atoms.characteristic-table-0.0.4.tgz#562f72b10e05a9901992fcf126610e368c227d50"
   integrity sha512-qyzezqR+iiUHeFkWrr5odHtuf4zr4UbR+Gr0AoZgPn0nRkJE9+/4349b/AbXTBnxUxXXxXJPhxojJPsF7118Lg==
   dependencies:
     styled-components "^6.1.6"
 
-"@ccom-easy-design-system/atoms.icons@0.0.1":
-  version "0.0.1"
-  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.icons/-/atoms.icons-0.0.1.tgz#9c36a2107c8850511ec3914cb7e6c65b11ee59f9"
-  integrity sha512-LI/rPDfAJTaQkMg1Sonqa17rSCYvlndvcPvrBrxVZWnqkSuT75MmGabJMaIe+SFAdJsw2wK/12L4yxwUPzCkiA==
+"@ccom-easy-design-system/atoms.icons@0.0.2":
+  version "0.0.2"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.icons/-/atoms.icons-0.0.2.tgz#ec482d2b1f1ed25cf1c2eddd595aef7f2a435404"
+  integrity sha512-0l1no7AXDK/XxjLrmFBp0dn+zUK2pe4pMlndSCuTYULdJAbcm6fumvig/+lVaSF8+HiGCnAP3XtrsdtVqd7quA==
 
-"@ccom-easy-design-system/atoms.price@^0.0.5":
-  version "0.0.5"
-  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.price/-/atoms.price-0.0.5.tgz#2640476de42dfb04534f932cbcb27b4f29c7638e"
-  integrity sha512-/pKFdo2fGQC6gFLdehrbvwAixK86DR++7gyM+qpKEn4reDnnNDQJ2QBcCqqplLIJGFVMcIeqipPmWQEvOPyU2g==
+"@ccom-easy-design-system/atoms.price@0.0.6":
+  version "0.0.6"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.price/-/atoms.price-0.0.6.tgz#63b1d77262eccb6bfa8c5c4a5e44a38ff445bac2"
+  integrity sha512-k16Wh52tVHFbBgSl2vMsAxMpnz9RtiBCncQHFaFn1EGf0DOZJyzS6ZPezPqxD5emFg7MfRuXB6A0jbG9mrsC1A==
   dependencies:
-    "@ccom-easy-design-system/atoms.icons" "0.0.1"
+    "@ccom-easy-design-system/atoms.icons" "0.0.2"
     styled-components "^6.1.6"
 
-"@ccom-easy-design-system/atoms.quantity-selector@^0.0.4":
+"@ccom-easy-design-system/atoms.quantity-selector@0.0.4":
   version "0.0.4"
   resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.quantity-selector/-/atoms.quantity-selector-0.0.4.tgz#7962fbcecd20de1a1399287c763d186341e0fbcc"
   integrity sha512-FPojyq0u4PyWhsphUm4DuPVhmWNgTgQLgRrGYPq2WdCbJr5xtWkPIyQSQOx0X9BYA3qQz9AramjvgSHkArlUcg==
@@ -526,7 +526,7 @@
     react-icons "^5.0.1"
     styled-components "^6.1.6"
 
-"@ccom-easy-design-system/atoms.skeleton@^0.0.2":
+"@ccom-easy-design-system/atoms.skeleton@0.0.2":
   version "0.0.2"
   resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.skeleton/-/atoms.skeleton-0.0.2.tgz#3a229915a854d26983331dcef3e5d68762873e39"
   integrity sha512-kMFfn3O4UH/xKjbr95sx0L2jqy2BcrFTJGkSnP4W5Sxug23prpapkA7PVb1fBfFScp991rjLOxGhNQazsg2ASA==
@@ -538,7 +538,7 @@
   resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/theme.easy/-/theme.easy-0.0.4.tgz#129e522267d3ea1d0a91522b0da148ec93f0cb32"
   integrity sha512-QzgmXmr1YrjfRbfTcne609Yiv9aVyq2pK5d8Un38eq3jSUUACqpqjDg4W7T500wON1JigNWzoYJf/vPZjro/Ng==
 
-"@ccom-easy-design-system/theme.theme-provider@^0.0.2":
+"@ccom-easy-design-system/theme.theme-provider@0.0.2":
   version "0.0.2"
   resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/theme.theme-provider/-/theme.theme-provider-0.0.2.tgz#23d00f3735ed0f9952618b68ef23de2248e80742"
   integrity sha512-0nd3x6w2Iu0SnmU8l8qPt8lrr/lmvIObyYfG/4EtBTJX3KHjLgLiIzLq1h5lQjA3h54yqv/SoOfZ24Cycr9usg==
@@ -546,7 +546,7 @@
     "@ccom-easy-design-system/theme.easy" "0.0.4"
     styled-components "^6.1.6"
 
-"@cencosud-ds/easy-design-system@^1.1.17":
+"@cencosud-ds/easy-design-system@1.1.17":
   version "1.1.17"
   resolved "https://gitlab.com/api/v4/projects/51193403/packages/npm/@cencosud-ds/easy-design-system/-/@cencosud-ds/easy-design-system-1.1.17.tgz#604d38e9e46065c2a4717ab8946ed31e2b323201"
   integrity sha1-YE046eRgZcKkcXq4lG7THisyMgE=

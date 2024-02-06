@@ -10,6 +10,7 @@ import {
 } from 'next';
 import axios from 'axios';
 import dynamic from 'next/dynamic';
+import ProductNotFound from './product-not-found/product-not-found';
 
 const EasyThemeProvider = dynamic(
   () =>
@@ -29,6 +30,11 @@ const queryClient = new QueryClient({
 
 const Pdp = (props: InferGetStaticPropsType<GetStaticProps>) => {
   const { repo } = props;
+
+  if (!repo || Object.keys(repo).length === 0) {
+    return <ProductNotFound />;
+  }
+
   return (
     <QueryClientProvider client={queryClient}>
       <EasyThemeProvider>

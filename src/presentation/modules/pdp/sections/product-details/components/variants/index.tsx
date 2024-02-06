@@ -9,8 +9,11 @@ const Variants = () => {
   const [selectedColor, setSelectedColor] = useState<string>();
 
   useEffect(() => {
-    if (variations?.includes('Color')) {
-      setSelectedColor(selectedVariant?.itemSpecifications?.Color?.[0]);
+    if (variations?.includes('Color') || variations?.includes('Colores')) {
+      setSelectedColor(
+        selectedVariant?.itemSpecifications?.Color?.[0] ||
+          selectedVariant?.itemSpecifications?.Colores?.[0],
+      );
     }
   }, [selectedVariant]);
 
@@ -22,7 +25,8 @@ const Variants = () => {
             <VariantsContainer key={variation}>
               <Title>
                 {variation}
-                {variation === 'Color' && `: ${selectedColor}`}
+                {(variation === 'Color' || variation === 'Colores') &&
+                  `: ${selectedColor}`}
               </Title>
               <Options options={product?.items} variation={variation} />
             </VariantsContainer>
