@@ -3,6 +3,7 @@ export type AddItemShoppingCartEvent = {
   product: {
     imageUrl: string;
     productName: string;
+    id: string;
     productId: string;
     brand: string;
     quantity: number;
