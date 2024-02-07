@@ -26,7 +26,8 @@ const Buttons = ({ quantity }: Props) => {
       const eventData: AddItemShoppingCartEvent = {
         cartId: cartId,
         product: {
-          productId: selectedVariant?.itemId,
+          productId: product?.productId,
+          id: selectedVariant?.itemId,
           productName: product?.productName,
           brand: product?.brand,
           imageUrl: product?.items?.[0]?.images[0].imageUrl,
