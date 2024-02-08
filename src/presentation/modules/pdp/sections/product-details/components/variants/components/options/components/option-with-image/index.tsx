@@ -54,7 +54,7 @@ const OptionWithImage = ({ options, variation }: Props) => {
           option?.sellers?.[0]?.commertialOffer?.availableQuantity === 0;
         return outOfStock ? (
           <OutOfStock>
-            <Image src={imageUrl} alt={imageText} height={1167} width={934} />
+            <Image src={imageUrl} alt={imageText} height={40} width={40} />
           </OutOfStock>
         ) : (
           <StyledLink
@@ -63,7 +63,7 @@ const OptionWithImage = ({ options, variation }: Props) => {
             selected={selected === imageUrl}
             key={skuId}
           >
-            <Image src={imageUrl} alt={imageText} height={1167} width={934} />
+            <Image src={imageUrl} alt={imageText} height={40} width={40} />
           </StyledLink>
         );
       })}
