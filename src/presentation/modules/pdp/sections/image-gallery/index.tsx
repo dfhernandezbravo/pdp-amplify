@@ -4,7 +4,6 @@ import { ProductImage } from '@entities/product-image';
 import {
   ImageGalleryContainer,
   ItemContainer,
-  SkeletonContainer,
   SwiperContainer,
   ZoomLabel,
 } from './style';
@@ -20,15 +19,6 @@ import {
   setOpenZoomModal,
   setZoomModalIndex,
 } from '@store/gallery';
-import dynamic from 'next/dynamic';
-
-const Skeleton = dynamic(
-  () =>
-    import('@ccom-easy-design-system/atoms.skeleton').then(
-      (module) => module.Skeleton,
-    ),
-  { ssr: false },
-);
 
 const ImageGallery = () => {
   const { images, openZoomModal, zoomModalIndex, activeIndex } = useAppSelector(
@@ -36,7 +26,6 @@ const ImageGallery = () => {
   );
   const dispatch = useAppDispatch();
   const [isMobile, setIsMobile] = useState(false);
-  const [loadingImage, setLoadingImage] = useState(true);
 
   const { isXs, isSm } = useBreakpoints();
 
@@ -48,23 +37,13 @@ const ImageGallery = () => {
   const renderItem = (item: ProductImage, index: number) => {
     return (
       <ItemContainer>
-        {loadingImage && (
-          <SkeletonContainer>
-            <Skeleton
-              animationtype="wave"
-              height={isXs || isSm ? '200px' : '500px'}
-              width="613px"
-            />
-          </SkeletonContainer>
-        )}
         <Image
           src={item?.imageUrl}
           alt={item?.imageText ?? `product image ${index}`}
           width={828}
           height={613}
           onClick={() => dispatch(setOpenZoomModal(true))}
-          onLoad={() => setLoadingImage(false)}
-          priority
+          priority={index === 0 ? true : false}
         />
       </ItemContainer>
     );
@@ -87,7 +66,7 @@ const ImageGallery = () => {
         <Desktop>
           <Thumbnails />
         </Desktop>
-        <SwiperContainer $loading={loadingImage}>
+        <SwiperContainer>
           <SwiperEasy
             hasPagination={isMobile}
             items={images}

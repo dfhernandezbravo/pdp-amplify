@@ -14,8 +14,6 @@ export default async function getProductReviews(
     const response = await axios.get(url);
 
     // eslint-disable-next-line no-debugger
-    // console.log('response',response)
-    // console.log('data', response.data.range)
     const newSignature = {
       average: 2,
       range: response.data.range,
@@ -24,6 +22,6 @@ export default async function getProductReviews(
 
     res.status(200).json(newSignature);
   } catch (error) {
-    console.log('Error', error);
+    throw Error('Error fetching product reviews');
   }
 }
