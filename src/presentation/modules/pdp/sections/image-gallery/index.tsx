@@ -40,11 +40,14 @@ const ImageGallery = () => {
         <Image
           src={item?.imageUrl}
           alt={item?.imageText ?? `product image ${index}`}
-          width={828}
-          height={613}
+          width={500}
+          height={500}
           onClick={() => dispatch(setOpenZoomModal(true))}
           priority={index === 0 ? true : false}
+          className="swiper-lazy"
+          loading={index === 0 ? 'eager' : 'lazy'}
         />
+        <div className="swiper-lazy-preloader"></div>
       </ItemContainer>
     );
   };

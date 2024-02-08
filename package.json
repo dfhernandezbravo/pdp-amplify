@@ -43,7 +43,7 @@
     "sass": "^1.62.1",
     "sharp": "^0.32.1",
     "styled-components": "^6.1.8",
-    "swiper": "^11.0.4",
+    "swiper": "^11.0.6",
     "typescript": "5.0.4",
     "webpack": "^5.80.0"
   },
