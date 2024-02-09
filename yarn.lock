@@ -477,10 +477,10 @@
     "@ccom-easy-design-system/theme.easy" "0.0.4"
     styled-components "^6.1.6"
 
-"@ccom-easy-design-system/atoms.characteristic-table@0.0.4":
-  version "0.0.4"
-  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.characteristic-table/-/atoms.characteristic-table-0.0.4.tgz#562f72b10e05a9901992fcf126610e368c227d50"
-  integrity sha512-qyzezqR+iiUHeFkWrr5odHtuf4zr4UbR+Gr0AoZgPn0nRkJE9+/4349b/AbXTBnxUxXXxXJPhxojJPsF7118Lg==
+"@ccom-easy-design-system/atoms.characteristic-table@^0.0.5":
+  version "0.0.5"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.characteristic-table/-/atoms.characteristic-table-0.0.5.tgz#b674ecab2fab8eb85ffcbe51ce98403cafaa85da"
+  integrity sha512-9sFXPjFdZ3XrPr3lIV/4yBZi+WsYx6Smr6vXn4WEvvxr3j0RtCgiiYhuP9PelMJevROXTMRUT9nn19RH6yX2WA==
   dependencies:
     styled-components "^6.1.6"
 
