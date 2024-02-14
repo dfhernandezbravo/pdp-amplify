@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '@hooks/storeHooks';
-import { ProductImage } from '@entities/product-image';
 import {
   ImageGalleryContainer,
   ItemContainer,
@@ -8,7 +7,6 @@ import {
   ZoomLabel,
 } from './style';
 import Thumbnails from './components/thumbnails';
-import SwiperEasy from '@components/molecules/swiper';
 import Image from 'next/image';
 import Desktop from '@components/Desktop';
 import useBreakpoints from '@hooks/useBreakpoints';
@@ -19,6 +17,16 @@ import {
   setOpenZoomModal,
   setZoomModalIndex,
 } from '@store/gallery';
+import dynamic from 'next/dynamic';
+import { ProductImage } from '@entities/product-image';
+
+const Swiper = dynamic(
+  () =>
+    import('@ccom-easy-design-system/molecules.swiper').then(
+      (module) => module.Swiper,
+    ),
+  { ssr: false, loading: () => <p>Loading...</p> },
+);
 
 const ImageGallery = () => {
   const { images, openZoomModal, zoomModalIndex, activeIndex } = useAppSelector(
@@ -27,19 +35,19 @@ const ImageGallery = () => {
   const dispatch = useAppDispatch();
   const [isMobile, setIsMobile] = useState(false);
 
-  const { isXs, isSm } = useBreakpoints();
+  const { device } = useBreakpoints();
 
   useEffect(() => {
-    if (isSm || isXs) setIsMobile(true);
-    else setIsMobile(false);
-  }, [isXs, isSm]);
+    setIsMobile(device !== 'Desktop');
+  }, [device]);
 
-  const renderItem = (item: ProductImage, index: number) => {
+  const renderItem = (item: unknown, index: number) => {
+    const productImage = item as ProductImage;
     return (
       <ItemContainer>
         <Image
-          src={item?.imageUrl}
-          alt={item?.imageText ?? `product image ${index}`}
+          src={productImage?.imageUrl}
+          alt={productImage?.imageText ?? `product image ${index}`}
           width={500}
           height={500}
           onClick={() => dispatch(setOpenZoomModal(true))}
@@ -63,6 +71,12 @@ const ImageGallery = () => {
     }
   }, [openZoomModal]);
 
+  const [, forceUpdate] = useState<number>(0);
+
+  useEffect(() => {
+    forceUpdate((prev) => prev + 1);
+  }, [isMobile]);
+
   if (images)
     return (
       <ImageGalleryContainer>
@@ -70,7 +84,8 @@ const ImageGallery = () => {
           <Thumbnails />
         </Desktop>
         <SwiperContainer>
-          <SwiperEasy
+          <Swiper
+            key={isMobile ? 'mobile' : 'desktop'}
             hasPagination={isMobile}
             items={images}
             renderItem={renderItem}

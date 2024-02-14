@@ -1,7 +1,6 @@
 import { Breadcrumbs } from '@cencosud-ds/easy-design-system';
 import { useAppSelector } from '@hooks/storeHooks';
-import { BreadCrumbsContainer } from './style';
-import Link from 'next/link';
+import { BreadCrumbsContainer, LastParagraph, LinksFormat } from './style';
 
 const PdpBreadcrumbs = () => {
   const { product } = useAppSelector((state) => state.product);
@@ -23,12 +22,13 @@ const PdpBreadcrumbs = () => {
       {links() && (
         <Breadcrumbs>
           {links()?.map((link, i, { length }) => {
-            if (i + 1 === length) return <span key={link}>{link}</span>;
+            if (i + 1 === length)
+              return <LastParagraph key={link}>{link}</LastParagraph>;
             if (i + 1 < length) {
               return (
-                <Link key={link} href={formatUrl(link)}>
+                <LinksFormat key={link} href={formatUrl(link)}>
                   {product?.categories?.[0].split('/')?.[i + 1]}
-                </Link>
+                </LinksFormat>
               );
             }
           })}

@@ -28,7 +28,6 @@ export const Content = styled.div`
   background: #ffffff;
   border-radius: 8px;
   width: max-content;
-  min-width: 528px;
   height: fit-content;
   position: absolute;
   max-width: 60%;
