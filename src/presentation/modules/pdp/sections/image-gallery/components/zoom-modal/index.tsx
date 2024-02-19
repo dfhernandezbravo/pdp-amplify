@@ -39,7 +39,7 @@ const ZoomModal = () => {
         icon={{ onClick: () => dispatch(setOpenZoomModal(false)) }}
         style={{ overflowY: 'hidden' }}
       >
-        <Container>
+        <Container $showThumbnails={images?.length > 1}>
           <Desktop>
             <ThumbnailsCarousel />
           </Desktop>
