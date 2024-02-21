@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
 export const ZoomContainer = styled.div<{ $loading: boolean }>`
   position: relative;
@@ -18,6 +18,17 @@ export const ZoomContainer = styled.div<{ $loading: boolean }>`
   }
 `;
 
+const growAnimation = keyframes`
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+`;
+
 export const Overlay = styled.div<{
   $background?: string;
 }>`
@@ -30,4 +41,5 @@ export const Overlay = styled.div<{
   transition: background-size 0.1s ease;
   z-index: 1;
   background-size: 300%;
+  animation: ${growAnimation} 0.3s ease forwards;
 `;

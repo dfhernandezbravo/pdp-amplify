@@ -36,6 +36,11 @@ const PdpContainer = (productData: GetProduct) => {
   const dispatch = useAppDispatch();
   const defaultVariant = useDefaultVariant(productData?.items);
 
+  const getCategorie = (categories: string[]) => {
+    const categoriesArray = categories?.[0].split('/');
+    return categoriesArray?.[categoriesArray.length - 2];
+  };
+
   useEffect(() => {
     if (productData) {
       dispatch(setProduct(productData));
@@ -52,6 +57,13 @@ const PdpContainer = (productData: GetProduct) => {
             ? `${productData?.metaTagDescription} | Easy.cl - Easy`
             : 'Easy.cl'}
         </title>
+        <meta
+          name="description"
+          content={`Compra ${productData?.productName} y renueva tu hogar. En Easy.cl encontrarás todo en ${getCategorie(
+            productData?.categories,
+          )} para renovar el amor por tu hogar.`}
+          data-react-helmet="true"
+        ></meta>
       </Head>
       <Main>
         <PdpBreadcrumbs />
