@@ -20,12 +20,20 @@ import {
 import dynamic from 'next/dynamic';
 import { ProductImage } from '@entities/product-image';
 
+const Skeleton = dynamic(
+  () =>
+    import('@ccom-easy-design-system/atoms.skeleton').then(
+      (module) => module.Skeleton,
+    ),
+  { ssr: false },
+);
+
 const Swiper = dynamic(
   () =>
     import('@ccom-easy-design-system/molecules.swiper').then(
       (module) => module.Swiper,
     ),
-  { ssr: false, loading: () => <p>Loading...</p> },
+  { ssr: false, loading: () => <Skeleton /> },
 );
 
 const ImageGallery = () => {

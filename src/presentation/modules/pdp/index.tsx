@@ -4,9 +4,9 @@ import store from '@store/index';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { GetProduct } from '@entities/product/get-product.response';
 import {
-  GetStaticProps,
-  GetStaticPropsContext,
-  InferGetStaticPropsType,
+  GetServerSideProps,
+  GetServerSidePropsContext,
+  InferGetServerSidePropsType,
 } from 'next';
 import axios from 'axios';
 import dynamic from 'next/dynamic';
@@ -28,8 +28,9 @@ const queryClient = new QueryClient({
   },
 });
 
-const Pdp = (props: InferGetStaticPropsType<GetStaticProps>) => {
+const Pdp = (props: InferGetServerSidePropsType<GetServerSideProps>) => {
   const { repo } = props;
+  console.log(repo);
 
   if (!repo || Object.keys(repo).length === 0) {
     return <ProductNotFound />;
@@ -48,7 +49,7 @@ const Pdp = (props: InferGetStaticPropsType<GetStaticProps>) => {
 
 export default Pdp;
 
-export const getStaticProps = (async (ctx: GetStaticPropsContext) => {
+export const getServerSideProps = (async (ctx: GetServerSidePropsContext) => {
   if (ctx?.params?.department) {
     const query = ctx?.params?.department.toString().split('-');
     const productId = Number(query?.[query?.length - 1].split('/')[0]);
@@ -65,12 +66,12 @@ export const getStaticProps = (async (ctx: GetStaticPropsContext) => {
         },
       );
       const repo = await response?.data;
-      return { props: { repo }, revalidate: 60 };
+      return { props: { repo } };
     } catch (error) {
-      throw Error('Error fetching product');
+      return { props: { repo: null } };
     }
   }
   return { props: { repo: {} } };
-}) satisfies GetStaticProps<{
-  repo: GetProduct | {};
+}) satisfies GetServerSideProps<{
+  repo: GetProduct | null;
 }>;
