@@ -30,7 +30,6 @@ const queryClient = new QueryClient({
 
 const Pdp = (props: InferGetServerSidePropsType<GetServerSideProps>) => {
   const { repo } = props;
-  console.log(repo);
 
   if (!repo || Object.keys(repo).length === 0) {
     return <ProductNotFound />;

@@ -13,6 +13,7 @@ export const SwiperContainer = styled.div<{ $showThumbnails: boolean }>`
       height: 100%;
     `};
   position: relative;
+  justify-content: center;
 
   @media (max-width: 1024px) {
     width: 100%;
