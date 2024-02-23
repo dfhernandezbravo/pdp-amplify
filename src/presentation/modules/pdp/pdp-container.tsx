@@ -36,7 +36,7 @@ const PdpContainer = (productData: GetProduct) => {
   const dispatch = useAppDispatch();
   const defaultVariant = useDefaultVariant(productData?.items);
 
-  const getCategorie = (categories: string[]) => {
+  const getCategories = (categories: string[]) => {
     const categoriesArray = categories?.[0].split('/');
     return categoriesArray?.[categoriesArray.length - 2];
   };
@@ -59,7 +59,7 @@ const PdpContainer = (productData: GetProduct) => {
         </title>
         <meta
           name="description"
-          content={`Compra ${productData?.productName} y renueva tu hogar. En Easy.cl encontrarás todo en ${getCategorie(
+          content={`Compra ${productData?.productName} y renueva tu hogar. En Easy.cl encontrarás todo en ${getCategories(
             productData?.categories,
           )} para renovar el amor por tu hogar.`}
           data-react-helmet="true"

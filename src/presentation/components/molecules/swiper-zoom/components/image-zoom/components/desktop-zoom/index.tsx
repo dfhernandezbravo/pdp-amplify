@@ -27,13 +27,14 @@ const DesktopZoom = ({
   const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 });
   const [isHover, setIsHover] = useState(false);
   const [loadingImage, setLoadingImage] = useState(true);
-  const [minHeight, setMinHeight] = useState(400);
+  const [imgSize, setImgSize] = useState({ height: 400, width: 400 });
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const { left, top, width, height } =
       e.currentTarget.getBoundingClientRect();
+    setIsHover(true);
 
-    setMinHeight(height);
+    setImgSize({ height, width });
     const x = ((e.clientX - left) / width) * 100;
     const y = ((e.clientY - top) / height) * 100;
     setMousePosition({ x, y });
@@ -45,9 +46,8 @@ const DesktopZoom = ({
 
   return (
     <ZoomContainer
-      style={{ minHeight: minHeight }}
+      style={{ minHeight: imgSize.height, minWidth: imgSize.width }}
       onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
       $loading={loadingImage}
     >
@@ -56,14 +56,13 @@ const DesktopZoom = ({
           $background={imageSrc}
           style={{
             backgroundPosition: `${mousePosition.x}% ${mousePosition.y}%`,
-            minHeight: minHeight,
+            minHeight: imgSize.height,
+            minWidth: imgSize.width,
           }}
         />
       ) : (
         <>
-          {loadingImage && (
-            <Skeleton animationtype="wave" height={`${minHeight}px`} />
-          )}
+          {loadingImage && <Skeleton animationtype="wave" />}
           <Image
             src={imageSrc}
             alt={altText}
