@@ -61,7 +61,6 @@ const ImageGallery = () => {
           onClick={() => dispatch(setOpenZoomModal(true))}
           priority={index === 0 ? true : false}
           className="swiper-lazy"
-          loading={index === 0 ? 'eager' : 'lazy'}
         />
         <div className="swiper-lazy-preloader"></div>
       </ItemContainer>
