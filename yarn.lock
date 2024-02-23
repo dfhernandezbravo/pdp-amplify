@@ -498,10 +498,10 @@
     number-currency-format-2 "^1.1.1"
     styled-components "^6.1.6"
 
-"@ccom-easy-design-system/atoms.quantity-selector@0.0.4":
-  version "0.0.4"
-  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.quantity-selector/-/atoms.quantity-selector-0.0.4.tgz#7962fbcecd20de1a1399287c763d186341e0fbcc"
-  integrity sha512-FPojyq0u4PyWhsphUm4DuPVhmWNgTgQLgRrGYPq2WdCbJr5xtWkPIyQSQOx0X9BYA3qQz9AramjvgSHkArlUcg==
+"@ccom-easy-design-system/atoms.quantity-selector@^0.0.8":
+  version "0.0.8"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.quantity-selector/-/atoms.quantity-selector-0.0.8.tgz#199adadf5286118328fddd23fb8262fe956bdc61"
+  integrity sha512-bTH+fNAnFIQULFA7EjX2wa3DkvZUhUU02GK7Lcd53Y50NckVMn826qjl61hD+z69iJTByCQfXC8sRyycQDfq8g==
   dependencies:
     react-icons "^5.0.1"
     styled-components "^6.1.6"
