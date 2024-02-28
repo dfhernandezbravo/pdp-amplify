@@ -2,14 +2,23 @@ import { Provider } from 'react-redux';
 import PdpContainer from './pdp-container';
 import store from '@store/index';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import { ThemeProvider } from '@cencosud-ds/easy-design-system';
 import { GetProduct } from '@entities/product/get-product.response';
 import {
-  GetStaticProps,
-  GetStaticPropsContext,
-  InferGetStaticPropsType,
+  GetServerSideProps,
+  GetServerSidePropsContext,
+  InferGetServerSidePropsType,
 } from 'next';
 import axios from 'axios';
+import dynamic from 'next/dynamic';
+import ProductNotFound from './product-not-found/product-not-found';
+
+const EasyThemeProvider = dynamic(
+  () =>
+    import('@ccom-easy-design-system/theme.theme-provider').then(
+      (module) => module.EasyThemeProvider,
+    ),
+  { ssr: false },
+);
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -19,31 +28,40 @@ const queryClient = new QueryClient({
   },
 });
 
-const Pdp = (props: InferGetStaticPropsType<GetStaticProps>) => {
+const Pdp = (props: InferGetServerSidePropsType<GetServerSideProps>) => {
   const { repo } = props;
+
+  if (!repo || Object.keys(repo).length === 0) {
+    return <ProductNotFound />;
+  }
+
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider>
+      <EasyThemeProvider>
         <Provider store={store}>
           <PdpContainer {...repo} />
         </Provider>
-      </ThemeProvider>
+      </EasyThemeProvider>
     </QueryClientProvider>
   );
 };
 
 export default Pdp;
 
-export const getStaticProps = (async (ctx: GetStaticPropsContext) => {
+export const getServerSideProps = (async (ctx: GetServerSidePropsContext) => {
+  ctx.res.setHeader(
+    'Cache-Control',
+    'public, s-maxage=10, stale-while-revalidate=59',
+  );
   if (ctx?.params?.department) {
     const query = ctx?.params?.department.toString().split('-');
     const productId = Number(query?.[query?.length - 1].split('/')[0]);
 
     try {
       const response = await axios.get(
-        `${
-          process.env.NEXT_PUBLIC_BFF_URL
-        }/products/by-sku/${encodeURIComponent(productId)}`,
+        `${process.env.NEXT_PUBLIC_BFF_URL}products/by-sku/${encodeURIComponent(
+          productId,
+        )}`,
         {
           headers: {
             'x-api-key': `${process.env.NEXT_PUBLIC_API_KEY_BFF}`,
@@ -51,13 +69,12 @@ export const getStaticProps = (async (ctx: GetStaticPropsContext) => {
         },
       );
       const repo = await response?.data;
-
-      return { props: { repo }, revalidate: 60 };
+      return { props: { repo } };
     } catch (error) {
-      console.info(error);
+      return { props: { repo: null } };
     }
   }
   return { props: { repo: {} } };
-}) satisfies GetStaticProps<{
-  repo: GetProduct | {};
+}) satisfies GetServerSideProps<{
+  repo: GetProduct | null;
 }>;

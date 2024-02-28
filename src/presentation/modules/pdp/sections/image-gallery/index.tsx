@@ -1,26 +1,40 @@
 import { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '@hooks/storeHooks';
-import { ProductImage } from '@entities/product-image';
 import {
   ImageGalleryContainer,
   ItemContainer,
-  SkeletonContainer,
   SwiperContainer,
   ZoomLabel,
 } from './style';
 import Thumbnails from './components/thumbnails';
-import SwiperEasy from '@components/molecules/swiper';
 import Image from 'next/image';
 import Desktop from '@components/Desktop';
 import useBreakpoints from '@hooks/useBreakpoints';
 import { FaMagnifyingGlassPlus } from 'react-icons/fa6';
-import { Skeleton } from '@cencosud-ds/easy-design-system';
 import ZoomModal from './components/zoom-modal';
 import {
   setActiveIndex,
   setOpenZoomModal,
   setZoomModalIndex,
 } from '@store/gallery';
+import dynamic from 'next/dynamic';
+import { ProductImage } from '@entities/product-image';
+
+const Skeleton = dynamic(
+  () =>
+    import('@ccom-easy-design-system/atoms.skeleton').then(
+      (module) => module.Skeleton,
+    ),
+  { ssr: false },
+);
+
+const Swiper = dynamic(
+  () =>
+    import('@ccom-easy-design-system/molecules.swiper').then(
+      (module) => module.Swiper,
+    ),
+  { ssr: false, loading: () => <Skeleton /> },
+);
 
 const ImageGallery = () => {
   const { images, openZoomModal, zoomModalIndex, activeIndex } = useAppSelector(
@@ -28,36 +42,27 @@ const ImageGallery = () => {
   );
   const dispatch = useAppDispatch();
   const [isMobile, setIsMobile] = useState(false);
-  const [loadingImage, setLoadingImage] = useState(true);
 
-  const { isXs, isSm } = useBreakpoints();
+  const { device } = useBreakpoints();
 
   useEffect(() => {
-    if (isSm || isXs) setIsMobile(true);
-    else setIsMobile(false);
-  }, [isXs, isSm]);
+    setIsMobile(device !== 'Desktop');
+  }, [device]);
 
-  const renderItem = (item: ProductImage, index: number) => {
+  const renderItem = (item: unknown, index: number) => {
+    const productImage = item as ProductImage;
     return (
       <ItemContainer>
-        {loadingImage && (
-          <SkeletonContainer>
-            <Skeleton
-              animation="wave"
-              height={isXs || isSm ? '200px' : '500px'}
-              width="613px"
-            />
-          </SkeletonContainer>
-        )}
         <Image
-          src={item?.imageUrl}
-          alt={item?.imageText ?? `product image ${index}`}
-          width={828}
-          height={613}
+          src={productImage?.imageUrl}
+          alt={productImage?.imageText ?? `product image ${index}`}
+          width={500}
+          height={500}
           onClick={() => dispatch(setOpenZoomModal(true))}
-          onLoad={() => setLoadingImage(false)}
-          priority
+          priority={index === 0 ? true : false}
+          className="swiper-lazy"
         />
+        <div className="swiper-lazy-preloader"></div>
       </ItemContainer>
     );
   };
@@ -73,14 +78,21 @@ const ImageGallery = () => {
     }
   }, [openZoomModal]);
 
+  const [, forceUpdate] = useState<number>(0);
+
+  useEffect(() => {
+    forceUpdate((prev) => prev + 1);
+  }, [isMobile]);
+
   if (images)
     return (
       <ImageGalleryContainer>
         <Desktop>
           <Thumbnails />
         </Desktop>
-        <SwiperContainer $loading={loadingImage}>
-          <SwiperEasy
+        <SwiperContainer>
+          <Swiper
+            key={isMobile ? 'mobile' : 'desktop'}
             hasPagination={isMobile}
             items={images}
             renderItem={renderItem}

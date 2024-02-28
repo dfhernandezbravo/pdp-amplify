@@ -1,29 +1,26 @@
 import React, { useState } from 'react';
 import { ButtonsContainer, OutOfStockText, QuantityTitle } from './style';
-import { QuantitySelector } from '@cencosud-ds/easy-design-system';
 import { useAppSelector } from '@hooks/storeHooks';
 import Desktop from '@components/Desktop';
 import Buttons from './buttons';
-import { useSearchParams } from 'next/navigation';
+import dynamic from 'next/dynamic';
+
+const QuantitySelector = dynamic(
+  () =>
+    import('@ccom-easy-design-system/atoms.quantity-selector').then(
+      (module) => module.QuantitySelector,
+    ),
+  { ssr: false },
+);
 
 const Actions = () => {
-  const { product } = useAppSelector((state) => state.product);
+  const { product, selectedVariant } = useAppSelector((state) => state.product);
   const [quantity, setQuantity] = useState(1);
-  const searchParams = useSearchParams();
 
   const availableStock = () => {
-    if (searchParams?.get('skuId')) {
-      const selectedProduct = product?.items?.find(
-        (item) => item?.itemId === searchParams.get('skuId'),
-      );
-      return (
-        selectedProduct?.sellers?.[0]?.commertialOffer?.availableQuantity || 0
-      );
-    } else
-      return (
-        product?.items?.[0].sellers?.[0]?.commertialOffer?.availableQuantity ||
-        0
-      );
+    return (
+      selectedVariant?.sellers?.[0]?.commertialOffer?.availableQuantity || 0
+    );
   };
 
   if (!availableStock())
@@ -47,9 +44,9 @@ const Actions = () => {
             max={availableStock()}
           />
         </Desktop>
-      <Buttons quantity={quantity} product={product} />
-    </ButtonsContainer>
-  );
+        <Buttons quantity={quantity} />
+      </ButtonsContainer>
+    );
   else return null;
 };
 

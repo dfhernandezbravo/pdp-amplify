@@ -1,7 +1,15 @@
-import { CharacteristicTable } from '@cencosud-ds/easy-design-system';
 import { TableContainer, Title } from './style';
 import { useAppSelector } from '@hooks/storeHooks';
 import { useEffect, useState } from 'react';
+import dynamic from 'next/dynamic';
+
+const CharacteristicTable = dynamic(
+  () =>
+    import('@ccom-easy-design-system/atoms.characteristic-table').then(
+      (module) => module.CharacteristicTable,
+    ),
+  { ssr: false },
+);
 
 type spec = {
   name: string;

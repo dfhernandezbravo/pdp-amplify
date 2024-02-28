@@ -1,7 +1,15 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { ImageContainer } from './styles';
 import Image from 'next/image';
-import { Skeleton } from '@cencosud-ds/easy-design-system';
+import dynamic from 'next/dynamic';
+
+const Skeleton = dynamic(
+  () =>
+    import('@ccom-easy-design-system/atoms.skeleton').then(
+      (module) => module.Skeleton,
+    ),
+  { ssr: false },
+);
 
 type MobileZoomProps = {
   imageSrc: string;
@@ -83,7 +91,7 @@ const MobileZoom = ({ imageSrc, altText, activeIndex }: MobileZoomProps) => {
 
   return (
     <ImageContainer $loading={loadingImage} ref={zoomRef}>
-      {loadingImage && <Skeleton animation="wave" />}
+      {loadingImage && <Skeleton animationtype="wave" />}
       <Image
         src={imageSrc}
         alt={altText}

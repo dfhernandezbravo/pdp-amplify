@@ -5,9 +5,17 @@ import {
   ThumbnailsContainer,
 } from './style';
 import Image from 'next/image';
-import { Skeleton } from '@cencosud-ds/easy-design-system';
 import { useAppDispatch, useAppSelector } from '@hooks/storeHooks';
 import { setZoomModalIndex } from '@store/gallery';
+import dynamic from 'next/dynamic';
+
+const Skeleton = dynamic(
+  () =>
+    import('@ccom-easy-design-system/atoms.skeleton').then(
+      (module) => module.Skeleton,
+    ),
+  { ssr: false },
+);
 
 const ThumbnailsCarousel = () => {
   const dispatch = useAppDispatch();
@@ -37,7 +45,11 @@ const ThumbnailsCarousel = () => {
           >
             {loadingStates?.[i] && (
               <SkeletonContainer>
-                <Skeleton animation={'wave'} height={'70px'} width={'70px'} />
+                <Skeleton
+                  animationtype={'wave'}
+                  height={'70px'}
+                  width={'70px'}
+                />
               </SkeletonContainer>
             )}
             <Image

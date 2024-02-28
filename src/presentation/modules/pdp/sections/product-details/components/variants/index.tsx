@@ -1,18 +1,33 @@
 import { useAppSelector } from '@hooks/storeHooks';
 import { Title, VariantsContainer } from './styles';
 import Options from './components/options';
+import { useEffect, useState } from 'react';
 
 const Variants = () => {
-  const { product } = useAppSelector((state) => state.product);
-  const variations = product?.items?.[0]?.itemSpecifications?.variations;
+  const { product, selectedVariant } = useAppSelector((state) => state.product);
+  const variations = selectedVariant?.itemSpecifications?.variations;
+  const [selectedColor, setSelectedColor] = useState<string>();
+
+  useEffect(() => {
+    if (variations?.includes('Color') || variations?.includes('Colores')) {
+      setSelectedColor(
+        selectedVariant?.itemSpecifications?.Color?.[0] ||
+          selectedVariant?.itemSpecifications?.Colores?.[0],
+      );
+    }
+  }, [selectedVariant]);
 
   return (
     <>
       {variations?.map((variation) => {
-        if (product?.items && product?.items?.length > 0)
+        if (product?.items)
           return (
             <VariantsContainer key={variation}>
-              <Title>{variation}</Title>
+              <Title>
+                {variation}
+                {(variation === 'Color' || variation === 'Colores') &&
+                  `: ${selectedColor}`}
+              </Title>
               <Options options={product?.items} variation={variation} />
             </VariantsContainer>
           );

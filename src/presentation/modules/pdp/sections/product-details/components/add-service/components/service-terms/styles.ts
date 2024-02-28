@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const TermsLink = styled.a`
+export const TermsLink = styled.div`
   font-weight: bold;
   color: rgb(77, 77, 77);
   text-decoration: underline;

@@ -1,10 +1,18 @@
-import { Skeleton } from '@cencosud-ds/easy-design-system';
 import {
   AverageRateContainer,
   CommentListContainer,
   Container,
 } from './styles';
 import CommentListSkeleton from '../CommentListSkeleton/indesx';
+import dynamic from 'next/dynamic';
+
+const Skeleton = dynamic(
+  () =>
+    import('@ccom-easy-design-system/atoms.skeleton').then(
+      (module) => module.Skeleton,
+    ),
+  { ssr: false },
+);
 
 const FirstLoadSkeleton = () => {
   return (

@@ -11,8 +11,11 @@ export const ThumbnailsContainer = styled.div`
   align-items: center;
   gap: 0.5rem;
   height: 100%;
-  max-height: 75vh;
+  max-height: 55vh;
   overflow-y: scroll;
+  border: 1px solid #e0e3e8;
+  padding: 1rem 0;
+  border-radius: ${({ theme }) => theme.radius.xsm};
 
   &::-webkit-scrollbar {
     -webkit-appearance: none;

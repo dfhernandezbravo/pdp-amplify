@@ -51,7 +51,7 @@ function SwiperZoom({
   }, [swiper]);
 
   return (
-    <SwiperContainer paginationStyle={paginationStyle}>
+    <SwiperContainer paginationstyle={paginationStyle}>
       <SwiperComponent direction={direction}>
         {showArrowButtons({
           hasActionButton,

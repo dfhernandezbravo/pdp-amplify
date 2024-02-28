@@ -1,6 +1,6 @@
 import React from 'react';
 import Pdp from '@modules/pdp';
-import { GetStaticPaths, GetStaticPropsContext } from 'next';
+import { GetServerSidePropsContext } from 'next';
 import { GetProduct } from '@entities/product/get-product.response';
 
 type Props = {
@@ -13,19 +13,12 @@ const App = (props: Props) => {
 
 export default App;
 
-export const getStaticProps = async (ctx: GetStaticPropsContext) => {
+export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
   const pdp = await import('@modules/pdp');
-  if (pdp.getStaticProps) {
-    return pdp.getStaticProps(ctx);
+  if (pdp.getServerSideProps) {
+    return pdp.getServerSideProps(ctx);
   }
   return {
     props: {},
-  };
-};
-
-export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
-  return {
-    paths: [], //indicates that no page needs be created at build time
-    fallback: 'blocking', //indicates the type of fallback
   };
 };

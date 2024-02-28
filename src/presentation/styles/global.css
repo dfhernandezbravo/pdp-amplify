@@ -18,4 +18,5 @@ html,
 body {
   scroll-behavior: smooth;
   min-height: 100%;
+  margin: 0;
 }

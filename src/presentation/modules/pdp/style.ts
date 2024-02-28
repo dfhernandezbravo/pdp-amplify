@@ -30,7 +30,6 @@ export const Section = styled.section`
   margin: 0 1rem;
   margin-bottom: 2rem;
   padding: 3.5rem 2rem;
-  min-height: fit-content;
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -48,7 +47,7 @@ export const ImagesContainer = styled.div`
 `;
 
 export const DetailsContainer = styled.div`
-  width: 40%;
+  width: 30%;
 
   @media (max-width: 768px) {
     width: 100%;

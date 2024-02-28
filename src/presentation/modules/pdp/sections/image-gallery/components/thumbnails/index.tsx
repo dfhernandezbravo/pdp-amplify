@@ -1,19 +1,12 @@
-import React, { useState } from 'react';
-import {
-  Rest,
-  SkeletonContainer,
-  ThumbnailContainer,
-  ThumbnailsContainer,
-} from './style';
+import React from 'react';
+import { Rest, ThumbnailContainer, ThumbnailsContainer } from './style';
 import Image from 'next/image';
-import { Skeleton } from '@cencosud-ds/easy-design-system';
 import { useAppDispatch, useAppSelector } from '@hooks/storeHooks';
 import { setActiveIndex, setOpenZoomModal } from '@store/gallery';
 
 const Thumbnails = () => {
   const dispatch = useAppDispatch();
   const { images, activeIndex } = useAppSelector((state) => state.gallery);
-  const [loadingThumbnails, setLoadingThumbnails] = useState(true);
 
   if (images && images.length > 1)
     return (
@@ -25,22 +18,13 @@ const Thumbnails = () => {
               selected={activeIndex === i}
               key={item?.imageUrl}
             >
-              {loadingThumbnails && (
-                <SkeletonContainer>
-                  <Skeleton
-                    animation={'wave'}
-                    height={'75px'}
-                    width={'75px'}
-                    borderRadius="5px"
-                  />
-                </SkeletonContainer>
-              )}
               <Image
                 src={item?.imageUrl}
                 alt={item?.imageText ?? `product image ${i}`}
-                width={256}
-                height={189}
-                onLoad={() => setLoadingThumbnails(false)}
+                width={80}
+                height={80}
+                priority={false}
+                loading="lazy"
               />
             </ThumbnailContainer>
           ) : null,

@@ -1,23 +1,37 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const SwiperContainer = styled.div<{ $showThumbnails: boolean }>`
   max-width: 600px;
   height: 90%;
+  min-height: 60vh;
   width: ${({ $showThumbnails }) => ($showThumbnails ? '85%' : '100%')};
+  ${({ $showThumbnails }) =>
+    !$showThumbnails &&
+    css`
+      display: flex;
+      align-items: center;
+      height: 100%;
+    `};
   position: relative;
+  justify-content: center;
 
   @media (max-width: 1024px) {
     width: 100%;
   }
 `;
 
-export const Container = styled.div`
+export const Container = styled.div<{ $showThumbnails: boolean }>`
   display: flex;
-  justify-content: space-between;
+  justify-content: ${({ $showThumbnails }) =>
+    $showThumbnails ? 'space-between' : 'center'};
   width: 100%;
   max-width: 90dvw;
   height: 100%;
   touch-action: none;
+
+  @media (min-width: 1024px) {
+    min-width: 40dvw;
+  }
 `;
 
 export const ZoomLabel = styled.div`
