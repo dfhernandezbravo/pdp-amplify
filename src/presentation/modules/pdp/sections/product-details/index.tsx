@@ -7,6 +7,7 @@ import ExchangesConditions from './components/exchanges-conditions';
 import Actions from './components/actions';
 import AddService from './components/add-service';
 import Variants from './components/variants';
+import Tintometric from './components/tintometric';
 
 // const RatingAverage = dynamic(() => import('ratingsAndReviews/averageEvent'), {
 //   ssr: false,
@@ -15,18 +16,19 @@ import Variants from './components/variants';
 
 const ProductDetails = () => {
   const { product } = useAppSelector((state) => state.product);
+  const brand = product?.brand;
+  const refId = product?.items?.[0]?.referenceId?.[0]?.Value;
 
   return (
     <Container>
-      <Brand>{product?.brand}</Brand>
+      <Brand>{brand}</Brand>
       <Title>{product?.productName}</Title>
-      <ProductId>
-        Código del producto: {product?.items?.[0]?.referenceId?.[0]?.Value}
-      </ProductId>
+      <ProductId>Código del producto: {refId}</ProductId>
       {/* <RatingAverage /> */}
       <Price />
       <ProductSpecifications />
       <Variants />
+      <Tintometric />
       <Actions />
       <AddService />
       <Separator />

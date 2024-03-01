@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const ImageGalleryContainer = styled.div`
   display: flex;
+  justify-content: center;
   gap: 1rem;
   max-height: 100%;
 `;

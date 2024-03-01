@@ -50,6 +50,9 @@ type GetProduct = {
   productClusters: string[];
   searchableClusters: string[];
   items: Item[];
+  colorCodes?: {
+    [key: string]: string[];
+  };
 };
 
 export type { GetProduct, Item };

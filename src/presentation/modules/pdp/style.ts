@@ -39,7 +39,7 @@ export const Section = styled.section`
 `;
 
 export const ImagesContainer = styled.div`
-  width: 60%;
+  width: 55%;
 
   @media (max-width: 768px) {
     width: 70%;
@@ -47,7 +47,8 @@ export const ImagesContainer = styled.div`
 `;
 
 export const DetailsContainer = styled.div`
-  width: 30%;
+  position: relative;
+  width: 45%;
 
   @media (max-width: 768px) {
     width: 100%;

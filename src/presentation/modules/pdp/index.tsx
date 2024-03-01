@@ -69,7 +69,24 @@ export const getServerSideProps = (async (ctx: GetServerSidePropsContext) => {
         },
       );
       const repo = await response?.data;
-      return { props: { repo } };
+
+      if (repo?.allSpecificationsGroups?.includes('Códigos de Pintura')) {
+        const formatColorCodes: (repo: GetProduct) => GetProduct = (repo) => {
+          const colorCodes: { [key: string]: string[] } = {};
+          repo?.specifications?.['Códigos de Pintura']?.forEach((spec) => {
+            // Check if the specification exists in the object
+            if (spec in repo.specifications) {
+              // If it exists, get the values associated with that specification
+              colorCodes[spec] = repo.specifications?.[spec];
+              delete repo.specifications[spec];
+            }
+          });
+          delete repo.specifications['Códigos de Pintura'];
+          return { ...repo, colorCodes };
+        };
+        const formattedRepo: GetProduct | null = formatColorCodes(repo);
+        return { props: { repo: formattedRepo } };
+      } else return { props: { repo } };
     } catch (error) {
       return { props: { repo: null } };
     }

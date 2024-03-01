@@ -1,0 +1,1434 @@
+[
+  {
+    "name": "Rojos",
+    "mainColor": "#BC3940",
+    "code": [
+      {
+        "codeName": "P190-7",
+        "name": "Inferno",
+        "hexCode": "#DA5736"
+      },
+      {
+        "codeName": "P180-7",
+        "name": "Top Tomato",
+        "hexCode": "#D04838"
+      },
+      {
+        "codeName": "P170-7",
+        "name": "100 Mph",
+        "hexCode": "#C93F38"
+      },
+      {
+        "codeName": "P160-7",
+        "name": "Stiletto Love",
+        "hexCode": "#B6453E"
+      },
+      {
+        "codeName": "P150-7",
+        "name": "Flirt Alert",
+        "hexCode": "#BE3C37"
+      },
+      {
+        "codeName": "P140-7",
+        "name": "No More Drama",
+        "hexCode": "#A33F40"
+      },
+      {
+        "codeName": "P150-6",
+        "name": "Whip Lash",
+        "hexCode": "#C74547"
+      },
+      {
+        "codeName": "P160-6",
+        "name": "Intrigue",
+        "hexCode": "#BE4B47"
+      },
+      {
+        "codeName": "P170-6",
+        "name": "Race Car Stripe",
+        "hexCode": "#CF4944"
+      },
+      {
+        "codeName": "P180-6",
+        "name": "Pimento",
+        "hexCode": "#DC5D47"
+      }
+    ]
+  },
+  {
+    "name": "Negros",
+    "mainColor": "#3D3E3E",
+    "code": [
+      {
+        "codeName": "N520-7",
+        "name": "Carbon",
+        "hexCode": "#3D3E3E"
+      },
+      {
+        "codeName": "N510-7",
+        "name": "Blackout",
+        "hexCode": "#413F3E"
+      },
+      {
+        "codeName": "PPU26-23A",
+        "name": "Dark Secret",
+        "hexCode": "#45484A"
+      }
+    ]
+  },
+  {
+    "name": "Pasteles",
+    "mainColor": "#f4ecdc",
+    "code": [
+      {
+        "codeName": "12",
+        "name": "SWISS COFFEE",
+        "hexCode": "#F1EDE0"
+      },
+      {
+        "codeName": "75",
+        "name": "POLAR BEAR",
+        "hexCode": "#F5F4EC"
+      },
+      {
+        "codeName": "52",
+        "name": "WHITE",
+        "hexCode": "#EBEBE6"
+      },
+      {
+        "codeName": "57",
+        "name": "FROST",
+        "hexCode": "#EFF0EC"
+      },
+      {
+        "codeName": "HDC-MD-08",
+        "name": "WHISPER WHITE",
+        "hexCode": "#F4F3EA"
+      },
+      {
+        "codeName": "BWC-12",
+        "name": "VIBRANT WHITE",
+        "hexCode": "#EAEDEB"
+      },
+      {
+        "codeName": "UPW",
+        "name": "ULTRA PURE WHITE",
+        "hexCode": "#F8F9F3"
+      },
+      {
+        "codeName": "MQ3-32",
+        "name": "CAMEO WHITE",
+        "hexCode": "#EBE8E2"
+      }
+    ]
+  },
+  {
+    "name": "Grises",
+    "mainColor": "#bbb9b5",
+    "code": [
+      {
+        "codeName": "N510-6",
+        "name": "Orion Gray",
+        "hexCode": "#535558"
+      },
+      {
+        "codeName": "N510-5",
+        "name": "Liquid Mercury",
+        "hexCode": "#757A80"
+      },
+      {
+        "codeName": "N520-5",
+        "name": "Iron Mountain",
+        "hexCode": "#757574"
+      },
+      {
+        "codeName": "N520-6",
+        "name": "Asphalt Gray",
+        "hexCode": "#5E5E5D"
+      },
+      {
+        "codeName": "N530-5",
+        "name": "Mission Control",
+        "hexCode": "#818387"
+      },
+      {
+        "codeName": "N530-6",
+        "name": "Digital",
+        "hexCode": "#636365"
+      },
+      {
+        "codeName": "N530-7",
+        "name": "Private Black",
+        "hexCode": "#4C4949"
+      },
+      {
+        "codeName": "N500-5",
+        "name": "Magnetic Gray",
+        "hexCode": "#838789"
+      },
+      {
+        "codeName": "N500-6",
+        "name": "Graphic Charcoal",
+        "hexCode": "#5C5E5F"
+      },
+      {
+        "codeName": "N500-7",
+        "name": "Night Club",
+        "hexCode": "#494B4E"
+      },
+      {
+        "codeName": "BWC-29",
+        "name": "SILVER FEATHER",
+        "hexCode": "#DBDCD3"
+      },
+      {
+        "codeName": "MQ2-59",
+        "name": "SILVER CITY",
+        "hexCode": "#C8C8C2"
+      },
+      {
+        "codeName": "N320-2",
+        "name": "TOASTY GRAY",
+        "hexCode": "#D1CCC0"
+      },
+      {
+        "codeName": "PPU24-12",
+        "name": "WHITEWASH OAK",
+        "hexCode": "#CAC9C0"
+      },
+      {
+        "codeName": "790C-3",
+        "name": "DOLPHIN FIN",
+        "hexCode": "#CCCAC1"
+      },
+      {
+        "codeName": "PPU24-17",
+        "name": "HAILSTORM GRAY",
+        "hexCode": "#BDBEB9"
+      },
+      {
+        "codeName": "DC-014",
+        "name": "GRAY VIEW",
+        "hexCode": "#D3D1C8"
+      },
+      {
+        "codeName": "PPU26-17",
+        "name": "FAST AS THE WIND",
+        "hexCode": "#C7CBC8"
+      },
+      {
+        "codeName": "PPU26-12",
+        "name": "SOLEMN SILENCE",
+        "hexCode": "#D3D8D8"
+      },
+      {
+        "codeName": "7,80E-01",
+        "name": "STERLING",
+        "hexCode": "#D1D4D1"
+      },
+      {
+        "codeName": "PPU26-16",
+        "name": "HUSH",
+        "hexCode": "#BEC2C1"
+      },
+      {
+        "codeName": "PPU26-18",
+        "name": "SILVER MINE",
+        "hexCode": "#BEC2C1"
+      },
+      {
+        "codeName": "MQ5-31",
+        "name": "DISTANT STAR",
+        "hexCode": "#BAC1C3"
+      },
+      {
+        "codeName": "MQ3-27",
+        "name": "ETCHED GLASS",
+        "hexCode": "#DDE2E2"
+      },
+      {
+        "codeName": "PPU26-14",
+        "name": "DRIZZLE",
+        "hexCode": "#D9DCDB"
+      },
+      {
+        "codeName": "PPU26-11",
+        "name": "PLATINUM",
+        "hexCode": "#D1D4D1"
+      },
+      {
+        "codeName": "PPU18-11",
+        "name": "CLASSIC SILVER",
+        "hexCode": "#B9B9B4"
+      },
+      {
+        "codeName": "MQ3-28",
+        "name": "ROCK CRYSTAL",
+        "hexCode": "#CECBCB"
+      },
+      {
+        "codeName": "PPU18-10",
+        "name": "NATURAL GRAY",
+        "hexCode": "#C4C0BB"
+      },
+      {
+        "codeName": "PPU26-15",
+        "name": "HALATION",
+        "hexCode": "#D1D1CE"
+      },
+      {
+        "codeName": "PPU26-09",
+        "name": "GRAYCLOTH",
+        "hexCode": "#CCC9C5"
+      }
+    ]
+  },
+  {
+    "name": "Cafes",
+    "mainColor": "#c4704c",
+    "code": [
+      {
+        "codeName": "S170-7",
+        "name": "Dark Cherry Mocha",
+        "hexCode": "##774D41"
+      },
+      {
+        "codeName": "S180-7",
+        "name": "True Copper",
+        "hexCode": "#8B5643"
+      },
+      {
+        "codeName": "S190-7",
+        "name": "Toasted Pecan",
+        "hexCode": "#765143"
+      },
+      {
+        "codeName": "S200-7",
+        "name": "Earth Fired Redn",
+        "hexCode": "#785240"
+      },
+      {
+        "codeName": "S210-7",
+        "name": "October Leaves",
+        "hexCode": "#855743"
+      },
+      {
+        "codeName": "S220-7",
+        "name": "Molasses",
+        "hexCode": "#88654D"
+      },
+      {
+        "codeName": "S230-7",
+        "name": "Toasted Bagel",
+        "hexCode": "#986B4D"
+      },
+      {
+        "codeName": "S240-7",
+        "name": "Leather Work",
+        "hexCode": "#8A6347"
+      },
+      {
+        "codeName": "S250-7",
+        "name": "Moroccan Spice",
+        "hexCode": "#8F623B"
+      },
+      {
+        "codeName": "S260-7",
+        "name": "Nugget Golde",
+        "hexCode": "#936C48"
+      },
+      {
+        "codeName": "MQ3-06",
+        "name": "GRANITE DUST",
+        "hexCode": "#D7CEC4"
+      },
+      {
+        "codeName": "HDC-MD-21",
+        "name": "DOVE",
+        "hexCode": "#D9D4CB"
+      },
+      {
+        "codeName": "MQ2-50",
+        "name": "GRAVELSTONE",
+        "hexCode": "#D3C7B8"
+      },
+      {
+        "codeName": "PPU5-13",
+        "name": "CREAMY MUSHROOM",
+        "hexCode": "#CABDAE"
+      },
+      {
+        "codeName": "MQ3-11",
+        "name": "DAINTY LACE",
+        "hexCode": "#DECFBB"
+      },
+      {
+        "codeName": "MQ3-09",
+        "name": "LOFT LIGHT",
+        "hexCode": "#DCCAB7"
+      },
+      {
+        "codeName": "PPU4-08",
+        "name": "PLATEAU",
+        "hexCode": "#DBC4AA"
+      },
+      {
+        "codeName": "PPU5-08",
+        "name": "SCULPTOR CLAY",
+        "hexCode": "#CCC3B4"
+      },
+      {
+        "codeName": "PPU7-10",
+        "name": "ROMAN PLASTER",
+        "hexCode": "#DDD2BF"
+      },
+      {
+        "codeName": "PPU7-08",
+        "name": "BAJA",
+        "hexCode": "#D2C1A8"
+      },
+      {
+        "codeName": "BWC-09",
+        "name": "ATLANTIS PEARL",
+        "hexCode": "#F1E8D2"
+      },
+      {
+        "codeName": "HDC-NT-15",
+        "name": "ROCOCO BEIGE",
+        "hexCode": "#DFD6C1"
+      },
+      {
+        "codeName": "BWC-26",
+        "name": "STUCCO TAN",
+        "hexCode": "#DDD1BA"
+      },
+      {
+        "codeName": "YL-W11",
+        "name": "KHAKI SHADE",
+        "hexCode": "#D4C5AC"
+      },
+      {
+        "codeName": "BWC-27",
+        "name": "ALPACA BLANKET",
+        "hexCode": "#DED7C5"
+      }
+    ]
+  },
+  {
+    "name": "Naranjas",
+    "mainColor": "#f68221",
+    "code": [
+      {
+        "codeName": "P190-6",
+        "name": "Emergency Zone",
+        "hexCode": "#DA5736"
+      },
+      {
+        "codeName": "P190-7",
+        "name": "Inferno",
+        "hexCode": "#DE6A41"
+      },
+      {
+        "codeName": "P200-7",
+        "name": "Bonfire Night",
+        "hexCode": "#DE6A41"
+      },
+      {
+        "codeName": "P210-7",
+        "name": "Japanese Koi",
+        "hexCode": "#DB7842"
+      },
+      {
+        "codeName": "P220-7",
+        "name": "Construction Zone",
+        "hexCode": "#EE8442"
+      },
+      {
+        "codeName": "P230-7",
+        "name": "Acapulco Sun",
+        "hexCode": "#EB8A44"
+      },
+      {
+        "codeName": "P240-7",
+        "name": "Joyful Orange",
+        "hexCode": "#FA9335"
+      },
+      {
+        "codeName": "P210-6",
+        "name": "Mandarin",
+        "hexCode": "#E88951"
+      },
+      {
+        "codeName": "P220-6",
+        "name": "Bergamot Orange",
+        "hexCode": "#F59D59"
+      },
+      {
+        "codeName": "P230-6",
+        "name": "Toucan",
+        "hexCode": "#F09650"
+      },
+      {
+        "codeName": "P240-1",
+        "name": "CHEESE POWDER",
+        "hexCode": "#FFE4BE"
+      },
+      {
+        "codeName": "P240-2",
+        "name": "PEACH GLOW",
+        "hexCode": "#FFDCAC"
+      },
+      {
+        "codeName": "PPU4-11",
+        "name": "PORCELAIN PEACH",
+        "hexCode": "#F5D8BA"
+      },
+      {
+        "codeName": "P230-1",
+        "name": "WHITE GRAPEFRUIT",
+        "hexCode": "#FCF0DE"
+      },
+      {
+        "codeName": "P230-2",
+        "name": "SOUR TARTS",
+        "hexCode": "#FEE5C8"
+      },
+      {
+        "codeName": "P230-3",
+        "name": "VITAMIN C",
+        "hexCode": "#FFD3A7"
+      },
+      {
+        "codeName": "P210-1",
+        "name": "SOUR CANDY",
+        "hexCode": "#FEE8D1"
+      },
+      {
+        "codeName": "P210-2",
+        "name": "CITRUS DELIGHT",
+        "hexCode": "#FFDBBD"
+      },
+      {
+        "codeName": "M220-1",
+        "name": "MARSHMALLOW WHIP",
+        "hexCode": "#F9EFE0"
+      },
+      {
+        "codeName": "M220-2",
+        "name": "PUMPKIN ESSENCE",
+        "hexCode": "#F7DAC0"
+      },
+      {
+        "codeName": "S200-1",
+        "name": "CONCH SHELL",
+        "hexCode": "#E8D2C1"
+      },
+      {
+        "codeName": "S200-2",
+        "name": "CINNAMON TEA",
+        "hexCode": "#DEC0AD"
+      },
+      {
+        "codeName": "P200-1",
+        "name": "MELTED MARSHMALLOW",
+        "hexCode": "#FEE2CC"
+      },
+      {
+        "codeName": "P200-2A",
+        "name": "HUG GOODBYE",
+        "hexCode": "#FFD2B6"
+      },
+      {
+        "codeName": "S190-2",
+        "name": "SAND DANCE",
+        "hexCode": "#E0C8B9"
+      },
+      {
+        "codeName": "M190-1",
+        "name": "PINK SEA SALT",
+        "hexCode": "#F6DACB"
+      },
+      {
+        "codeName": "M190-2",
+        "name": "EVERBLOOMING",
+        "hexCode": "#F0C8B6"
+      },
+      {
+        "codeName": "P190-1",
+        "name": "FIRE MIST",
+        "hexCode": "#FBD9C4"
+      },
+      {
+        "codeName": "P190-2",
+        "name": "FAHRENHEIT",
+        "hexCode": "#FBD2BB"
+      },
+      {
+        "codeName": "S180-1",
+        "name": "ANGELICO",
+        "hexCode": "#EACFC2"
+      },
+      {
+        "codeName": "S180-2",
+        "name": "SUNWASHED BRICK",
+        "hexCode": "#E3C1B3"
+      },
+      {
+        "codeName": "S180-3",
+        "name": "FLOWERPOT",
+        "hexCode": "#D8B0A0"
+      },
+      {
+        "codeName": "M180-1",
+        "name": "ISLAND HOPPING",
+        "hexCode": "#F6E3D6"
+      },
+      {
+        "codeName": "M180-2",
+        "name": "RESORT SUNRISE",
+        "hexCode": "#F4D7C5"
+      },
+      {
+        "codeName": "P180-1",
+        "name": "DECO SHELL",
+        "hexCode": "#F9D5C9"
+      },
+      {
+        "codeName": "P180-2",
+        "name": "SHERBET FRUIT",
+        "hexCode": "#F8C8BB"
+      }
+    ]
+  },
+  {
+    "name": "Amarillos",
+    "mainColor": "#fdd63c",
+    "code": [
+      {
+        "codeName": "P300-7",
+        "name": "Unmellow Yellow",
+        "hexCode": "#FFC819"
+      },
+      {
+        "codeName": "P290-7",
+        "name": "Laser Lemon",
+        "hexCode": "#FFBD1B"
+      },
+      {
+        "codeName": "P280-7",
+        "name": "Midsummer Gold",
+        "hexCode": "#EAB034"
+      },
+      {
+        "codeName": "P270-7",
+        "name": "Sunny Side Up",
+        "hexCode": "#F9AB1D"
+      },
+      {
+        "codeName": "P260-7",
+        "name": "Extreme Yellow",
+        "hexCode": "#FFB729"
+      },
+      {
+        "codeName": "P250-7",
+        "name": "Blazing Bonfire",
+        "hexCode": "#FFA035"
+      },
+      {
+        "codeName": "P240-7",
+        "name": "Joyful Orange",
+        "hexCode": "#FA9335"
+      },
+      {
+        "codeName": "P250-6",
+        "name": "Splendor Gold",
+        "hexCode": "#FFB14E"
+      },
+      {
+        "codeName": "P260-6",
+        "name": "Smiley Face",
+        "hexCode": "#FFC962"
+      },
+      {
+        "codeName": "P270-6",
+        "name": "Soft Boiled",
+        "hexCode": "#FFB737"
+      },
+      {
+        "codeName": "P250-1",
+        "name": "PAPAYA SORBET",
+        "hexCode": "#FFEAC5"
+      },
+      {
+        "codeName": "P250-2",
+        "name": "GOLDEN NECTAR",
+        "hexCode": "#FFE4B5"
+      },
+      {
+        "codeName": "M250-1",
+        "name": "FROSTING CREAM",
+        "hexCode": "#F7E2C7"
+      },
+      {
+        "codeName": "M250-2",
+        "name": "GOLDEN PASTEL",
+        "hexCode": "#F4D9B9"
+      },
+      {
+        "codeName": "PPU5-10",
+        "name": "HEAVY CREAM",
+        "hexCode": "#F5EBDC"
+      },
+      {
+        "codeName": "P260-1",
+        "name": "GLASS OF MILK",
+        "hexCode": "#FCF3DD"
+      },
+      {
+        "codeName": "P260-2",
+        "name": "YOGURT",
+        "hexCode": "#FFECC3"
+      },
+      {
+        "codeName": "P260-3",
+        "name": "VANILLA ICE CREAM",
+        "hexCode": "#FFE6B3"
+      },
+      {
+        "codeName": "P270-1",
+        "name": "HONEY INFUSION",
+        "hexCode": "#FEEDCA"
+      },
+      {
+        "codeName": "S270-1",
+        "name": "FROSTED TOFFEE",
+        "hexCode": "#F1DBBF"
+      },
+      {
+        "codeName": "S270-2",
+        "name": "CHAI",
+        "hexCode": "#EBCFAE"
+      },
+      {
+        "codeName": "P280-1",
+        "name": "SUMMER BLISS",
+        "hexCode": "#FCF1CF"
+      },
+      {
+        "codeName": "P280-2",
+        "name": "GOLD THREAD",
+        "hexCode": "#FEE8B0"
+      },
+      {
+        "codeName": "M280-2",
+        "name": "LUNARIA",
+        "hexCode": "#F7E7CD"
+      },
+      {
+        "codeName": "M280-1",
+        "name": "TWINKLING LIGHTS",
+        "hexCode": "#F9F4E7"
+      },
+      {
+        "codeName": "P290-2",
+        "name": "SWEET AS HONEY",
+        "hexCode": "#FFE9AC"
+      },
+      {
+        "codeName": "P310-1",
+        "name": "EFFERVESCENT",
+        "hexCode": "#FBF4D1"
+      },
+      {
+        "codeName": "P310-2",
+        "name": "NATURAL LIGHT",
+        "hexCode": "#FDF3C4"
+      },
+      {
+        "codeName": "P330-1",
+        "name": "TART GELATO",
+        "hexCode": "#F6EEC9"
+      },
+      {
+        "codeName": "P330-2",
+        "name": "LIME BRIGHT",
+        "hexCode": "#F1E4B0"
+      },
+      {
+        "codeName": "M330-1",
+        "name": "CHANOYU",
+        "hexCode": "#EEE8D2"
+      },
+      {
+        "codeName": "M330-2",
+        "name": "FLOWERY",
+        "hexCode": "#E4DCBF"
+      }
+    ]
+  },
+  {
+    "name": "Verdes",
+    "mainColor": "#58a93e",
+    "code": [
+      {
+        "codeName": "M360-1",
+        "name": "GLISTEN GREEN",
+        "hexCode": "#ECF0DF"
+      },
+      {
+        "codeName": "MQ3-47",
+        "name": "AIRY GREEN",
+        "hexCode": "#DBE0C4"
+      },
+      {
+        "codeName": "S370-1",
+        "name": "POSITIVE ENERGY",
+        "hexCode": "#E1E2CF"
+      },
+      {
+        "codeName": "P380-1",
+        "name": "MAGIC MINT",
+        "hexCode": "#EBF2DF"
+      },
+      {
+        "codeName": "P380-2",
+        "name": "MISTED FERN",
+        "hexCode": "#E1ECD1"
+      },
+      {
+        "codeName": "S380-1",
+        "name": "MOSS MIST",
+        "hexCode": "#DFE1D2"
+      },
+      {
+        "codeName": "S380-2",
+        "name": "MORNING ZEN",
+        "hexCode": "#CBCDB9"
+      },
+      {
+        "codeName": "P390-1",
+        "name": "FROSTINI",
+        "hexCode": "#DBF2D9"
+      },
+      {
+        "codeName": "P390-2",
+        "name": "CHILLED MINT",
+        "hexCode": "#CAECCA"
+      },
+      {
+        "codeName": "P390-3",
+        "name": "MINT PARFAIT",
+        "hexCode": "#BBE6BB"
+      },
+      {
+        "codeName": "S390-2",
+        "name": "SPRING VALLEY",
+        "hexCode": "#CED7C5"
+      },
+      {
+        "codeName": "M430-1",
+        "name": "SNOWBOUND",
+        "hexCode": "#DDEBE3"
+      },
+      {
+        "codeName": "M430-2",
+        "name": "ICE RINK",
+        "hexCode": "#CBDFD6"
+      },
+      {
+        "codeName": "S430-2",
+        "name": "FRESH TONE",
+        "hexCode": "#B2C7C0"
+      },
+      {
+        "codeName": "PPU25-13",
+        "name": "MISTY COAST",
+        "hexCode": "#D5D9D3"
+      },
+      {
+        "codeName": "S390-1",
+        "name": "SOUNDS OF NATURE",
+        "hexCode": "#DFE5D7"
+      },
+      {
+        "codeName": "P330-7",
+        "name": "Luscious Lime",
+        "hexCode": "#AE9B33"
+      },
+      {
+        "codeName": "P340-7",
+        "name": "Venom",
+        "hexCode": "#A9A52A"
+      },
+      {
+        "codeName": "P350-7",
+        "name": "Lazy Lizard",
+        "hexCode": "#92942C"
+      },
+      {
+        "codeName": "P360-7",
+        "name": "Sassy Grass",
+        "hexCode": "#7A8C31"
+      },
+      {
+        "codeName": "P370-7",
+        "name": "Sun Valley",
+        "hexCode": "#698538"
+      },
+      {
+        "codeName": "P380-7",
+        "name": "Luck Of The Irish",
+        "hexCode": "#547839"
+      },
+      {
+        "codeName": "P390-7",
+        "name": "Park Picnic",
+        "hexCode": "#428F46"
+      },
+      {
+        "codeName": "P400-7",
+        "name": "Paradise Of Greenery",
+        "hexCode": "#398749"
+      },
+      {
+        "codeName": "P410-7",
+        "name": "Grasslands",
+        "hexCode": "#407548"
+      },
+      {
+        "codeName": "P420-7",
+        "name": "Crown Jewel",
+        "hexCode": "#2E7451"
+      }
+    ]
+  },
+  {
+    "name": "Aquas",
+    "mainColor": "#84d4ff",
+    "code": [
+      {
+        "codeName": "P450-1",
+        "name": "SEA ICE",
+        "hexCode": "#D7F2ED"
+      },
+      {
+        "codeName": "P450-2",
+        "name": "TAHITIAN BREEZE",
+        "hexCode": "#B8E9E4"
+      },
+      {
+        "codeName": "P450-3",
+        "name": "RAINWATER",
+        "hexCode": "#87D9D2"
+      },
+      {
+        "codeName": "M450-1",
+        "name": "DEW POINTE",
+        "hexCode": "#D7EDE8"
+      },
+      {
+        "codeName": "M450-2",
+        "name": "TIDEWATER",
+        "hexCode": "#C2E3DD"
+      },
+      {
+        "codeName": "M450-3",
+        "name": "WAVE TOP",
+        "hexCode": "#AFD9D3"
+      },
+      {
+        "codeName": "S450-1",
+        "name": "BEACH FOAM",
+        "hexCode": "#CDE0E1"
+      },
+      {
+        "codeName": "S450-2",
+        "name": "WIND SPEED",
+        "hexCode": "#BFD6D9"
+      },
+      {
+        "codeName": "PPU13-11",
+        "name": "CLEAR VISTA",
+        "hexCode": "#A3BEC4"
+      },
+      {
+        "codeName": "P460-1",
+        "name": "MORNING SKY",
+        "hexCode": "#C7ECEA"
+      },
+      {
+        "codeName": "P460-2",
+        "name": "TROPICAL WATERFALL",
+        "hexCode": "#9FDFDF"
+      },
+      {
+        "codeName": "P470-1",
+        "name": "SILENT BREEZE",
+        "hexCode": "#C6EAEC"
+      },
+      {
+        "codeName": "P470-2",
+        "name": "SERENE THOUGHT",
+        "hexCode": "#9DDCE2"
+      },
+      {
+        "codeName": "P470-3",
+        "name": "SEA OF TRANQUILITY",
+        "hexCode": "#81D1DA"
+      },
+      {
+        "codeName": "MQ3-52",
+        "name": "ETHEREAL MOOD",
+        "hexCode": "#CCE7EB"
+      },
+      {
+        "codeName": "M470-2",
+        "name": "BASIN BLUE",
+        "hexCode": "#B9DEE4"
+      },
+      {
+        "codeName": "MQ4-55",
+        "name": "BALBOA",
+        "hexCode": "#AFD3DA"
+      },
+      {
+        "codeName": "HDC-CT-16B",
+        "name": "WATERFALL",
+        "hexCode": "#CFDFE2"
+      },
+      {
+        "codeName": "S470-2",
+        "name": "GENTLE SEA",
+        "hexCode": "#B0C8D0"
+      },
+      {
+        "codeName": "S470-3",
+        "name": "PEACEFUL BLUE",
+        "hexCode": "#9AB6C0"
+      }
+    ]
+  },
+  {
+    "name": "Azules",
+    "mainColor": "#3497cd",
+    "code": [
+      {
+        "codeName": "P550-7",
+        "name": "Purple Prince",
+        "hexCode": "#515386"
+      },
+      {
+        "codeName": "P540-7",
+        "name": "Canyon Iris",
+        "hexCode": "#49548F"
+      },
+      {
+        "codeName": "P530-7",
+        "name": "Tanzanite",
+        "hexCode": "#3C4B7E"
+      },
+      {
+        "codeName": "P520-7",
+        "name": "Flashy Sapphire",
+        "hexCode": "#2C538A"
+      },
+      {
+        "codeName": "P510-7",
+        "name": "Beacon Blue",
+        "hexCode": "#265C98"
+      },
+      {
+        "codeName": "P500-7",
+        "name": "Cosmic Cobalt",
+        "hexCode": "#156A9B"
+      },
+      {
+        "codeName": "P490-7",
+        "name": "Mayan Treasure",
+        "hexCode": "#007597"
+      },
+      {
+        "codeName": "P480-7",
+        "name": "Striking",
+        "hexCode": "#00667B"
+      },
+      {
+        "codeName": "P470-7",
+        "name": "The Real Teal",
+        "hexCode": "#007883"
+      },
+      {
+        "codeName": "P460-7",
+        "name": "Caribbean Current",
+        "hexCode": "#006E6E"
+      },
+      {
+        "codeName": "M540-1",
+        "name": "BELLFLOWER BLUE",
+        "hexCode": "#E1E9EF"
+      },
+      {
+        "codeName": "M540-2",
+        "name": "ANGELIC BLUE",
+        "hexCode": "#CED9E9"
+      },
+      {
+        "codeName": "M540-3",
+        "name": "ETERNAL ELEGANCE",
+        "hexCode": "#B3C3DD"
+      },
+      {
+        "codeName": "PPU15-17",
+        "name": "MONET",
+        "hexCode": "#C3CFDC"
+      },
+      {
+        "codeName": "S530-3",
+        "name": "AERIAL VIEW",
+        "hexCode": "#A0B2C8"
+      },
+      {
+        "codeName": "P530-1",
+        "name": "LOYAL",
+        "hexCode": "#D2E1F0"
+      },
+      {
+        "codeName": "P530-2",
+        "name": "PROMISE KEEPING",
+        "hexCode": "#AFC7E8"
+      },
+      {
+        "codeName": "P530-3",
+        "name": "HONEST",
+        "hexCode": "#9BB8E2"
+      },
+      {
+        "codeName": "S520-1",
+        "name": "PALE CORNFLOWER",
+        "hexCode": "#CED9E1"
+      },
+      {
+        "codeName": "S520-2",
+        "name": "JOURNEY'S END",
+        "hexCode": "#BAC9D4"
+      },
+      {
+        "codeName": "M520-1A",
+        "name": "SOFT CLOUD",
+        "hexCode": "#D0E3ED"
+      },
+      {
+        "codeName": "M520-2",
+        "name": "AFTER RAIN",
+        "hexCode": "#C1DBEA"
+      },
+      {
+        "codeName": "M520-3",
+        "name": "CHARISMATIC SKY",
+        "hexCode": "#9AC1DC"
+      },
+      {
+        "codeName": "P520-1",
+        "name": "FIRST RAIN",
+        "hexCode": "#BDD8EC"
+      },
+      {
+        "codeName": "P520-2",
+        "name": "FRENCH PORCELAIN",
+        "hexCode": "#AACDE8"
+      },
+      {
+        "codeName": "MQ3-24",
+        "name": "CELESTIAL LIGHT",
+        "hexCode": "#C7DAE8"
+      },
+      {
+        "codeName": "S510-2",
+        "name": "BOOT CUT",
+        "hexCode": "#AFC2CF"
+      },
+      {
+        "codeName": "M510-1",
+        "name": "BLUE ME AWAY",
+        "hexCode": "#C9DCE7"
+      },
+      {
+        "codeName": "M510-2",
+        "name": "LIFE AT SEA",
+        "hexCode": "#AFC9DC"
+      }
+    ]
+  },
+  {
+    "name": "Morados",
+    "mainColor": "#8977ab",
+    "code": [
+      {
+        "codeName": "P550-6",
+        "name": "Wizard's Potion",
+        "hexCode": "#5D6098"
+      },
+      {
+        "codeName": "P560-6",
+        "name": "Just A Fairytale",
+        "hexCode": "#6C5D97"
+      },
+      {
+        "codeName": "P560-7",
+        "name": "King's Court",
+        "hexCode": "#5F5286"
+      },
+      {
+        "codeName": "P570-6",
+        "name": "Classic Waltz",
+        "hexCode": "#71588D"
+      },
+      {
+        "codeName": "P570-7",
+        "name": "Proper Purple",
+        "hexCode": "#59476B"
+      },
+      {
+        "codeName": "P550-7",
+        "name": "Purple Prince",
+        "hexCode": "#515386"
+      },
+      {
+        "codeName": "P540-6",
+        "name": "Wild Pansy",
+        "hexCode": "#6373B4"
+      },
+      {
+        "codeName": "P540-7",
+        "name": "Canyon Iris",
+        "hexCode": "#49548F"
+      },
+      {
+        "codeName": "P540-5",
+        "name": "Pansy Garden",
+        "hexCode": "#7F8FCA"
+      },
+      {
+        "codeName": "P550-5",
+        "name": "Carriage Ride",
+        "hexCode": "#8A8DC4"
+      },
+      {
+        "codeName": "P100-1",
+        "name": "SPRINKLE",
+        "hexCode": "#EBDDEA"
+      },
+      {
+        "codeName": "P100-2",
+        "name": "SWEET ROMANCE",
+        "hexCode": "#E3CFE5"
+      },
+      {
+        "codeName": "P100-3",
+        "name": "EPIPHANY",
+        "hexCode": "#DBC1DE"
+      },
+      {
+        "codeName": "M100-1",
+        "name": "AROMA",
+        "hexCode": "#E6DCE4"
+      },
+      {
+        "codeName": "M100-2",
+        "name": "SEEDLESS GRAPE",
+        "hexCode": "#D3C3D4"
+      },
+      {
+        "codeName": "S100-1",
+        "name": "SPRING BOUQUET",
+        "hexCode": "#D9D2DC"
+      },
+      {
+        "codeName": "S100-2",
+        "name": "ROMANTIC POETRY",
+        "hexCode": "#CAC0CE"
+      },
+      {
+        "codeName": "S100-3",
+        "name": "COURTLY PURPLE",
+        "hexCode": "#BBAFC1"
+      },
+      {
+        "codeName": "MQ3-31",
+        "name": "DUTCH WHITE",
+        "hexCode": "#E4E5E7"
+      },
+      {
+        "codeName": "MQ3-30",
+        "name": "PETAL TIP",
+        "hexCode": "#D9D9DF"
+      },
+      {
+        "codeName": "MQ5-36",
+        "name": "AUDITION",
+        "hexCode": "#B5ACB7"
+      },
+      {
+        "codeName": "P110-1",
+        "name": "ALL MADE UP",
+        "hexCode": "#EFD7E7"
+      },
+      {
+        "codeName": "P110-2",
+        "name": "GIRL TALK",
+        "hexCode": "#E4C1DD"
+      },
+      {
+        "codeName": "P110-3",
+        "name": "BFF",
+        "hexCode": "#DBB0D3"
+      },
+      {
+        "codeName": "M110-1",
+        "name": "TWINKLED PINK",
+        "hexCode": "#E9DBE4"
+      },
+      {
+        "codeName": "M110-2",
+        "name": "CASSIA BUDS",
+        "hexCode": "#E0CDDA"
+      },
+      {
+        "codeName": "M110-3",
+        "name": "BEDAZZLED",
+        "hexCode": "#D3B9CC"
+      },
+      {
+        "codeName": "S110-1",
+        "name": "SECRET SCENT",
+        "hexCode": "#E3D7DC"
+      },
+      {
+        "codeName": "S110-2",
+        "name": "ORCHID HAZE",
+        "hexCode": "#D8C8D1"
+      },
+      {
+        "codeName": "S110-3",
+        "name": "QUEEN'S VIOLET",
+        "hexCode": "#CDB9C4"
+      },
+      {
+        "codeName": "S110-4",
+        "name": "HIGHLAND THISTLE",
+        "hexCode": "#B9A1AE"
+      },
+      {
+        "codeName": "N110-1",
+        "name": "DUSTY LILAC",
+        "hexCode": "#D3CACD"
+      },
+      {
+        "codeName": "N110-2",
+        "name": "MULBERRY STAIN",
+        "hexCode": "#C6BABE"
+      }
+    ]
+  },
+  {
+    "name": "Rosados",
+    "mainColor": "#ff8b91",
+    "code": [
+      {
+        "codeName": "P120-1",
+        "name": "STARLET PINK",
+        "hexCode": "#EDC2DB"
+      },
+      {
+        "codeName": "M120-1",
+        "name": "PINK PROPOSAL",
+        "hexCode": "#F1E0E8"
+      },
+      {
+        "codeName": "M120-2",
+        "name": "KISS GOOD NIGHT",
+        "hexCode": "#E5C8D9"
+      },
+      {
+        "codeName": "M120-3",
+        "name": "PINK WINK",
+        "hexCode": "#DDB8CE"
+      },
+      {
+        "codeName": "S120-1",
+        "name": "WINE PAIRING",
+        "hexCode": "#E9DBDF"
+      },
+      {
+        "codeName": "S120-2",
+        "name": "ETIQUETTE",
+        "hexCode": "#E2D0D6"
+      },
+      {
+        "codeName": "N120-1",
+        "name": "PARASOL",
+        "hexCode": "#E9DFDE"
+      },
+      {
+        "codeName": "MQ3-35",
+        "name": "MOXIE",
+        "hexCode": "#E5DAD8"
+      },
+      {
+        "codeName": "P130-1",
+        "name": "PIGGY BANK",
+        "hexCode": "#F0CBD9"
+      },
+      {
+        "codeName": "P130-2A",
+        "name": "DAINTY PINK",
+        "hexCode": "#ECBCCE"
+      },
+      {
+        "codeName": "P130-3",
+        "name": "LITTLE PRINCESS",
+        "hexCode": "#E6AAC1"
+      },
+      {
+        "codeName": "M130-1",
+        "name": "PINK POSIES",
+        "hexCode": "#EFDBE2"
+      },
+      {
+        "codeName": "M130-2",
+        "name": "CREAMY FREESIA",
+        "hexCode": "#EBD0DB"
+      },
+      {
+        "codeName": "M130-3",
+        "name": "WILD GERANIUM",
+        "hexCode": "#DFBBCA"
+      },
+      {
+        "codeName": "S130-1",
+        "name": "BELOVED PINK",
+        "hexCode": "#E9D3D4"
+      },
+      {
+        "codeName": "S130-2",
+        "name": "SHY SMILE",
+        "hexCode": "#DCBBBE"
+      },
+      {
+        "codeName": "P140-1",
+        "name": "SUMMER CRUSH",
+        "hexCode": "#F2D6DA"
+      },
+      {
+        "codeName": "P140-2",
+        "name": "SWEETHEART",
+        "hexCode": "#F0C7CF"
+      },
+      {
+        "codeName": "P140-3",
+        "name": "LOVE AT FIRST SIGHT",
+        "hexCode": "#E5A5B1"
+      }
+    ]
+  }
+]
