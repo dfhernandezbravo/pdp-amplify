@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -19,11 +20,12 @@ export const Title = styled.h1`
   padding-bottom: 0.5rem;
 `;
 
-export const Brand = styled.span`
+export const Brand = styled(Link)`
   font-size: 0.938rem;
   color: #4d4d4d;
   margin: 0;
   font-weight: 600;
+  text-decoration: none;
 `;
 
 export const ProductId = styled.span`

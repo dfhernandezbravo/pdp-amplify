@@ -15,14 +15,16 @@ import Variants from './components/variants';
 
 const ProductDetails = () => {
   const { product } = useAppSelector((state) => state.product);
+  const brand = product?.brand;
+  const refId = product?.items?.[0]?.referenceId?.[0]?.Value;
 
   return (
     <Container>
-      <Brand>{product?.brand}</Brand>
+      <Brand href={`/search/${brand}?filter=brand%2F${brand}&page=1`}>
+        {brand}
+      </Brand>
       <Title>{product?.productName}</Title>
-      <ProductId>
-        Código del producto: {product?.items?.[0]?.referenceId?.[0]?.Value}
-      </ProductId>
+      <ProductId>Código del producto: {refId}</ProductId>
       {/* <RatingAverage /> */}
       <Price />
       <ProductSpecifications />
