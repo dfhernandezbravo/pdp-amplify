@@ -20,7 +20,7 @@ const ProductDetails = () => {
 
   return (
     <Container>
-      <Brand href={`/search/${brand}?filter=brand%2F${brand}&page=1`}>
+      <Brand href={`/search/${brand}?filter=brand/${brand}&page=1`}>
         {brand}
       </Brand>
       <Title>{product?.productName}</Title>
