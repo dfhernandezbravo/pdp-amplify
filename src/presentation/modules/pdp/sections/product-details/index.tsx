@@ -21,7 +21,9 @@ const ProductDetails = () => {
 
   return (
     <Container>
-      <Brand>{brand}</Brand>
+      <Brand href={`/search/${brand}?filter=brand/${brand}&page=1`}>
+        {brand}
+      </Brand>
       <Title>{product?.productName}</Title>
       <ProductId>Código del producto: {refId}</ProductId>
       {/* <RatingAverage /> */}
