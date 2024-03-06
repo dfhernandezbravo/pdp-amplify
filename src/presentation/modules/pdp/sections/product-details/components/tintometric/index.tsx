@@ -1,17 +1,18 @@
 import { useAppSelector } from '@hooks/storeHooks';
 import React from 'react';
 import { ColorsContainer, Title } from './style';
-import colorsData from './colors.json';
 import ColorGroup from './components/color-group/index';
 import SelectedColor from './components/selected-color';
 
 const Tintometric = () => {
   const { product } = useAppSelector((state) => state.product);
   const colorCodes = product?.colorCodes;
-  if (!colorCodes) return null;
+  const colorPalettes = product?.colorPalettes;
+
+  if (!colorCodes || !colorPalettes) return null;
 
   const getColor = (color: string) => {
-    const colorData = colorsData?.find((c) => c?.name === color);
+    const colorData = colorPalettes?.find((c) => c?.name === color);
 
     const filteredCodes = colorData?.code.filter((item) => {
       return colorCodes?.[color]?.[0].includes(item.codeName);
@@ -26,15 +27,15 @@ const Tintometric = () => {
   };
 
   return (
-    <div>
-      <Title>Grupos de colores:</Title>
+    <>
+      <Title>Grupos de color:</Title>
       <ColorsContainer>
         {Object.keys(colorCodes).map((color) => (
           <ColorGroup color={getColor(color)} key={color} />
         ))}
       </ColorsContainer>
       <SelectedColor />
-    </div>
+    </>
   );
 };
 

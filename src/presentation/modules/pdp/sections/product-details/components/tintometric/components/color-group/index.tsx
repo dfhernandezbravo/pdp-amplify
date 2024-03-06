@@ -1,7 +1,7 @@
 import React from 'react';
-import { Color, ColorGroupContainer, Footer } from './style';
+import { Color, ColorGroupContainer, Footer, ArrowContainer } from './style';
 import { CgChevronDown, CgChevronUp } from 'react-icons/cg';
-import ColorGroupToolTip from '../color-group-tooltip';
+import ColorPicker from '../color-picker';
 import { ColorType } from '../../types';
 import { useAppDispatch, useAppSelector } from '@hooks/storeHooks';
 import { setOpenedColorGroup } from '@store/tintometric';
@@ -20,20 +20,26 @@ const ColorGroup = ({ color }: Props) => {
 
   if (color && color?.mainColor)
     return (
-      <>
-        <ColorGroupContainer onClick={() => handleOpen(color?.name)}>
+      <div>
+        <ColorGroupContainer
+          className="color-group-container"
+          $isOpen={openedColorGroup === color?.name}
+          onClick={() => handleOpen(color?.name)}
+        >
           <Color $backgroundColor={color?.mainColor}></Color>
           <Footer $isOpen={openedColorGroup === color?.name}>
             <span>{color?.name}</span>
-            {openedColorGroup === color?.name ? (
-              <CgChevronUp size={20} />
-            ) : (
-              <CgChevronDown size={20} />
-            )}
+            <ArrowContainer>
+              {openedColorGroup === color?.name ? (
+                <CgChevronUp size={20} />
+              ) : (
+                <CgChevronDown size={20} />
+              )}
+            </ArrowContainer>
           </Footer>
-          <ColorGroupToolTip color={color} />
         </ColorGroupContainer>
-      </>
+        <ColorPicker color={color} />
+      </div>
     );
 
   return null;

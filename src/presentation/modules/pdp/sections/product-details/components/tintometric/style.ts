@@ -14,7 +14,12 @@ export const Title = styled.p`
 `;
 
 export const ColorsContainer = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(84px, 1fr));
   gap: 0.5rem;
-  flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fit, minmax(54px, 1fr));
+    gap: 0.8rem;
+  }
 `;

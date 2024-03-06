@@ -8,9 +8,9 @@ import {
   GetServerSidePropsContext,
   InferGetServerSidePropsType,
 } from 'next';
-import axios from 'axios';
 import dynamic from 'next/dynamic';
 import ProductNotFound from './product-not-found/product-not-found';
+import getProduct from '@use-cases/product/get-product';
 
 const EasyThemeProvider = dynamic(
   () =>
@@ -58,40 +58,14 @@ export const getServerSideProps = (async (ctx: GetServerSidePropsContext) => {
     const productId = Number(query?.[query?.length - 1].split('/')[0]);
 
     try {
-      const response = await axios.get(
-        `${process.env.NEXT_PUBLIC_BFF_URL}products/by-sku/${encodeURIComponent(
-          productId,
-        )}`,
-        {
-          headers: {
-            'x-api-key': `${process.env.NEXT_PUBLIC_API_KEY_BFF}`,
-          },
-        },
-      );
-      const repo = await response?.data;
-
-      if (repo?.allSpecificationsGroups?.includes('Códigos de Pintura')) {
-        const formatColorCodes: (repo: GetProduct) => GetProduct = (repo) => {
-          const colorCodes: { [key: string]: string[] } = {};
-          repo?.specifications?.['Códigos de Pintura']?.forEach((spec) => {
-            // Check if the specification exists in the object
-            if (spec in repo.specifications) {
-              // If it exists, get the values associated with that specification
-              colorCodes[spec] = repo.specifications?.[spec];
-              delete repo.specifications[spec];
-            }
-          });
-          delete repo.specifications['Códigos de Pintura'];
-          return { ...repo, colorCodes };
-        };
-        const formattedRepo: GetProduct | null = formatColorCodes(repo);
-        return { props: { repo: formattedRepo } };
-      } else return { props: { repo } };
+      const response = getProduct(productId);
+      const repo = await response;
+      return { props: { repo } };
     } catch (error) {
       return { props: { repo: null } };
     }
   }
-  return { props: { repo: {} } };
+  return { props: { repo: null } };
 }) satisfies GetServerSideProps<{
   repo: GetProduct | null;
 }>;

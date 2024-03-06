@@ -13,13 +13,11 @@ const Button = dynamic(
   { ssr: false },
 );
 
-type Props = {
-  quantity: number;
-};
-
-const Buttons = ({ quantity }: Props) => {
+const Buttons = () => {
   const { cartId } = useAppSelector((state) => state.cart);
-  const { product, selectedVariant } = useAppSelector((state) => state.product);
+  const { product, selectedVariant, quantity } = useAppSelector(
+    (state) => state.product,
+  );
 
   const addToCart = async (product: GetProduct, cartId: string) => {
     if (selectedVariant) {

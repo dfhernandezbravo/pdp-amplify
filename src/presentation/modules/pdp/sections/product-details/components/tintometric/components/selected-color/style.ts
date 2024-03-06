@@ -16,10 +16,11 @@ export const SelectedColorContainer = styled.div`
   margin-left: 3px;
 `;
 
-export const Color = styled.div<{ $backgroundColor: string }>`
+export const Color = styled.div<{ $backgroundColor?: string }>`
   height: 35px;
   width: 35px;
-  background-color: ${({ $backgroundColor }) => $backgroundColor};
+  background-color: ${({ $backgroundColor }) =>
+    $backgroundColor && $backgroundColor};
   border-radius: 4px;
   border: 4px solid #fff;
   box-shadow: 0 0 0 2.5px #000;

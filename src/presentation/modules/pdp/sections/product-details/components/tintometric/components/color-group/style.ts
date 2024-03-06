@@ -1,17 +1,20 @@
 import styled, { css, keyframes } from 'styled-components';
 
-export const ColorGroupContainer = styled.div`
-  width: 74px;
-  height: 2.5rem;
+export const ColorGroupContainer = styled.div<{ $isOpen: boolean }>`
+  height: auto;
   border: 1px solid #828282;
   border-radius: 4px;
   padding: 0.3rem;
+  padding-bottom: 0;
   cursor: pointer;
+
+  @media (max-width: 768px) {
+    width: 52px;
+  }
 `;
 
 export const Color = styled.div<{ $backgroundColor: string }>`
-  width: 100%;
-  height: 65%;
+  height: 30px;
   background-color: ${({ $backgroundColor }) => $backgroundColor};
 `;
 
@@ -29,6 +32,10 @@ export const Footer = styled.div<{ $isOpen: boolean }>`
   align-items: center;
   justify-content: space-between;
 
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
+
   span {
     font-family: Open Sans;
     font-size: 11px;
@@ -42,17 +49,30 @@ export const Footer = styled.div<{ $isOpen: boolean }>`
   ${({ $isOpen }) =>
     $isOpen &&
     css`
-      :after {
-        content: '▲';
-        color: #fff;
-        font-size: large;
-        height: 13px;
-        position: absolute;
-        bottom: -12px;
-        left: 15%;
-        animation: ${fadeAnimation} 0.3s ease forwards;
-        z-index: 999;
-        text-shadow: 0 -2px 3px #00000040;
+      @media (min-width: 1025px) {
+        :after {
+          content: '▲';
+          color: #fff;
+          font-size: large;
+          height: 1px;
+          position: absolute;
+          bottom: -1.1rem;
+          left: 15%;
+          animation: ${fadeAnimation} 0.3s ease forwards;
+          z-index: 999;
+          line-height: 0;
+          text-shadow: 0 -2px 3px #00000020;
+        }
       }
     `}
+`;
+
+export const ArrowContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;

@@ -1,5 +1,6 @@
 import { CommertialOffer } from '@entities/commertial-offer';
 import { ReferenceIdEntity } from './reference-id';
+import { Color } from './get-colors.response';
 
 type Item = {
   ean: string;
@@ -53,6 +54,7 @@ type GetProduct = {
   colorCodes?: {
     [key: string]: string[];
   };
+  colorPalettes?: Color[] | null;
 };
 
 export type { GetProduct, Item };

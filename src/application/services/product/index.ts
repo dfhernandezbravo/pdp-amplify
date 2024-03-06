@@ -5,5 +5,8 @@ const productService: ProductService = {
   getProduct: async (productId) => {
     return bffInstance.get(`/products/by-sku/${encodeURIComponent(productId)}`);
   },
+  getColors: async () => {
+    return bffInstance.get('/cms/group/Tintometrico/colors');
+  },
 };
 export default productService;

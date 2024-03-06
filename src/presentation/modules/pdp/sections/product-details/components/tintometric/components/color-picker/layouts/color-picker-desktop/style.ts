@@ -19,11 +19,9 @@ const fadeAnimation = keyframes`
 
 export const ToolTipContainer = styled.div<{ $isOpen: boolean }>`
   position: absolute;
-  margin-top: 12px;
+  margin-top: 1.3rem;
   left: 0;
-  width: fit-content;
-  height: fit-content;
-  max-width: 430px;
+  width: 93%;
   background-color: #fff;
   padding: 1rem;
   border-radius: 8px;
@@ -41,17 +39,11 @@ export const ToolTipContainer = styled.div<{ $isOpen: boolean }>`
 `;
 
 export const ColorsContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(72px, 1fr));
   gap: 0 0.8rem;
   animation: ${fadeAnimation} 0.9s ease-in;
   width: 100%;
-
-  &:after {
-    content: '';
-    flex: auto;
-  }
 `;
 
 export const ColorContainer = styled.div`

@@ -9,11 +9,13 @@ type TintometricState = {
         hexCode: string;
       }
     | undefined;
+  openMobileColorPicker: boolean;
 };
 
 const initialState: TintometricState = {
   openedColorGroup: '',
   selectedColor: undefined,
+  openMobileColorPicker: false,
 };
 
 const tintometricSlice = createSlice({
@@ -27,6 +29,9 @@ const tintometricSlice = createSlice({
     },
     setSelectedColor: (state, { payload }) => {
       state.selectedColor = payload;
+    },
+    setOpenMobileColorPicker: (state, { payload }) => {
+      state.openMobileColorPicker = payload;
     },
   },
 });
