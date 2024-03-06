@@ -10,6 +10,8 @@ type Props = {
 const ColorPicker = ({ color }: Props) => {
   const { openedColorGroup } = useAppSelector((state) => state.tintometric);
 
+  if (!color || !openedColorGroup) return null;
+
   if (openedColorGroup === color?.name)
     return (
       <>
@@ -17,7 +19,8 @@ const ColorPicker = ({ color }: Props) => {
         <ColorPickerMobile color={color} />
       </>
     );
-  else return null;
+
+  return null;
 };
 
 export default ColorPicker;

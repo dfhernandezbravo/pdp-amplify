@@ -35,7 +35,7 @@ const QuantityInput = () => {
         onDecrementQuantity={() => dispatch(setQuantity?.(quantity - 1))}
         onChange={(quantity) => dispatch(setQuantity?.(quantity))}
         disabled={false}
-        max={availableStock() || 0}
+        max={availableStock()}
       />
     </>
   );

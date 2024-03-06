@@ -1,19 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 type TintometricState = {
-  openedColorGroup: string;
-  selectedColor:
-    | {
-        codeName: string;
-        name: string;
-        hexCode: string;
-      }
-    | undefined;
+  openedColorGroup?: string;
+  selectedColor?: {
+    codeName: string;
+    name: string;
+    hexCode: string;
+  };
+
   openMobileColorPicker: boolean;
 };
 
 const initialState: TintometricState = {
-  openedColorGroup: '',
+  openedColorGroup: undefined,
   selectedColor: undefined,
   openMobileColorPicker: false,
 };
@@ -24,7 +23,7 @@ const tintometricSlice = createSlice({
   reducers: {
     setOpenedColorGroup: (state, { payload }) => {
       if (state.openedColorGroup === payload) {
-        state.openedColorGroup = '';
+        state.openedColorGroup = undefined;
       } else state.openedColorGroup = payload;
     },
     setSelectedColor: (state, { payload }) => {

@@ -81,7 +81,8 @@ export const Color = styled.div<{
 }>`
   height: 50px;
   width: 100%;
-  background-color: ${({ $backgroundColor }) => $backgroundColor};
+  background-color: ${({ $backgroundColor }) =>
+    $backgroundColor && $backgroundColor};
   ${({ selected }) =>
     selected &&
     css`

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, ButtonsContainer } from './style';
+import { Container } from './style';
 import Buttons from '../../buttons';
 import Mobile from '@components/Mobile';
 import { useAppSelector } from '@hooks/storeHooks';
@@ -10,9 +10,7 @@ const MobileActions = () => {
   return (
     <Mobile>
       <Container openedColorGroup={openedColorGroup !== ''}>
-        <ButtonsContainer>
-          <Buttons />
-        </ButtonsContainer>
+        <Buttons />
       </Container>
     </Mobile>
   );

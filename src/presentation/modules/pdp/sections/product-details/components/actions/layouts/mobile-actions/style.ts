@@ -14,10 +14,3 @@ export const Container = styled.div<{ openedColorGroup: boolean }>`
     `}
   z-index: 99;
 `;
-
-export const ButtonsContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  flex-direction: row-reverse;
-`;

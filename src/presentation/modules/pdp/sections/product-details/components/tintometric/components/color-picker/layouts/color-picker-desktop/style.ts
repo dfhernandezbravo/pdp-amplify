@@ -81,7 +81,8 @@ export const Color = styled.div<{ $backgroundColor: string }>`
   height: 50px;
   width: 72px;
   flex: 0 0 17%;
-  background-color: ${({ $backgroundColor }) => $backgroundColor};
+  background-color: ${({ $backgroundColor }) =>
+    $backgroundColor && $backgroundColor};
 `;
 
 export const ColorName = styled.p`
