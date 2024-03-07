@@ -13,6 +13,7 @@ export const List = styled.ul`
   list-style-position: inside;
   padding-bottom: 0.5rem;
   min-height: 86px;
+  list-style-type: disc;
 
   li {
     font-size: 0.8rem;

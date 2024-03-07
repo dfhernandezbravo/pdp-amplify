@@ -21,7 +21,7 @@ export const ToolTipContainer = styled.div<{ $isOpen: boolean }>`
   position: absolute;
   margin-top: 1.3rem;
   left: 0;
-  width: 93%;
+  width: 100%;
   background-color: #fff;
   padding: 1rem;
   border-radius: 8px;
