@@ -40,7 +40,7 @@ export const ToolTipContainer = styled.div<{ $isOpen: boolean }>`
 
 export const ColorsContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(72px, 1fr));
+  grid-template-columns: repeat(auto-fit, 72px);
   gap: 0 0.8rem;
   animation: ${fadeAnimation} 0.9s ease-in;
   width: 100%;

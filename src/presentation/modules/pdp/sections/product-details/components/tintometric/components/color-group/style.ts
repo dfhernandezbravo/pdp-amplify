@@ -7,15 +7,17 @@ export const ColorGroupContainer = styled.div<{ $isOpen: boolean }>`
   padding: 0.3rem;
   padding-bottom: 0;
   cursor: pointer;
+  width: 78px;
 
   @media (max-width: 768px) {
-    width: 52px;
+    width: 48px;
   }
 `;
 
 export const Color = styled.div<{ $backgroundColor: string }>`
   height: 30px;
-  background-color: ${({ $backgroundColor }) => $backgroundColor};
+  background-color: ${({ $backgroundColor }) =>
+    $backgroundColor && $backgroundColor};
 `;
 
 const fadeAnimation = keyframes`

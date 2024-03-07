@@ -5,6 +5,7 @@ import {
   ColorName,
   SelectedColorContainer,
   Title,
+  Container,
 } from './style';
 import { useAppSelector } from '@hooks/storeHooks';
 
@@ -23,14 +24,14 @@ const SelectedColor = () => {
   if (!selectedColor) return null;
 
   return (
-    <div>
+    <Container>
       <Title>Color selecionado:</Title>
       <SelectedColorContainer>
         <Color $backgroundColor={selectedColor?.hexCode}></Color>
         <ColorName>{capitalizeFirstLetter(selectedColor?.name)}</ColorName>
         <ColorCode>{selectedColor?.codeName}</ColorCode>
       </SelectedColorContainer>
-    </div>
+    </Container>
   );
 };
 

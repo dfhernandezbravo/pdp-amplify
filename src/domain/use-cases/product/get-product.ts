@@ -4,13 +4,13 @@ import { GetProduct } from '@entities/product/get-product.response';
 
 const formatColorCodes: (product: GetProduct) => GetProduct = (product) => {
   const colorCodes: { [key: string]: string[] } = {};
-  product?.specifications?.['Códigos de Pintura']?.forEach((spec) => {
+  product?.specifications?.['Codigos de pintura']?.forEach((spec) => {
     if (spec in product.specifications) {
       colorCodes[spec] = product.specifications?.[spec];
       delete product.specifications[spec];
     }
   });
-  delete product.specifications['Códigos de Pintura'];
+  delete product.specifications['Codigos de pintura'];
   return { ...product, colorCodes };
 };
 
@@ -29,7 +29,7 @@ const getProduct = async (productId: number) => {
   try {
     const { data } = await ProductService.getProduct(productId);
 
-    if (data?.allSpecificationsGroups?.includes('Códigos de Pintura')) {
+    if (data?.allSpecificationsGroups?.includes('Codigos de pintura')) {
       const formattedRepo: GetProduct | null = formatColorCodes(data);
       const colorsFromCms = await getColorsFromCms();
 
