@@ -25,12 +25,14 @@ const ProductDetails = () => {
 
   return (
     <Container>
-      <Brand href={`/search/${brand}?filter=brand/${brand}&page=1`}>
+      <Brand
+        data-id="product-brand"
+        href={`/search/${brand}?filter=brand/${brand}&page=1`}
+      >
         {brand}
       </Brand>
-      <Title>{product?.productName}</Title>
+      <Title data-id="product-name">{product?.productName}</Title>
       <ProductId>Código del producto: {refId}</ProductId>
-      {/* <RatingAverage /> */}
       <Price />
       <ProductSpecifications />
       <Variants />
