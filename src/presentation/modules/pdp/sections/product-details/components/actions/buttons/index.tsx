@@ -4,6 +4,7 @@ import { GetProduct } from '@entities/product/get-product.response';
 import { useAppSelector } from '@hooks/storeHooks';
 import { customDispatchEvent } from '@store/events/dispatchEvents';
 import dynamic from 'next/dynamic';
+import { ButtonsContainer } from './style';
 
 const Button = dynamic(
   () =>
@@ -13,13 +14,12 @@ const Button = dynamic(
   { ssr: false },
 );
 
-type Props = {
-  quantity: number;
-};
-
-const Buttons = ({ quantity }: Props) => {
+const Buttons = () => {
   const { cartId } = useAppSelector((state) => state.cart);
-  const { product, selectedVariant } = useAppSelector((state) => state.product);
+  const { product, selectedVariant, quantity } = useAppSelector(
+    (state) => state.product,
+  );
+  const { selectedColor } = useAppSelector((state) => state.tintometric);
 
   const addToCart = async (product: GetProduct, cartId: string) => {
     if (selectedVariant) {
@@ -36,6 +36,13 @@ const Buttons = ({ quantity }: Props) => {
         },
       };
 
+      if (selectedColor) {
+        eventData.product.paintingCode = {
+          code: selectedColor?.codeName,
+          hexColor: selectedColor?.hexCode,
+        };
+      }
+
       customDispatchEvent({
         name: WindowsEvents.ADD_ITEM_SHOPPING_CART,
         detail: eventData,
@@ -50,14 +57,14 @@ const Buttons = ({ quantity }: Props) => {
   };
 
   return (
-    <>
+    <ButtonsContainer>
       <Button onClick={buyNow} variant="primary" label="Comprar ahora" />
       <Button
         onClick={() => product && cartId && addToCart(product, cartId)}
         variant="secondary"
         label="Añadir al carro"
       />
-    </>
+    </ButtonsContainer>
   );
 };
 

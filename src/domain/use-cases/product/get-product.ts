@@ -1,13 +1,30 @@
 import ProductService from '@services/product';
 import { AxiosError } from 'axios';
 
+const getColorsFromCms = async () => {
+  try {
+    const { data } = await ProductService.getColors();
+    return data.value;
+  } catch (error) {
+    const axiosError = error as AxiosError;
+    console.error(`${axiosError}`);
+    return null;
+  }
+};
+
 const getProduct = async (productId: number) => {
   try {
     const { data } = await ProductService.getProduct(productId);
-    return data;
+
+    if (data?.colorCodes) {
+      const colorsFromCms = await getColorsFromCms();
+
+      return { ...data, colorPalettes: colorsFromCms };
+    } else return data;
   } catch (error) {
     const axiosError = error as AxiosError;
-    throw new Error(`${axiosError}`);
+    console.error(`${axiosError}`);
+    return null;
   }
 };
 

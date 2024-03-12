@@ -34,11 +34,9 @@ const SpecificationsTables = () => {
   ) => {
     const result: specificationsType = {};
     specArray.forEach((spec) => {
-      // Check if the specification exists in the object
       if (spec in specObject) {
-        // If it exists, get the values associated with that specification
         result[spec] = specObject[spec].map((prop) => {
-          const item = { name: prop, value: specObject[prop][0] };
+          const item = { name: prop, value: specObject[prop]?.[0] };
           return item;
         });
       }

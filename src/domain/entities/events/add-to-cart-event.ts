@@ -13,5 +13,9 @@ export type AddItemShoppingCartEvent = {
       normalPrice: number;
       offerPrice: number;
     };
+    paintingCode?: {
+      code?: string;
+      hexColor?: string;
+    };
   };
 };
