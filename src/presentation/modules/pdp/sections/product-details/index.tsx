@@ -8,6 +8,7 @@ import Actions from './components/actions';
 import AddService from './components/add-service';
 import Variants from './components/variants';
 import Tintometric from './components/tintometric';
+import FloorCalculator from './components/floor-calculator';
 
 // const RatingAverage = dynamic(() => import('ratingsAndReviews/averageEvent'), {
 //   ssr: false,
@@ -18,6 +19,9 @@ const ProductDetails = () => {
   const { product } = useAppSelector((state) => state.product);
   const brand = product?.brand;
   const refId = product?.items?.[0]?.referenceId?.[0]?.Value;
+  const showCalculator =
+    product?.specifications?.['Rendimiento'] &&
+    product?.specifications?.['PrecioM2']?.[0] === 'Visible';
 
   return (
     <Container>
@@ -31,6 +35,7 @@ const ProductDetails = () => {
       <ProductSpecifications />
       <Variants />
       <Tintometric />
+      {showCalculator && <FloorCalculator />}
       <Actions />
       <AddService />
       <Separator />
