@@ -15,7 +15,8 @@ const Tintometric = () => {
     const colorData = colorPalettes?.find((c) => c?.name === color);
 
     const filteredCodes = colorData?.code.filter((item) => {
-      return colorCodes?.[color]?.[0].includes(item.codeName);
+      const findColor = colorCodes?.find((c) => c?.color === color);
+      return findColor?.value.includes(item.codeName);
     });
     const filteredColors = {
       ...colorData,
@@ -30,8 +31,8 @@ const Tintometric = () => {
     <>
       <Title>Grupos de color:</Title>
       <ColorsContainer>
-        {Object.keys(colorCodes).map((color) => (
-          <ColorGroup color={getColor(color)} key={color} />
+        {colorCodes.map((color) => (
+          <ColorGroup color={getColor(color.color)} key={color.color} />
         ))}
       </ColorsContainer>
       <SelectedColor />

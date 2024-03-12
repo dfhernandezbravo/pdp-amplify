@@ -52,8 +52,9 @@ type GetProduct = {
   searchableClusters: string[];
   items: Item[];
   colorCodes?: {
-    [key: string]: string[];
-  };
+    color: string;
+    value: string;
+  }[];
   colorPalettes?: Color[] | null;
 };
 
