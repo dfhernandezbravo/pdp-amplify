@@ -8,6 +8,15 @@ const Variants = () => {
   const variations = selectedVariant?.itemSpecifications?.variations;
   const [selectedColor, setSelectedColor] = useState<string>();
 
+  const hasTintometric = (variation: string) => {
+    if (
+      (product?.colorCodes && variation === 'Color') ||
+      variation === 'Colores'
+    )
+      return true;
+    else return false;
+  };
+
   useEffect(() => {
     if (variations?.includes('Color') || variations?.includes('Colores')) {
       setSelectedColor(
@@ -20,7 +29,7 @@ const Variants = () => {
   return (
     <>
       {variations?.map((variation) => {
-        if (product?.items)
+        if (product?.items && !hasTintometric(variation))
           return (
             <VariantsContainer key={variation}>
               <Title>
