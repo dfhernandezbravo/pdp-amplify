@@ -9,7 +9,7 @@ const Tintometric = () => {
   const colorCodes = product?.colorCodes;
   const colorPalettes = product?.colorPalettes;
 
-  if (!colorCodes || !colorPalettes) return null;
+  if (!colorCodes || colorCodes.length === 0 || !colorPalettes) return null;
 
   const getColor = (color: string) => {
     const colorData = colorPalettes?.find((c) => c?.name === color);
