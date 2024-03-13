@@ -18,7 +18,7 @@ const getProduct = async (productId: number) => {
   try {
     const { data } = await ProductService.getProduct(productId);
 
-    if (data?.colorCodes) {
+    if (data?.colorCodes && data?.colorCodes.length > 0) {
       const colorsFromCms = await getColorsFromCms();
 
       return { ...data, colorPalettes: colorsFromCms };

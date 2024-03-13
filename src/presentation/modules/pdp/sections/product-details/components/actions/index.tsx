@@ -5,9 +5,7 @@ import DesktopActions from './layouts/desktop-actions';
 import MobileActions from './layouts/mobile-actions';
 
 const Actions = () => {
-  const { product, selectedVariant } = useAppSelector(
-    (state) => state.product,
-  );
+  const { product, selectedVariant } = useAppSelector((state) => state.product);
 
   const availableStock = () => {
     return (
