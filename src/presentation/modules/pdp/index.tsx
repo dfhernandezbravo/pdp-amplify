@@ -51,7 +51,7 @@ export default Pdp;
 export const getServerSideProps = (async (ctx: GetServerSidePropsContext) => {
   ctx.res.setHeader(
     'Cache-Control',
-    'public, s-maxage=10, stale-while-revalidate=59',
+    'public, s-maxage=10, stale-while-revalidate=0',
   );
   if (ctx?.params?.department) {
     const query = ctx?.params?.department.toString().split('-');
@@ -62,6 +62,7 @@ export const getServerSideProps = (async (ctx: GetServerSidePropsContext) => {
       const repo = await response;
       return { props: { repo } };
     } catch (error) {
+      console.error(`getServerSideProps error: ${JSON.stringify(error)}`);
       return { props: { repo: null } };
     }
   }

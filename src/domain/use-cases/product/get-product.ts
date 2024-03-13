@@ -7,7 +7,9 @@ const getColorsFromCms = async () => {
     return data.value;
   } catch (error) {
     const axiosError = error as AxiosError;
-    console.error(`${axiosError}`);
+    console.error(
+      `getColorsFromCms service error: ${JSON.stringify(axiosError)}`,
+    );
     return null;
   }
 };
@@ -23,7 +25,7 @@ const getProduct = async (productId: number) => {
     } else return data;
   } catch (error) {
     const axiosError = error as AxiosError;
-    console.error(`${axiosError}`);
+    console.error(`getProduct service error: ${JSON.stringify(axiosError)}`);
     return null;
   }
 };
