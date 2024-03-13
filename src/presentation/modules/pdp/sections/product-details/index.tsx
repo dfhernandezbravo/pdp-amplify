@@ -7,6 +7,7 @@ import ExchangesConditions from './components/exchanges-conditions';
 import Actions from './components/actions';
 import AddService from './components/add-service';
 import Variants from './components/variants';
+import Tintometric from './components/tintometric';
 
 // const RatingAverage = dynamic(() => import('ratingsAndReviews/averageEvent'), {
 //   ssr: false,
@@ -29,6 +30,7 @@ const ProductDetails = () => {
       <Price />
       <ProductSpecifications />
       <Variants />
+      <Tintometric />
       <Actions />
       <AddService />
       <Separator />

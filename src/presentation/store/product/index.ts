@@ -6,6 +6,7 @@ type ProductState = {
   selectedVariant: Item | undefined;
   loadingProduct: boolean;
   additionalService: boolean;
+  quantity: number;
 };
 
 const initialState: ProductState = {
@@ -13,6 +14,7 @@ const initialState: ProductState = {
   selectedVariant: undefined,
   loadingProduct: false,
   additionalService: true,
+  quantity: 1,
 };
 
 const productSlice = createSlice({
@@ -31,6 +33,9 @@ const productSlice = createSlice({
     setAdditionalService: (state, { payload }) => {
       state.additionalService = payload;
     },
+    setQuantity: (state, { payload }) => {
+      state.quantity = payload;
+    },
   },
 });
 
@@ -39,5 +44,6 @@ export const {
   setLoadingProduct,
   setAdditionalService,
   setSelectedVariant,
+  setQuantity,
 } = productSlice.actions;
 export default productSlice;

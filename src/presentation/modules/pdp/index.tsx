@@ -8,9 +8,9 @@ import {
   GetServerSidePropsContext,
   InferGetServerSidePropsType,
 } from 'next';
-import axios from 'axios';
 import dynamic from 'next/dynamic';
 import ProductNotFound from './product-not-found/product-not-found';
+import getProduct from '@use-cases/product/get-product';
 
 const EasyThemeProvider = dynamic(
   () =>
@@ -51,30 +51,22 @@ export default Pdp;
 export const getServerSideProps = (async (ctx: GetServerSidePropsContext) => {
   ctx.res.setHeader(
     'Cache-Control',
-    'public, s-maxage=10, stale-while-revalidate=59',
+    'public, s-maxage=10, stale-while-revalidate=0',
   );
   if (ctx?.params?.department) {
     const query = ctx?.params?.department.toString().split('-');
     const productId = Number(query?.[query?.length - 1].split('/')[0]);
 
     try {
-      const response = await axios.get(
-        `${process.env.NEXT_PUBLIC_BFF_URL}products/by-sku/${encodeURIComponent(
-          productId,
-        )}`,
-        {
-          headers: {
-            'x-api-key': `${process.env.NEXT_PUBLIC_API_KEY_BFF}`,
-          },
-        },
-      );
-      const repo = await response?.data;
+      const response = getProduct(productId);
+      const repo = await response;
       return { props: { repo } };
     } catch (error) {
+      console.error(`getServerSideProps error: ${JSON.stringify(error)}`);
       return { props: { repo: null } };
     }
   }
-  return { props: { repo: {} } };
+  return { props: { repo: null } };
 }) satisfies GetServerSideProps<{
   repo: GetProduct | null;
 }>;

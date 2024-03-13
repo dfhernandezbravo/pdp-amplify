@@ -1,21 +1,11 @@
-import React, { useState } from 'react';
-import { ButtonsContainer, OutOfStockText, QuantityTitle } from './style';
+import React from 'react';
+import { OutOfStockText } from './style';
 import { useAppSelector } from '@hooks/storeHooks';
-import Desktop from '@components/Desktop';
-import Buttons from './buttons';
-import dynamic from 'next/dynamic';
-
-const QuantitySelector = dynamic(
-  () =>
-    import('@ccom-easy-design-system/atoms.quantity-selector').then(
-      (module) => module.QuantitySelector,
-    ),
-  { ssr: false },
-);
+import DesktopActions from './layouts/desktop-actions';
+import MobileActions from './layouts/mobile-actions';
 
 const Actions = () => {
   const { product, selectedVariant } = useAppSelector((state) => state.product);
-  const [quantity, setQuantity] = useState(1);
 
   const availableStock = () => {
     return (
@@ -32,20 +22,10 @@ const Actions = () => {
 
   if (product)
     return (
-      <ButtonsContainer>
-        <Desktop>
-          <QuantityTitle>Cantidad</QuantityTitle>
-          <QuantitySelector
-            quantity={quantity}
-            onIncrementQuantity={() => setQuantity(quantity + 1)}
-            onDecrementQuantity={() => setQuantity(quantity - 1)}
-            onChange={(quantity) => setQuantity(quantity)}
-            disabled={false}
-            max={availableStock()}
-          />
-        </Desktop>
-        <Buttons quantity={quantity} />
-      </ButtonsContainer>
+      <>
+        <DesktopActions />
+        <MobileActions />
+      </>
     );
   else return null;
 };
