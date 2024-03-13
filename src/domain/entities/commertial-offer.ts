@@ -23,6 +23,7 @@ export type CommertialOffer = {
   BuyTogether?: unknown[];
   ItemMetadataAttachment?: unknown[];
   prices: Prices;
+  pricesM2?: Prices;
   ListPrice: number;
   PriceWithoutDiscount: number;
   RewardValue: number;
