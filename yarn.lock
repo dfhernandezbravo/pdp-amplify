@@ -489,13 +489,18 @@
   resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.icons/-/atoms.icons-0.0.2.tgz#ec482d2b1f1ed25cf1c2eddd595aef7f2a435404"
   integrity sha512-0l1no7AXDK/XxjLrmFBp0dn+zUK2pe4pMlndSCuTYULdJAbcm6fumvig/+lVaSF8+HiGCnAP3XtrsdtVqd7quA==
 
-"@ccom-easy-design-system/atoms.price@^0.0.7":
-  version "0.0.7"
-  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.price/-/atoms.price-0.0.7.tgz#2905ea3fb6861cd2fa65841051de568254566e99"
-  integrity sha512-VU/AqXyBHk7zP6MzCYvAO9I2kKU+iXwfCSKLizpyFj7KN7F2S0gidb/ExG57qb76XkYwaVPQFVa3DplXhQumZg==
+"@ccom-easy-design-system/atoms.icons@0.0.4":
+  version "0.0.4"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.icons/-/atoms.icons-0.0.4.tgz#b9dd7359703914585cb675fcf253956caf5350be"
+  integrity sha512-WWgU0DynviJXamDhsQqm70rTt1+4NZsKKlGi8N/4brZjxw1uey1ItqRrHDcsiuqjFdTQWBfCzklmz4snDqZamw==
+
+"@ccom-easy-design-system/atoms.price@^0.0.25":
+  version "0.0.25"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.price/-/atoms.price-0.0.25.tgz#f09534b738fc92a481ace0ba107b268c793e754f"
+  integrity sha512-rz4UfEz2wMCitO7+axBiJ13XR6A/PYBTrvZh6LtFsCt/vHnXTrRowa8V/S9kRQmvBl2xsBuIEDr8Op6Ij/dWCw==
   dependencies:
-    "@ccom-easy-design-system/atoms.icons" "0.0.2"
-    number-currency-format-2 "^1.1.1"
+    "@ccom-easy-design-system/atoms.icons" "0.0.4"
+    "@ccom-easy-design-system/utils.format-currency" "0.0.1"
     styled-components "^6.1.6"
 
 "@ccom-easy-design-system/atoms.quantity-selector@^0.0.8":
@@ -547,6 +552,13 @@
   dependencies:
     "@ccom-easy-design-system/theme.easy" "0.0.4"
     styled-components "^6.1.6"
+
+"@ccom-easy-design-system/utils.format-currency@0.0.1":
+  version "0.0.1"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/utils.format-currency/-/utils.format-currency-0.0.1.tgz#181a60560d59bb21d843f38f8caaee3adf85ef80"
+  integrity sha512-NJXBoBgrZo09Hs6LshRkAdz1bN/IyrV+IYNkUzrJ1hKtkFoUlK7Srs0k4fgM3BGF+XYdwyrHX2iUclE+bjfvAA==
+  dependencies:
+    number-currency-format-2 "^1.1.1"
 
 "@cencosud-ds/easy-design-system@1.1.17":
   version "1.1.17"
