@@ -469,12 +469,12 @@
   dependencies:
     regenerator-runtime "^0.14.0"
 
-"@ccom-easy-design-system/atoms.button@0.0.5":
-  version "0.0.5"
-  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.button/-/atoms.button-0.0.5.tgz#f47c4a4886be2e6837ee0e9f7d3c838386dfca87"
-  integrity sha512-Xt4abMU3cxzKFlWDPz/k+KnYRyVERzcbyKVOtg2N/XZyFNRRWsZBH356PyOx0/uoHMkNP1LivjQbOG/40rsKCA==
+"@ccom-easy-design-system/atoms.button@^0.0.10":
+  version "0.0.10"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.button/-/atoms.button-0.0.10.tgz#22cd3465472593dc459ecb6f74a7983b4c64b991"
+  integrity sha512-klfiuRVBn2KDSuRapQISklA4PzEeUp/6Dv/1pnsgNiw8M42kx05yoFWPF83YgvAB5cpXdWW7oXjg9aLJ5x6KuA==
   dependencies:
-    "@ccom-easy-design-system/theme.easy" "0.0.4"
+    "@ccom-easy-design-system/theme.easy" "0.0.8"
     styled-components "^6.1.6"
 
 "@ccom-easy-design-system/atoms.characteristic-table@^0.0.5":
@@ -482,6 +482,15 @@
   resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.characteristic-table/-/atoms.characteristic-table-0.0.5.tgz#b674ecab2fab8eb85ffcbe51ce98403cafaa85da"
   integrity sha512-9sFXPjFdZ3XrPr3lIV/4yBZi+WsYx6Smr6vXn4WEvvxr3j0RtCgiiYhuP9PelMJevROXTMRUT9nn19RH6yX2WA==
   dependencies:
+    styled-components "^6.1.6"
+
+"@ccom-easy-design-system/atoms.checkbox@^0.0.11":
+  version "0.0.11"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.checkbox/-/atoms.checkbox-0.0.11.tgz#d11b66f8fae58cc6a2083d31205a5b0716997331"
+  integrity sha512-20JeAiyLXx7ytiXCIFQuPYnULvliUDTSFEaXZw3HD8Pq0RiSPhtF20fNxiON7Wqz4xn9HW7QmtLeTzbQOu8PKw==
+  dependencies:
+    "@ccom-easy-design-system/theme.easy" "0.0.8"
+    react-icons "^5.0.1"
     styled-components "^6.1.6"
 
 "@ccom-easy-design-system/atoms.icons@0.0.2":
@@ -544,6 +553,13 @@
   version "0.0.4"
   resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/theme.easy/-/theme.easy-0.0.4.tgz#129e522267d3ea1d0a91522b0da148ec93f0cb32"
   integrity sha512-QzgmXmr1YrjfRbfTcne609Yiv9aVyq2pK5d8Un38eq3jSUUACqpqjDg4W7T500wON1JigNWzoYJf/vPZjro/Ng==
+
+"@ccom-easy-design-system/theme.easy@0.0.8":
+  version "0.0.8"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/theme.easy/-/theme.easy-0.0.8.tgz#c9ee154c88c5b9006019fe8330c59d96416d6a08"
+  integrity sha512-Al3mSSae5LRiaXkGS0eTaHvHPthom/oKywAK2QI/TpJTnTe+1Sts8N6JJKfCbjAVUhSnGJietW4cTNCfVoMbcA==
+  dependencies:
+    styled-components "^6.1.6"
 
 "@ccom-easy-design-system/theme.theme-provider@0.0.2":
   version "0.0.2"
