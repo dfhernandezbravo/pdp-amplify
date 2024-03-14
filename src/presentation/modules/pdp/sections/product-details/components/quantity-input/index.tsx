@@ -24,7 +24,7 @@ const QuantityInput = () => {
     );
   };
 
-  if (!quantity) return null;
+  if (!quantity === undefined) return null;
 
   return (
     <>
