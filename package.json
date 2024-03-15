@@ -16,7 +16,7 @@
     "@ccom-easy-design-system/atoms.characteristic-table": "^0.0.5",
     "@ccom-easy-design-system/atoms.checkbox": "^0.0.11",
     "@ccom-easy-design-system/atoms.icons": "0.0.2",
-    "@ccom-easy-design-system/atoms.price": "^0.0.34",
+    "@ccom-easy-design-system/atoms.price": "^0.0.36",
     "@ccom-easy-design-system/atoms.quantity-selector": "^0.0.10",
     "@ccom-easy-design-system/atoms.skeleton": "0.0.2",
     "@ccom-easy-design-system/molecules.swiper": "^0.0.19",
