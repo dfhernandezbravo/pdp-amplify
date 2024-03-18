@@ -31,4 +31,6 @@ export const Description = styled.div`
   letter-spacing: 0;
   line-height: 1rem;
   color: #818180;
+  width: 100%;
+  text-wrap: wrap;
 `;
