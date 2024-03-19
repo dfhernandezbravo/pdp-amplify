@@ -47,7 +47,9 @@ const FloorCalculator = () => {
   };
 
   const handleChangeValue = (value: string) => {
-    if (value) {
+    const numValue = Number(value);
+
+    if (numValue && numValue >= 0) {
       const newValue = parseFloat(value);
       setInputValue(newValue);
       calculate(newValue, extraChecked);
@@ -62,6 +64,9 @@ const FloorCalculator = () => {
     setExtraChecked(checked);
     calculate(inputValue || 0, checked);
   };
+
+  const blockInvalidChar = (e: React.KeyboardEvent<HTMLInputElement>) =>
+    ['e', 'E', '+', '-'].includes(e.key) && e.preventDefault();
 
   if (!coverageArea) return null;
   return (
@@ -86,6 +91,8 @@ const FloorCalculator = () => {
           placeholder=""
           onChange={(e) => handleChangeValue(e.target.value)}
           type="number"
+          min={0}
+          onKeyDown={blockInvalidChar}
         />
         <span>m²</span>
       </InputGroup>
