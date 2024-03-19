@@ -31,6 +31,10 @@ export const Description = styled.div`
   line-height: 1rem;
   color: #818180;
 
+  width: 100%;
+  text-wrap: wrap;
+
+
   .iframeContainer {
     aspect-ratio: 16 / 9;
 
