@@ -34,7 +34,6 @@ export const Description = styled.div`
   width: 100%;
   text-wrap: wrap;
 
-
   .iframeContainer {
     aspect-ratio: 16 / 9;
 
