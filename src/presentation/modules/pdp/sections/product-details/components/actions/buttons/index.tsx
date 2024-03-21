@@ -6,10 +6,8 @@ import { customDispatchEvent } from '@store/events/dispatchEvents';
 import dynamic from 'next/dynamic';
 import { ButtonsContainer } from './style';
 import useGetId from '@hooks/useGetId';
-import {
-  EventType,
-  useDispatchProductEvent,
-} from '@use-cases/product/dispatch-product-event';
+import { useDispatchProductEvent } from '@use-cases/product/dispatch-product-event';
+import { EventType } from '@entities/events/ga-events';
 
 const Button = dynamic(
   () =>

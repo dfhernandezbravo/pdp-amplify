@@ -12,11 +12,9 @@ import dynamic from 'next/dynamic';
 import ProductNotFound from './product-not-found/product-not-found';
 import getProduct from '@use-cases/product/get-product';
 import { useEffect } from 'react';
-import {
-  EventType,
-  useDispatchProductEvent,
-} from '@use-cases/product/dispatch-product-event';
+import { useDispatchProductEvent } from '@use-cases/product/dispatch-product-event';
 import useGetId from '@hooks/useGetId';
+import { EventType } from '@entities/events/ga-events';
 
 const EasyThemeProvider = dynamic(
   () =>
