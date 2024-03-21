@@ -22,7 +22,6 @@ const Buttons = () => {
   const { cartId } = useAppSelector((state) => state.cart);
   const { product, selectedVariant, quantity, additionalService } =
     useAppSelector((state) => state.product);
-  console.log({ selectedVariant });
 
   const { selectedColor } = useAppSelector((state) => state.tintometric);
   const { dispatchAddToCartEvent } = useDispatchProductEvent();
