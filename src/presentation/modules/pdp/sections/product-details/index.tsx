@@ -8,7 +8,8 @@ import Actions from './components/actions';
 import AddService from './components/add-service';
 import Variants from './components/variants';
 import Tintometric from './components/tintometric';
-import FloorCalculator from './components/floor-calculator';
+import FloorCalculator from './components/calculator/floor-calculator';
+import PaintCalculator from './components/calculator/paint-calculator';
 
 // const RatingAverage = dynamic(() => import('ratingsAndReviews/averageEvent'), {
 //   ssr: false,
@@ -19,9 +20,15 @@ const ProductDetails = () => {
   const { product } = useAppSelector((state) => state.product);
   const brand = product?.brand;
   const refId = product?.items?.[0]?.referenceId?.[0]?.Value;
-  const showCalculator =
+  const showFloorCalculator =
     product?.specifications?.['Rendimiento'] &&
     product?.specifications?.['PrecioM2']?.[0] === 'Visible';
+  const showPaintCalculator =
+    [
+      'Esmalte al agua',
+      'Pinturas Látex',
+      'Esmalte sintético y óleos',
+    ].findIndex((c) => product?.categories?.[0].includes(c)) !== -1;
 
   return (
     <Container>
@@ -37,7 +44,8 @@ const ProductDetails = () => {
       <ProductSpecifications />
       <Variants />
       <Tintometric />
-      {showCalculator && <FloorCalculator />}
+      {showFloorCalculator && <FloorCalculator />}
+      {showPaintCalculator && <PaintCalculator />}
       <Actions />
       <AddService />
       <Separator />

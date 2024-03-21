@@ -55,9 +55,11 @@ const HelpModal = ({ isOpen, onClose }: ModalProps) => {
         />
         <Title>¿Por qué se recomienda agregar un 10% adicional?</Title>
         <Content>
-          Dependiendo del producto usado, su aplicación y la superficie, esto
-          podría diferir de lo recomendado, es por esto que se sugiere comprar
-          un poco más para que no te falte pintura.
+          Las medidas del producto no coinciden con las dimensiones de la
+          superficie donde se aplicará. Esto produce cortes y ajustes que
+          provocan una ligera merma. Te pedimos que agregues un 10% adicional al
+          total de m2 para que puedas terminar tu trabajo sin que te falte
+          material.
         </Content>
       </ModalContent>
     </ModalOverlay>
