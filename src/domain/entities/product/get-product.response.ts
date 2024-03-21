@@ -34,6 +34,13 @@ type Item = {
   };
 };
 
+type Ribbon = {
+  background: string;
+  color: string;
+  group: string;
+  value: string;
+};
+
 type GetProduct = {
   productId: string;
   productName: string;
@@ -56,6 +63,7 @@ type GetProduct = {
     value: string;
   }[];
   colorPalettes?: Color[] | null;
+  ribbons?: Ribbon[];
 };
 
 export type { GetProduct, Item };

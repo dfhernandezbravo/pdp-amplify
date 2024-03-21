@@ -5,6 +5,11 @@ import { useAppSelector } from '@hooks/storeHooks';
 import { customDispatchEvent } from '@store/events/dispatchEvents';
 import dynamic from 'next/dynamic';
 import { ButtonsContainer } from './style';
+import useGetId from '@hooks/useGetId';
+import {
+  EventType,
+  useDispatchProductEvent,
+} from '@use-cases/product/dispatch-product-event';
 
 const Button = dynamic(
   () =>
@@ -15,11 +20,14 @@ const Button = dynamic(
 );
 
 const Buttons = () => {
+  const { variantSkuId, productRefId } = useGetId();
   const { cartId } = useAppSelector((state) => state.cart);
-  const { product, selectedVariant, quantity } = useAppSelector(
-    (state) => state.product,
-  );
+  const { product, selectedVariant, quantity, additionalService } =
+    useAppSelector((state) => state.product);
+  console.log({ selectedVariant });
+
   const { selectedColor } = useAppSelector((state) => state.tintometric);
+  const { dispatchAddToCartEvent } = useDispatchProductEvent();
 
   const addToCart = async (product: GetProduct, cartId: string) => {
     if (selectedVariant) {
@@ -46,6 +54,22 @@ const Buttons = () => {
       customDispatchEvent({
         name: WindowsEvents.ADD_ITEM_SHOPPING_CART,
         detail: eventData,
+      });
+
+      dispatchAddToCartEvent({
+        event: EventType.AddToCart,
+        product: product,
+        productRefId: productRefId || '',
+        variantSkuId: variantSkuId || '',
+        service: {
+          serviceName: additionalService
+            ? product?.items?.[0]?.offering?.name
+            : '',
+          serviceCost: additionalService
+            ? product?.items?.[0]?.offering?.value
+            : 0,
+          isSelected: additionalService,
+        },
       });
     }
   };
