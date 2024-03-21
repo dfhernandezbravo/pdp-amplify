@@ -9,11 +9,6 @@ export const Section = styled.section`
   padding: 1.5rem 2rem 1.25rem;
   min-height: fit-content;
   scroll-behavior: smooth;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: center;
-  }
 `;
 
 export const Title = styled.h3`
@@ -23,6 +18,10 @@ export const Title = styled.h3`
   letter-spacing: 0;
   line-height: 1.438rem;
   margin: 0 0 0.625rem;
+
+  @media (max-width: 768px) {
+    text-align: center;
+  }
 `;
 
 export const Description = styled.div`
@@ -31,4 +30,17 @@ export const Description = styled.div`
   letter-spacing: 0;
   line-height: 1rem;
   color: #818180;
+
+  width: 100%;
+  text-wrap: wrap;
+
+  .iframeContainer {
+    aspect-ratio: 16 / 9;
+
+    iframe {
+      aspect-ratio: inherit;
+      width: 100%;
+      height: auto;
+    }
+  }
 `;
