@@ -48,7 +48,10 @@ const PaintCalculator = () => {
       setUnitResult(calculatorResult.unitResult);
       setGallonResult(calculatorResult.gallonResult);
       dispatch(setQuantity(calculatorResult.unitResult));
-    } else setUnitResult(0);
+    } else {
+      setUnitResult(0);
+      dispatch(setQuantity(1));
+    }
   };
   const handleHelp = () => {
     setShowModal(true);
@@ -114,15 +117,11 @@ const PaintCalculator = () => {
           <div style={{ display: 'flex' }}>
             <ResultItem>
               <div>Necesitarás</div>
-              <div>
-                <strong>{gallonResult} Galones</strong>
-              </div>
+              <div style={{ fontWeight: 'bold' }}>{gallonResult} Galones</div>
             </ResultItem>
             <ResultItem style={{ marginLeft: '6rem' }}>
               <div>Cantidad sugerida</div>
-              <div>
-                <strong>{unitResult} unidades</strong>
-              </div>
+              <div style={{ fontWeight: 'bold' }}>{unitResult} unidades</div>
             </ResultItem>
           </div>
           <hr style={{ margin: '16px 0' }} />
@@ -133,7 +132,7 @@ const PaintCalculator = () => {
             render={({ field }) => (
               <CheckBox
                 onChange={(e) => field.onChange(e.target.checked)}
-                checked={field.value}
+                defaultChecked={true}
                 label="Agregar un 10% al total de m2 recomendado por el potencial desperdicio de material"
                 style={{ fontSize: '14px', fontWeight: 400 }}
               />

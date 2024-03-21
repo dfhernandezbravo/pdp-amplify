@@ -37,8 +37,12 @@ const FloorCalculator = () => {
     if (isValid && coverageArea) {
       const value = coverageArea[0]?.replace(' m2', '').replace(',', '.');
       const resultFloorCalculator = calculateFloorQuantity(value, formValues);
+      setResult(resultFloorCalculator.unitResult);
       dispatch(setQuantity(resultFloorCalculator.unitResult));
-    } else setResult(0);
+    } else {
+      setResult(0);
+      dispatch(setQuantity(1));
+    }
   };
 
   const blockInvalidChar = (e: React.KeyboardEvent<HTMLInputElement>) =>

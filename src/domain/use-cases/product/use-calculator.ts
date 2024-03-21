@@ -35,12 +35,12 @@ const calculatePaintQuantity = (
     const unitResult = Math.ceil(literResult / litersValue);
 
     return {
-      unitResult,
+      unitResult: unitResult || 1,
       gallonResult: parseFloat(gallonsResult.toFixed(1)),
     };
   } catch (e) {
     return {
-      unitResult: 0,
+      unitResult: 1,
       gallonResult: 0,
     };
   }
@@ -59,11 +59,11 @@ const calculateFloorQuantity = (
     }
     result = Math.ceil(result);
     return {
-      unitResult: result,
+      unitResult: result || 1,
     };
   } catch (e) {
     return {
-      unitResult: 0,
+      unitResult: 1,
     };
   }
 };
