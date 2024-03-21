@@ -3,6 +3,7 @@
 import { useEvents } from '@hooks/useEvents';
 import { ANALYTICS_EVENTS } from '../../../application/infra/events/analytics.';
 import { GetProduct, Item } from '@entities/product/get-product.response';
+import { findVariantSelected } from './map-event-detail';
 
 type Service = {
   serviceName: string;
@@ -30,7 +31,7 @@ type BuildEventDetailArgs = {
   variantSelected?: Item | undefined;
   service?: Service | undefined;
 };
-interface ItemDetail {
+type ItemDetail = {
   item_id: string;
   item_name: string;
   discount: number;
@@ -47,14 +48,7 @@ interface ItemDetail {
   ribbons: string;
   service?: string;
   service_cost?: number;
-}
-
-function findVariantSelected(
-  product: GetProduct,
-  variantSkuId: string,
-): Item | undefined {
-  return product?.items.find((item) => item.itemId === variantSkuId);
-}
+};
 
 function buildEventDetail({
   event,

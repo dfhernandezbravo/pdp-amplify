@@ -4,20 +4,20 @@ import { useEffect, useState } from 'react';
 const useGetId = () => {
   const [productRefId, setProductRefId] = useState<null | string>(null);
   const [variantSkuId, setVariantSkuId] = useState<null | string>(null);
-  const router = useRouter();
+  const { query } = useRouter();
+  const { department, skuId } = query as {
+    department: string[];
+    skuId: string;
+  };
 
   useEffect(() => {
-    if (router?.query?.department) {
-      const department = router?.query?.department as string[];
+    if (department) {
       const query = department?.toString().split('-');
-      const skuId = query?.[query?.length - 1].split('/')[0];
-      setProductRefId(skuId);
+      const productSkuId = query?.[query?.length - 1].split('/')[0];
+      setProductRefId(productSkuId);
     }
-    if (router?.query?.skuId) {
-      const skuId = router?.query?.skuId;
-      setVariantSkuId(skuId as string);
-    }
-  }, [router]);
+    if (skuId) setVariantSkuId(skuId as string);
+  }, [department, skuId]);
 
   return {
     productRefId,
