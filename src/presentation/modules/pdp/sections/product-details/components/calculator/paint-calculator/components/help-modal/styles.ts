@@ -28,7 +28,6 @@ export const ModalOverlay = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: flex-end;
-  overflow-y: auto;
   animation: ${fadeIn} 0.3s ease;
 `;
 
@@ -41,6 +40,7 @@ export const ModalContent = styled.div`
   padding: 1rem;
   box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.2);
   animation: ${slideIn} 0.3s ease;
+  overflow-y: auto;
 `;
 
 export const GoBackButton = styled.button`

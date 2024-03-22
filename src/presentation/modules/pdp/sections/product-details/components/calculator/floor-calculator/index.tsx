@@ -48,8 +48,9 @@ const FloorCalculator = () => {
   const blockInvalidChar = (e: React.KeyboardEvent<HTMLInputElement>) =>
     ['e', 'E', '+', '-'].includes(e.key) && e.preventDefault();
 
-  const handleHelp = () => {
-    setShowModal(true);
+  const handleHelp = (open: boolean) => {
+    setShowModal(open);
+    document.body.style.overflow = open ? 'hidden' : '';
   };
 
   useEffect(() => {
@@ -82,7 +83,7 @@ const FloorCalculator = () => {
         variant="link"
         type="button"
         label="Ayuda para calcular m²"
-        onClick={handleHelp}
+        onClick={() => handleHelp(true)}
         style={{ fontSize: '14px', padding: '0', justifyContent: 'start' }}
       />
       {result ? (
@@ -118,7 +119,7 @@ const FloorCalculator = () => {
         </ResultContainer>
       ) : null}
       {showModal && (
-        <HelpModal isOpen={showModal} onClose={() => setShowModal(false)} />
+        <HelpModal isOpen={showModal} onClose={() => handleHelp(false)} />
       )}
     </FormContainer>
   );
