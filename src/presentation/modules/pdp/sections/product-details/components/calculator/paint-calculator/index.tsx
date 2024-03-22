@@ -53,8 +53,9 @@ const PaintCalculator = () => {
       dispatch(setQuantity(1));
     }
   };
-  const handleHelp = () => {
-    setShowModal(true);
+  const handleHelp = (open: boolean) => {
+    setShowModal(open);
+    document.body.style.overflow = open ? 'hidden' : '';
   };
   const blockInvalidChar = (e: React.KeyboardEvent<HTMLInputElement>) =>
     ['e', 'E', '+', '-'].includes(e.key) && e.preventDefault();
@@ -109,7 +110,7 @@ const PaintCalculator = () => {
         variant="link"
         type="button"
         label="Ayuda para calcular m²"
-        onClick={handleHelp}
+        onClick={() => handleHelp(true)}
         style={{ fontSize: '14px', padding: '0', justifyContent: 'start' }}
       />
       {unitResult ? (
@@ -141,7 +142,7 @@ const PaintCalculator = () => {
         </ResultContainer>
       ) : null}
       {showModal && (
-        <HelpModal isOpen={showModal} onClose={() => setShowModal(false)} />
+        <HelpModal isOpen={showModal} onClose={() => handleHelp(false)} />
       )}
     </FormContainer>
   );
