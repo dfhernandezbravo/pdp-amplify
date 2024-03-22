@@ -54,6 +54,7 @@ const ImageGallery = () => {
     return (
       <ItemContainer>
         <Image
+          data-id="product-image"
           src={productImage?.imageUrl}
           alt={productImage?.imageText ?? `product image ${index}`}
           width={500}
