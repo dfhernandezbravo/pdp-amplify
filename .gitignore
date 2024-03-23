@@ -46,3 +46,4 @@ next-env.d.ts
 # new relic
 newrelic_agent.log
 **/newrelic_agent.log
+newrelic_agent.log

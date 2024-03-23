@@ -4,6 +4,7 @@ export const OptionsContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  flex-wrap: wrap;
 `;
 
 export const StyledLink = styled.div<{ selected: boolean }>`

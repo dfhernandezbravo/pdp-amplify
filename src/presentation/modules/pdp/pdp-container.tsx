@@ -80,9 +80,6 @@ const PdpContainer = (productData: GetProduct) => {
         <Section id="specifications">
           <SpecificationsTables />
         </Section>
-        {/* <ReviewContainer>
-          {product && <RatingAndReview productInfo={product} />}
-        </ReviewContainer> */}
       </Main>
     </CartEventProvider>
   );
