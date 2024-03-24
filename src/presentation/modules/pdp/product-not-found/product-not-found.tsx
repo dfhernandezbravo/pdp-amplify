@@ -1,4 +1,5 @@
-import React from 'react';
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 import {
   Container,
   Main,
@@ -7,8 +8,20 @@ import {
   Subtitle,
   TextContainer,
 } from './style';
+import customEvents from '@use-cases/observability/custom-events';
 
 const ProductNotFound = () => {
+  const { asPath } = useRouter();
+
+  useEffect(() => {
+    customEvents({
+      eventName: 'page-not-found',
+      data: {
+        url: asPath,
+        type: 'pdp',
+      },
+    });
+  }, []);
   return (
     <Container>
       <Main>
