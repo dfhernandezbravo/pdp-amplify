@@ -54,7 +54,7 @@ const HelpModal = ({ isOpen, onClose }: ModalProps) => {
           height={250}
         />
         <Title>¿Por qué se recomienda agregar un 10% adicional?</Title>
-        <Content>
+        <Content style={{ marginBottom: '16px' }}>
           Las medidas del producto no coinciden con las dimensiones de la
           superficie donde se aplicará. Esto produce cortes y ajustes que
           provocan una ligera merma. Te pedimos que agregues un 10% adicional al

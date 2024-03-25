@@ -50,7 +50,7 @@ const HelpModal = ({ isOpen, onClose }: ModalProps) => {
           height={250}
         />
         <Title>¿Por qué se recomienda agregar un 10% adicional?</Title>
-        <Content>
+        <Content style={{ marginBottom: '16px' }}>
           Dependiendo del producto usado, su aplicación y la superficie, esto
           podría diferir de lo recomendado, es por esto que se sugiere comprar
           un poco más para que no te falte pintura.
