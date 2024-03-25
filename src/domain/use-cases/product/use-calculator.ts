@@ -21,29 +21,29 @@ const calculatePaintQuantity = (
   const coveragePerLiter = 10; // 10m² por litro
   const litersPerGallon = 3.78; // 1 galón = 3.78 litros
 
-  const litersValue = parseFloat(liters);
-  const inputValue = formValues.coverage;
-  try {
-    let literResult = inputValue / coveragePerLiter;
-    if (formValues.extraChecked) {
-      literResult = literResult * 1.1;
-    }
-    if (formValues.hands) {
-      literResult = literResult * formValues.hands;
-    }
-    const gallonsResult = literResult / litersPerGallon;
-    const unitResult = Math.ceil(literResult / litersValue);
-
-    return {
-      unitResult: unitResult || 1,
-      gallonResult: parseFloat(gallonsResult.toFixed(1)),
-    };
-  } catch (e) {
+  if (formValues.coverage === undefined) {
     return {
       unitResult: 1,
       gallonResult: 0,
     };
   }
+
+  const litersValue = parseFloat(liters);
+  const inputValue = formValues.coverage;
+  let literResult = inputValue / coveragePerLiter;
+  if (formValues.extraChecked) {
+    literResult = literResult * 1.1;
+  }
+  if (formValues.hands) {
+    literResult = literResult * formValues.hands;
+  }
+  const gallonsResult = literResult / litersPerGallon;
+  const unitResult = Math.ceil(literResult / litersValue);
+
+  return {
+    unitResult: unitResult || 1,
+    gallonResult: parseFloat(gallonsResult.toFixed(1)),
+  };
 };
 
 const calculateFloorQuantity = (
