@@ -23,12 +23,21 @@ const ProductDetails = () => {
   const showFloorCalculator =
     product?.specifications?.['Rendimiento'] &&
     product?.specifications?.['PrecioM2']?.[0] === 'Visible';
+  const normalizeVowels = (word?: string) => {
+    if (!word) return '';
+    return word
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase();
+  };
   const showPaintCalculator =
     [
-      'Esmalte al agua',
-      'Pinturas Látex',
-      'Esmalte sintético y óleos',
-    ].findIndex((c) => product?.categories?.[0].includes(c)) !== -1;
+      'esmalte al agua',
+      'pinturas latex',
+      'esmalte sintetico y oleos',
+    ].findIndex((c) =>
+      normalizeVowels(product?.categories?.[0]).includes(c),
+    ) !== -1;
 
   return (
     <Container>
