@@ -27,34 +27,30 @@ const HelpModal = ({ isOpen, onClose }: ModalProps) => {
           </GoBackButton>
           ¿Cómo calcular los m2 que necesito comprar?
         </TitleModal>
-        <Title>Superficie simple</Title>
+        <Title>Largo lineal</Title>
         <Content>
-          Son los espacios cuadrados o rectangulares. Para obtener la cantidad
-          de m2 que necesitas, debes multiplicar el largo y ancho de la
-          superficie.
+          Es la suma del largo de todas las paredes que quieres pintar. Esto te
+          permitirá conocer el largo total de la superficie a pintar.
         </Content>
         <Image
-          src={'/images/floor-calculator/simple.svg'}
-          alt="Superficie simple"
+          src={'/images/paint-calculator/simple.svg'}
+          alt="Largo lineal"
           width={330}
           height={170}
         />
-        <Title>Superficie compuesta</Title>
+        <Title>Superficie</Title>
         <Content>
-          Son los espacios compuestos por dos o más figuras. Para calcular la
-          cantidad de m2 totales, divide la superficie en figuras simples
-          (cuadrados y rectángulos); multiplica el largo y ancho de cada una; y
-          suma los totales. Si tienes una superficie triangular, multiplica
-          largo y ancho y luego divídelo en dos.
+          Es el resultado de la multiplicación del largo lineal con la altura
+          del espacio.
         </Content>
         <Image
-          src={'/images/floor-calculator/compose.svg'}
-          alt="Superficie compuesta"
+          src={'/images/paint-calculator/compose.svg'}
+          alt="Superficie"
           width={330}
           height={250}
         />
         <Title>¿Por qué se recomienda agregar un 10% adicional?</Title>
-        <Content>
+        <Content style={{ marginBottom: '16px' }}>
           Dependiendo del producto usado, su aplicación y la superficie, esto
           podría diferir de lo recomendado, es por esto que se sugiere comprar
           un poco más para que no te falte pintura.
