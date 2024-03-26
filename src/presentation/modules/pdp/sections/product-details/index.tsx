@@ -30,7 +30,7 @@ const ProductDetails = () => {
       .replace(/[\u0300-\u036f]/g, '')
       .toLowerCase();
   };
-  const showPaintCalculator =
+  const availableCategoriesPaintCalculator =
     [
       'esmalte al agua',
       'pinturas latex',
@@ -38,6 +38,8 @@ const ProductDetails = () => {
     ].findIndex((c) =>
       normalizeVowels(product?.categories?.[0]).includes(c),
     ) !== -1;
+  const showPaintCalculator =
+    product?.specifications?.['Litraje'] && availableCategoriesPaintCalculator;
 
   return (
     <Container>
