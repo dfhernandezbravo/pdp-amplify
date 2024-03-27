@@ -15,9 +15,26 @@ const ProductDetails = () => {
   const { product } = useAppSelector((state) => state.product);
   const brand = product?.brand;
   const refId = product?.items?.[0]?.referenceId?.[0]?.Value;
-  const showCalculator =
+  const showFloorCalculator =
     product?.specifications?.['Rendimiento'] &&
     product?.specifications?.['PrecioM2']?.[0] === 'Visible';
+  const normalizeVowels = (word?: string) => {
+    if (!word) return '';
+    return word
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase();
+  };
+  const availableCategoriesPaintCalculator =
+    [
+      'esmalte al agua',
+      'pinturas latex',
+      'esmalte sintetico y oleos',
+    ].findIndex((c) =>
+      normalizeVowels(product?.categories?.[0]).includes(c),
+    ) !== -1;
+  const showPaintCalculator =
+    product?.specifications?.['Litraje'] && availableCategoriesPaintCalculator;
 
   return (
     <Container>
@@ -35,7 +52,8 @@ const ProductDetails = () => {
       <ProductSpecifications />
       <Variants />
       <Tintometric />
-      {showCalculator && <FloorCalculator />}
+      {showFloorCalculator && <FloorCalculator />}
+      {showPaintCalculator && <PaintCalculator />}
       <Actions />
       <AddService />
       <Separator />

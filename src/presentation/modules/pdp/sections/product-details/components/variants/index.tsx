@@ -10,8 +10,9 @@ const Variants = () => {
 
   const hasTintometric = (variation: string) => {
     if (
-      (product?.colorCodes && variation === 'Color') ||
-      variation === 'Colores'
+      product?.colorCodes &&
+      product?.colorCodes?.length > 0 &&
+      (variation === 'Color' || variation === 'Colores')
     )
       return true;
     else return false;

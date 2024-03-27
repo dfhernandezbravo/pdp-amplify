@@ -53,6 +53,7 @@ const DesktopZoom = ({
     >
       {isHover && selected && !loadingImage ? (
         <Overlay
+          data-id="zoomed-image"
           $background={imageSrc}
           style={{
             backgroundPosition: `${mousePosition.x}% ${mousePosition.y}%`,
@@ -64,6 +65,7 @@ const DesktopZoom = ({
         <>
           {loadingImage && <Skeleton animationtype="wave" />}
           <Image
+            data-id="modal-image"
             src={imageSrc}
             alt={altText}
             height={331}
