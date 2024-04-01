@@ -7,7 +7,8 @@ import Actions from './components/actions';
 import AddService from './components/add-service';
 import Variants from './components/variants';
 import Tintometric from './components/tintometric';
-import FloorCalculator from './components/floor-calculator';
+import FloorCalculator from './components/calculator/floor-calculator';
+import PaintCalculator from './components/calculator/paint-calculator';
 import LogiscticsRibbons from './components/logistic-ribbons';
 import PromotionsRibbons from './components/promotions-ribbons';
 
