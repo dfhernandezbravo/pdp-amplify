@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
 export const ServiceContainer = styled.div`
   background-color: #f9f9f9;
@@ -46,6 +46,17 @@ export const Label = styled.label`
   }
 `;
 
+const growAnimation = keyframes`
+  
+    0% {
+      transform: scale(0) translate(-50%, -50%);
+    }
+    100% {
+      transform: scale(1) translate(-50%, -50%);
+    }
+  
+`;
+
 export const StyledRadio = styled.div<{ checked: boolean }>`
   margin-right: 1.063rem;
   width: 1.125rem;
@@ -58,8 +69,9 @@ export const StyledRadio = styled.div<{ checked: boolean }>`
   &:before {
     content: '';
     position: absolute;
-    top: 16%;
-    left: 14.5%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     height: 70%;
     width: 70%;
     border-radius: 50%;
@@ -68,6 +80,7 @@ export const StyledRadio = styled.div<{ checked: boolean }>`
     ${({ checked }) =>
       checked
         ? css`
+            animation: ${growAnimation} 0.2s ease;
             background-color: #009372;
           `
         : null}

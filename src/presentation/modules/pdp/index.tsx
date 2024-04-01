@@ -49,16 +49,18 @@ const Pdp = (props: InferGetServerSidePropsType<GetServerSideProps>) => {
 export default Pdp;
 
 export const getServerSideProps = (async (ctx: GetServerSidePropsContext) => {
+  const accessToken = ctx?.req.cookies?.accessToken;
   ctx.res.setHeader(
     'Cache-Control',
     'public, s-maxage=10, stale-while-revalidate=0',
   );
+
   if (ctx?.params?.department) {
     const query = ctx?.params?.department.toString().split('-');
     const productId = Number(query?.[query?.length - 1].split('/')[0]);
 
     try {
-      const response = getProduct(productId);
+      const response = getProduct(productId, accessToken);
       const repo = await response;
       return { props: { repo } };
     } catch (error) {

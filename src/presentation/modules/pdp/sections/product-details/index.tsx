@@ -1,4 +1,3 @@
-// import dynamic from 'next/dynamic';
 import { useAppSelector } from '@hooks/storeHooks';
 import { Brand, Container, ProductId, Separator, Title } from './style';
 import Price from './components/prices';
@@ -8,13 +7,9 @@ import Actions from './components/actions';
 import AddService from './components/add-service';
 import Variants from './components/variants';
 import Tintometric from './components/tintometric';
-import FloorCalculator from './components/calculator/floor-calculator';
-import PaintCalculator from './components/calculator/paint-calculator';
-
-// const RatingAverage = dynamic(() => import('ratingsAndReviews/averageEvent'), {
-//   ssr: false,
-//   loading: () => <></>,
-// });
+import FloorCalculator from './components/floor-calculator';
+import LogiscticsRibbons from './components/logistic-ribbons';
+import PromotionsRibbons from './components/promotions-ribbons';
 
 const ProductDetails = () => {
   const { product } = useAppSelector((state) => state.product);
@@ -51,7 +46,9 @@ const ProductDetails = () => {
       </Brand>
       <Title data-id="product-name">{product?.productName}</Title>
       <ProductId>Código del producto: {refId}</ProductId>
+      <PromotionsRibbons />
       <Price />
+      <LogiscticsRibbons />
       <ProductSpecifications />
       <Variants />
       <Tintometric />

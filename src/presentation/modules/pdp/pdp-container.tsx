@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 // import dynamic from 'next/dynamic';
 import { useAppDispatch } from '@hooks/storeHooks';
-import { setProduct, setSelectedVariant } from '@store/product';
+import { setProduct, setSelectedVariant, setProductId } from '@store/product';
 import { setImages } from '@store/gallery';
 import ImageGallery from './sections/image-gallery';
 import ProductDetails from './sections/product-details';
@@ -22,6 +22,7 @@ import { GetProduct } from '@entities/product/get-product.response';
 import CartEventProvider from '../../providers/cart-event-provider';
 import Head from 'next/head';
 import useDefaultVariant from '@hooks/useDefaultVariant';
+import { useRouter } from 'next/router';
 // import dynamic from 'next/dynamic';
 
 // const RatingAndReview = dynamic<RatingsProps>(
@@ -35,6 +36,13 @@ import useDefaultVariant from '@hooks/useDefaultVariant';
 const PdpContainer = (productData: GetProduct) => {
   const dispatch = useAppDispatch();
   const defaultVariant = useDefaultVariant(productData?.items);
+  const router = useRouter();
+
+  const getProductId = () => {
+    const query = router?.query.department as string;
+    const productId = Number(query.split('-').pop());
+    dispatch(setProductId(productId));
+  };
 
   const getCategories = (categories: string[]) => {
     const categoriesArray = categories?.[0].split('/');
@@ -42,6 +50,7 @@ const PdpContainer = (productData: GetProduct) => {
   };
 
   useEffect(() => {
+    getProductId();
     if (productData) {
       dispatch(setProduct(productData));
       dispatch(setSelectedVariant(defaultVariant));

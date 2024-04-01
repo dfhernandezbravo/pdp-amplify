@@ -487,6 +487,13 @@
   integrity sha512-zHd0eUrf5GZoOWVCXp6koAKQTfZV07eit6bGPmJgnZdnSAvvZee6zniW2XMF7Cmc4ISOOnPy3QaSiIJGJkVEDQ==
   dependencies:
     regenerator-runtime "^0.14.0"
+    
+"@ccom-easy-design-system/atoms.button-gds@^0.0.1":
+  version "0.0.1"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.button-gds/-/atoms.button-gds-0.0.1.tgz#2aba1182b9f469c390a8c7dfe75b1c9042888cdd"
+  integrity sha512-fUBouJw4Y52+fYHbBViUZXGH0m9UmnNyAEMbQSs9xvFlFfx10K5QX5U9pTSt0yNwa7IjdQDrKEJ46ADz5OqzKA==
+  dependencies:
+    "@cencotech/nebula-ui" "0.0.15"
 
 "@babel/types@^7.24.0":
   version "7.24.0"
@@ -557,6 +564,13 @@
   dependencies:
     react-icons "^5.0.1"
     styled-components "^6.1.6"
+    
+"@ccom-easy-design-system/atoms.ribbon@0.0.12":
+  version "0.0.12"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.ribbon/-/atoms.ribbon-0.0.12.tgz#150f2e9d237481893e267d70f2be5559774601ba"
+  integrity sha512-uD2hrblsJs8DXvVkTPRoGGNZCeWE7ulg/5dUdDefk52nHJRjaqeUHnxqEQxuHgpIrIQ2zv4JrZ8QNH0DfanUCw==
+  dependencies:
+    "@ccom-easy-design-system/theme.easy" "0.0.9"
 
 "@ccom-easy-design-system/atoms.select@^0.0.27":
   version "0.0.27"
@@ -575,6 +589,11 @@
   dependencies:
     styled-components "^6.1.6"
 
+"@ccom-easy-design-system/hooks.use-breadcrumbs@0.0.4":
+  version "0.0.4"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/hooks.use-breadcrumbs/-/hooks.use-breadcrumbs-0.0.4.tgz#494df01bcc1d04dda49a490aafdb99a7154189a9"
+  integrity sha512-APTna3uKpnsyisNJ++9vXe5/292ZeaVGfTPW2hcWYObQgaPCI8B3AOHLdX1NHReMRORZSOM8pwkTp1P3yDbsyw==
+
 "@ccom-easy-design-system/hooks.use-device@0.0.5":
   version "0.0.5"
   resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/hooks.use-device/-/hooks.use-device-0.0.5.tgz#53b913eb23ac0da04dc0b0085313c89afd3c0372"
@@ -582,10 +601,34 @@
   dependencies:
     "@ccom-easy-design-system/hooks.use-media-query" "0.0.1"
 
+"@ccom-easy-design-system/hooks.use-device@0.0.6":
+  version "0.0.6"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/hooks.use-device/-/hooks.use-device-0.0.6.tgz#2439d213c5ca3be043b879a89a3d979770232526"
+  integrity sha512-OTaW/NJJNLiwcje66r8/3N1JXUyyv+7WTxxCkWgJ1r+Ffm7gBpLlRTm0Bl+T9wRiXjFO6Z1H7vSPL/l/6ZMrTw==
+  dependencies:
+    "@ccom-easy-design-system/hooks.use-media-query" "0.0.2"
+
+"@ccom-easy-design-system/hooks.use-dispatch-event@0.0.2":
+  version "0.0.2"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/hooks.use-dispatch-event/-/hooks.use-dispatch-event-0.0.2.tgz#0d6428109caae34818b5846596f13b319a3b40d9"
+  integrity sha512-zYr/6I3VY8IFrV4nM5QxiDDTcHs202GQf2lT8go4T3IDid3098w9O/E012rRxmkup67eaD9DHqO1tXG19U0Ncg==
+
 "@ccom-easy-design-system/hooks.use-media-query@0.0.1":
   version "0.0.1"
   resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/hooks.use-media-query/-/hooks.use-media-query-0.0.1.tgz#e6f293dd7f5f67b1eff75cf2772c5b258bd0c932"
   integrity sha512-Cc13qhra7SUGGwSlJvJrbxk0O+p5YPIjWqeuTrUSr5FwfB5+4AyHY6tEH9gdZ3+GQ4D+x4orjS1ooSc/QvVy6g==
+
+"@ccom-easy-design-system/hooks.use-media-query@0.0.2":
+  version "0.0.2"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/hooks.use-media-query/-/hooks.use-media-query-0.0.2.tgz#83eadccba9e45836d537ffef3282d08a9fc6efd2"
+  integrity sha512-u5ZJvBGC+VNXoRgGzt7lLmHcuL34zjok27pktUM/1eLnQeSisM7AWRuPHobEgZ5trGdXc1LE4AsZ1JVznyOFXA==
+
+"@ccom-easy-design-system/molecules.ribbons@^0.0.2":
+  version "0.0.2"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/molecules.ribbons/-/molecules.ribbons-0.0.2.tgz#09a2b58e01b7bc1b96ef4f1c0874c0e6101ac009"
+  integrity sha512-AI6/9trWwNZevnqJDhlSbKm3owXrhfciTLJjg4NqoB/9amyOxQtTp6niooi0uRSIkDtg/Vwd2uwCiB8B8n/Cvg==
+  dependencies:
+    "@ccom-easy-design-system/atoms.ribbon" "0.0.12"
 
 "@ccom-easy-design-system/molecules.swiper@^0.0.19":
   version "0.0.19"
@@ -616,12 +659,15 @@
   dependencies:
     styled-components "^6.1.6"
 
-"@ccom-easy-design-system/theme.theme-provider@0.0.2":
-  version "0.0.2"
-  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/theme.theme-provider/-/theme.theme-provider-0.0.2.tgz#23d00f3735ed0f9952618b68ef23de2248e80742"
-  integrity sha512-0nd3x6w2Iu0SnmU8l8qPt8lrr/lmvIObyYfG/4EtBTJX3KHjLgLiIzLq1h5lQjA3h54yqv/SoOfZ24Cycr9usg==
+"@ccom-easy-design-system/theme.theme-provider@^0.0.15":
+  version "0.0.15"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/theme.theme-provider/-/theme.theme-provider-0.0.15.tgz#f1bb233c4b79611cf202a975f21200dac91e947f"
+  integrity sha512-zI8kRwJ0IeZRYuYiOlfLK6D08Ggmgw5AbDvkWCZArtnT6EIFSf21CAIH/pLrfptSLc4FiLcE8HH6chG9OGpdmg==
   dependencies:
-    "@ccom-easy-design-system/theme.easy" "0.0.4"
+    "@ccom-easy-design-system/hooks.use-breadcrumbs" "0.0.4"
+    "@ccom-easy-design-system/hooks.use-device" "0.0.6"
+    "@ccom-easy-design-system/hooks.use-dispatch-event" "0.0.2"
+    "@ccom-easy-design-system/theme.easy" "0.0.9"
     styled-components "^6.1.6"
 
 "@ccom-easy-design-system/utils.format-currency@0.0.6":
@@ -641,6 +687,11 @@
     react-svg "^16.1.32"
     styled-components "^6.1.0"
     swiper "^11.0.4"
+
+"@cencotech/nebula-ui@0.0.15":
+  version "0.0.15"
+  resolved "https://registry.yarnpkg.com/@cencotech/nebula-ui/-/nebula-ui-0.0.15.tgz#57340b23e112d8a7b78c358ea5a7b03523ed0155"
+  integrity sha512-5UDPCg6tJon5nu3rF5T9fa+tH5KRC0UvOtE66c2+xLgOx+QFI1vhVYlBK+rFPaffRh1UAKr6HnYh8oaXfWdUXA==
 
 "@chevrotain/cst-dts-gen@10.5.0":
   version "10.5.0"

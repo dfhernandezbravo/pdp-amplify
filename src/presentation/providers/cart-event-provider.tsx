@@ -1,10 +1,12 @@
 import WindowsEvents from '@components/events';
 import { useCallback, useEffect } from 'react';
 import getCart from '@use-cases/shopping-cart/get-shopping-cart';
+import { setProduct } from '@store/product';
 import { useAppDispatch, useAppSelector } from '@hooks/storeHooks';
 import { setCart, setCartId } from '@store/cart';
 import { customDispatchEvent } from '@store/events/dispatchEvents';
 import { GetCart as ShoppingCart } from '@entities/cart/get-cart.response';
+import getProduct from '@use-cases/product/get-product';
 
 type Props = {
   children: React.ReactNode;
@@ -13,6 +15,7 @@ type Props = {
 const CartEventProvider = ({ children }: Props) => {
   const dispatch = useAppDispatch();
   const { cartId } = useAppSelector((state) => state.cart);
+  const { productId } = useAppSelector((state) => state.product);
 
   const updateCartId = useCallback(
     (e: Event) => {
@@ -36,13 +39,33 @@ const CartEventProvider = ({ children }: Props) => {
     [dispatch],
   );
 
+  const updateProduct = useCallback(
+    (e: Event) => {
+      e.preventDefault();
+    },
+    [dispatch],
+  );
+
   useEffect(() => {
     document.addEventListener(WindowsEvents.GET_CART_ID, updateCartId);
     document.addEventListener(
       WindowsEvents.GET_SHOPPING_CART,
       updateShoppingCart,
     );
+    document.addEventListener(
+      WindowsEvents.UPDATE_SHIPPING_CART,
+      updateProduct,
+    );
   }, []);
+
+  useEffect(() => {
+    document.addEventListener(WindowsEvents.UPDATE_SHIPPING_CART, async () => {
+      if (productId) {
+        const product = await getProduct(productId);
+        dispatch(setProduct(product));
+      }
+    });
+  }, [productId]);
 
   useEffect(() => {
     document.addEventListener(WindowsEvents.CART_HEADER, async () => {
