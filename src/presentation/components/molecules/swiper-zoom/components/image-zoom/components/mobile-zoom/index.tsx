@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ImageContainer } from './styles';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
@@ -18,87 +18,130 @@ type MobileZoomProps = {
 };
 
 const MobileZoom = ({ imageSrc, altText, activeIndex }: MobileZoomProps) => {
-  const zoomRef = useRef<HTMLDivElement>(null);
-  const [initialDistance, setInitialDistance] = useState<number | null>(null);
-  const [currentScale, setCurrentScale] = useState<number>(1);
-  const [pinchCenterX, setPinchCenterX] = useState<number>(0);
-  const [pinchCenterY, setPinchCenterY] = useState<number>(0);
   const [loadingImage, setLoadingImage] = useState(true);
+  const [scale, setScale] = useState(1);
+  const [initialTouchesDistance, setInitialTouchesDistance] = useState(0);
+  const [pinchCenter, setPinchCenter] = useState({ x: 0, y: 0 });
+  const [imagePosition, setImagePosition] = useState({ x: 0, y: 0 });
+  const [lastTouch, setLastTouch] = useState({ x: 0, y: 0 });
+  const [tapping, setTapping] = useState(false);
+  const imageRef = useRef<HTMLImageElement>(null);
+
+  const resetImage = () => {
+    setScale(1);
+    setInitialTouchesDistance(0);
+    setPinchCenter({ x: 0, y: 0 });
+    setLastTouch({ x: 0, y: 0 });
+    setImagePosition({ x: 0, y: 0 });
+  };
+
+  const handleDoubleTap = () => {
+    if (scale === 1) {
+      const rect = imageRef?.current?.getBoundingClientRect();
+      if (rect) {
+        setImagePosition({
+          x: -rect?.width / 4,
+          y: -rect?.height / 4,
+        });
+      }
+      setScale(2);
+    } else {
+      resetImage();
+    }
+    setTapping(false);
+  };
+
+  const handleImageLoad = () => {
+    setLoadingImage(false);
+  };
+
+  const handleTouchStart = (event: React.TouchEvent<HTMLDivElement>) => {
+    if (scale > 1) event.stopPropagation();
+    const touches = event.touches;
+    if (touches.length === 1) {
+      if (tapping) {
+        handleDoubleTap();
+      }
+      setLastTouch({ x: touches[0].clientX, y: touches[0].clientY });
+    } else if (touches.length === 2) {
+      const distance = Math.hypot(
+        touches[0].clientX - touches[1].clientX,
+        touches[0].clientY - touches[1].clientY,
+      );
+      setInitialTouchesDistance(distance);
+      const centerX = (touches[0].clientX + touches[1].clientX) / 2;
+      const centerY = (touches[0].clientY + touches[1].clientY) / 2;
+      setPinchCenter({ x: centerX, y: centerY });
+    }
+  };
+
+  const handleTouchMove = (event: React.TouchEvent<HTMLDivElement>) => {
+    const touches = event.touches;
+    if (touches.length === 1) {
+      const deltaX = touches[0].clientX - lastTouch.x;
+      const deltaY = touches[0].clientY - lastTouch.y;
+      setImagePosition({
+        x: imagePosition.x + deltaX,
+        y: imagePosition.y + deltaY,
+      });
+      setLastTouch({ x: touches[0].clientX, y: touches[0].clientY });
+    } else if (touches.length === 2) {
+      const currentDistance = Math.hypot(
+        touches[0].clientX - touches[1].clientX,
+        touches[0].clientY - touches[1].clientY,
+      );
+      const newScale = (currentDistance / initialTouchesDistance) * scale;
+      if (newScale >= 1 && newScale <= 4) {
+        setScale(newScale);
+      }
+    }
+  };
+
+  const handleTouchEnd = () => {
+    setInitialTouchesDistance(0);
+    if (!tapping) {
+      setTapping(true);
+    }
+  };
 
   useEffect(() => {
-    const element = zoomRef.current;
-
-    setCurrentScale(1);
-    if (element) element.style.transform = `scale(1)`;
+    resetImage();
   }, [activeIndex]);
 
   useEffect(() => {
-    const element = zoomRef.current;
-
-    const getDistance = (point1: Touch, point2: Touch) => {
-      const dx = point2.clientX - point1.clientX;
-      const dy = point2.clientY - point1.clientY;
-      // prettier-ignore
-      return Math.sqrt((dx * dx) + (dy * dy));
-    };
-
-    const handlePinchStart = (event: TouchEvent) => {
-      if (event.touches.length >= 2) {
-        const distance = getDistance(event.touches[0], event.touches[1]);
-        setInitialDistance(distance);
-
-        const centerX =
-          (event.touches[0].clientX + event.touches[1].clientX) / 2;
-        const centerY =
-          (event.touches[0].clientY + event.touches[1].clientY) / 2;
-        setPinchCenterX(centerX);
-        setPinchCenterY(centerY);
-      }
-    };
-
-    const handlePinchMove = (event: TouchEvent) => {
-      if (event.touches.length >= 2 && initialDistance !== null) {
-        const distance = getDistance(event.touches[0], event.touches[1]);
-        const scale = Math.min(
-          1.2,
-          Math.max(1, (distance / initialDistance) * currentScale),
-        );
-        setCurrentScale(scale);
-
-        // prettier-ignore
-        const deltaX = pinchCenterX - (pinchCenterX * scale);
-        // prettier-ignore
-        const deltaY = pinchCenterY - (pinchCenterY * scale);
-
-        if (element) {
-          element.style.transform = `scale(${scale}) translate(${deltaX}px, ${deltaY}px)`;
-        }
-      }
-    };
-
-    if (element) {
-      element.addEventListener('touchstart', handlePinchStart);
-      element.addEventListener('touchmove', handlePinchMove);
+    if (tapping) {
+      const timeout = setTimeout(() => {
+        setTapping(false);
+      }, 200); // Adjust the time interval for detecting double tap as needed
+      return () => clearTimeout(timeout);
     }
-
-    return () => {
-      if (element) {
-        element.removeEventListener('touchstart', handlePinchStart);
-        element.removeEventListener('touchmove', handlePinchMove);
-      }
-    };
-  }, [initialDistance, currentScale, pinchCenterX, pinchCenterY]);
+  }, [tapping]);
 
   return (
-    <ImageContainer $loading={loadingImage} ref={zoomRef}>
-      {loadingImage && <Skeleton animationtype="wave" />}
-      <Image
-        src={imageSrc}
-        alt={altText}
-        height={331}
-        width={414}
-        onLoad={() => setLoadingImage(false)}
-      />
+    <ImageContainer
+      $loading={loadingImage}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+    >
+      {loadingImage && (
+        <Skeleton height={331} width={414} animationtype="wave" />
+      )}
+      <div
+        style={{
+          transform: `scale(${scale}) translate(${imagePosition.x}px, ${imagePosition.y}px)`,
+          transformOrigin: `${pinchCenter.x}px ${pinchCenter.y}px`,
+        }}
+      >
+        <Image
+          ref={imageRef}
+          src={imageSrc}
+          alt={altText || 'Product image'}
+          width={414}
+          height={331}
+          onLoad={handleImageLoad}
+        />
+      </div>
     </ImageContainer>
   );
 };
