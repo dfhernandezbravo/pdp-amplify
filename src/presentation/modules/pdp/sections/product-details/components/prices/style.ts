@@ -1,14 +1,7 @@
 import styled from 'styled-components';
 
 export const PricesContainer = styled.span`
-  display: flex;
-  flex-direction: column;
-
-  div {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
+  margin-bottom: 1rem;
 `;
 
 export const OfferPrice = styled.span`

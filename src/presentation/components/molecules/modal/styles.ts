@@ -121,4 +121,8 @@ export const Body = styled.div`
   font-size: 16px;
   padding: 15px;
   padding-top: 1rem;
+
+  @media only screen and (max-width: 768px) {
+    height: 100%;
+  }
 `;

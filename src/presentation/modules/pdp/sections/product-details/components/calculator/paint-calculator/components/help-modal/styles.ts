@@ -22,13 +22,21 @@ export const ModalOverlay = styled.div`
   position: fixed;
   z-index: 1000;
   top: 0;
-  left: 0;
-  width: 100%;
+  right: 0;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: flex-end;
   animation: ${fadeIn} 0.3s ease;
+`;
+
+export const BackgroundModal = styled.div`
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
 `;
 
 export const ModalContent = styled.div`

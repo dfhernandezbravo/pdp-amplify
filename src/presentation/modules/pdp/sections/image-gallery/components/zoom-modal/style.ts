@@ -17,6 +17,7 @@ export const SwiperContainer = styled.div<{ $showThumbnails: boolean }>`
 
   @media (max-width: 1024px) {
     width: 100%;
+    margin-top: auto;
   }
 `;
 
@@ -40,7 +41,7 @@ export const ZoomLabel = styled.div`
   right: 0;
   margin: auto;
   display: flex;
-  bottom: 10%;
+  bottom: 30%;
   width: fit-content;
   pointer-events: none;
   letter-spacing: 0;

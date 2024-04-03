@@ -5,6 +5,7 @@ import { GetProduct } from '@entities/product/get-product.response';
 
 type Props = {
   repo: GetProduct;
+  productId: string;
 };
 
 const App = (props: Props) => {
