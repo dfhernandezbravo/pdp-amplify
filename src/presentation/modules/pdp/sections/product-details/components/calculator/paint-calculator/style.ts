@@ -1,34 +1,17 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
   background-color: #f3f3f3;
   justify-content: start;
-  width: 100%;
   padding: 16px;
   border-radius: 8px;
   gap: 8px;
   margin: 16px 0;
 `;
 
-export const Title = styled.p`
-  font-size: 14px;
-  font-weight: bold;
-  display: flex;
-  height: 24px;
-  align-items: center;
-  justify-content: start;
-`;
-
-export const Icon = styled.div`
-  width: 24px;
-  height: 24px;
-  padding: 4px;
-  margin-right: 8px;
-`;
-
-export const Text = styled.p`
+export const Text = styled.div`
   font-size: 14px;
   font-weight: 400;
 `;
@@ -38,6 +21,7 @@ export const ResultContainer = styled.div`
   flex-direction: column;
   justify-content: start;
   margin-top: 16px;
+  gap: 8px;
   font-size: 14px;
   font-weight: 400;
   label {
@@ -45,23 +29,37 @@ export const ResultContainer = styled.div`
   }
 `;
 
+export const ResultItem = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 export const InputGroup = styled.div`
   display: flex;
   border: 1px solid #aaaaaa;
   border-radius: 6px;
   width: fit-content;
+  height: 100%;
   padding-right: 3px;
   align-items: center;
+  height: 100%;
   div {
     border: none;
+    height: 100%;
   }
   span {
-    padding: 12px 16px;
+    padding: 8px 16px;
     background-color: #f3f3f3;
     font-size: 16px;
     font-weight: 700;
     align-items: center;
     justify-content: center;
-    width: 54px;
+  }
+`;
+
+export const SelectHands = styled.div`
+  margin-left: 16px;
+  #handsPaintCalculator > div:first-of-type {
+    height: 46px;
   }
 `;

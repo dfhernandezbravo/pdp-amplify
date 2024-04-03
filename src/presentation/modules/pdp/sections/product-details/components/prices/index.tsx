@@ -1,6 +1,7 @@
 import M2Price from '@components/atoms/prices/M2Price';
 import Price from '@components/atoms/prices/Price';
 import { useAppSelector } from '@hooks/storeHooks';
+import { PricesContainer } from './style';
 
 const PriceContainer = () => {
   const { product } = useAppSelector((state) => state.product);
@@ -12,7 +13,7 @@ const PriceContainer = () => {
 
   if (prices) {
     return (
-      <>
+      <PricesContainer>
         {priceM2 ? (
           <M2Price
             price={prices}
@@ -22,7 +23,7 @@ const PriceContainer = () => {
         ) : (
           <Price price={prices} adjustments={adjustments || []} />
         )}
-      </>
+      </PricesContainer>
     );
   } else {
     return null;

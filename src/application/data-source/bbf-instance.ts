@@ -9,11 +9,16 @@ export const bffInstance = axios.create({
   },
 });
 
-bffInstance.interceptors.request.use(function (config) {
-  const cookies = new Cookies();
-  const accessToken = cookies.get(AUTHCOOKIES.ACCESS_TOKEN);
+bffInstance.interceptors.request.use(
+  (config) => {
+    const cookies = new Cookies();
+    const accessToken = cookies.get(AUTHCOOKIES.ACCESS_TOKEN);
 
-  if (accessToken) config.headers.Authorization = `Bearer ${accessToken}`;
+    if (accessToken) config.headers.Authorization = `Bearer ${accessToken}`;
 
-  return config;
-});
+    return config;
+  },
+  (err) => {
+    throw new Error(err);
+  },
+);

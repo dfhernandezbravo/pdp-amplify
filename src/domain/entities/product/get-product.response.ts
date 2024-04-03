@@ -1,6 +1,7 @@
 import { CommertialOffer } from '@entities/commertial-offer';
 import { ReferenceIdEntity } from './reference-id';
 import { Color } from './get-colors.response';
+import { RibbonGroup } from '@ccom-easy-design-system/molecules.ribbons/dist/types';
 
 type Item = {
   ean: string;
@@ -37,7 +38,7 @@ type Item = {
 type Ribbon = {
   background: string;
   color: string;
-  group: string;
+  group: RibbonGroup;
   value: string;
 };
 
@@ -63,7 +64,7 @@ type GetProduct = {
     value: string;
   }[];
   colorPalettes?: Color[] | null;
-  ribbons?: Ribbon[];
+  ribbons: Ribbon[];
 };
 
-export type { GetProduct, Item };
+export type { GetProduct, Item, Ribbon };

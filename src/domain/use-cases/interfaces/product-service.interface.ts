@@ -3,7 +3,10 @@ import { GetColors } from '@entities/product/get-colors.response';
 import { AxiosResponse } from 'axios';
 
 interface ProductService {
-  getProduct(productId: number): Promise<AxiosResponse<GetProduct>>;
+  getProduct(
+    productId: number,
+    accessToken: string | undefined,
+  ): Promise<AxiosResponse<GetProduct>>;
   getColors(): Promise<AxiosResponse<GetColors>>;
 }
 
