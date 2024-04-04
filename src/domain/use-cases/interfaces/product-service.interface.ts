@@ -5,7 +5,7 @@ import { AxiosResponse } from 'axios';
 interface ProductService {
   getProduct(
     productId: number,
-    accessToken: string | undefined,
+    accessToken?: string,
   ): Promise<AxiosResponse<GetProduct>>;
   getColors(): Promise<AxiosResponse<GetColors>>;
 }
