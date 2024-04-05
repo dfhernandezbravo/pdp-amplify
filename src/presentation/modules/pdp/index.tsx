@@ -70,8 +70,9 @@ const Pdp = (
 export default Pdp;
 
 export const getServerSideProps = (async (ctx: GetServerSidePropsContext) => {
-  const accessToken = ctx?.req.cookies?.accessToken;
-  ctx.res.setHeader(
+  const accessToken = ctx?.req?.cookies?.accessToken;
+
+  ctx?.res?.setHeader(
     'Cache-Control',
     'public, s-maxage=10, stale-while-revalidate=0',
   );

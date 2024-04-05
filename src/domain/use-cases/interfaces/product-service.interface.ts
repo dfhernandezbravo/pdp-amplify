@@ -6,7 +6,7 @@ import { ShoppingCart } from '@cencosud-ds/easy-design-system';
 interface ProductService {
   getProduct(
     productId: number,
-    accessToken: string | undefined,
+    accessToken?: string,
   ): Promise<AxiosResponse<GetProduct>>;
   getColors(): Promise<AxiosResponse<GetColors>>;
   addAditionalService(
