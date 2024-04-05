@@ -30,6 +30,7 @@ type Item = {
   };
 
   offering: {
+    id: string;
     name: string;
     value: number;
   };

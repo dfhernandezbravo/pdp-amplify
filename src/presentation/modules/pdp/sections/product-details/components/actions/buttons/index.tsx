@@ -8,6 +8,7 @@ import { ButtonsContainer } from './style';
 import useGetId from '@hooks/useGetId';
 import { useDispatchProductEvent } from '@use-cases/product/dispatch-product-event';
 import { EventType } from '@entities/events/ga-events';
+import useAddAditionalService from '@use-cases/product/add-aditional-service';
 
 const Button = dynamic(
   () =>
@@ -25,6 +26,7 @@ const Buttons = () => {
 
   const { selectedColor } = useAppSelector((state) => state.tintometric);
   const { dispatchAddToCartEvent } = useDispatchProductEvent();
+  useAddAditionalService();
 
   const addToCart = async (product: GetProduct, cartId: string) => {
     if (selectedVariant) {

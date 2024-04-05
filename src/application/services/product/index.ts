@@ -19,5 +19,13 @@ const productService: ProductService = {
   getColors: async () => {
     return bffInstance.get('/cms/group/Tintometric/colors');
   },
+  addAditionalService: (itemIndex, cartId, serviceId) => {
+    return bffInstance.post(
+      `/shoppingcart/${cartId}/items/${itemIndex}/options`,
+      {
+        id: serviceId,
+      },
+    );
+  },
 };
 export default productService;
