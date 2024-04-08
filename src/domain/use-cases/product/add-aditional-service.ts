@@ -36,7 +36,8 @@ const useAddAditionalService = () => {
   useEventListener(document, WindowsEvents.GET_SHOPPING_CART, (e) => {
     e.preventDefault();
     const customEvent = e as CustomEvent;
-    additionalService && addAditionalService(customEvent?.detail?.cart);
+    const cart = customEvent?.detail?.shoppingCart;
+    additionalService && cart && addAditionalService(cart);
   });
 };
 
