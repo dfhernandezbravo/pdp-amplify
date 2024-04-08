@@ -30,7 +30,8 @@ function buildEventDetail({
     item_variant: variantSelected?.referenceId?.[0]?.Value || 0,
     price:
       Number(
-        variantSelected?.sellers?.[0]?.commertialOffer?.prices?.brandPrice,
+        variantSelected?.sellers?.[0]?.commertialOffer?.prices?.offerPrice ||
+          variantSelected?.sellers?.[0]?.commertialOffer?.prices?.normalPrice,
       ) || 0,
     list_price:
       Number(
