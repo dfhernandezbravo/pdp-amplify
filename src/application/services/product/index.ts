@@ -7,7 +7,9 @@ const productService: ProductService = {
       `/products/by-sku/${encodeURIComponent(productId)}`,
       {
         baseURL: process.env.NEXT_PUBLIC_BFF_URL,
-        headers: { Authorization: `Bearer ${accessToken}` },
+        headers: accessToken
+          ? { Authorization: `Bearer ${accessToken}` }
+          : undefined,
       },
     );
   },
