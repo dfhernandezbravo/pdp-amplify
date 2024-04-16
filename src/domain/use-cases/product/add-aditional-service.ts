@@ -3,7 +3,6 @@ import WindowsEvents from '@components/events';
 import useEventListener from '@hooks/eventListenerHooks';
 import { useAppSelector } from '@hooks/storeHooks';
 import productService from '@services/product';
-import { customDispatchEvent } from '@store/events/dispatchEvents';
 
 const useAddAditionalService = () => {
   const { cartId } = useAppSelector((state) => state.cart);
@@ -18,15 +17,7 @@ const useAddAditionalService = () => {
     const serviceId = product?.items?.[0]?.offering?.id;
     if (itemIndex >= 0 && cartId && serviceId) {
       try {
-        const newCart = await productService.addAditionalService(
-          itemIndex,
-          cartId,
-          serviceId,
-        );
-        customDispatchEvent({
-          name: WindowsEvents.UPDATE_SHOPPING_CART,
-          detail: newCart,
-        });
+        await productService.addAditionalService(itemIndex, cartId, serviceId);
       } catch (error) {
         console.log(error);
       }
