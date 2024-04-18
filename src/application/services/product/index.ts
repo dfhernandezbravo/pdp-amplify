@@ -2,22 +2,27 @@ import { bffInstance } from '@data-source/bbf-instance';
 import ProductService from '@use-cases/interfaces/product-service.interface';
 
 const productService: ProductService = {
-  getProduct: async (productId: number, accessToken?: string) => {
-    bffInstance.interceptors.request.use(
-      (config) => {
-        if (accessToken) config.headers.Authorization = `Bearer ${accessToken}`;
-
-        return config;
-      },
-      (err) => {
-        throw new Error(err);
+  getProduct: (productId, accessToken) => {
+    return bffInstance.get(
+      `/products/by-sku/${encodeURIComponent(productId)}`,
+      {
+        baseURL: process.env.NEXT_PUBLIC_BFF_URL,
+        headers: accessToken
+          ? { Authorization: `Bearer ${accessToken}` }
+          : undefined,
       },
     );
-
-    return bffInstance.get(`/products/by-sku/${encodeURIComponent(productId)}`);
   },
-  getColors: async () => {
+  getColors: () => {
     return bffInstance.get('/cms/group/Tintometric/colors');
+  },
+  addAditionalService: (itemIndex, cartId, serviceId) => {
+    return bffInstance.post(
+      `/shoppingcart/${cartId}/items/${itemIndex}/options`,
+      {
+        id: serviceId,
+      },
+    );
   },
 };
 export default productService;

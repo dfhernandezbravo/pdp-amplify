@@ -11,12 +11,14 @@ import {
 import { useAppDispatch, useAppSelector } from '@hooks/storeHooks';
 import { setAdditionalService } from '@store/product';
 import ServiceTerms from './components/service-terms';
+import useAddAditionalService from '@use-cases/product/add-aditional-service';
 
 const AddService = () => {
   const { product, additionalService } = useAppSelector(
     (state) => state.product,
   );
   const dispatch = useAppDispatch();
+  useAddAditionalService();
 
   const formatPrice = (num: number) => {
     return (num / 1000).toFixed(3);
