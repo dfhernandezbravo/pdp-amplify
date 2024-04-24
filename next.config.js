@@ -43,7 +43,7 @@ const nextConfig = {
         name: 'pdp',
         filename: 'static/chunks/remoteEntry.js',
         exposes: {
-          './pdp': './src/presentation/modules/pdp',
+          './pdp': './src/pages/[department]/p',
         },
         extraOptions: {
           exposePages: true,

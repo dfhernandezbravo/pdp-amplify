@@ -1,75 +1,53 @@
-import React, { useEffect } from 'react';
-// import dynamic from 'next/dynamic';
-import { useAppDispatch } from '@hooks/storeHooks';
-import { setProduct, setSelectedVariant, setProductId } from '@store/product';
-import { setImages } from '@store/gallery';
 import ImageGallery from './sections/image-gallery';
 import ProductDetails from './sections/product-details';
 import {
   DetailsContainer,
   ImagesContainer,
   Main,
-  // ReviewContainer,
   Section,
   Separator,
 } from './style';
 import PdpBreadcrumbs from './components/breadcrumbs';
 import EmotionalDescription from './sections/emotional-description';
 import SpecificationsTables from './sections/specifications-tables';
-// import { RatingsProps } from '@entities/ratings-and-reviews/ratings-and-reviews.type';
-import { GetProduct } from '@entities/product/get-product.response';
-// import FirstLoadSkeleton from '@components/molecules/skeleton/ratings-and-reviews/FirstLoadSkeleton';
 import CartEventProvider from '../../providers/cart-event-provider';
 import Head from 'next/head';
 import useDefaultVariant from '@hooks/useDefaultVariant';
-import { useRouter } from 'next/router';
-// import dynamic from 'next/dynamic';
+import { useEffect } from 'react';
+import { useAppDispatch, useAppSelector } from '@hooks/storeHooks';
+import { setSelectedVariant } from '@store/product';
+import { setImages } from '@store/gallery';
 
-// const RatingAndReview = dynamic<RatingsProps>(
-//   () => import('ratingsAndReviews/index'),
-//   {
-//     ssr: false,
-//     loading: () => <FirstLoadSkeleton />,
-//   },
-// );
-
-const PdpContainer = (productData: GetProduct) => {
+const PdpContainer = ({ productId }: { productId: number }) => {
+  const { product } = useAppSelector((state) => state.product);
+  const defaultVariant = useDefaultVariant(product?.items);
   const dispatch = useAppDispatch();
-  const defaultVariant = useDefaultVariant(productData?.items);
-  const router = useRouter();
 
-  const getProductId = () => {
-    const query = router?.query.department as string;
-    const productId = Number(query.split('-').pop());
-    dispatch(setProductId(productId));
-  };
-
-  const getCategories = (categories: string[]) => {
+  const getCategories = (categories?: string[]) => {
+    if (!categories) return 'productos';
     const categoriesArray = categories?.[0].split('/');
     return categoriesArray?.[categoriesArray.length - 2];
   };
 
   useEffect(() => {
-    getProductId();
-    if (productData) {
-      dispatch(setProduct(productData));
+    if (product) {
       dispatch(setSelectedVariant(defaultVariant));
       dispatch(setImages(defaultVariant?.images));
     }
-  }, [productData, dispatch]);
+  }, [product, dispatch]);
 
   return (
     <CartEventProvider>
       <Head>
         <title>
-          {productData?.metaTagDescription
-            ? `${productData?.metaTagDescription} | Easy.cl - Easy`
+          {product?.metaTagDescription
+            ? `${product?.metaTagDescription} | Easy.cl - Easy`
             : 'Easy.cl'}
         </title>
         <meta
           name="description"
-          content={`Compra ${productData?.productName} y renueva tu hogar. En Easy.cl encontrarás todo en ${getCategories(
-            productData?.categories,
+          content={`Compra ${product?.productName} y renueva tu hogar. En Easy.cl encontrarás todo en ${getCategories(
+            product?.categories,
           )} para renovar el amor por tu hogar.`}
           data-react-helmet="true"
         ></meta>

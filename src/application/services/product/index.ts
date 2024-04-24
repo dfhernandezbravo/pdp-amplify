@@ -2,14 +2,11 @@ import { bffInstance } from '@data-source/bbf-instance';
 import ProductService from '@use-cases/interfaces/product-service.interface';
 
 const productService: ProductService = {
-  getProduct: (productId, accessToken) => {
+  getProduct: (productId) => {
     return bffInstance.get(
       `/products/by-sku/${encodeURIComponent(productId)}`,
       {
         baseURL: process.env.NEXT_PUBLIC_BFF_URL,
-        headers: accessToken
-          ? { Authorization: `Bearer ${accessToken}` }
-          : undefined,
       },
     );
   },
