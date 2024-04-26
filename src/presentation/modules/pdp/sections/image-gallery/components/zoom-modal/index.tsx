@@ -9,6 +9,7 @@ import useBreakpoints from '@hooks/useBreakpoints';
 import { useEffect, useState } from 'react';
 import { FaMagnifyingGlassPlus } from 'react-icons/fa6';
 import Mobile from '@components/Mobile';
+import ImageZoom from '@components/molecules/swiper-zoom/components/image-zoom';
 
 const ZoomModal = () => {
   const dispatch = useAppDispatch();
@@ -44,16 +45,21 @@ const ZoomModal = () => {
             <ThumbnailsCarousel />
           </Desktop>
           <SwiperContainer $showThumbnails={images?.length > 1}>
-            <SwiperZoom
-              hasPagination={isMobile}
-              initialSlide={activeIndex}
-              items={images}
-              onChangeIndex={(index: number) => changeIndex(index)}
-              slidesPerGroup={1}
-              slidesPerView={1}
-              activeIndex={zoomModalIndex}
-              allowTouchMove={isMobile}
-            />
+            {images?.length === 1 ? (
+              <ImageZoom image={images?.[0]} activeIndex={0} selected={true} />
+            ) : (
+              <SwiperZoom
+                hasPagination={isMobile}
+                initialSlide={activeIndex}
+                items={images}
+                onChangeIndex={(index: number) => changeIndex(index)}
+                slidesPerGroup={1}
+                slidesPerView={1}
+                activeIndex={zoomModalIndex}
+                allowTouchMove={isMobile}
+              />
+            )}
+
             <Mobile>
               <ZoomLabel>
                 <span>Desliza los dedos para hacer zoom</span>
