@@ -6,7 +6,7 @@ import { useAppDispatch, useAppSelector } from '@hooks/storeHooks';
 import { setCart, setCartId } from '@store/cart';
 import { customDispatchEvent } from '@store/events/dispatchEvents';
 import { GetCart as ShoppingCart } from '@entities/cart/get-cart.response';
-import getProduct from '@use-cases/product/get-product';
+import { getProduct } from '@use-cases/product/get-product';
 
 type Props = {
   children: React.ReactNode;

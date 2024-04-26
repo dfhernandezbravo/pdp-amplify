@@ -1,7 +1,7 @@
 import ProductService from '@services/product';
 import { AxiosError } from 'axios';
 
-const getColorsFromCms = async () => {
+export const getColorsFromCms = async () => {
   try {
     const { data } = await ProductService.getColors();
     return data.value;
@@ -14,9 +14,9 @@ const getColorsFromCms = async () => {
   }
 };
 
-const getProduct = async (productId: number, accessToken?: string) => {
+export const getProduct = async (productId: number) => {
   try {
-    const { data } = await ProductService.getProduct(productId, accessToken);
+    const { data } = await ProductService.getProduct(productId);
 
     if (data?.colorCodes && data?.colorCodes.length > 0) {
       const colorsFromCms = await getColorsFromCms();
@@ -29,5 +29,3 @@ const getProduct = async (productId: number, accessToken?: string) => {
     return null;
   }
 };
-
-export default getProduct;
