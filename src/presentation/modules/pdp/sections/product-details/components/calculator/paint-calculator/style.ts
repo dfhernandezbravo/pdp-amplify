@@ -16,6 +16,51 @@ export const Text = styled.div`
   font-weight: 400;
 `;
 
+export const CalculatorWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+`;
+
+export const InputGroup = styled.div`
+  display: flex;
+  outline: 1px solid #aaaaaa;
+  border-radius: 6px;
+  height: 100%;
+  padding-right: 3px;
+  align-items: center;
+  width: 53%;
+
+  div {
+    border: none;
+    height: 100%;
+  }
+  span {
+    padding: 8px 16px;
+    background-color: #f3f3f3;
+    font-size: 16px;
+    font-weight: 700;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media (max-width: 1024px) {
+    width: 100%;
+  }
+`;
+
+export const SelectHands = styled.div`
+  width: 40%;
+
+  #handsPaintCalculator > div:first-of-type {
+    height: 48px;
+  }
+
+  @media (max-width: 1024px) {
+    width: 100%;
+  }
+`;
+
 export const ResultContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -32,34 +77,4 @@ export const ResultContainer = styled.div`
 export const ResultItem = styled.div`
   display: flex;
   flex-direction: column;
-`;
-
-export const InputGroup = styled.div`
-  display: flex;
-  border: 1px solid #aaaaaa;
-  border-radius: 6px;
-  width: fit-content;
-  height: 100%;
-  padding-right: 3px;
-  align-items: center;
-  height: 100%;
-  div {
-    border: none;
-    height: 100%;
-  }
-  span {
-    padding: 8px 16px;
-    background-color: #f3f3f3;
-    font-size: 16px;
-    font-weight: 700;
-    align-items: center;
-    justify-content: center;
-  }
-`;
-
-export const SelectHands = styled.div`
-  margin-left: 16px;
-  #handsPaintCalculator > div:first-of-type {
-    height: 46px;
-  }
 `;
