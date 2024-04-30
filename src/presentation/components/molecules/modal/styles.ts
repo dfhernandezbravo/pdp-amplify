@@ -63,6 +63,10 @@ export const TitleContainer = styled.div`
     display: flex;
     flex-direction: column;
   }
+
+  @media only screen and (max-width: 768px) {
+    height: 20%;
+  }
 `;
 
 export const Title = styled.p`
@@ -123,6 +127,6 @@ export const Body = styled.div`
   padding-top: 1rem;
 
   @media only screen and (max-width: 768px) {
-    height: 100%;
+    height: 80%;
   }
 `;
