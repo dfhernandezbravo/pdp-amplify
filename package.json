@@ -21,6 +21,7 @@
     "@ccom-easy-design-system/atoms.quantity-selector": "^0.0.10",
     "@ccom-easy-design-system/atoms.select": "^0.0.27",
     "@ccom-easy-design-system/atoms.skeleton": "0.0.2",
+    "@ccom-easy-design-system/atoms.textfield": "^0.0.46",
     "@ccom-easy-design-system/molecules.ribbons": "^0.0.2",
     "@ccom-easy-design-system/molecules.swiper": "^0.0.19",
     "@ccom-easy-design-system/theme.easy": "0.0.4",

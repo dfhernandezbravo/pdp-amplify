@@ -4,10 +4,11 @@ import {
   FormContainer,
   SelectHands,
   ResultItem,
+  CalculatorWrapper,
 } from './style';
 import CheckBox from '@components/atoms/checkbox-bit';
 import { useEffect, useState } from 'react';
-import { Textfield } from '@cencosud-ds/easy-design-system';
+import { Textfield } from '@components/atoms/textfield-bit';
 import { useAppDispatch, useAppSelector } from '@hooks/storeHooks';
 import HelpModal from './components/help-modal';
 import { setQuantity } from '@store/product';
@@ -55,7 +56,6 @@ const PaintCalculator = () => {
   };
   const handleHelp = (open: boolean) => {
     setShowModal(open);
-    document.body.style.overflow = open ? 'hidden' : '';
   };
   const blockInvalidChar = (e: React.KeyboardEvent<HTMLInputElement>) =>
     ['e', 'E', '+', '-'].includes(e.key) && e.preventDefault();
@@ -66,7 +66,7 @@ const PaintCalculator = () => {
   return (
     <FormContainer>
       <TitleCalculator variant={'paint'} text="¿Cuánta pintura necesito?" />
-      <div style={{ display: 'flex' }}>
+      <CalculatorWrapper>
         <Controller
           name="coverage"
           control={control}
@@ -78,9 +78,9 @@ const PaintCalculator = () => {
                 label="Superficie"
                 placeholder=""
                 type="number"
-                width={200}
                 min={0}
                 onKeyDown={blockInvalidChar}
+                fullwidth
               />
               <span>m²</span>
             </InputGroup>
@@ -98,14 +98,13 @@ const PaintCalculator = () => {
                 onChange={(e) => field.onChange(e.value)}
                 label="Manos de pintura"
                 options={optionsHands}
-                customWidth={150}
-                height={40}
-                fullwidth={false}
+                height={42}
+                fullwidth={true}
               />
             )}
           />
         </SelectHands>
-      </div>
+      </CalculatorWrapper>
       <Button
         variant="link"
         type="button"

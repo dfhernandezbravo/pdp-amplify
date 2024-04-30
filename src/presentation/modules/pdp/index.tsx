@@ -1,97 +1,55 @@
-import { Provider } from 'react-redux';
 import PdpContainer from './pdp-container';
-import store from '@store/index';
-import { QueryClient, QueryClientProvider } from 'react-query';
-import { GetProduct } from '@entities/product/get-product.response';
-import {
-  GetServerSideProps,
-  GetServerSidePropsContext,
-  InferGetServerSidePropsType,
-} from 'next';
-import dynamic from 'next/dynamic';
-import ProductNotFound from './product-not-found/product-not-found';
-import getProduct from '@use-cases/product/get-product';
 import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 import { useDispatchProductEvent } from '@use-cases/product/dispatch-product-event';
 import useGetId from '@hooks/useGetId';
 import { EventType } from '@entities/events/ga-events';
+import { useQuery } from 'react-query';
+import { getProduct } from '@use-cases/product/get-product';
+import { setProduct, setProductId } from '@store/product';
+import ProductNotFound from './product-not-found/product-not-found';
+import PdpSkeleton from '@components/molecules/skeleton/pdp-skeleton/pdp-skeleton';
+import { useAppDispatch } from '@hooks/storeHooks';
 
-const EasyThemeProvider = dynamic(
-  () =>
-    import('@ccom-easy-design-system/theme.theme-provider').then(
-      (module) => module.EasyThemeProvider,
-    ),
-  { ssr: false },
-);
-
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      refetchOnWindowFocus: false,
-    },
-  },
-});
-
-const Pdp = (
-  props: InferGetServerSidePropsType<
-    GetServerSideProps<{ repo: GetProduct; productId: string }>
-  >,
-) => {
-  const { repo, productId } = props;
+const Pdp = () => {
   const { variantSkuId } = useGetId();
   const { dispatchViewItemEvent } = useDispatchProductEvent();
+  const dispatch = useAppDispatch();
+  const router = useRouter();
+  const query = router?.query.department as string;
+  const productId = Number(query.split('-').pop());
+
+  const { data, isLoading, isError } = useQuery(
+    ['get-product', productId],
+    () => {
+      if (productId) return getProduct(productId);
+    },
+    { enabled: Boolean(productId) },
+  );
 
   useEffect(() => {
-    if (repo && Object.keys(repo).length !== 0 && variantSkuId) {
+    if (data) {
+      dispatch(setProductId(productId));
+      dispatch(setProduct(data));
+    }
+  }, [data, dispatch]);
+
+  useEffect(() => {
+    if (data && variantSkuId) {
       dispatchViewItemEvent({
         event: EventType.ViewItem,
-        product: repo,
-        productRefId: productId || '',
+        product: data,
+        productRefId: `${productId}` || '',
         variantSkuId: variantSkuId || '',
       });
     }
-  }, [variantSkuId, repo, productId]);
+  }, [variantSkuId, data, productId]);
 
-  if (!repo || Object.keys(repo).length === 0) {
-    return <ProductNotFound />;
-  }
+  if (isError) return <ProductNotFound />;
 
-  return (
-    <QueryClientProvider client={queryClient}>
-      <EasyThemeProvider>
-        <Provider store={store}>
-          <PdpContainer {...repo} />
-        </Provider>
-      </EasyThemeProvider>
-    </QueryClientProvider>
-  );
+  if (isLoading) return <PdpSkeleton />;
+
+  return <PdpContainer productId={productId} />;
 };
 
 export default Pdp;
-
-export const getServerSideProps = (async (ctx: GetServerSidePropsContext) => {
-  const accessToken = ctx?.req?.cookies?.accessToken;
-
-  ctx?.res?.setHeader(
-    'Cache-Control',
-    'public, s-maxage=10, stale-while-revalidate=0',
-  );
-
-  if (ctx?.params?.department) {
-    const query = ctx?.params?.department.toString().split('-');
-    const productId = query?.[query?.length - 1].split('/')[0];
-
-    try {
-      const response = getProduct(Number(productId), accessToken);
-      const repo = await response;
-      return { props: { repo, productId: productId as string } };
-    } catch (error) {
-      console.error(`getServerSideProps error: ${JSON.stringify(error)}`);
-      return { props: { repo: null, productId: '' } };
-    }
-  }
-  return { props: { repo: null, productId: '' } };
-}) satisfies GetServerSideProps<{
-  repo: GetProduct | null;
-  productId: string;
-}>;
