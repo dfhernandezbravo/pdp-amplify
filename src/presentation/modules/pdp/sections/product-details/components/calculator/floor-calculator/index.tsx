@@ -1,7 +1,6 @@
 import { ResultContainer, InputGroup, FormContainer } from './style';
 import CheckBox from '@components/atoms/checkbox-bit';
 import { useEffect, useState } from 'react';
-import { Textfield } from '@cencosud-ds/easy-design-system';
 import { useAppDispatch, useAppSelector } from '@hooks/storeHooks';
 import HelpModal from './components/help-modal';
 import { setQuantity } from '@store/product';
@@ -9,6 +8,7 @@ import Button from '@components/atoms/button-bit';
 import { Controller, useForm } from 'react-hook-form';
 import TitleCalculator from '../components/title';
 import { calculateFloorQuantity } from '@use-cases/product/use-calculator';
+import { Textfield } from '@components/atoms/textfield-bit';
 
 type CalculatorForm = {
   coverage: number;

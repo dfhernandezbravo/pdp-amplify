@@ -7,6 +7,7 @@ import {
   Content,
   TitleModal,
   BackgroundModal,
+  BlockScroll,
 } from './styles';
 import Image from 'next/image';
 import { MdOutlineArrowBackIos } from 'react-icons/md';
@@ -35,6 +36,7 @@ const HelpModal = ({ isOpen, onClose }: ModalProps) => {
   if (!isOpen) return null;
   return (
     <>
+      <BlockScroll open={isOpen} />
       <BackgroundModal />
       <ModalOverlay id="modal-help-calculator" ref={modalRef}>
         <ModalContent>

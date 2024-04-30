@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { createGlobalStyle, keyframes, css } from 'styled-components';
 
 const fadeIn = keyframes`
   from {
@@ -16,6 +16,17 @@ const slideIn = keyframes`
   to {
     transform: translateX(0);
   }
+`;
+
+export const BlockScroll = createGlobalStyle<{ open: boolean }>`
+  ${({ open }) =>
+    open &&
+    css`
+      html,
+      body {
+        overflow: hidden;
+      }
+    `}
 `;
 
 export const ModalOverlay = styled.div`
