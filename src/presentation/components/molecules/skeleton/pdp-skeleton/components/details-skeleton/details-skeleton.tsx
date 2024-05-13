@@ -1,5 +1,4 @@
-import { Skeleton } from '@cencosud-ds/easy-design-system';
-import React from 'react';
+import { Skeleton } from '@components/atoms/skeleton';
 import { DetailsSkeletonContainer } from './style';
 
 const DetailsSkeleton = () => {
