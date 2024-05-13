@@ -21,8 +21,9 @@ export const RowSkeletonContainer = styled.div`
   overflow: hidden;
 `;
 
-export const Row = styled.div`
-  background-color: ${(props) => props.color};
+export const Row = styled.div<{ $isEven: boolean }>`
+  background-color: ${({ theme, $isEven }) =>
+    $isEven ? theme.colors.neutral[200] : theme.colors.neutral[100]};
   padding: 1rem;
   display: flex;
   & span {
