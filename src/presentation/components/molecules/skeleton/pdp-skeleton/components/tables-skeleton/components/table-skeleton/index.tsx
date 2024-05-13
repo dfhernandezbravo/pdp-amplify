@@ -1,11 +1,10 @@
-import React from 'react';
+import { Skeleton } from '@components/atoms/skeleton';
 import {
   Row,
   RowSkeletonContainer,
   TableSkeletonContainer,
   TableTitleSkeleton,
 } from './style';
-import { themeEasy, Skeleton } from '@cencosud-ds/easy-design-system';
 
 type Props = { count: number };
 
@@ -20,14 +19,7 @@ const TableSkeleton = ({ count = 1 }: Props) => {
         <Skeleton />
       </TableTitleSkeleton>
       {[...Array(count)].map((item, index) => (
-        <Row
-          key={`row-skeleton-${index}`}
-          color={
-            isEven(index)
-              ? themeEasy.colors.neutral[200]
-              : themeEasy.colors.neutral[100]
-          }
-        >
+        <Row key={`row-skeleton-${index}`} $isEven={isEven(index)}>
           <span>
             <RowSkeletonContainer>
               <Skeleton />

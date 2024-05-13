@@ -1,5 +1,5 @@
-import { ShoppingCart } from '@cencosud-ds/easy-design-system';
 import WindowsEvents from '@components/events';
+import { GetCart } from '@entities/cart/get-cart.response';
 import useEventListener from '@hooks/eventListenerHooks';
 import { useAppSelector } from '@hooks/storeHooks';
 import productService from '@services/product';
@@ -10,7 +10,7 @@ const useAddAditionalService = () => {
     (state) => state.product,
   );
 
-  const addAditionalService = async (cart: ShoppingCart) => {
+  const addAditionalService = async (cart: GetCart) => {
     const itemIndex = cart?.items?.findIndex((item) => {
       return item?.product?.sku === `${productId}`;
     });

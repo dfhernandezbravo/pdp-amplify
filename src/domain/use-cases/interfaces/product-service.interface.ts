@@ -1,7 +1,7 @@
-import { GetProduct } from '@entities/product/get-product.response';
+import { GetCart } from '@entities/cart/get-cart.response';
 import { GetColors } from '@entities/product/get-colors.response';
+import { GetProduct } from '@entities/product/get-product.response';
 import { AxiosResponse } from 'axios';
-import { ShoppingCart } from '@cencosud-ds/easy-design-system';
 
 interface ProductService {
   getProduct(
@@ -13,7 +13,7 @@ interface ProductService {
     itemIndex: number,
     cartId: string,
     serviceId: string,
-  ): Promise<ShoppingCart>;
+  ): Promise<GetCart>;
 }
 
 export default ProductService;

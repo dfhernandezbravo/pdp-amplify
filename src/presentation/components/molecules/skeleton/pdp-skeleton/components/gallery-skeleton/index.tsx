@@ -1,4 +1,4 @@
-import { Skeleton } from '@cencosud-ds/easy-design-system';
+import { Skeleton } from '@components/atoms/skeleton';
 import { GallerySkeletonContainer } from './style';
 
 const GallerySkeleton = () => {

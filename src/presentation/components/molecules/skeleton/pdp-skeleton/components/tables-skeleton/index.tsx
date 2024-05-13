@@ -1,7 +1,6 @@
-import React from 'react';
-import { TablesSkeletonContainer, TitleSkeleton } from './style';
-import { Skeleton } from '@cencosud-ds/easy-design-system';
+import { Skeleton } from '@components/atoms/skeleton';
 import TableSkeleton from './components/table-skeleton';
+import { TablesSkeletonContainer, TitleSkeleton } from './style';
 
 const TablesSkeleton = () => {
   return (
