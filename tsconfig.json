@@ -14,6 +14,8 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "baseUrl": "./",
+    "types": ["@testing-library/jest-dom"],
     "paths": {
       "@env/*": ["./src/domain/env/*"],
       "@entities/*": ["./src/domain/entities/*"],
@@ -29,6 +31,12 @@
       "@hooks/*": ["./src/presentation/hooks/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.spec.ts",
+    "jest.config.js"
+  ],
   "exclude": ["node_modules"]
 }
