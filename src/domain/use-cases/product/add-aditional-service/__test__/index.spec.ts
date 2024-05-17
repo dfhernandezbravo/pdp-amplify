@@ -2,7 +2,7 @@ import { renderHook } from '@testing-library/react';
 import { fireEvent } from '@testing-library/dom';
 import { useAppSelector } from '@hooks/storeHooks';
 import productService from '@services/product';
-import useAddAditionalService from './add-aditional-service';
+import useAddAditionalService from '..';
 import WindowsEvents from '@components/events';
 
 jest.mock('@hooks/storeHooks');
