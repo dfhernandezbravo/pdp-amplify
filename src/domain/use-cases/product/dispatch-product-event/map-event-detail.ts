@@ -1,16 +1,16 @@
 /* eslint-disable camelcase */
 /* eslint-disable complexity */
-import { useEvents } from '@hooks/useEvents';
-import { ANALYTICS_EVENTS } from '../../../application/infra/events/analytics.';
-import { Item } from '@entities/product/get-product.response';
-import { findVariantSelected } from './map-event-detail';
-import {
-  BuildEventDetailArgs,
-  DispatchEventArguments,
-  ItemDetail,
-} from '@entities/events/ga-events';
+import { BuildEventDetailArgs, ItemDetail } from '@entities/events/ga-events';
+import { GetProduct, Item } from '@entities/product/get-product.response';
 
-function buildEventDetail({
+export function findVariantSelected(
+  product: GetProduct,
+  variantSkuId: string,
+): Item | undefined {
+  return product?.items.find((item) => item.itemId === variantSkuId);
+}
+
+export function buildEventDetail({
   event,
   product,
   productRefId,
@@ -18,15 +18,15 @@ function buildEventDetail({
   service,
 }: BuildEventDetailArgs & { variantSelected?: Item }) {
   let itemsDetail: ItemDetail = {
-    item_id: productRefId || '',
-    item_name: product?.productName || '',
+    item_id: productRefId,
+    item_name: product.productName,
     discount:
       Number(
         variantSelected?.sellers?.[0]?.commertialOffer?.adjustments?.[0]?.value,
       ) || 0,
     affiliation: 'Easy',
-    item_brand: product.brand || '',
-    item_category: product?.categories?.[0] || '',
+    item_brand: product.brand,
+    item_category: product.categories[0],
     item_variant: variantSelected?.referenceId?.[0]?.Value || 0,
     price:
       Number(
@@ -64,31 +64,5 @@ function buildEventDetail({
       items: [itemsDetail],
       value: variantSelected?.sellers?.[0]?.commertialOffer?.prices?.brandPrice,
     },
-  };
-}
-
-export function useDispatchProductEvent() {
-  const { dispatchEvent } = useEvents();
-
-  function dispatchProductEvent(args: DispatchEventArguments) {
-    const { event, product, productRefId, variantSkuId, service } = args;
-    const variantSelected = findVariantSelected(product, variantSkuId);
-    const eventDetail = buildEventDetail({
-      event,
-      product,
-      productRefId,
-      variantSelected,
-      service,
-    });
-
-    return dispatchEvent({
-      name: ANALYTICS_EVENTS.Analytics,
-      detail: eventDetail,
-    });
-  }
-
-  return {
-    dispatchViewItemEvent: dispatchProductEvent,
-    dispatchAddToCartEvent: dispatchProductEvent,
   };
 }

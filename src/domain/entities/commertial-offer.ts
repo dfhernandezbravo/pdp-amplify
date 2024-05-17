@@ -7,10 +7,10 @@ import { InstallmentsEntity } from './installments';
 import { PaymentOptions } from './payment-option';
 
 type Prices = {
-  brandPrice: number;
+  brandPrice: number | null;
   currency: string;
   normalPrice: number;
-  offerPrice: number;
+  offerPrice: number | null;
 };
 
 export type CommertialOffer = {
@@ -35,14 +35,12 @@ export type CommertialOffer = {
   GetInfoErrorMessage?: null;
   CacheVersionUsedToCallCheckout: string;
   PaymentOptions: PaymentOptions;
-  adjustments: [
-    {
-      name: string;
-      id: string;
-      priceType: string;
-      percentDiscount: string;
-      value: number;
-      description: string;
-    },
-  ];
+  adjustments: {
+    name: string;
+    id: string;
+    priceType: string;
+    percentDiscount: string;
+    value: number;
+    description: string;
+  }[];
 };

@@ -22,6 +22,7 @@
       "@interfaces/*": ["./domain/interfaces/*"],
       "@use-cases/*": ["./domain/use-cases/*"],
       "@data-source/*": ["./application/data-source/*"],
+      "@infra/*": ["./application/infra/*"],
       "@services/*": ["./application/services/*"],
       "@events/*": ["./events/*"],
       "@modules/*": ["./presentation/modules/*"],
