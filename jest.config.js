@@ -48,6 +48,7 @@ const config = {
     '<rootDir>/src/domain/entities/',
     '<rootDir>/src/domain/interfaces/',
     '<rootDir>/src/application/infra/',
+    '<rootDir>/src/pages/api/',
     '/node_modules/',
   ],
 
@@ -188,7 +189,7 @@ const config = {
   // snapshotSerializers: [],
 
   // The test environment that will be used for testing
-  testEnvironment: 'node',
+  testEnvironment: 'jsdom',
 
   // Options that will be passed to the testEnvironment
   // testEnvironmentOptions: {},
