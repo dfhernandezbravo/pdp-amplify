@@ -5,6 +5,8 @@
  */
 
 const nextJest = require('next/jest');
+const { compilerOptions } = require('./tsconfig');
+const { pathsToModuleNameMapper } = require('ts-jest');
 
 const createJestConfig = nextJest({
   // Provide the path to your Next.js app to load next.config.js and .env files in your test environment
@@ -41,9 +43,13 @@ const config = {
   coverageDirectory: 'coverage',
 
   // An array of regexp pattern strings used to skip coverage collection
-  // coveragePathIgnorePatterns: [
-  //   "/node_modules/"
-  // ],
+  coveragePathIgnorePatterns: [
+    '<rootDir>/src/presentation/pages/_app.tsx',
+    '<rootDir>/src/domain/entities/',
+    '<rootDir>/src/domain/interfaces/',
+    '<rootDir>/src/application/infra/',
+    '/node_modules/',
+  ],
 
   // Indicates which provider should be used to instrument code for coverage
   coverageProvider: 'v8',
@@ -87,15 +93,17 @@ const config = {
   // globalTeardown: undefined,
 
   // A set of global variables that need to be available in all test environments
-  // globals: {},
+  globals: {
+    'ts-jest': {
+      autoMapModuleNames: true,
+    },
+  },
 
   // The maximum amount of workers used to run your tests. Can be specified as % or a number. E.g. maxWorkers: 10% will use 10% of your CPU amount + 1 as the maximum worker number. maxWorkers: 2 will use a maximum of 2 workers.
   // maxWorkers: "50%",
 
   // An array of directory names to be searched recursively up from the requiring module's location
-  // moduleDirectories: [
-  //   "node_modules"
-  // ],
+  // moduleDirectories: ['.', 'src', 'node_modules'],
 
   // An array of file extensions your modules use
   moduleFileExtensions: [
@@ -110,19 +118,23 @@ const config = {
   ],
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
-  moduleNameMapper: {
-    '^@/components/(.*)$': '<rootDir>/src/presentation/components/$1',
-    '^@/env/(.*)$': '<rootDir>/src/domain/env/$1',
-    '^@/interfaces/(.*)$': '<rootDir>/src/domain/interfaces/$1',
-    '^@/use-cases/(.*)$': '<rootDir>/src/domain/use-cases/$1',
-    '^@/data-source/(.*)$': '<rootDir>/src/application/data-source/$1',
-    '^@/services/(.*)$': '<rootDir>/src/application/services/$1',
-    '^@/events/(.*)$': '<rootDir>/src/events/$1',
-    '^@/modules/(.*)$': '<rootDir>/src/presentation/modules/$1',
-    '^@/store/(.*)$': '<rootDir>/src/presentation/store/$1',
-    '^@/theme/(.*)$': '<rootDir>/src/presentation/theme/$1',
-    '^@/hooks/(.*)$': '<rootDir>/src/presentation/hooks/$1',
-  },
+  // moduleNameMapper: {
+  //   '^@/components/(.*)$': '<rootDir>/src/presentation/components/$1',
+  //   '^@/env/(.*)$': '<rootDir>/src/domain/env/$1',
+  //   '^@/interfaces/(.*)$': '<rootDir>/src/domain/interfaces/$1',
+  //   '^@/use-cases/(.*)$': '<rootDir>/src/domain/use-cases/$1',
+  //   '^@/data-source/(.*)$': '<rootDir>/src/application/data-source/$1',
+  //   '^@/services/(.*)$': '<rootDir>/src/application/services/$1',
+  //   '^@/events/(.*)$': '<rootDir>/src/events/$1',
+  //   '^@/modules/(.*)$': '<rootDir>/src/presentation/modules/$1',
+  //   '^@/store/(.*)$': '<rootDir>/src/presentation/store/$1',
+  //   '^@/theme/(.*)$': '<rootDir>/src/presentation/theme/$1',
+  //   '^@/hooks/(.*)$': '<rootDir>/src/presentation/hooks/$1',
+  // },
+
+  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
+    prefix: '<rootDir>/src/',
+  }),
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
   // modulePathIgnorePatterns: [],
@@ -176,7 +188,7 @@ const config = {
   // snapshotSerializers: [],
 
   // The test environment that will be used for testing
-  testEnvironment: 'jsdom',
+  testEnvironment: 'node',
 
   // Options that will be passed to the testEnvironment
   // testEnvironmentOptions: {},
