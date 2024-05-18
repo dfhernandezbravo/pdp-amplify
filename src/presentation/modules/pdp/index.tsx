@@ -1,15 +1,15 @@
-import PdpContainer from './pdp-container';
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
-import { useDispatchProductEvent } from '@use-cases/product/dispatch-product-event';
-import useGetId from '@hooks/useGetId';
-import { EventType } from '@entities/events/ga-events';
-import { useQuery } from 'react-query';
-import { getProduct } from '@use-cases/product/get-product';
-import { setProduct, setProductId } from '@store/product';
-import ProductNotFound from './product-not-found/product-not-found';
 import PdpSkeleton from '@components/molecules/skeleton/pdp-skeleton/pdp-skeleton';
+import { EventType } from '@entities/events/ga-events';
 import { useAppDispatch } from '@hooks/storeHooks';
+import useGetId from '@hooks/useGetId';
+import { setProduct, setProductId } from '@store/product';
+import { useDispatchProductEvent } from '@use-cases/product/dispatch-product-event';
+import { getProduct } from '@use-cases/product/get-product/';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
+import { useQuery } from 'react-query';
+import PdpContainer from './pdp-container';
+import ProductNotFound from './product-not-found/product-not-found';
 
 const Pdp = () => {
   const { variantSkuId } = useGetId();
