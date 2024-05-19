@@ -28,7 +28,7 @@
       "@modules/*": ["./presentation/modules/*"],
       "@store/*": ["./presentation/store/*"],
       "@components/*": ["./presentation/components/*"],
-      "@theme/*": ["./presentation/theme/*"],
+      "@theme/*": ["./presentation/styles/theme/*"],
       "@hooks/*": ["./presentation/hooks/*"]
     }
   },
