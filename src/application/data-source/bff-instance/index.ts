@@ -1,6 +1,6 @@
+import { AUTHCOOKIES } from '@infra/cookies';
 import axios from 'axios';
 import Cookies from 'universal-cookie';
-import { AUTHCOOKIES } from '../infra/cookies';
 
 export const bffInstance = axios.create({
   baseURL: process.env.NEXT_PUBLIC_BFF_URL,

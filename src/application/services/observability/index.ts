@@ -1,4 +1,4 @@
-import { bffInstance } from '@data-source/bbf-instance';
+import { bffInstance } from '@data-source/bff-instance';
 import { CustomEvent } from '@entities/observability';
 
 interface ObservabilityRepository {

@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { bffInstance } from './bbf-instance';
+import { bffInstance } from '..';
 import MockAdapter from 'axios-mock-adapter';
 import Cookies from 'universal-cookie';
 

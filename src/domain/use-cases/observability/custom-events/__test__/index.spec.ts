@@ -1,5 +1,5 @@
 import { CustomEvent } from '@entities/observability';
-import customEvents from '../observability/custom-events';
+import customEvents from '..';
 import observabilityRepository from '@services/observability';
 
 jest.mock('@services/observability');
@@ -17,11 +17,11 @@ describe('customEvents', () => {
     const event: CustomEvent = { eventName: 'event-name', data: {} };
     const error = new Error('Some error message');
 
-    jest
-      .spyOn(observabilityRepository, 'customEvents')
-      .mockImplementationOnce(() => {
+    (observabilityRepository.customEvents as jest.Mock).mockImplementationOnce(
+      () => {
         throw error;
-      });
+      },
+    );
 
     const result = await customEvents(event);
 

@@ -1,13 +1,13 @@
-import { bffInstance } from '@data-source/bbf-instance';
+import { bffInstance } from '@data-source/bff-instance';
 import {
   AddServiceRequest,
   SaveShoppingCartItemsRequest,
   SetShoppingCartItemsRequest,
 } from '@entities/cart/get-cart.response';
 import MockAdapter from 'axios-mock-adapter';
-import cartService from './index';
+import cartService from '..';
 
-jest.mock('@data-source/bbf-instance');
+jest.mock('@data-source/bff-instance');
 
 describe('cartService', () => {
   const cartId = 'cart-id';

@@ -1,4 +1,4 @@
-import { bffInstance } from '@data-source/bbf-instance';
+import { bffInstance } from '@data-source/bff-instance';
 import CartService from '@interfaces/cart-service.interface';
 
 const cartService: CartService = {
