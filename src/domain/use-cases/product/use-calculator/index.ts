@@ -1,5 +1,5 @@
 type FormPaintCalculator = {
-  coverage: number;
+  coverage?: number;
   extraChecked: boolean;
   hands: number;
 };
