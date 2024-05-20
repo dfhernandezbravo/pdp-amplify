@@ -1,7 +1,5 @@
-/* eslint-disable camelcase */
-/* eslint-disable complexity */
 import { DispatchEventArguments } from '@entities/events/ga-events';
-import { useEvents } from '@hooks/useEvents';
+import { useEvents } from '@hooks/use-events';
 import { ANALYTICS_EVENTS } from '@infra/events/analytics';
 import { buildEventDetail, findVariantSelected } from './map-event-detail';
 

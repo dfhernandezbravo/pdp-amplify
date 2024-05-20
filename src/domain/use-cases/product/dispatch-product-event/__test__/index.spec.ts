@@ -6,7 +6,7 @@ import { useDispatchProductEvent } from '..';
 import { productMock } from './__mocks__/product-cart';
 
 const dispatchEventMock = jest.fn();
-jest.mock('@hooks/useEvents', () => ({
+jest.mock('@hooks/use-events', () => ({
   useEvents: () => ({
     dispatchEvent: dispatchEventMock,
   }),
