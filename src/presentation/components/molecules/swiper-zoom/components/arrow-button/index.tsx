@@ -4,7 +4,7 @@ import {
   MdOutlineArrowForwardIos,
 } from 'react-icons/md';
 import { ArrowButtonWrapper } from './style';
-import useBreakpoints from '@hooks/useBreakpoints';
+import useBreakpoints from '@hooks/use-device/useBreakpoints';
 
 interface Props {
   position: 'right' | 'left';

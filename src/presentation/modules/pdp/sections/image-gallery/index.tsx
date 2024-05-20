@@ -9,7 +9,7 @@ import {
 import Thumbnails from './components/thumbnails';
 import Image from 'next/image';
 import Desktop from '@components/Desktop';
-import useBreakpoints from '@hooks/useBreakpoints';
+import useBreakpoints from '@hooks/use-device/useBreakpoints';
 import { FaMagnifyingGlassPlus } from 'react-icons/fa6';
 import ZoomModal from './components/zoom-modal';
 import {
