@@ -49,6 +49,13 @@ const config = {
     '<rootDir>/src/domain/interfaces/',
     '<rootDir>/src/application/infra/',
     '<rootDir>/src/pages/api/',
+    '<rootDir>/src/pages/_app.tsx',
+    '<rootDir>/src/pages/_document.tsx',
+    '<rootDir>/src/pages/[department]/',
+    '<rootDir>/src/presentation/components/',
+    '<rootDir>/src/presentation/modules/',
+    '<rootDir>/src/presentation/providers/',
+    '<rootDir>/src/presentation/store/',
     '/node_modules/',
   ],
 
