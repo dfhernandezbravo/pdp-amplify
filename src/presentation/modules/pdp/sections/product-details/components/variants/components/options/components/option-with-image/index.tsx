@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Item } from '@entities/product/get-product.response';
 import { StyledLink, OptionsContainer, OutOfStock } from './styles';
-import { useAppDispatch, useAppSelector } from '@hooks/storeHooks';
+import { useAppDispatch, useAppSelector } from '@hooks/store-hooks';
 import { setImages } from '@store/gallery';
 import { useRouter } from 'next/router';
 

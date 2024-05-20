@@ -1,6 +1,6 @@
 import M2Price from '@components/atoms/prices/M2Price';
 import Price from '@components/atoms/prices/Price';
-import { useAppSelector } from '@hooks/storeHooks';
+import { useAppSelector } from '@hooks/store-hooks';
 import { PricesContainer } from './style';
 
 const PriceContainer = () => {

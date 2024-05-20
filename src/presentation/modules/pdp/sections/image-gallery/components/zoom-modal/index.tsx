@@ -1,6 +1,6 @@
 import Modal from '@components/molecules/modal';
 import { Container, SwiperContainer, ZoomLabel } from './style';
-import { useAppDispatch, useAppSelector } from '@hooks/storeHooks';
+import { useAppDispatch, useAppSelector } from '@hooks/store-hooks';
 import { setOpenZoomModal, setZoomModalIndex } from '@store/gallery';
 import ThumbnailsCarousel from './components/thumbnails-carousel';
 import SwiperZoom from '@components/molecules/swiper-zoom';

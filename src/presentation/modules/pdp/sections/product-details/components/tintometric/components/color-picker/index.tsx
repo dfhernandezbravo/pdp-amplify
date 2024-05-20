@@ -1,5 +1,5 @@
 import { ColorType } from '../../types';
-import { useAppSelector } from '@hooks/storeHooks';
+import { useAppSelector } from '@hooks/store-hooks';
 import ColorPickerDesktop from './layouts/color-picker-desktop';
 import ColorPickerMobile from './layouts/color-picker-mobile';
 

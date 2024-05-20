@@ -7,7 +7,7 @@ import {
   Title,
   Container,
 } from './style';
-import { useAppSelector } from '@hooks/storeHooks';
+import { useAppSelector } from '@hooks/store-hooks';
 
 const SelectedColor = () => {
   const { selectedColor } = useAppSelector((state) => state.tintometric);

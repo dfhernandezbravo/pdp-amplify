@@ -1,6 +1,6 @@
 import WindowsEvents from '@components/events';
 import { GetCart as ShoppingCart } from '@entities/cart/get-cart.response';
-import { useAppDispatch, useAppSelector } from '@hooks/storeHooks';
+import { useAppDispatch, useAppSelector } from '@hooks/store-hooks';
 import { setCart, setCartId } from '@store/cart';
 import { customDispatchEvent } from '@store/events/dispatchEvents';
 import { setProduct } from '@store/product';

@@ -1,4 +1,4 @@
-import { useAppSelector } from '@hooks/storeHooks';
+import { useAppSelector } from '@hooks/store-hooks';
 import { Title, VariantsContainer } from './styles';
 import Options from './components/options';
 import { useEffect, useState } from 'react';

@@ -1,7 +1,7 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 import { setQuantity } from '@store/product';
-import { useAppSelector, useAppDispatch } from '@hooks/storeHooks';
+import { useAppSelector, useAppDispatch } from '@hooks/store-hooks';
 import { QuantityTitle } from './style';
 
 const QuantitySelector = dynamic(

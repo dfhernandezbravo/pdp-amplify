@@ -10,7 +10,7 @@ import {
 } from './style';
 import Desktop from '@components/Desktop';
 import { GrClose } from 'react-icons/gr';
-import { useAppDispatch, useAppSelector } from '@hooks/storeHooks';
+import { useAppDispatch, useAppSelector } from '@hooks/store-hooks';
 import { setOpenedColorGroup, setSelectedColor } from '@store/tintometric';
 import { ColorType } from '../../../../types';
 

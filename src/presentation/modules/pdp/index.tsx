@@ -1,6 +1,6 @@
 import PdpSkeleton from '@components/molecules/skeleton/pdp-skeleton/pdp-skeleton';
 import { EventType } from '@entities/events/ga-events';
-import { useAppDispatch } from '@hooks/storeHooks';
+import { useAppDispatch } from '@hooks/store-hooks';
 import useGetId from '@hooks/useGetId';
 import { setProduct, setProductId } from '@store/product';
 import { useDispatchProductEvent } from '@use-cases/product/dispatch-product-event';

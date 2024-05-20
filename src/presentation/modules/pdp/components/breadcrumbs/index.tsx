@@ -1,6 +1,6 @@
 import { Breadcrumbs } from '@components/atoms/breadcrumbs/breadcrumbs';
 import { GetProduct } from '@entities/product/get-product.response';
-import { useAppSelector } from '@hooks/storeHooks';
+import { useAppSelector } from '@hooks/store-hooks';
 import { BreadCrumbsContainer, LastParagraph, LinksFormat } from './style';
 import { useBreadcrumbs } from './useBreadcrumbs';
 

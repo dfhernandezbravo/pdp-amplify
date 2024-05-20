@@ -1,4 +1,4 @@
-import { useAppDispatch, useAppSelector } from '@hooks/storeHooks';
+import { useAppDispatch, useAppSelector } from '@hooks/store-hooks';
 import { setAdditionalService } from '@store/product';
 import useAddAditionalService from '@use-cases/product/add-aditional-service';
 import ServiceTerms from './components/service-terms';

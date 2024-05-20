@@ -1,6 +1,6 @@
 import React from 'react';
 import { OutOfStockText } from './style';
-import { useAppSelector } from '@hooks/storeHooks';
+import { useAppSelector } from '@hooks/store-hooks';
 import DesktopActions from './layouts/desktop-actions';
 import MobileActions from './layouts/mobile-actions';
 

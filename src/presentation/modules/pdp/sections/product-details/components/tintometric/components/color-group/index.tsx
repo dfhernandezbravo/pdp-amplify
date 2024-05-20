@@ -3,7 +3,7 @@ import { Color, ColorGroupContainer, Footer, ArrowContainer } from './style';
 import { CgChevronDown, CgChevronUp } from 'react-icons/cg';
 import ColorPicker from '../color-picker';
 import { ColorType } from '../../types';
-import { useAppDispatch, useAppSelector } from '@hooks/storeHooks';
+import { useAppDispatch, useAppSelector } from '@hooks/store-hooks';
 import { setOpenedColorGroup } from '@store/tintometric';
 
 type Props = {

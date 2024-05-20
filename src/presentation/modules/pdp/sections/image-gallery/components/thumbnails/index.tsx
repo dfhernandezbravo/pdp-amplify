@@ -1,7 +1,7 @@
 import React from 'react';
 import { Rest, ThumbnailContainer, ThumbnailsContainer } from './style';
 import Image from 'next/image';
-import { useAppDispatch, useAppSelector } from '@hooks/storeHooks';
+import { useAppDispatch, useAppSelector } from '@hooks/store-hooks';
 import { setActiveIndex, setOpenZoomModal } from '@store/gallery';
 
 const Thumbnails = () => {

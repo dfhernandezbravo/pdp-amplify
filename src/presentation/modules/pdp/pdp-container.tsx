@@ -14,7 +14,7 @@ import CartEventProvider from '../../providers/cart-event-provider';
 import Head from 'next/head';
 import useDefaultVariant from '@hooks/useDefaultVariant';
 import { useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from '@hooks/storeHooks';
+import { useAppDispatch, useAppSelector } from '@hooks/store-hooks';
 import { setSelectedVariant } from '@store/product';
 import { setImages } from '@store/gallery';
 

@@ -1,4 +1,4 @@
-import { useAppSelector } from '@hooks/storeHooks';
+import { useAppSelector } from '@hooks/store-hooks';
 import { Brand, Container, ProductId, Separator, Title } from './style';
 import Price from './components/prices';
 import ProductSpecifications from './components/product-specifications';
