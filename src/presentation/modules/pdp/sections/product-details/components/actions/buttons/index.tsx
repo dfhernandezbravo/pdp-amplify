@@ -3,7 +3,7 @@ import { AddItemShoppingCartEvent } from '@entities/events/add-to-cart-event';
 import { EventType } from '@entities/events/ga-events';
 import { GetProduct } from '@entities/product/get-product.response';
 import { useAppSelector } from '@hooks/store-hooks';
-import useGetId from '@hooks/useGetId';
+import useGetId from '@hooks/use-get-id';
 import { customDispatchEvent } from '@store/events/dispatchEvents';
 import { useDispatchProductEvent } from '@use-cases/product/dispatch-product-event';
 import dynamic from 'next/dynamic';
