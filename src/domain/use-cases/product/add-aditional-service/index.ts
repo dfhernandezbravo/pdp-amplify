@@ -1,6 +1,6 @@
 import WindowsEvents from '@components/events';
 import { GetCart } from '@entities/cart/get-cart.response';
-import useEventListener from '@hooks/eventListenerHooks';
+import useEventListener from '@hooks/use-event-listener';
 import { useAppSelector } from '@hooks/storeHooks';
 import productService from '@services/product';
 
