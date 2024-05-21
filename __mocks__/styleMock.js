@@ -1,1 +1,7 @@
-module.exports = {};
+module.exports = {
+  process() {
+    return {
+      code: `module.exports = {};`,
+    };
+  },
+};

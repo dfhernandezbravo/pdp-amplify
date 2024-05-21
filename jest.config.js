@@ -51,7 +51,6 @@ const config = {
     '<rootDir>/src/pages/api/',
     '<rootDir>/src/pages/_app.tsx',
     '<rootDir>/src/pages/_document.tsx',
-    '<rootDir>/src/pages/[department]/',
     '<rootDir>/src/presentation/components/',
     '<rootDir>/src/presentation/modules/',
     '<rootDir>/src/presentation/providers/',
@@ -123,26 +122,21 @@ const config = {
     'tsx',
     'json',
     'node',
+    'css',
   ],
 
-  // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
-  // moduleNameMapper: {
-  //   '^@/components/(.*)$': '<rootDir>/src/presentation/components/$1',
-  //   '^@/env/(.*)$': '<rootDir>/src/domain/env/$1',
-  //   '^@/interfaces/(.*)$': '<rootDir>/src/domain/interfaces/$1',
-  //   '^@/use-cases/(.*)$': '<rootDir>/src/domain/use-cases/$1',
-  //   '^@/data-source/(.*)$': '<rootDir>/src/application/data-source/$1',
-  //   '^@/services/(.*)$': '<rootDir>/src/application/services/$1',
-  //   '^@/events/(.*)$': '<rootDir>/src/events/$1',
-  //   '^@/modules/(.*)$': '<rootDir>/src/presentation/modules/$1',
-  //   '^@/store/(.*)$': '<rootDir>/src/presentation/store/$1',
-  //   '^@/theme/(.*)$': '<rootDir>/src/presentation/theme/$1',
-  //   '^@/hooks/(.*)$': '<rootDir>/src/presentation/hooks/$1',
-  // },
-
-  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
-    prefix: '<rootDir>/src/',
-  }),
+  moduleNameMapper: {
+    '^.+\\.module\\.(css|sass|scss)$': 'identity-obj-proxy',
+    '^.+\\.(css|sass|scss)$': '<rootDir>/__mocks__/styleMock.js',
+    '^.+\\.(png|jpg|jpeg|gif|webp|avif|ico|bmp|svg)$/i': `<rootDir>/__mocks__/fileMock.js`,
+    '@next/font/(.*)': `<rootDir>/__mocks__/nextFontMock.js`,
+    'swiper/react': '<rootDir>/node_modules/swiper/swiper-react.d.ts',
+    'swiper/modules': '<rootDir>/node_modules/swiper/types/modules/index.d.ts',
+    'swiper/css': '<rootDir>/node_modules/swiper/swiper.min.css',
+    ...pathsToModuleNameMapper(compilerOptions.paths, {
+      prefix: '<rootDir>/src/',
+    }),
+  },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
   // modulePathIgnorePatterns: [],
@@ -154,7 +148,7 @@ const config = {
   // notifyMode: "failure-change",
 
   // A preset that is used as a base for Jest's configuration
-  // preset: undefined,
+  preset: 'ts-jest',
 
   // Run tests from one or more projects
   // projects: undefined,
@@ -208,7 +202,10 @@ const config = {
   // testMatch: ['**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[tj]s?(x)'],
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
-  // testPathIgnorePatterns: ['/node_modules/'],
+  transformIgnorePatterns: [
+    '/node_modules/',
+    '^.+\\.module\\.(css|sass|scss)$',
+  ],
 
   // The regexp pattern or array of patterns that Jest uses to detect test files
   // testRegex: [],
@@ -220,13 +217,13 @@ const config = {
   // testRunner: "jest-circus/runner",
 
   // A map from regular expressions to paths to transformers
-  // transform: undefined,
+  transform: {
+    '^.+\\.(js|jsx|ts|tsx)$': ['babel-jest', { presets: ['next/babel'] }],
+    '^.+\\.css$': 'jest-transform-css',
+  },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
-  // transformIgnorePatterns: [
-  //   "/node_modules/",
-  //   "\\.pnp\\.[^\\/]+$"
-  // ],
+  testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/.next/'],
 
   // An array of regexp pattern strings that are matched against all modules before the module loader will automatically return a mock for them
   // unmockedModulePathPatterns: undefined,
