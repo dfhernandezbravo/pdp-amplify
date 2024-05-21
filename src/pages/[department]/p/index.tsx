@@ -13,7 +13,7 @@ const queryClient = new QueryClient({
   },
 });
 
-const App = () => {
+const PDPPage = () => {
   return (
     <Provider store={store}>
       <QueryClientProvider client={queryClient}>
@@ -25,4 +25,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default PDPPage;
