@@ -32,12 +32,6 @@
       "@hooks/*": ["./presentation/hooks/*"]
     }
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "**/*.spec.ts",
-    "jest.config.js"
-  ],
-  "exclude": ["node_modules"]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules", "jest.config.js", "**/*.spec.ts", "**/*.spec.tsx"]
 }
