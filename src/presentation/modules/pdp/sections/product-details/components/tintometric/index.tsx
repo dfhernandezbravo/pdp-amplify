@@ -1,4 +1,4 @@
-import { useAppSelector } from '@hooks/storeHooks';
+import { useAppSelector } from '@hooks/store-hooks';
 import React from 'react';
 import { ColorsContainer, Title } from './style';
 import ColorGroup from './components/color-group/index';

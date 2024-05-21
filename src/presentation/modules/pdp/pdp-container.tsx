@@ -12,9 +12,9 @@ import EmotionalDescription from './sections/emotional-description';
 import SpecificationsTables from './sections/specifications-tables';
 import CartEventProvider from '../../providers/cart-event-provider';
 import Head from 'next/head';
-import useDefaultVariant from '@hooks/useDefaultVariant';
+import useDefaultVariant from '@hooks/use-default-variant';
 import { useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from '@hooks/storeHooks';
+import { useAppDispatch, useAppSelector } from '@hooks/store-hooks';
 import { setSelectedVariant } from '@store/product';
 import { setImages } from '@store/gallery';
 

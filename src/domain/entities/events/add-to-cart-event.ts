@@ -8,10 +8,10 @@ export type AddItemShoppingCartEvent = {
     brand: string;
     quantity: number;
     prices: {
-      brandPrice: number;
+      brandPrice: number | null;
       currency: string;
       normalPrice: number;
-      offerPrice: number;
+      offerPrice: number | null;
     };
     paintingCode?: {
       code?: string;

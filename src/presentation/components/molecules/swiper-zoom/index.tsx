@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import 'swiper/css';
 import 'swiper/css/grid';
 import 'swiper/css/navigation';
@@ -6,12 +6,12 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react';
 import ArrowButton from './components/arrow-button';
+import ImageZoom from './components/image-zoom';
 import { SwiperZoomProps } from './props';
 import { SwiperComponent, SwiperContainer, SwiperWrapper } from './styles';
 import getDisabledArrowButton from './validations/disabled-arrow-button';
 import getModules from './validations/get-modules';
 import showArrowButtons from './validations/show-arrow-button';
-import ImageZoom from './components/image-zoom';
 
 function SwiperZoom({
   items,

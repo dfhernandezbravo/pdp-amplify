@@ -1,11 +1,11 @@
 import Modal from '@components/molecules/modal';
 import { Container, SwiperContainer, ZoomLabel } from './style';
-import { useAppDispatch, useAppSelector } from '@hooks/storeHooks';
+import { useAppDispatch, useAppSelector } from '@hooks/store-hooks';
 import { setOpenZoomModal, setZoomModalIndex } from '@store/gallery';
 import ThumbnailsCarousel from './components/thumbnails-carousel';
 import SwiperZoom from '@components/molecules/swiper-zoom';
 import Desktop from '@components/Desktop';
-import useBreakpoints from '@hooks/useBreakpoints';
+import useBreakpoints from '@hooks/use-device/useBreakpoints';
 import { useEffect, useState } from 'react';
 import { FaMagnifyingGlassPlus } from 'react-icons/fa6';
 import Mobile from '@components/Mobile';

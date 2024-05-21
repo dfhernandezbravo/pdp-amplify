@@ -1,4 +1,4 @@
-import { useAppSelector } from '@hooks/storeHooks';
+import { useAppSelector } from '@hooks/store-hooks';
 import { Description, Section, Title } from './style';
 
 const EmotionalDescription = () => {

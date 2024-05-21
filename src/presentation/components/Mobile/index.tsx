@@ -1,4 +1,4 @@
-import useBreakpoints from '@hooks/useBreakpoints';
+import useBreakpoints from '@hooks/use-device/useBreakpoints';
 import React, { ReactNode } from 'react';
 
 interface Props {

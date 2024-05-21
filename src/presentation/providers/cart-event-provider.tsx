@@ -1,12 +1,12 @@
 import WindowsEvents from '@components/events';
-import { useCallback, useEffect } from 'react';
-import getCart from '@use-cases/shopping-cart/get-shopping-cart';
-import { setProduct } from '@store/product';
-import { useAppDispatch, useAppSelector } from '@hooks/storeHooks';
+import { GetCart as ShoppingCart } from '@entities/cart/get-cart.response';
+import { useAppDispatch, useAppSelector } from '@hooks/store-hooks';
 import { setCart, setCartId } from '@store/cart';
 import { customDispatchEvent } from '@store/events/dispatchEvents';
-import { GetCart as ShoppingCart } from '@entities/cart/get-cart.response';
+import { setProduct } from '@store/product';
 import { getProduct } from '@use-cases/product/get-product';
+import getCart from '@use-cases/shopping-cart/get-shopping-cart';
+import { useCallback, useEffect } from 'react';
 
 type Props = {
   children: React.ReactNode;

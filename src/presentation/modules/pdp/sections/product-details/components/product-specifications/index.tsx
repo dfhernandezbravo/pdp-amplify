@@ -1,4 +1,4 @@
-import { useAppSelector } from '@hooks/storeHooks';
+import { useAppSelector } from '@hooks/store-hooks';
 import { GlobalStyle, Link, List } from './style';
 
 const ProductSpecifications = () => {

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { OptionsContainer, StyledLink, OutOfStock } from './styles';
 import { Item } from '@entities/product/get-product.response';
-import { useAppSelector } from '@hooks/storeHooks';
+import { useAppSelector } from '@hooks/store-hooks';
 
 type Props = { options: Item[]; variation: string };
 

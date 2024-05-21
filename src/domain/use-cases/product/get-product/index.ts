@@ -1,15 +1,14 @@
 import ProductService from '@services/product';
-import { AxiosError } from 'axios';
 
 export const getColorsFromCms = async () => {
   try {
     const { data } = await ProductService.getColors();
     return data.value;
   } catch (error) {
-    const axiosError = error as AxiosError;
-    console.error(
-      `getColorsFromCms service error: ${JSON.stringify(axiosError)}`,
-    );
+    // const axiosError = error as AxiosError;
+    // console.error(
+    //   `getColorsFromCms service error: ${JSON.stringify(axiosError)}`,
+    // );
     return null;
   }
 };
@@ -24,8 +23,8 @@ export const getProduct = async (productId: number) => {
       return { ...data, colorPalettes: colorsFromCms };
     } else return data;
   } catch (error) {
-    const axiosError = error as AxiosError;
-    console.error(`getProduct service error: ${JSON.stringify(axiosError)}`);
+    // const axiosError = error as AxiosError;
+    // console.error(`getProduct service error: ${JSON.stringify(axiosError)}`);
     return null;
   }
 };

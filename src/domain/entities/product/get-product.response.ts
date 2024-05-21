@@ -11,12 +11,10 @@ type Item = {
   nameComplete: string;
   measurementUnit: string;
   unitMultiplier: number;
-  images: [
-    {
-      imageUrl: string;
-      imageText: string;
-    },
-  ];
+  images: {
+    imageUrl: string;
+    imageText: string;
+  }[];
   sellers: [
     {
       sellerId: string;

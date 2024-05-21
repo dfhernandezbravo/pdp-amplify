@@ -1,7 +1,7 @@
 import WindowsEvents from '@components/events';
 import { GetCart } from '@entities/cart/get-cart.response';
-import useEventListener from '@hooks/eventListenerHooks';
-import { useAppSelector } from '@hooks/storeHooks';
+import useEventListener from '@hooks/use-event-listener';
+import { useAppSelector } from '@hooks/store-hooks';
 import productService from '@services/product';
 
 const useAddAditionalService = () => {

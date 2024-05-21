@@ -1,4 +1,5 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 npx yarn run lint
+npx yarn run test
 npx yarn run build

@@ -1,5 +1,5 @@
-import { bffInstance } from '@data-source/bbf-instance';
-import CartService from '@use-cases/interfaces/cart-service.interface';
+import { bffInstance } from '@data-source/bff-instance';
+import CartService from '@interfaces/cart-service.interface';
 
 const cartService: CartService = {
   getCart: async (cartId) => {

@@ -10,7 +10,7 @@ import {
   ColorContainer,
   Title,
 } from './style';
-import { useAppDispatch, useAppSelector } from '@hooks/storeHooks';
+import { useAppDispatch, useAppSelector } from '@hooks/store-hooks';
 import { GrClose } from 'react-icons/gr';
 import { setOpenedColorGroup, setSelectedColor } from '@store/tintometric';
 import SelectedColor from '../../../selected-color';

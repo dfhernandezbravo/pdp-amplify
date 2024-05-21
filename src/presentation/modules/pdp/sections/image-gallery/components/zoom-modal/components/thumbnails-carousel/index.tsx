@@ -5,7 +5,7 @@ import {
   ThumbnailsContainer,
 } from './style';
 import Image from 'next/image';
-import { useAppDispatch, useAppSelector } from '@hooks/storeHooks';
+import { useAppDispatch, useAppSelector } from '@hooks/store-hooks';
 import { setZoomModalIndex } from '@store/gallery';
 import dynamic from 'next/dynamic';
 

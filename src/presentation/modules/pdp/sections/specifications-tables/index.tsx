@@ -1,5 +1,5 @@
 import { TableContainer, Title } from './style';
-import { useAppSelector } from '@hooks/storeHooks';
+import { useAppSelector } from '@hooks/store-hooks';
 import { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 

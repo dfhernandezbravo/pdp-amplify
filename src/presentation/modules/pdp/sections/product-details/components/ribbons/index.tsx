@@ -1,5 +1,5 @@
 import React from 'react';
-import { useAppSelector } from '@hooks/storeHooks';
+import { useAppSelector } from '@hooks/store-hooks';
 import dynamic from 'next/dynamic';
 import { RibbonProps } from './types';
 

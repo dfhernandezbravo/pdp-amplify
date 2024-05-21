@@ -1,7 +1,7 @@
 import { ResultContainer, InputGroup, FormContainer } from './style';
 import CheckBox from '@components/atoms/checkbox-bit';
 import { useEffect, useState } from 'react';
-import { useAppDispatch, useAppSelector } from '@hooks/storeHooks';
+import { useAppDispatch, useAppSelector } from '@hooks/store-hooks';
 import HelpModal from './components/help-modal';
 import { setQuantity } from '@store/product';
 import Button from '@components/atoms/button-bit';

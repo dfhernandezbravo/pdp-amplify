@@ -1,3 +1,7 @@
+import { useAppDispatch, useAppSelector } from '@hooks/store-hooks';
+import { setAdditionalService } from '@store/product';
+import useAddAditionalService from '@use-cases/product/add-aditional-service';
+import ServiceTerms from './components/service-terms';
 import {
   Label,
   Options,
@@ -8,10 +12,6 @@ import {
   Title,
   TitleContainer,
 } from './styles';
-import { useAppDispatch, useAppSelector } from '@hooks/storeHooks';
-import { setAdditionalService } from '@store/product';
-import ServiceTerms from './components/service-terms';
-import useAddAditionalService from '@use-cases/product/add-aditional-service';
 
 const AddService = () => {
   const { product, additionalService } = useAppSelector(
