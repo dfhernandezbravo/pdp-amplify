@@ -16,6 +16,8 @@ ARG NEXT_PUBLIC_API_KEY_BFF
 ARG NPM_TOKEN
 ARG NEXT_PUBLIC_RATING_AND_REVIEWS_URI
 ARG NEXT_PUBLIC_CHECKOUT_URL
+ARG GHT_EDS_TOKEN
+ARG BIT_TOKEN
 
 ENV NEXT_PUBLIC_HOST=$NEXT_PUBLIC_HOST
 ENV NEXT_PUBLIC_BFF_URL=$NEXT_PUBLIC_BFF_URL
@@ -23,20 +25,23 @@ ENV NEXT_PUBLIC_API_KEY_BFF=$NEXT_PUBLIC_API_KEY_BFF
 ENV NPM_TOKEN=$NPM_TOKEN
 ENV NEXT_PUBLIC_RATING_AND_REVIEWS_URI=$NEXT_PUBLIC_RATING_AND_REVIEWS_URI
 ENV NEXT_PUBLIC_CHECKOUT_URL=$NEXT_PUBLIC_CHECKOUT_URL
+ENV GHT_EDS_TOKEN=$GHT_EDS_TOKEN
+ENV BIT_TOKEN=$BIT_TOKEN
 
 RUN echo "NEXT_PUBLIC_HOST -- $NEXT_PUBLIC_HOST"
 RUN echo "NEXT_PUBLIC_BFF_URL -- $NEXT_PUBLIC_BFF_URL"
 RUN echo "NEXT_PUBLIC_API_KEY_BFF -- $NEXT_PUBLIC_API_KEY_BFF"
 RUN echo "NEXT_PUBLIC_RATING_AND_REVIEWS_URI --$NEXT_PUBLIC_RATING_AND_REVIEWS_URI"
 RUN echo "NEXT_PUBLIC_CHECKOUT_URL --$NEXT_PUBLIC_CHECKOUT_URL"
+RUN echo "GHT_EDS_TOKEN --$GHT_EDS_TOKEN"
+RUN echo "BIT_TOKEN --$BIT_TOKEN"
 
 # RUN npm config set -- //gitlab.com/api/v4/packages/npm/:_authToken=glpat-8ASRwMRojB3hcxaFgx3J
 # RUN echo "npm config set -- //gitlab.com/api/v4/packages/npm/:_authToken=glpat-8ASRwMRojB3hcxaFgx3J"
 
-RUN npm config set -- //npm.pkg.github.com/:_authToken=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
-RUN echo "npm config set -- //npm.pkg.github.com/:_authToken=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"
+RUN npm config set -- //npm.pkg.github.com/:_authToken=$GHT_EDS_TOKEN
 
-RUN npm config set -- //node-registry.bit.cloud/:_authToken=f91ccd4c-0f9a-4ee7-ba17-40404dd9b05a
+RUN npm config set -- //node-registry.bit.cloud/:_authToken=$BIT_TOKEN
 
 RUN NODE_ENV='' yarn install && yarn test && \
     yarn build
