@@ -43,7 +43,8 @@ RUN npm config set -- //npm.pkg.github.com/:_authToken=$GHT_EDS_TOKEN
 
 RUN npm config set -- //node-registry.bit.cloud/:_authToken=$BIT_TOKEN
 
-RUN NODE_ENV='' yarn install && yarn test && \
+RUN NODE_ENV='' yarn install && \ 
+    yarn test && \
     yarn build
 
 # CMD ["sh", "-c", "pm2-runtime dist/src/main.js"]
