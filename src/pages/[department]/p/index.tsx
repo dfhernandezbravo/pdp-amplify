@@ -3,15 +3,7 @@ import Pdp from '@modules/pdp';
 import { Provider } from 'react-redux';
 import store from '@store/index';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import dynamic from 'next/dynamic';
-
-const EasyThemeProvider = dynamic(
-  () =>
-    import('@ccom-easy-design-system/theme.theme-provider').then(
-      (module) => module.EasyThemeProvider,
-    ),
-  { ssr: false },
-);
+import ThemeProvider from '@components/atoms/theme-provider';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -25,9 +17,9 @@ const App = () => {
   return (
     <Provider store={store}>
       <QueryClientProvider client={queryClient}>
-        <EasyThemeProvider>
+        <ThemeProvider>
           <Pdp />
-        </EasyThemeProvider>
+        </ThemeProvider>
       </QueryClientProvider>
     </Provider>
   );
