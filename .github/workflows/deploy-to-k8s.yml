@@ -18,7 +18,7 @@ jobs:
       - name: NPM Commands
         shell: bash
         env:
-          GHT_EDS_TOKEN: ${{vars.GHT_EDS_TOKEN}}
+          GHT_EDS_TOKEN: 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
           BIT_TOKEN: ${{vars.BIT_TOKEN}}
         run: |
           echo $GHT_EDS_TOKEN
