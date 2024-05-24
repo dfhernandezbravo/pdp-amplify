@@ -1494,13 +1494,13 @@
   dependencies:
     "@cencotech/nebula-ui" "0.0.15"
 
-"@ccom-easy-design-system/atoms.button@^0.0.10":
-  version "0.0.10"
-  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.button/-/atoms.button-0.0.10.tgz#22cd3465472593dc459ecb6f74a7983b4c64b991"
-  integrity sha512-klfiuRVBn2KDSuRapQISklA4PzEeUp/6Dv/1pnsgNiw8M42kx05yoFWPF83YgvAB5cpXdWW7oXjg9aLJ5x6KuA==
+"@ccom-easy-design-system/atoms.button@^0.0.16":
+  version "0.0.16"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.button/-/atoms.button-0.0.16.tgz#e08b2106506e5aa6752ac842ded3157434d5b854"
+  integrity sha512-CoUxzyBAjVVnH1BbEcLeRv5STOo/YQgrEc/+OZRTwVrg/53GutqplcXFs+6NmDttMTTI4F9O/ogMd3bXZw3utw==
   dependencies:
-    "@ccom-easy-design-system/theme.easy" "0.0.8"
-    styled-components "^6.1.6"
+    "@ccom-easy-design-system/theme.easy" "0.0.12"
+    styled-components "6.1.6"
 
 "@ccom-easy-design-system/atoms.characteristic-table@^0.0.5":
   version "0.0.5"
@@ -1652,6 +1652,13 @@
     react-icons "^5.0.1"
     styled-components "^6.1.6"
     swiper "^11.0.5"
+
+"@ccom-easy-design-system/theme.easy@0.0.12":
+  version "0.0.12"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/theme.easy/-/theme.easy-0.0.12.tgz#d95e16217c95b6fb3573d0004d9ac89c3b7d387c"
+  integrity sha512-JpdpeuEavLc7iuR0RLXIy02zXahS/X5nviGYEoOXKCJ998HeDoWDrUpyyKk383IsnmwSbQOc7eyxHY5Mz16ebg==
+  dependencies:
+    styled-components "6.1.6"
 
 "@ccom-easy-design-system/theme.easy@0.0.4":
   version "0.0.4"
@@ -13988,6 +13995,21 @@ style-loader@^3.3.0:
   version "3.3.4"
   resolved "https://registry.yarnpkg.com/style-loader/-/style-loader-3.3.4.tgz#f30f786c36db03a45cbd55b6a70d930c479090e7"
   integrity sha512-0WqXzrsMTyb8yjZJHDqwmnwRJvhALK9LfRtRc6B4UTWe8AijYLZYZ9thuJTZc2VfQWINADW/j+LiJnfy2RoC1w==
+
+styled-components@6.1.6:
+  version "6.1.6"
+  resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-6.1.6.tgz#c75c4f994136545b3bcc11608db5363710b78c0e"
+  integrity sha512-DgTLULSC29xpabJ24bbn1+hulU6vvGFQf4RPwBOJrm8WJFnN42yXpo5voBt3jDSJBa5tBd1L6PqswJjQ0wRKdg==
+  dependencies:
+    "@emotion/is-prop-valid" "1.2.1"
+    "@emotion/unitless" "0.8.0"
+    "@types/stylis" "4.2.0"
+    css-to-react-native "3.2.0"
+    csstype "3.1.2"
+    postcss "8.4.31"
+    shallowequal "1.1.0"
+    stylis "4.3.1"
+    tslib "2.5.0"
 
 styled-components@6.1.8, styled-components@^6.1.6, styled-components@^6.1.8:
   version "6.1.8"

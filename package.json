@@ -14,7 +14,7 @@
     "test:watch": "jest --watch"
   },
   "dependencies": {
-    "@ccom-easy-design-system/atoms.button": "^0.0.10",
+    "@ccom-easy-design-system/atoms.button": "^0.0.16",
     "@ccom-easy-design-system/atoms.button-gds": "^0.0.1",
     "@ccom-easy-design-system/atoms.characteristic-table": "^0.0.5",
     "@ccom-easy-design-system/atoms.checkbox": "^0.0.11",
