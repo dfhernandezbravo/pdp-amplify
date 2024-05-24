@@ -2,7 +2,33 @@ name: Deploy to k8s
 run-name: deploy-to-k8s
 on: [push, workflow_dispatch]
 jobs:
+  unit-test:
+    runs-on:
+      group: 'gh-runners-self-hosted'
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node Version
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18.18
+
+      - name: NPM Commands
+        shell: bash
+        env:
+          NPM_TOKEN: ${{vars.NPM_TOKEN}}
+          BIT_TOKEN: ${{vars.BIT_TOKEN}}
+        run: |
+          npm config set -- //node-registry.bit.cloud/:_authToken=$BIT_TOKEN
+          npm config set -- //npm.pkg.github.com/:_authToken=$NPM_TOKEN
+          npm i yarn
+          yarn install
+          yarn test
+
   k8s:
+    needs: unit-test
     uses: Cencosud-Cencommerce/actions/.github/workflows/deploy-to-k8s.yml@main
     secrets: inherit
     with:
