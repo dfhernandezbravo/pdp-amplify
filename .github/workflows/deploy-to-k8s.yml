@@ -25,8 +25,7 @@ jobs:
           npm config set -- //node-registry.bit.cloud/:_authToken=$BIT_TOKEN
           npm config set -- //npm.pkg.github.com/:_authToken=$GHT_EDS_TOKEN
           npm install
-          npm install yarn
-          yarn test
+          npm run test
 
   k8s:
     needs: unit-test
