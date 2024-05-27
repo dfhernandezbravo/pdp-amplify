@@ -1,4 +1,4 @@
-import { EasyThemeProvider } from '@cencosud-cencommerce/eds';
+import { EasyThemeProvider } from '@ccom-eds-composer/composer';
 import React from 'react';
 
 interface ThemeProviderProps {
